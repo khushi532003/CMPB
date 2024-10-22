@@ -1,6 +1,6 @@
 import { RxDashboard } from "react-icons/rx";
 import { IoNotificationsOutline, IoHappyOutline } from "react-icons/io5";
-import { GoPeople, GoHeart } from "react-icons/go";
+import { GoPeople, GoHeart, GoDotFill } from "react-icons/go";
 import { MdEventAvailable, MdOutlinePhone } from "react-icons/md";
 import { BsInfoCircle } from "react-icons/bs";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
@@ -20,8 +20,25 @@ export const AdminLnks = [
     },
     {
         title: "Members",
-        path: "/members",
-        icons: GoPeople
+        icons: GoPeople,
+        submenu: [
+            {
+                title: "Free Members",
+                path: "/members",
+                icons: GoDotFill,
+            },
+            {
+                title: "Premium Members",
+                path: "/members",
+                icons: GoDotFill,
+            },
+            {
+                title: "Program Booking ",
+                path: "/members",
+                icons: GoDotFill,
+            },
+        ]
+
     },
     {
         title: "Program",
