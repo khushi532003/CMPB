@@ -1,12 +1,11 @@
-import { useState } from 'react'
 import './App.css'
+import RootRouting from '@/routes'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-    start working
+      <RootRouting/>
     </>
   )
 }
