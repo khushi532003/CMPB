@@ -1,14 +1,17 @@
 import Navbar from '@user/components/Navbar'
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 
 const UserLayout = () => {
+  const locationAuthPath = useLocation();
+  const hideNavbarFooter = ["/register", "/login"].includes(locationAuthPath.pathname);
+
   return (
     <div>
-        <Navbar/>
-        <Outlet/>
+      {!hideNavbarFooter && <Navbar />}
+      <Outlet />
     </div>
   )
 }
 
-export default UserLayout
+export default UserLayout;

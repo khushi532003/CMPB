@@ -1,11 +1,13 @@
 import './App.css'
-import RootRouting from '@/routes'
+import RootRouting from '@/routes';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
 
   return (
     <>
-      <RootRouting/>
+      <RootRouting />
+      <Toaster />
     </>
   )
 }
