@@ -1,3 +1,4 @@
+import Footer from '@/features/User/components/Footer'
 import Navbar from '@user/components/Navbar'
 import React from 'react'
 import { Outlet } from 'react-router-dom'
@@ -7,6 +8,7 @@ const UserLayout = () => {
     <div>
         <Navbar/>
         <Outlet/>
+        <Footer/>
     </div>
   )
 }
