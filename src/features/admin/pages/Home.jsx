@@ -7,13 +7,13 @@ const Home = () => {
     return (
         <div>
             <div className='grid grid-cols-4 gap-7 h-48' >
-                <ListCards title={"Total Members"} member={20} className={"bg-total_user"} />
-                <ListCards title={"Premium Members"} member={20} className={"bg-total_user1"} />
-                <ListCards title={"Free Members"} member={20} className={"bg-total_user2"} />
-                <ListCards title={"Programs Bookings"} member={20} className={"bg-total_user3"} />
+                <ListCards title={"Total Members"} member={20} className={"bg-total_user text-white"} />
+                <ListCards title={"Premium Members"} member={20} className={"bg-total_user1 text-white"} />
+                <ListCards title={"Free Members"} member={20} className={"bg-total_user2 text-white"} />
+                <ListCards title={"Programs Bookings"} member={20} className={"bg-total_user3 text-white"} />
             </div> 
-            <div className='py-10 ' >
-                <LineChart width={1000} height={250} data={data}
+            <div className='py-20 ' >
+                <LineChart width={1000} height={350} data={data}
                     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
@@ -24,10 +24,10 @@ const Home = () => {
                 </LineChart>
             </div>
             <div className='grid grid-cols-4 gap-7 h-48' >
-                <ListCards title={"Total Earnings"} member={`RS ${20}`}  className={"text-black"} />
-                <ListCards title={"Last Month Earnings"} member={`RS ${20}`} />
-                <ListCards title={"Last 6 Month Earnings"} member={`RS ${20}`} />
-                <ListCards title={"Last 12 Month Earnings"} member={`RS ${20}`} />
+                <ListCards title={"Total Earnings"} member={`RS ${20}`}  className={"text-white bg-total_user3"} />
+                <ListCards title={"Last Month Earnings"} member={`RS ${20}`} className={"text-white bg-total_user2"} />
+                <ListCards title={"Last 6 Month Earnings"} member={`RS ${20}`} className={"text-white bg-total_user1"} />
+                <ListCards title={"Last 12 Month Earnings"} member={`RS ${20}`} className={"text-white bg-total_user"} />
             </div>
         </div>
     )

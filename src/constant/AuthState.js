@@ -1,5 +1,4 @@
 
-
 export const RegisterValues = {
     email: "",
     firstName: "",
@@ -9,4 +8,10 @@ export const RegisterValues = {
     password: "",
     confirmPassword:"",
     DOB:""
+}
+
+
+export const LoginValues = {
+    email:"",
+    password:""
 }

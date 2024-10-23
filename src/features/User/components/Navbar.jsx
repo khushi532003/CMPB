@@ -20,7 +20,10 @@ function Navbar() {
         <div className="topbar flex justify-between text-xs items-center bg-pink-300 py-2 px-2">
             <p></p>
             <div className="flex gap-2">
-                <p>+91 9966995565</p>
+               
+               
+               
+                + <p>+91 9966995565</p>
                 <p>kdw@gmail.com</p>
             </div>
         </div>

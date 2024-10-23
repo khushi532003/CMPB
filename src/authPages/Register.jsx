@@ -28,8 +28,8 @@ function Register() {
 
                         <select className='w-full p-2 mb-4 rounded-md' name='gender' value={values.gender} onChange={handleChange} onBlur={handleBlur}  >
                             <option value="">Select gender</option>
-                            <option value="user">Male</option>
-                            <option value="admin">Female</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
                         </select>
                         {errors.gender && touched.gender && <p className='text-red-500' >{errors.gender}</p>}
                         <div className='mb-4'>
@@ -51,7 +51,7 @@ function Register() {
                             {errors.email && touched.email && <p className='text-red-500' >{errors.email}</p>}
                         </div>
                         <div className='mb-4'>
-                            <input className='w-full p-2  rounded-md' value={values.phone} name='phone' onChange={handleChange} onBlur={handleBlur} type="number" placeholder='Phone ' />
+                            <input className='w-full p-2  rounded-md' value={values.phone} name='phone' onChange={handleChange} onBlur={handleBlur} type="string"  maxLength="12" placeholder='Phone ' />
                             {errors.phone && touched.phone && <p className='text-red-500' >{errors.phone}</p>}
                         </div>
                         <div className='mb-4'>
