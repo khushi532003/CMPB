@@ -1,16 +1,449 @@
-import React from 'react'
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper/modules';
 
 function Home() {
   return (
     <div>
-        {/* Banner section start  */}
+      {/* Banner section start  */}
+      <section className="mainBanner">
+        <img src="../images/banner.jpg" alt="Chat Mangni Pat Byah" className='w-full object-cover' />
+      </section>
+      {/* Banner section end  */}
+      {/* Testimonial section start  */}
+      <section className="testimonial py-5">
+        <div className="heading flex justify-center flex-col items-center text-center">
+          <h2 className="text-8xl">Testimonials</h2>
+          <img src="../images/headingImg.png" alt="" className="w-64" />
+        </div>
+        <Swiper
+          pagination={{
+            dynamicBullets: true,
+          }}
+          modules={[Pagination]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <div className="reviews py-5 relative">
+              <div className="flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
+                <div className="clientImage w-[30%]">
+                  <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-64" />
+                  <div className="imgCover">
+                    <img className="absolute left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
+                  </div>
+                </div>
+                <div className="clientReview w-[70%]">
+                  <p className="text-xl font-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dicta, repellat placeat iste, distinctio autem impedit blanditiis, corrupti sequi facere cupiditate eius. Modi assumenda incidunt nobis debitis unde accusamus labore. Assumenda tempora eligendi sint ratione rem dolor commodi, voluptatibus molestias.
+                  </p>
 
-        {/* Banner section end  */}
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis porro tempore quod distinctio vero aperiam, cumque optio quibusdam deserunt in ab officia ex inventore quidem enim laborum, sed labore? Qui sunt ipsa obcaecati amet in dolor aperiam hic, corrupti repellendus voluptates porro consectetur dolores nostrum culpa! Aliquam perferendis, rerum eos a vel doloremque quidem dolore eveniet quaerat velit voluptas nihil inventore nulla quibusdam est nemo in atque accusamus porro laudantium? Cupiditate culpa iste id ab ipsam beatae, voluptatem sequi debitis, sunt minus facere nam necessitatibus dolorem numquam placeat laborum perspiciatis molestias. Alias odit sequi ad, recusandae est laboriosam debitis asperiores possimus cum in. Harum, hic officia, ullam, suscipit tempore vitae qui nihil quibusdam eveniet unde maxime sit nobis libero ut adipisci dolorum aspernatur tenetur minus quaerat fugit cum et at. Molestias numquam mollitia inventore pariatur optio neque rerum, sequi voluptatum ratione eligendi repudiandae? Non laborum aperiam ducimus illum ipsum culpa itaque sunt, nobis pariatur reprehenderit voluptates aut excepturi nihil, expedita porro voluptatibus? Laudantium vero deleniti soluta dolorem explicabo similique odit libero inventore voluptatum ea minima illum, deserunt quam corporis molestias dicta dolores praesentium omnis, esse alias culpa reprehenderit! Hic fugit non, doloribus dolores odio a molestias temporibus omnis accusantium officia, quia odit totam iste atque corporis accusamus harum, excepturi provident similique repellat voluptatibus esse ex id? Dolorum necessitatibus harum sapiente tenetur quia esse beatae, tempora adipisci tempore distinctio similique dicta assumenda aliquid soluta molestias exercitationem eveniet nemo fuga voluptate minima, quos modi debitis. Itaque eaque ex enim laborum aut iure dicta alias a impedit facere praesentium accusamus iusto quae tempora commodi, minima tenetur, consequuntur ab nesciunt. Quae ducimus perferendis tempore animi, consectetur laborum omnis voluptates reiciendis aspernatur adipisci amet consequatur nisi dolorum molestias possimus ea accusamus velit commodi iusto, vitae placeat sapiente saepe, voluptate explicabo. Magnam quidem ab sed, vel quas ex suscipit natus laboriosam voluptatum tempora culpa aliquid totam cupiditate deserunt omnis repellendus obcaecati consequuntur officiis voluptate vero dolorem, dignissimos consectetur nihil. Adipisci enim et sint dolores, vero maiores molestiae dolorem voluptate nulla. Perferendis, qui velit dolor odio cumque nesciunt corrupti nihil dolores magni aut blanditiis obcaecati impedit iste delectus fuga facilis. A totam dicta optio possimus illum dolor ea ut cum ab, corporis, iusto, necessitatibus culpa. Molestias odit rerum non eveniet odio blanditiis pariatur error aliquid recusandae amet quam suscipit, magnam facilis, aperiam at culpa accusamus dolores vero iusto optio aliquam, incidunt et eaque? Nihil sunt minima, obcaecati necessitatibus ad debitis pariatur, aspernatur vel consectetur expedita, nobis atque ullam deserunt. Et quidem aspernatur, excepturi cumque nisi nesciunt consequatur rerum ut deleniti mollitia architecto ducimus harum, ipsa, hic tempora ea esse repellendus! Porro, blanditiis vel culpa rem quas cupiditate placeat quasi fuga mollitia nam consequatur quae beatae explicabo. Sunt voluptatum, quae, nisi cumque ipsum animi rem asperiores, veniam odio necessitatibus temporibus amet illum eius quaerat sed esse vero. Fugit reprehenderit alias commodi necessitatibus architecto, odio nam, eveniet accusamus consectetur quod, nesciunt natus optio eaque quibusdam laboriosam id. Mollitia quae aut, assumenda sed qui quo, explicabo officia nostrum eius consequuntur natus? Doloremque asperiores eum eligendi inventore amet sequi cumque, ab, laudantium perferendis totam facilis perspiciatis autem provident quisquam qui ipsum exercitationem officiis reiciendis corrupti magni harum. Odio ad ipsum fuga similique enim nobis provident necessitatibus, sint architecto! Architecto ratione placeat modi blanditiis aperiam voluptatem possimus odio laborum vero reiciendis similique maiores tempora eos magnam adipisci in iusto, corporis ducimus. Adipisci ipsa aliquid distinctio molestiae. Incidunt obcaecati repellendus blanditiis iure fugit, fuga quibusdam nisi id earum! Dolore repellendus aspernatur illum doloribus unde aliquid magnam ex dolorum qui officia dolorem esse deserunt saepe laudantium non quas autem eos mollitia, odit voluptatum rerum sint laborum odio? Molestias iste iusto aut earum doloremque eveniet sint voluptas impedit praesentium soluta atque, consequatur tenetur beatae laudantium magni? Expedita vel cupiditate, delectus quaerat dolor amet provident voluptates distinctio ea molestiae explicabo natus sint odio? Unde at non inventore optio facere, cupiditate labore enim commodi magni quis culpa qui corporis placeat vitae iusto molestiae sint veniam rem dolore exercitationem dicta aspernatur hic aut voluptate. Perspiciatis iusto nemo repudiandae explicabo, molestias vitae excepturi ab reprehenderit consequatur quibusdam dolore blanditiis quia labore quod ad, sunt nihil eligendi molestiae? Debitis corporis nisi velit sapiente. Libero vero veniam, quasi hic saepe nostrum perferendis sapiente distinctio, necessitatibus nesciunt, reprehenderit cum quae. A accusamus modi sed eligendi iure laudantium officia, architecto ex voluptatibus repellendus, quibusdam dolorum quasi optio natus obcaecati? Quo error inventore quis voluptatem officiis iste veritatis consequatur corrupti, quos obcaecati voluptatibus possimus ab laudantium accusamus a. Quam assumenda doloribus ducimus tenetur dolores exercitationem qui sapiente cum nobis quo repellendus quis, quisquam ratione in cupiditate tempora expedita facere. Magni quis, fugiat dignissimos ad earum officiis obcaecati sequi amet magnam rerum eligendi reiciendis. Facere accusantium soluta, nobis eius vel odio natus necessitatibus. Consequuntur aperiam voluptas modi quas fuga deleniti commodi. Harum odio tempore fuga sapiente iusto temporibus, porro error vitae iste illo minima dolorem consectetur cupiditate dolor amet? Expedita et eveniet numquam sit culpa unde libero tenetur assumenda asperiores. Modi ex quasi error? Nobis culpa possimus modi aperiam exercitationem ipsa fugiat magnam maiores tempore. Commodi provident, repellat dolorem, perspiciatis illo totam suscipit animi alias, qui velit nam officiis? Itaque cum quaerat fuga, enim fugiat harum et laudantium atque quibusdam quae esse, voluptatum id aliquid amet earum dolores culpa distinctio. Alias doloremque consectetur voluptas incidunt et odio at vitae enim quaerat laborum architecto autem nihil asperiores ipsum, quidem sed quos eius? Reprehenderit sed mollitia excepturi. Officia, recusandae? Consequatur tempore obcaecati perferendis doloribus blanditiis earum ut maxime libero suscipit, at possimus laborum modi nobis molestiae similique beatae quas placeat voluptatibus laudantium ipsa illo quo! Ipsa culpa cum corrupti, dolore sapiente accusantium distinctio vel veritatis alias dicta. Magnam beatae numquam nostrum quibusdam, repellat reiciendis obcaecati cupiditate iusto amet molestias voluptatum vel voluptatem quam, quidem odio pariatur tenetur. Incidunt, omnis. Et odio sunt dolores aspernatur natus, deleniti quas esse, consequatur nostrum perferendis minima? Nisi quaerat eum quasi molestias, eaque dolor excepturi pariatur quae exercitationem, voluptate at nihil sunt reiciendis mollitia obcaecati ab possimus culpa accusantium aperiam, atque dolorem.
+                  <div className="name font-semibold text-gray-600 py-3">Riya Verma</div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="reviews py-5 relative">
+              <div className="flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
+                <div className="clientImage w-[30%]">
+                  <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-64" />
+                  <div className="imgCover">
+                    <img className="absolute  left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
+                  </div>
+                </div>
+                <div className="clientReview w-[70%]">
+                  <p className="text-xl font-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dicta, repellat placeat iste, distinctio autem impedit blanditiis, corrupti sequi facere cupiditate eius. Modi assumenda incidunt nobis debitis unde accusamus labore. Assumenda tempora eligendi sint ratione rem dolor commodi, voluptatibus molestias.
+                  </p>
+
+                  <div className="name font-semibold text-gray-600 py-3">Riya Verma</div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="reviews py-5 relative">
+              <div className="flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
+                <div className="clientImage w-[30%]">
+                  <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-64" />
+                  <div className="imgCover">
+                    <img className="absolute  left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
+                  </div>
+                </div>
+                <div className="clientReview w-[70%]">
+                  <p className="text-xl font-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dicta, repellat placeat iste, distinctio autem impedit blanditiis, corrupti sequi facere cupiditate eius. Modi assumenda incidunt nobis debitis unde accusamus labore. Assumenda tempora eligendi sint ratione rem dolor commodi, voluptatibus molestias.
+                  </p>
+
+                  <div className="name font-semibold text-gray-600 py-3">Riya Verma</div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="reviews py-5 relative">
+              <div className="flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
+                <div className="clientImage w-[30%]">
+                  <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-64" />
+                  <div className="imgCover">
+                    <img className="absolute left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
+                  </div>
+                </div>
+                <div className="clientReview w-[70%]">
+                  <p className="text-xl font-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dicta, repellat placeat iste, distinctio autem impedit blanditiis, corrupti sequi facere cupiditate eius. Modi assumenda incidunt nobis debitis unde accusamus labore. Assumenda tempora eligendi sint ratione rem dolor commodi, voluptatibus molestias.
+                  </p>
+
+                  <div className="name font-semibold text-gray-600 py-3">Riya Verma</div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+
+        </Swiper>
+      </section>
+      {/* Testimonial section end  */}
+
+      {/* Why choose us section start  */}
+      <section className="whyus py-5 flex justify-center items-center" style={{
+        backgroundImage: "url(https://img.freepik.com/free-vector/cute-watercolor-leaves-frame-with-watercolor-background_1361-3335.jpg?semt=ais_hybrid)",
+        height: "450px",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}>
+        <div className="grid grid-cols-3 gap-6 w-[80%] mx-auto">
+          <div className="bg-white relative rounded-md shadow p-4 text-center flex justify-center items-center flex-col">
+            <img className="w-14 mb-4 absolute top-[-30px]" src="https://rn53themes.net/themes/matrimo/images/icon/prize.png" alt="" />
+            <h3 className="text-3xl font-semibold mt-5">Genuine profiles</h3>
+            <p className="text-lg py-2">The most trusted wedding matrimony brand</p>
+          </div>
+          <div className="relative bg-white rounded-md shadow p-4 text-center flex justify-center items-center flex-col">
+            <img className="w-14 mb-4 absolute top-[-30px]" src="https://rn53themes.net/themes/matrimo/images/icon/trust.png" alt="" />
+            <h3 className="text-3xl font-semibold mt-5">Most trusted</h3>
+            <p className="text-lg py-2">The most trusted wedding matrimony brand</p>
+          </div>
+          <div className="relative bg-white rounded-md shadow p-4 text-center flex justify-center items-center flex-col">
+            <img className="w-14 mb-4 absolute top-[-30px]" src="https://rn53themes.net/themes/matrimo/images/icon/rings.png" alt="" />
+            <h3 className="text-3xl font-semibold mt-5">2000+ weddings</h3>
+            <p className="text-lg py-2">The most trusted wedding matrimony brand</p>
+          </div>
+        </div>
+      </section>
+      {/* Why choose us section end  */}
+
+      {/* Wedding Theme section start  */}
+      {/* <section className="theme py-5">
+        <div className="flex justify-between gap-3 px-3 items-center">
+          <div className="w-[20%]">
+            <div className="heading"><h2 className="text-8xl text-[#BB1A04]">Choose <br /> Wedding <br /> Themes</h2></div>
+          </div>
+          <div className="themes w-[80%]">
+            <div className="grid grid-cols-3 gap-4">
+              <div className="theme ">
+                <div className="flex gap-1 items-center">
+                  <div className="w-60">
+                    <img className="rounded-t-full h-96 object-cover w-full" src="https://rn53themes.net/themes/matrimo/images/couples/9.jpg" alt="" /></div>
+                  <div className="themeName w-20"><h2 className="rotate-90 text-6xl">Destination</h2> </div>
+                </div>
+              </div>
+              <div className="theme ">
+                <div className="flex gap-1 items-center">
+                  <div className="w-60">
+                    <img className="rounded-t-full h-96 object-cover w-full" src="https://rn53themes.net/themes/matrimo/images/couples/9.jpg" alt="" /></div>
+                  <div className="themeName w-20"><h2 className="rotate-90 text-6xl">Cultural</h2> </div>
+                </div>
+              </div>
+              <div className="theme ">
+                <div className="flex gap-1 items-center">
+                  <div className="w-60">
+                    <img className="rounded-t-full h-96 object-cover w-full" src="https://rn53themes.net/themes/matrimo/images/couples/9.jpg" alt="" /></div>
+                  <div className="themeName w-20"><h2 className="rotate-90 text-6xl">Modern</h2> </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section> */}
+      {/* Wedding Theme section end  */}
+      {/* Wedding Theme section start  */}
+      <section className="theme py-10 bg-no-repeat bg-cover" style={{ backgroundImage: "url(https://r2.erweima.ai/imgcompressed/compressed_cdec15e7b3c17fa59a279b02db89d69d.webp)" }}>
+        <div className="flex justify-between gap-3 px-3 items-center">
+          <div className="w-[20%]">
+            <div className="heading"><h2 className="text-8xl text-[#BB1A04]">Choose <br /> Wedding <br /> Themes</h2></div>
+          </div>
+          <div className="themes w-[80%]">
+            <div className="grid grid-cols-3 gap-14">
+              <div className="theme ">
+                <div className="flex flex-col items-center">
+                  <div className="">
+                    <img className="rounded-t-full h-96 object-cover w-full" src="https://luxaus.au/wp-content/uploads/2023/03/kerala-1024x683.jpeg" alt="" /></div>
+                  <div className="themeName pt-4 text-center"><h3 className=" text-5xl">Destination</h3> </div>
+                </div>
+              </div>
+              <div className="theme ">
+                <div className="flex flex-col items-center">
+                  <div className="">
+                    <img className="rounded-t-full h-96 object-cover w-full" src="https://images.shaadisaga.com/shaadisaga_production/photos/pictures/005/385/981/new_medium/307137831_1218744365589893_7565817865238985355_n.jpg?1669191321" alt="" /></div>
+                  <div className="themeName pt-4 text-center"><h3 className=" text-5xl">Cultural</h3> </div>
+                </div>
+              </div>
+              <div className="theme ">
+                <div className="flex flex-col items-center">
+                  <div className="">
+                    <img className="rounded-t-full h-96 object-cover w-full" src="https://themaharanidiaries.com/wp-content/uploads/2018/03/5-Steps-to-Planning-a-Modern-Wedding-Lin-Jirsa-Photography-The-Maharani-Diaries.jpg" alt="" /></div>
+                  <div className="themeName pt-4 text-center"><h3 className=" text-5xl">Modern</h3> </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Wedding Theme section end  */}
+
+      {/* Process section start  */}
+      <section className="process py-10">
+        <div className="heading flex justify-center flex-col items-center text-center">
+          <h2 className="text-8xl">Wedding Process</h2>
+          <img src="../images/headingImg.png" alt="" className="w-64" />
+        </div>
+
+        <div className="process py-4">
+          <div className="grid grid-cols-3 gap-2 mx-auto w-[60%]">
+            <div className="px-2 flex items-center">
+              <div className="icon">
+                <img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-1.png" alt="" />
+              </div>
+            </div>
+            <div className="relative px-2 flex  justify-center mx-auto">
+              <div className="before:content-[''] before:absolute before:w-px before:bg-[#493628] before:h-full before:left-1/2 before:top-0"></div>
+              <div className="absolute w-10 h-10 bg-[#DEAC80] text-white text-center leading-10 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-2">1</div>
+            </div>
+            <div className="px-2">
+              <div>
+                <h3 className="text-3xl font-semibold py-3">Register</h3>
+                <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-2 mx-auto w-[60%]">
+            <div className="px-2">
+              <div>
+                <h3 className="text-3xl font-semibold py-3">Manage Profile</h3>
+                <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+              </div>
+            </div>
+            <div className="relative px-2 flex  justify-center mx-auto">
+              <div className="before:content-[''] before:absolute before:w-px before:bg-[#493628] before:h-full before:left-1/2 before:top-0"></div>
+              <div className="absolute w-10 h-10 bg-[#DEAC80] text-white text-center leading-10 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-2">2</div>
+            </div>
+            <div className="px-2 flex items-center">
+
+              <div className="icon ">
+                <img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-2.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-2 mx-auto w-[60%]">
+            <div className="px-2 flex items-center">
+              <div className="icon">
+                <img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-1.png" alt="" />
+              </div>
+            </div>
+            <div className="relative px-2 flex  justify-center mx-auto">
+              <div className="before:content-[''] before:absolute before:w-px before:bg-[#493628] before:h-full before:left-1/2 before:top-0"></div>
+              <div className="absolute w-10 h-10 bg-[#DEAC80] text-white text-center leading-10 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-2">3</div>
+            </div>
+            <div className="px-2">
+              <div>
+                <h3 className="text-3xl font-semibold py-3">Attend Call</h3>
+                <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-2 mx-auto w-[60%]">
+            <div className="px-2">
+              <div>
+                <h3 className="text-3xl font-semibold py-3">Purchase Package</h3>
+                <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+              </div>
+            </div>
+            <div className="relative px-2 flex  justify-center mx-auto">
+              <div className="before:content-[''] before:absolute before:w-px before:bg-[#493628] before:h-full before:left-1/2 before:top-0"></div>
+              <div className="absolute w-10 h-10 bg-[#DEAC80] text-white text-center leading-10 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-2">4</div>
+            </div>
+            <div className="px-2 flex items-center">
+
+              <div className="icon ">
+                <img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-2.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-2 mx-auto w-[60%]">
+            <div className="px-2 flex items-center">
+              <div className="icon">
+                <img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-1.png" alt="" />
+              </div>
+            </div>
+            <div className="relative px-2 flex  justify-center mx-auto">
+              <div className="before:content-[''] before:absolute before:w-px before:bg-[#493628] before:h-full before:left-1/2 before:top-0"></div>
+              <div className="absolute w-10 h-10 bg-[#DEAC80] text-white text-center leading-10 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-2">5</div>
+            </div>
+            <div className="px-2">
+              <div>
+                <h3 className="text-3xl font-semibold py-3">Fix Meeting</h3>
+                <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-2 mx-auto w-[60%]">
+            <div className="px-2">
+              <div>
+                <h3 className="text-3xl font-semibold py-3">Get Marry</h3>
+                <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+              </div>
+            </div>
+            <div className="relative px-2 flex  justify-center mx-auto">
+              <div className="before:content-[''] before:absolute before:w-px before:bg-[#493628] before:h-full before:left-1/2 before:top-0"></div>
+              <div className="absolute w-10 h-10 bg-[#DEAC80] text-white text-center leading-10 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-2">6</div>
+            </div>
+            <div className="px-2 flex items-center">
+
+              <div className="icon ">
+                <img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-2.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Process section end  */}
+
+      {/* Packages section start  */}
+      <section className="packages py-5">
+        <div className="flex justify-between gap-3 px-3 items-center">
+
+          <div className="themes w-[60%]">
+            <div className="grid grid-cols-2 gap-14">
+              <div className="theme ">
+                <div className="flex flex-col items-center ">
+                  <div className="package border-2 flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
+                    <h2 className="text-5xl">Program Package </h2>
+
+                    <h3 className="text-5xl py-3 font-semibold text-yellow-500">₹ 2600 /-</h3>
+                    <p className="py-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quas quisquam veniam nam nisi quo? Nihil aspernatur labore nisi quibusdam</p>
+
+                    <div className="pointss">
+                      <ul>
+                        <li className="flex gap-2 items-center py-1">
+                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
+                          Free Counselling
+                        </li>
+                        <li className="flex gap-2 items-center py-1">
+                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
+                          Get rid of all your Q&A's
+                        </li>
+                        <li className="flex gap-2 items-center py-1">
+                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
+                          Get rid of all your Q&A's
+                        </li>
+                        <li className="flex gap-2 items-center py-1">
+                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
+                          Get rid of all your Q&A's
+                        </li>
+                      </ul>
+                    </div>
+                    <button className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500 hover:py-2.5 hover:px-6 hover:text-xl">
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="theme ">
+                <div className="flex flex-col items-center ">
+                  <div className="package border-2 flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
+                    <h2 className="text-5xl">Registration  Package </h2>
+
+                    <h3 className="text-5xl py-3 font-semibold text-yellow-500">₹ 20000 /-</h3>
+                    <p className="py-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quas quisquam veniam nam nisi quo? Nihil aspernatur labore nisi quibusdam</p>
+
+                    <div className="pointss">
+                      <ul>
+                        <li className="flex gap-2 items-center py-1">
+                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
+                          Free Counselling
+                        </li>
+                        <li className="flex gap-2 items-center py-1">
+                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
+                          Get rid of all your Q&A's
+                        </li>
+                        <li className="flex gap-2 items-center py-1">
+                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
+                          Get rid of all your Q&A's
+                        </li>
+                        <li className="flex gap-2 items-center py-1">
+                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
+                          Get rid of all your Q&A's
+                        </li>
+                      </ul>
+                    </div>
+                    <button className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500 hover:py-2.5 hover:px-6 hover:text-xl">
+                      Register Now
+                    </button>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div className="w-[40%] flex justify-center items-center bg-cover bg-center h-[100vh] " style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
+            <div className="heading text-center"><h2 className="text-8xl text-[#BB1A04]">Pricing <br />Plans</h2>
+              <img src="../images/headingImg.png" alt="" className="w-64" />
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Packages section end  */}
+
+      {/* Gallery section start  */}
+      <section className="gallery py-5">
+        <div className="heading flex justify-center flex-col items-center text-center">
+          <h2 className="text-8xl">Gallery</h2>
+          <img src="../images/headingImg.png" alt="" className="w-64" />
+        </div>
+
+        <div className="weddingImages py-4 px-5">
+          <div className="grid grid-cols-4 gap-3">
+            <div className="sec">
+              <img src="https://images.pexels.com/photos/18253230/pexels-photo-18253230/free-photo-of-traditional-indian-wedding-couple.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
+              <img src="https://images.pexels.com/photos/7153798/pexels-photo-7153798.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" className="mt-3" />
+            </div>
+            <div className="sec">
+              <img src="https://images.pexels.com/photos/9392445/pexels-photo-9392445.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
+              <img className="mt-3" src="https://images.pexels.com/photos/15698720/pexels-photo-15698720/free-photo-of-newlywed-indian-couple.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
+              <img src="https://images.pexels.com/photos/3871582/pexels-photo-3871582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className="mt-3" />
+            </div>
+            <div className="sec">
+              <img src="https://images.pexels.com/photos/20254417/pexels-photo-20254417/free-photo-of-indian-wedding.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
+              <img className="mt-3" src="https://images.pexels.com/photos/19439647/pexels-photo-19439647/free-photo-of-traditional-wedding-couple-walking-on-pavement.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
+            </div>
+            <div className="sec">
+              <img src="https://images.pexels.com/photos/28210866/pexels-photo-28210866/free-photo-of-a-couple-in-traditional-indian-attire-posing-for-a-photo.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
+              <img className="mt-3" src="https://images.pexels.com/photos/28200149/pexels-photo-28200149/free-photo-of-dancing-with-joy-at-a-wedding-celebration.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Gallery section end  */}
+
     </div>
   )
 }
 
+<<<<<<< HEAD
 export default Home
 
 
+=======
+export default Home;
+>>>>>>> origin/khushi

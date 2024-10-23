@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: outfit;
+    src: url(../public/fonts/Outfit-Light.ttf);
+
+}
+@font-face {
+  font-family: styleScipt;
+    src: url(../public/fonts/StyleScript.ttf);
+
+}
+@font-face {
+  font-family: wedding;
+  src: url(../public/fonts/Wedding.otf);
+}
+/* #e32e5e home */
+/* #f1436e navbar */
+
+body{
+  font-family: outfit;
+}
+h2{
+  font-family: wedding
+}
+h3{
+  font-family: styleScipt
+}
 
 .flex-center {
   @apply flex items-center justify-center;
