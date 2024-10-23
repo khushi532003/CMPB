@@ -13,11 +13,7 @@ export const AdminLnks = [
         path: "/",
         icons: RxDashboard
     },
-    {
-        title: "Notifications",
-        path: "/notification",
-        icons: IoNotificationsOutline
-    },
+    
     {
         title: "Members",
         icons: GoPeople,

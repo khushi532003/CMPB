@@ -1,17 +1,19 @@
 import React, { useState } from 'react'
-import NavBar from '@/features/admin/components/NavBar'
+import NavBar from '@admin/components/NavBar'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { AdminLnks } from '@/constant'
+import Notification from '@admin/pages/Notification'
 
 
 const Dashboard = () => {
     const location = useLocation()
     const [subMenu,setSubMenu] = useState(false)
+    const [notificationOpen, setNotificationOpen] = useState(false)
 
     return (
         <div>
             <header className='sticky top-0 bg-white' >
-                <NavBar />
+                <NavBar HandleNotification={() => setNotificationOpen(!notificationOpen)} />
             </header>
             <section  >
                 <aside id="logo-sidebar" className="fixed top-16 left-0 z-40 w-64 h-screen pt-4 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0" aria-label="Sidebar">
@@ -41,6 +43,8 @@ const Dashboard = () => {
                 </div>
 
             </section>
+
+            {notificationOpen && <Notification notificationOpen={notificationOpen}   setNotificationOpen={() => setNotificationOpen(!notificationOpen)} />}
         </div>
     )
 }
