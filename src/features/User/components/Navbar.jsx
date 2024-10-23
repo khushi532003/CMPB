@@ -60,6 +60,7 @@ function Navbar() {
                 <li><Link to="/contact" className="block text-white text-center p-4  rounded-sm hover:bg-[#BB1A04]">Contact Us</Link></li>
             </ul>
         </div>
+        </div>
     )
 }
 
