@@ -7,11 +7,11 @@ const Home = () => {
     return (
         <div>
             <div className='grid grid-cols-4 gap-7 h-48' >
-                <ListCards title={"Total Members"} member={20} className={"bg-total_user text-white"} />
-                <ListCards title={"Premium Members"} member={20} className={"bg-total_user1 text-white"} />
-                <ListCards title={"Free Members"} member={20} className={"bg-total_user2 text-white"} />
-                <ListCards title={"Programs Bookings"} member={20} className={"bg-total_user3 text-white"} />
-            </div>
+                <ListCards title={"Total Members"} member={20} className={"bg-total_user"} />
+                <ListCards title={"Premium Members"} member={20} className={"bg-total_user1"} />
+                <ListCards title={"Free Members"} member={20} className={"bg-total_user2"} />
+                <ListCards title={"Programs Bookings"} member={20} className={"bg-total_user3"} />
+            </div> 
             <div className='py-10 ' >
                 <LineChart width={1000} height={250} data={data}
                     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
