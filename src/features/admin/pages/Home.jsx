@@ -11,7 +11,7 @@ const Home = () => {
                 <ListCards title={"Premium Members"} member={20} className={"bg-total_user1"} />
                 <ListCards title={"Free Members"} member={20} className={"bg-total_user2"} />
                 <ListCards title={"Programs Bookings"} member={20} className={"bg-total_user3"} />
-            </div>
+            </div> 
             <div className='py-10 ' >
                 <LineChart width={1000} height={250} data={data}
                     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>

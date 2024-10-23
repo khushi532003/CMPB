@@ -7,7 +7,7 @@ function Login() {
     return (
         <div>
             <div>
-                <div className='min-h-screen flex justify-center items-center bg-green-50'>
+                <div className='min-h-screen flex justify-center items-center bg-gray-100'>
                     <div className='w-full max-w-md bg-white shadow-lg  py-16 rounded-md p-6'>
                         <form >
                             <div className='flex justify-center items-center mb-4 font-bold text-2xl'>Login </div>

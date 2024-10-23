@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import { AdminRoute } from '@/routes/adminRoutes/AdminRoutes'
 import UserLayout from '@/routes/userRoutes/UserLayout'
 import { UserPublicRoutes } from '@/routes/userRoutes/PublicRoutes'
+import { AuthRoutes } from '@/routes/authRoutes/AuthRoutes'
 
 const RootRouting = () => {
     return (
@@ -16,6 +17,8 @@ const RootRouting = () => {
                 {UserPublicRoutes.map((item, index) => <Route key={index} path={item.path} element={item.element} />)}
 
             </Route>
+
+            {AuthRoutes.map((item,index) => <Route key={index} path={item.path} element={item.element}/>)}
 
 
 
