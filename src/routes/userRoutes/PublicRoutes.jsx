@@ -1,5 +1,5 @@
-import About from "@/features/User/pages/About";
-import Contact from "@/features/User/pages/Contact";
+import About from "@user/pages/About";
+import Contact from "@user/pages/Contact";
 import Home from "@user/pages/Home";
 
 

@@ -1,6 +1,3 @@
-import banner from "../../../../public/images/banner.jpg"
-import headingImg from "../../../../public/images/headingImg.png"
-import leaf from "../../../../public/images/leaf.png"
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -12,14 +9,14 @@ function Home() {
     <div>
       {/* Banner section start  */}
       <section className="mainBanner">
-        <img src={banner} alt="Chat Mangni Pat Byah" className='w-full object-cover' />
+        <img src="../images/banner.jpg" alt="Chat Mangni Pat Byah" className='w-full object-cover' />
       </section>
       {/* Banner section end  */}
       {/* Testimonial section start  */}
       <section className="testimonial py-5">
         <div className="heading flex justify-center flex-col items-center text-center">
           <h2 className="text-8xl">Testimonials</h2>
-          <img src={headingImg} alt="" className="w-64" />
+          <img src="../images/headingImg.png" alt="" className="w-64" />
         </div>
         <Swiper
           pagination={{
@@ -208,7 +205,7 @@ function Home() {
       <section className="process py-10">
         <div className="heading flex justify-center flex-col items-center text-center">
           <h2 className="text-8xl">Wedding Process</h2>
-          <img src={headingImg} alt="" className="w-64" />
+          <img src="../images/headingImg.png" alt="" className="w-64" />
         </div>
 
         <div className="process py-4">
@@ -338,19 +335,19 @@ function Home() {
                     <div className="pointss">
                       <ul>
                         <li className="flex gap-2 items-center py-1">
-                          <img className="w-10 rotate-45 scale-x-[-1]" src={leaf} alt="" />
+                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
                           Free Counselling
                         </li>
                         <li className="flex gap-2 items-center py-1">
-                          <img className="w-10 rotate-45 scale-x-[-1]" src={leaf} alt="" />
+                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
                           Get rid of all your Q&A's
                         </li>
                         <li className="flex gap-2 items-center py-1">
-                          <img className="w-10 rotate-45 scale-x-[-1]" src={leaf} alt="" />
+                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
                           Get rid of all your Q&A's
                         </li>
                         <li className="flex gap-2 items-center py-1">
-                          <img className="w-10 rotate-45 scale-x-[-1]" src={leaf} alt="" />
+                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
                           Get rid of all your Q&A's
                         </li>
                       </ul>
@@ -372,19 +369,19 @@ function Home() {
                     <div className="pointss">
                       <ul>
                         <li className="flex gap-2 items-center py-1">
-                          <img className="w-10 rotate-45 scale-x-[-1]" src={leaf} alt="" />
+                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
                           Free Counselling
                         </li>
                         <li className="flex gap-2 items-center py-1">
-                          <img className="w-10 rotate-45 scale-x-[-1]" src={leaf} alt="" />
+                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
                           Get rid of all your Q&A's
                         </li>
                         <li className="flex gap-2 items-center py-1">
-                          <img className="w-10 rotate-45 scale-x-[-1]" src={leaf} alt="" />
+                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
                           Get rid of all your Q&A's
                         </li>
                         <li className="flex gap-2 items-center py-1">
-                          <img className="w-10 rotate-45 scale-x-[-1]" src={leaf} alt="" />
+                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
                           Get rid of all your Q&A's
                         </li>
                       </ul>
@@ -401,7 +398,7 @@ function Home() {
           </div>
           <div className="w-[40%] flex justify-center items-center bg-cover bg-center h-[100vh] " style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
             <div className="heading text-center"><h2 className="text-8xl text-[#BB1A04]">Pricing <br />Plans</h2>
-              <img src={headingImg} alt="" className="w-64" />
+              <img src="../images/headingImg.png" alt="" className="w-64" />
             </div>
           </div>
         </div>
@@ -412,7 +409,7 @@ function Home() {
       <section className="gallery py-5">
         <div className="heading flex justify-center flex-col items-center text-center">
           <h2 className="text-8xl">Gallery</h2>
-          <img src={headingImg} alt="" className="w-64" />
+          <img src="../images/headingImg.png" alt="" className="w-64" />
         </div>
 
         <div className="weddingImages py-4 px-5">

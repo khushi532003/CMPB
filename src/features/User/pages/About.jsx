@@ -1,13 +1,11 @@
 import React from 'react'
-import banner from "../../../../public/images/banner.jpg"
-import headingImg from "../../../../public/images/headingImg.png"
 
 function About() {
   return (
     <div>
       {/* Banner section start  */}
       <section className="mainBanner">
-        <img src={banner} alt="Chat Mangni Pat Byah" className='w-full object-cover' />
+        <img src="../images/banner.jpg" alt="Chat Mangni Pat Byah" className='w-full object-cover' />
       </section>
       {/* Banner section end  */}
 
@@ -19,7 +17,7 @@ function About() {
           </div>
           <div className="aboutContent flex flex-col justify-center ">
             <h2 className='text-7xl ps-10'>About Us</h2>
-            <img src={headingImg} alt="" className="w-64" />
+            <img src="../images/headingImg.png" alt="" className="w-64" />
             <p className="py-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur facilis aut dolores earum natus consectetur ratione blanditiis nam minus. Quae expedita eligendi blanditiis consectetur velit aliquid omnis placeat facere, itaque fuga dignissimos veritatis ab, cum autem odit tempora nobis illum sequi commodi ratione est laboriosam! Veniam assumenda expedita qui rem, ea cum tenetur iste. Rerum molestias sint quisquam tempora et?</p>
           </div>
         </div>
@@ -30,7 +28,7 @@ function About() {
       <section className="services py-5">
         <div className="heading flex justify-center flex-col items-center text-center">
           <h2 className="text-8xl">Services Includes</h2>
-          <img src={headingImg} alt="" className="w-64" />
+          <img src="../images/headingImg.png" alt="" className="w-64" />
         </div>
 
         <div className="service py-5 ">

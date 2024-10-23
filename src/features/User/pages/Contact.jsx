@@ -1,13 +1,11 @@
 import React from 'react'
-import banner from "../../../../public/images/banner.jpg"
-import headingImg from "../../../../public/images/headingImg.png"
 
 function Contact() {
     return (
         <div>
             {/* Banner section start  */}
             <section className="mainBanner">
-                <img src={banner} alt="Chat Mangni Pat Byah" className='w-full object-cover' />
+                <img src="../images/banner.jpg" alt="Chat Mangni Pat Byah" className='w-full object-cover' />
             </section>
             {/* Banner section end  */}
 
@@ -17,7 +15,7 @@ function Contact() {
                     className="grid md:grid-cols-2 gap-16 items-center relative overflow-hidden p-8 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)]  max-w-6xl mx-auto bg-white mt-4 font-[sans-serif] before:absolute before:right-0 before:w-[300px] ">
                     <di8v>
                         <h3 className="text-gray-800 text-7xl font-extrabold">Get In Touch </h3>
-                        <img src={headingImg} alt="" className="w-64" />
+                        <img src="../images/headingImg.png" alt="" className="w-64" />
                         <p className="text-sm text-gray-500 mt-4 leading-relaxed">Have a specific inquiry or looking to explore new opportunities? Our
                             experienced team is ready to engage with you.</p>
 
