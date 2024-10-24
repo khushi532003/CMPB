@@ -1,6 +1,6 @@
 import { AxiosHandler } from "@/config/Axios.config";
 import axios from "axios";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 
@@ -44,11 +44,21 @@ function AuthContextProvider({ children }) {
         }
     }
 
+    const test = async () => {
+        try {
+            const res = await axios.get("https://testing-xda4.onrender.com/test", { withCredentials: 'in' })
+           console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+ 
     
 
 
     return (
-        <AuthContext.Provider value={{ RegisterUser, loader, LoginUser, token, roal }}>
+        <AuthContext.Provider value={{ RegisterUser, loader, LoginUser, token, roal, test }}>
             {children}
         </AuthContext.Provider>
     )

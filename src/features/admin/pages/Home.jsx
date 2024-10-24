@@ -12,7 +12,7 @@ const Home = () => {
                 <ListCards title={"Free Members"} member={20} className={"bg-total_user2 text-white"} />
                 <ListCards title={"Programs Bookings"} member={20} className={"bg-total_user3 text-white"} />
             </div> 
-            <div className='py-20 ' >
+            <div className='py-20 z-0 ' >
                 <LineChart width={1000} height={350} data={data}
                     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                     <CartesianGrid strokeDasharray="3 3" />

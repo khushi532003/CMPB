@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      colors:{
+        "RedTheme":"#bb1a04"
+      },
       backgroundImage: {
         'total_user': "url('../images/1.jpg')",
         'total_user1': "url('../images/2.jpg')",

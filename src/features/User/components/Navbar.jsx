@@ -16,16 +16,14 @@ function Navbar() {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-  return (
-    <div>
-        <div className="topbar flex justify-between text-xs items-center bg-pink-300 py-2 px-2">
-            <p></p>
-            <div className="flex gap-2">
-               
-               
-               
-                <p>+91 9966995565</p>
-                <p>kdw@gmail.com</p>
+    return (
+        <div>
+            <div className="topbar flex justify-between text-sm z-50 items-center bg-[#BB1A04] text-[#f9e4e9] py-2 px-2">
+                <p></p>
+                <div className="flex gap-2">
+                    <p className='border-r-2 border-white pe-2'>+91 9966995565 </p>
+                    <p>kdw@gmail.com</p>
+                </div>
             </div>
             {/* Responsive Bar for mobile */}
             <div className="responsive-bar md:hidden fixed top-4 left-0 w-full h-15 bg-gray-800 flex justify-between items-center p-5 z-10">
@@ -59,7 +57,6 @@ function Navbar() {
                 <li><Link to="/" className="block text-white text-center p-4  rounded-sm hover:bg-[#BB1A04]">Interested</Link></li>
                 <li><Link to="/contact" className="block text-white text-center p-4  rounded-sm hover:bg-[#BB1A04]">Contact Us</Link></li>
             </ul>
-        </div>
         </div>
     )
 }
