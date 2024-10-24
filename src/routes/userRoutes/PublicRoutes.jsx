@@ -1,4 +1,4 @@
-import HappyStories from "@/features/user/pages/HappyStories";
+import HappyStories from "@user/pages/HappyStories";
 import About from "@user/pages/About";
 import Contact from "@user/pages/Contact";
 import Home from "@user/pages/Home";
