@@ -1,7 +1,7 @@
-import ActiveMembers from "@/features/user/pages/ActiveMembers";
-import DeleteAccount from "@/features/user/pages/DeleteAccount";
-import MyInterest from "@/features/user/pages/MyInterest";
-import PurchaseHistory from "@/features/user/pages/PurchaseHistory";
+import ActiveMembers from "@user/pages/ActiveMembers";
+import DeleteAccount from "@user/pages/DeleteAccount";
+import MyInterest from "@user/pages/MyInterest";
+import PurchaseHistory from "@user/pages/PurchaseHistory";
 
 export const UserPrivateRoutes = [
     {
