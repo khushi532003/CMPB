@@ -130,41 +130,7 @@ function Home() {
       </section>
       {/* Why choose us section end  */}
 
-      {/* Wedding Theme section start  */}
-      {/* <section className="theme py-5">
-        <div className="flex justify-between gap-3 px-3 items-center">
-          <div className="w-[20%]">
-            <div className="heading"><h2 className="text-8xl text-[#BB1A04]">Choose <br /> Wedding <br /> Themes</h2></div>
-          </div>
-          <div className="themes w-[80%]">
-            <div className="grid grid-cols-3 gap-4">
-              <div className="theme ">
-                <div className="flex gap-1 items-center">
-                  <div className="w-60">
-                    <img className="rounded-t-full h-96 object-cover w-full" src="https://rn53themes.net/themes/matrimo/images/couples/9.jpg" alt="" /></div>
-                  <div className="themeName w-20"><h2 className="rotate-90 text-6xl">Destination</h2> </div>
-                </div>
-              </div>
-              <div className="theme ">
-                <div className="flex gap-1 items-center">
-                  <div className="w-60">
-                    <img className="rounded-t-full h-96 object-cover w-full" src="https://rn53themes.net/themes/matrimo/images/couples/9.jpg" alt="" /></div>
-                  <div className="themeName w-20"><h2 className="rotate-90 text-6xl">Cultural</h2> </div>
-                </div>
-              </div>
-              <div className="theme ">
-                <div className="flex gap-1 items-center">
-                  <div className="w-60">
-                    <img className="rounded-t-full h-96 object-cover w-full" src="https://rn53themes.net/themes/matrimo/images/couples/9.jpg" alt="" /></div>
-                  <div className="themeName w-20"><h2 className="rotate-90 text-6xl">Modern</h2> </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section> */}
-      {/* Wedding Theme section end  */}
+     
       {/* Wedding Theme section start  */}
       <section className="theme py-10 bg-no-repeat bg-cover" style={{ backgroundImage: "url(https://r2.erweima.ai/imgcompressed/compressed_cdec15e7b3c17fa59a279b02db89d69d.webp)" }}>
         <div className="flex justify-between gap-3 px-3 items-center">
@@ -352,7 +318,7 @@ function Home() {
                         </li>
                       </ul>
                     </div>
-                    <button className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500 hover:py-2.5 hover:px-6 hover:text-xl">
+                    <button className="bg-[#BB1A04]  text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500 ">
                       Book Now
                     </button>
                   </div>
@@ -386,7 +352,7 @@ function Home() {
                         </li>
                       </ul>
                     </div>
-                    <button className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500 hover:py-2.5 hover:px-6 hover:text-xl">
+                    <button className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500 ">
                       Register Now
                     </button>
 
