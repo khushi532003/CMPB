@@ -8,21 +8,21 @@ export const AuthContext = createContext();
 
 
 function AuthContextProvider({ children }) {
-    const [loader,setLoader] = useState(false)
-    const [token,setToken] = useState(Cookies.get("token"))
-    const [roal,setRoal] = useState(Cookies.get('roal'))
+    const [loader, setLoader] = useState(false)
+    const [token, setToken] = useState(Cookies.get("token"))
+    const [roal, setRoal] = useState(Cookies.get('roal'))
 
-    const RegisterUser = async (data)=> {
+    const RegisterUser = async (data) => {
         setLoader(true)
         try {
-            const res = await AxiosHandler.post("/user/signup",data)
+            const res = await AxiosHandler.post("/user/signup", data)
             setToken(res.data.token);
             setRoal(res.data.roal)
             toast.success(res.data.message)
         } catch (error) {
             console.log(error)
             toast.error(error.response.message || "User Registration Failed")
-        }finally{
+        } finally {
             setLoader(false)
         }
     }
@@ -44,7 +44,7 @@ function AuthContextProvider({ children }) {
         }
     }
 
-    
+
 
 
     return (
