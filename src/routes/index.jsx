@@ -5,6 +5,7 @@ import { AdminRoute } from '@/routes/adminRoutes/AdminRoutes'
 import UserLayout from '@/routes/userRoutes/UserLayout'
 import { UserPublicRoutes } from '@/routes/userRoutes/PublicRoutes'
 import { UserPrivateRoutes } from './userRoutes/Privateroutes'
+import { AuthRoutes } from '@/routes/authRoutes/AuthRoutes'
 
 const RootRouting = () => {
     return (
