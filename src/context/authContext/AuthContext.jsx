@@ -10,14 +10,14 @@ export const AuthContext = createContext();
 function AuthContextProvider({ children }) {
     const [loader, setLoader] = useState(false)
     const [token, setToken] = useState(Cookies.get("token"))
-    const [roal, setRoal] = useState(Cookies.get('roal'))
+    const [role, setRole] = useState(Cookies.get('role'))
 
     const RegisterUser = async (data) => {
         setLoader(true)
         try {
             const res = await AxiosHandler.post("/user/signup", data)
             setToken(res.data.token);
-            setRoal(res.data.roal)
+            setRole(res.data.roal)
             toast.success(res.data.message)
         } catch (error) {
             console.log(error)
@@ -34,7 +34,7 @@ function AuthContextProvider({ children }) {
         try {
             const res = await AxiosHandler.post("/user/login", data)
             setToken(res.data.token)
-            setRoal(res.data.roal)
+            setRole(res.data.roal)
             toast.success(res.data.message)
         } catch (error) {
             console.log(error)
@@ -47,7 +47,7 @@ function AuthContextProvider({ children }) {
 
 
     return (
-        <AuthContext.Provider value={{ RegisterUser, loader, LoginUser, token, roal, test }}>
+        <AuthContext.Provider value={{ RegisterUser, loader, LoginUser, token, role }}>
             {children}
         </AuthContext.Provider>
     )
