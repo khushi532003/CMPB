@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { RegisterValues } from '@/constant/AuthState';
 import { useAuthContext } from '@/context';
@@ -7,8 +6,6 @@ import { useFormik } from 'formik';
 import { Link } from "react-router-dom";
 import { CgMail } from "react-icons/cg";
 import Loader from '@/constant/loader';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
-
 
 
 
