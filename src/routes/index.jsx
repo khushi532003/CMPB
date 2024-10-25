@@ -1,12 +1,13 @@
 import Dashboard from '@/features/admin/pages/Dashboard'
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { AdminRoute } from '@/routes/adminRoutes/AdminRoutes'
 import UserLayout from '@/routes/userRoutes/UserLayout'
 import { UserPublicRoutes } from '@/routes/userRoutes/PublicRoutes'
 import { UserPrivateRoutes } from './userRoutes/Privateroutes'
 import { AuthRoutes } from '@/routes/authRoutes/AuthRoutes'
 import Notfound from '@/features/user/pages/Notfound'
+import { useAuthContext } from '@/context'
 
 const RootRouting = () => {
     const { role, token } = useAuthContext();
