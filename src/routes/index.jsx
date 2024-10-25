@@ -6,6 +6,7 @@ import UserLayout from '@/routes/userRoutes/UserLayout'
 import { UserPublicRoutes } from '@/routes/userRoutes/PublicRoutes'
 import { UserPrivateRoutes } from './userRoutes/Privateroutes'
 import { AuthRoutes } from '@/routes/authRoutes/AuthRoutes'
+import Notfound from '@/features/user/pages/Notfound'
 
 const RootRouting = () => {
     return (
@@ -25,7 +26,7 @@ const RootRouting = () => {
 
             {AuthRoutes.map((item,index) => <Route key={index} path={item.path} element={item.element}/>)}
 
-
+        <Route path='*' element={<Notfound/>}/>
 
         </Routes>
     )
