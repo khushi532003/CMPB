@@ -63,7 +63,7 @@ function Navbar() {
                             <li className='text-lg border-b border-[#BB1A04] ps-5 py-3'><Link to="/members">Active Members</Link></li>
                             <li className='text-lg border-b border-[#BB1A04] ps-5 py-3'><Link to="/myInterests">My Interests</Link></li>
                             <li className='text-lg border-b border-[#BB1A04] ps-5 py-3'><Link to="/purchaseHistory">Your Packages</Link></li>
-                            <li className='text-lg border-b border-[#BB1A04] ps-5 py-3'><Link to="/purchaseHistory">Change Password</Link></li>
+                            <li className='text-lg border-b border-[#BB1A04] ps-5 py-3'><Link to="/changePassword">Change Password</Link></li>
                             <li className='text-lg border-b border-[#BB1A04] ps-5 py-3'><Link to="/deleteAccount">Delete Account</Link></li>
                         </ul>
                     </div>

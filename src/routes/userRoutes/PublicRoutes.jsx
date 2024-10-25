@@ -2,6 +2,7 @@ import HappyStories from "@user/pages/HappyStories";
 import About from "@user/pages/About";
 import Contact from "@user/pages/Contact";
 import Home from "@user/pages/Home";
+import Notfound from "@/features/user/pages/Notfound";
 
 
 export const UserPublicRoutes = [
@@ -21,4 +22,5 @@ export const UserPublicRoutes = [
         path: "/happyStories",
         element: <HappyStories/>
     },
+   
 ]

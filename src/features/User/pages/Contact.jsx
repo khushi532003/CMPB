@@ -72,7 +72,7 @@ function Contact() {
                             </li>
                         </ul>
                     </di8v>
-                    <div className="z-10 relative h-full max-md:min-h-[350px] bg-cover bg-center" style={{ backgroundImage: "url(https://www.theoneshotfilms.com/auth/upload/slider/anmol-prachi-slider-1.jpg)" }}>
+                    <div className="z-10 hidden sm:block relative h-full max-md:min-h-[350px] bg-cover bg-center" style={{ backgroundImage: "url(https://www.theoneshotfilms.com/auth/upload/slider/anmol-prachi-slider-1.jpg)" }}>
 
                     </div>
                 </div>
