@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { RegisterValues } from '@/constant/AuthState';
 import { useAuthContext } from '@/context';
 import { Registerschema } from '@/validation/AuthValidation';
@@ -7,11 +7,18 @@ import { useFormik } from 'formik';
 import { Link } from "react-router-dom";
 import { CgMail } from "react-icons/cg";
 import Loader from '@/constant/loader';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+
 
 
 
 function Register() {
-    const { RegisterUser, loader } = useAuthContext()
+    const { RegisterUser, loader } = useAuthContext();
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
     const { values, errors, touched, handleChange, handleBlur, handleSubmit } = useFormik({
         initialValues: RegisterValues,
@@ -62,18 +69,51 @@ function Register() {
                         </div>
 
                         <div className='flex justify-between items-center '>
-                            <div className='mb-4'>
-                                <input className='w-full p-2  rounded-md outline-none border hover:border-red-400 focus:border-red-400' value={values.password} name='password' onChange={handleChange} onBlur={handleBlur} type="password" placeholder='password' autoComplete="new-password" />
-                                {errors.password && touched.password && <p className='text-red-500' >{errors.password}</p>}
+                            <div className='mb-4 relative'>
+                                <input
+                                    className='w-full p-2 rounded-md outline-none border hover:border-red-400 focus:border-red-400'
+                                    type={showPassword ? 'text' : 'password'}
+                                    value={values.password}
+                                    name='password'
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    placeholder='Password'
+                                />
+                                <span
+                                    className='absolute right-3 top-3 cursor-pointer duration-300'
+                                    onClick={togglePasswordVisibility}
+                                >
+                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                </span>
+                                {errors.password && touched.password && (
+                                    <p className='text-red-500'>{errors.password}</p>
+                                )}
                             </div>
-                            <div className='mb-4'>
-                                <input className='w-full p-2 ml-4 rounded-md outline-none border hover:border-red-400 focus:border-red-400' value={values.confirmPassword} name='confirmPassword' onChange={handleChange} onBlur={handleBlur} type="password" placeholder='confirm password' autoComplete="new-password" />
-                                {errors.confirmPassword && touched.confirmPassword && <p className='text-red-500' >{errors.confirmPassword}</p>}
+
+                            <div className='mb-4 relative'>
+                                <input
+                                    className='w-full p-2 rounded-md outline-none border hover:border-red-400 focus:border-red-400'
+                                    type={showPassword ? 'text' : 'password'}
+                                    value={values.confirmPassword}
+                                    name='confirmPassword'
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    placeholder='confirmPassword'
+                                />
+                                <span
+                                    className='absolute right-3 top-3 cursor-pointer duration-300'
+                                    onClick={togglePasswordVisibility}
+                                >
+                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                </span>
+                                {errors.confirmPassword && touched.confirmPassword && (
+                                    <p className='text-red-500'>{errors.confirmPassword}</p>
+                                )}
                             </div>
                         </div>
 
                         <p className='text-center mb-4 font-semibold text-gray-500 '>Alreday Registered <Link to="/login" className="font-semibold text-blue-600 hover:underline ml-2" > Login </Link></p>
-                        <button type='submit' className='w-full p-2 bg-red-600 hover:bg-red-800 duration-300 text-white rounded-md font-bold flex items-center justify-center' >{loader ? <Loader/> : "Register"}</button>
+                        <button type='submit' className='w-full p-2 bg-red-600 hover:bg-red-800 duration-300 text-white rounded-md font-bold flex items-center justify-center' >{loader ? <Loader /> : "Register"}</button>
                     </form>
 
                     <div className='mt-6'>
@@ -84,7 +124,7 @@ function Register() {
                 </div>
             </div>
         </div>
-    )   
+    )
 }
 
 export default Register;
