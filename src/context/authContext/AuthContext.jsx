@@ -7,12 +7,12 @@ export const AuthContext = createContext();
 
 
 function AuthContextProvider({ children }) {
-    const [loader, setLoader] = useState(false)
-    const [token, setToken] = useState(Cookies.get("CMPB_TOKEN"))
-    const [role, setRole] = useState(Cookies.get('UserRole'))
+    const [loader, setLoader] = useState(false);
+    const [token, setToken] = useState(Cookies.get("CMPB_TOKEN"));
+    const [role, setRole] = useState(Cookies.get('UserRole'));
 
     const RegisterUser = async (data) => {
-        setLoader(true)
+        setLoader(true);
         try {
             const res = await AxiosHandler.post("/user/signup", data)
             Cookies.set("CMPB_TOKEN", res.data.token)
@@ -26,8 +26,8 @@ function AuthContextProvider({ children }) {
             toast.error(error.response.message || "User Registration Failed")
         } finally {
             setLoader(false)
-        }
-    }
+        };
+    };
 
 
 
@@ -46,8 +46,8 @@ function AuthContextProvider({ children }) {
             toast.error(error.response.message || "User Login Failed")
         } finally {
             setLoader(false)
-        }
-    }
+        };
+    };
 
 
 
@@ -55,7 +55,7 @@ function AuthContextProvider({ children }) {
         <AuthContext.Provider value={{ RegisterUser, loader, LoginUser, token, role }}>
             {children}
         </AuthContext.Provider>
-    )
-}
+    );
+};
 
 export default AuthContextProvider;
