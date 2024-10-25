@@ -10,7 +10,7 @@ function HappyStories() {
                 </div>
 
                 <div className="stories py-5 px-5 ">
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div className="relative story w-80 mx-auto py-5 ">
                             {/* <div className="frame absolute">
                                 <img src="https://static.vecteezy.com/system/resources/thumbnails/020/027/842/small_2x/luxury-gold-leaf-frame-border-floral-ornament-for-background-wedding-invitation-thank-you-card-logo-greeting-card-free-png.png" alt="" />
@@ -29,8 +29,8 @@ function HappyStories() {
                                 <div className="storyDesc text-center">
                                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores aliquam quas, soluta, dolore veniam dicta eum ad delectus eveniet saepe quae culpa sequi </p>
                                 </div>
-                                <div class="w-full mt-6 text-center">
-                                    <button class="px-6  py-2 leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">Read more...</button>
+                                <div className="w-full mt-6 text-center">
+                                    <button className="px-6  py-2 leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">Read more...</button>
                                 </div>
                             </div>
                         </div>
@@ -52,8 +52,8 @@ function HappyStories() {
                                 <div className="storyDesc text-center">
                                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores aliquam quas, soluta, dolore veniam dicta eum ad delectus eveniet saepe quae culpa sequi </p>
                                 </div>
-                                <div class="w-full mt-6 text-center">
-                                    <button class="px-6  py-2 leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">Read more...</button>
+                                <div className="w-full mt-6 text-center">
+                                    <button className="px-6  py-2 leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">Read more...</button>
                                 </div>
                             </div>
                         </div>
@@ -75,8 +75,8 @@ function HappyStories() {
                                 <div className="storyDesc text-center">
                                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores aliquam quas, soluta, dolore veniam dicta eum ad delectus eveniet saepe quae culpa sequi </p>
                                 </div>
-                                <div class="w-full mt-6 text-center">
-                                    <button class="px-6  py-2 leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">Read more...</button>
+                                <div className="w-full mt-6 text-center">
+                                    <button className="px-6  py-2 leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">Read more...</button>
                                 </div>
                             </div>
                         </div>
