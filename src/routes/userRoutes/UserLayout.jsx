@@ -4,6 +4,7 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 
 const UserLayout = () => {
+
   return (
     <div>
         <Navbar/>
@@ -13,4 +14,4 @@ const UserLayout = () => {
   )
 }
 
-export default UserLayout
+export default UserLayout;
