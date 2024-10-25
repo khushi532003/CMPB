@@ -37,8 +37,8 @@ function Register() {
                     <form onSubmit={handleSubmit} >
                         <div className='flex justify-center items-center mb-14 font-bold text-gray-500 text-2xl'>Create Your Account </div>
 
-                        <select className='w-full p-2  text-gray-600 mb-4 rounded-md  outline-none border hover:border-red-400 focus:border-red-400' name='gender' value={values.gender} onChange={handleChange} onBlur={handleBlur}  >
-                            <option value="">Select gender</option>
+                        <select className='w-full p-2  text-gray-600 mb-4 rounded-md  outline-none border hover:border-red-400 focus:border-red-400' name='gender'  value={values.gender} onChange={handleChange} onBlur={handleBlur}  >
+                            <option disabled value="">Select gender</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
@@ -79,16 +79,12 @@ function Register() {
                                     onBlur={handleBlur}
                                     placeholder='Password'
                                 />
-                                <span
-                                    className='absolute right-3 top-3 cursor-pointer duration-300'
-                                    onClick={togglePasswordVisibility}
-                                >
-                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                                </span>
+                                
                                 {errors.password && touched.password && (
                                     <p className='text-red-500'>{errors.password}</p>
                                 )}
                             </div>
+
 
                             <div className='mb-4 relative'>
                                 <input
@@ -100,16 +96,14 @@ function Register() {
                                     onBlur={handleBlur}
                                     placeholder='confirmPassword'
                                 />
-                                <span
-                                    className='absolute right-3 top-3 cursor-pointer duration-300'
-                                    onClick={togglePasswordVisibility}
-                                >
-                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                                </span>
+                             
                                 {errors.confirmPassword && touched.confirmPassword && (
                                     <p className='text-red-500'>{errors.confirmPassword}</p>
                                 )}
                             </div>
+                        </div>
+                        <div>
+                            <input type='checkbox' onChange={togglePasswordVisibility} /> show password
                         </div>
 
                         <p className='text-center mb-4 font-semibold text-gray-500 '>Alreday Registered <Link to="/login" className="font-semibold text-blue-600 hover:underline ml-2" > Login </Link></p>
