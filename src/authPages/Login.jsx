@@ -4,7 +4,6 @@ import { LoginSchema } from '@/validation/AuthValidation';
 import { useFormik } from 'formik';
 import React from 'react';
 import { Link } from "react-router-dom";
-import { CgMail } from "react-icons/cg";
 import Loader from '@/constant/loader';
 import { GoogleLogin } from '@react-oauth/google';
 
@@ -48,11 +47,9 @@ function Login() {
                             </div>
 
                             <p className='text-center font-semibold text-gray-500 mb-4'>don't have account <Link to="/register" className="font-semibold text-blue-600 hover:underline ml-2 " > Register </Link></p>
-                            <button type='submit' className='w-full p-2 bg-red-600 hover:bg-red-800 duration-300 text-white rounded-md font-semibold items-center justify-center flex' >{loader ? <Loader/> : "Login"}</button>
+                            <button type='submit' className='w-full p-2 bg-red-600 hover:bg-red-800 duration-300 text-white rounded-md font-semibold items-center justify-center flex' disabled={loader} >{loader ? <Loader/> : "Login"}</button>
                         </form>
                         <div className='mt-6'>
-                            {/* <p className='flex items-center justify-center mb-3 font-semibold text-gray-500'>or login with google</p>
-                            <Link className='flex items-center justify-center text-xl  '><s className='p-2 bg-red-500 rounded-full text-white hover:bg-red-800 duration-300' ><CgMail /></s></Link> */}
                             <GoogleLogin onSuccess={handleGoogle} onError={handleGoogle} />
                         </div>
                     </div>
