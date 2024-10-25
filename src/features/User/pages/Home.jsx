@@ -33,14 +33,14 @@ function Home() {
         >
           <SwiperSlide>
             <div className="reviews py-5 relative">
-              <div className="flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
-                <div className="clientImage w-[30%]">
+              <div className="block sm:flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
+                <div className="clientImage w-full sm:w-[30%] pb-5 sm:pb-0">
                   <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-64" />
                   <div className="imgCover">
-                    <img className="absolute left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
+                    <img className="absolute left-0 sm:left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
                   </div>
                 </div>
-                <div className="clientReview w-[70%]">
+                <div className="clientReview w-full  sm:w-[70%]">
                   <p className="text-xl font-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dicta, repellat placeat iste, distinctio autem impedit blanditiis, corrupti sequi facere cupiditate eius. Modi assumenda incidunt nobis debitis unde accusamus labore. Assumenda tempora eligendi sint ratione rem dolor commodi, voluptatibus molestias.
                   </p>
 
@@ -51,14 +51,14 @@ function Home() {
           </SwiperSlide>
           <SwiperSlide>
             <div className="reviews py-5 relative">
-              <div className="flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
-                <div className="clientImage w-[30%]">
+              <div className="block sm:flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
+                <div className="clientImage w-full sm:w-[30%] pb-5 sm:pb-0">
                   <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-64" />
                   <div className="imgCover">
-                    <img className="absolute  left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
+                    <img className="absolute left-0 sm:left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
                   </div>
                 </div>
-                <div className="clientReview w-[70%]">
+                <div className="clientReview w-full  sm:w-[70%]">
                   <p className="text-xl font-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dicta, repellat placeat iste, distinctio autem impedit blanditiis, corrupti sequi facere cupiditate eius. Modi assumenda incidunt nobis debitis unde accusamus labore. Assumenda tempora eligendi sint ratione rem dolor commodi, voluptatibus molestias.
                   </p>
 
@@ -69,14 +69,14 @@ function Home() {
           </SwiperSlide>
           <SwiperSlide>
             <div className="reviews py-5 relative">
-              <div className="flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
-                <div className="clientImage w-[30%]">
+              <div className="block sm:flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
+                <div className="clientImage w-full sm:w-[30%] pb-5 sm:pb-0">
                   <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-64" />
                   <div className="imgCover">
-                    <img className="absolute  left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
+                    <img className="absolute left-0 sm:left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
                   </div>
                 </div>
-                <div className="clientReview w-[70%]">
+                <div className="clientReview w-full  sm:w-[70%]">
                   <p className="text-xl font-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dicta, repellat placeat iste, distinctio autem impedit blanditiis, corrupti sequi facere cupiditate eius. Modi assumenda incidunt nobis debitis unde accusamus labore. Assumenda tempora eligendi sint ratione rem dolor commodi, voluptatibus molestias.
                   </p>
 
@@ -87,14 +87,14 @@ function Home() {
           </SwiperSlide>
           <SwiperSlide>
             <div className="reviews py-5 relative">
-              <div className="flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
-                <div className="clientImage w-[30%]">
+              <div className="block sm:flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
+                <div className="clientImage w-full sm:w-[30%] pb-5 sm:pb-0">
                   <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-64" />
                   <div className="imgCover">
-                    <img className="absolute left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
+                    <img className="absolute left-0 sm:left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
                   </div>
                 </div>
-                <div className="clientReview w-[70%]">
+                <div className="clientReview w-full  sm:w-[70%]">
                   <p className="text-xl font-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dicta, repellat placeat iste, distinctio autem impedit blanditiis, corrupti sequi facere cupiditate eius. Modi assumenda incidunt nobis debitis unde accusamus labore. Assumenda tempora eligendi sint ratione rem dolor commodi, voluptatibus molestias.
                   </p>
 
@@ -103,7 +103,25 @@ function Home() {
               </div>
             </div>
           </SwiperSlide>
+          <SwiperSlide>
+            <div className="reviews py-5 relative">
+              <div className="block sm:flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
+                <div className="clientImage w-full sm:w-[30%] pb-5 sm:pb-0">
+                  <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-64" />
+                  <div className="imgCover">
+                    <img className="absolute left-0 sm:left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
+                  </div>
+                </div>
+                <div className="clientReview w-full  sm:w-[70%]">
+                  <p className="text-xl font-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dicta, repellat placeat iste, distinctio autem impedit blanditiis, corrupti sequi facere cupiditate eius. Modi assumenda incidunt nobis debitis unde accusamus labore. Assumenda tempora eligendi sint ratione rem dolor commodi, voluptatibus molestias.
+                  </p>
 
+                  <div className="name font-semibold text-gray-600 py-3">Riya Verma</div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+         
         </Swiper>
       </section>
       {/* Testimonial section end  */}
@@ -116,18 +134,18 @@ function Home() {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}>
-        <div className="grid grid-cols-3 gap-6 w-[80%] mx-auto">
-          <div className="bg-white relative rounded-md shadow p-4 text-center flex justify-center items-center flex-col">
+        <div className="grid grid-cols-1 py-4  sm:grid-cols-3 gap-6 w-full sm:w-[80%] mx-auto">
+          <div className="bg-white relative mx-3 rounded-md shadow p-4  text-center flex justify-center items-center flex-col">
             <img className="w-14 mb-4 absolute top-[-30px]" src="https://rn53themes.net/themes/matrimo/images/icon/prize.png" alt="" />
             <h3 className="text-3xl font-semibold mt-5">Genuine profiles</h3>
             <p className="text-lg py-2">The most trusted wedding matrimony brand</p>
           </div>
-          <div className="relative bg-white rounded-md shadow p-4 text-center flex justify-center items-center flex-col">
+          <div className=" bg-white relative rounded-md mx-3 shadow p-4 text-center flex justify-center items-center flex-col">
             <img className="w-14 mb-4 absolute top-[-30px]" src="https://rn53themes.net/themes/matrimo/images/icon/trust.png" alt="" />
             <h3 className="text-3xl font-semibold mt-5">Most trusted</h3>
             <p className="text-lg py-2">The most trusted wedding matrimony brand</p>
           </div>
-          <div className="relative bg-white rounded-md shadow p-4 text-center flex justify-center items-center flex-col">
+          <div className=" bg-white relative rounded-md mx-3 shadow p-4 text-center flex justify-center items-center flex-col">
             <img className="w-14 mb-4 absolute top-[-30px]" src="https://rn53themes.net/themes/matrimo/images/icon/rings.png" alt="" />
             <h3 className="text-3xl font-semibold mt-5">2000+ weddings</h3>
             <p className="text-lg py-2">The most trusted wedding matrimony brand</p>
@@ -139,12 +157,12 @@ function Home() {
      
       {/* Wedding Theme section start  */}
       <section className="theme py-10 bg-no-repeat bg-cover" style={{ backgroundImage: "url(https://r2.erweima.ai/imgcompressed/compressed_cdec15e7b3c17fa59a279b02db89d69d.webp)" }}>
-        <div className="flex justify-between gap-3 px-3 items-center">
-          <div className="w-[20%]">
+        <div className="block sm:flex justify-between gap-3 px-3 items-center">
+          <div className="sm:w-[20%] w-full">
             <div className="heading"><h2 className="text-8xl text-[#BB1A04]">Choose <br /> Wedding <br /> Themes</h2></div>
           </div>
-          <div className="themes w-[80%]">
-            <div className="grid grid-cols-3 gap-14">
+          <div className="themes w-full sm:w-[80%]">
+            <div className=" grid-cols-1 grid sm:grid-cols-3 gap-14">
               <div className="theme ">
                 <div className="flex flex-col items-center">
                   <div className="">
@@ -181,7 +199,7 @@ function Home() {
         </div>
 
         <div className="process py-4">
-          <div className="grid grid-cols-3 gap-2 mx-auto w-[60%]">
+          <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2 flex items-center">
               <div className="icon">
                 <img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-1.png" alt="" />
@@ -198,7 +216,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-2 mx-auto w-[60%]">
+          <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2">
               <div>
                 <h3 className="text-3xl font-semibold py-3">Manage Profile</h3>
@@ -216,7 +234,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-2 mx-auto w-[60%]">
+          <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2 flex items-center">
               <div className="icon">
                 <img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-1.png" alt="" />
@@ -233,7 +251,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-2 mx-auto w-[60%]">
+          <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2">
               <div>
                 <h3 className="text-3xl font-semibold py-3">Purchase Package</h3>
@@ -251,7 +269,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-2 mx-auto w-[60%]">
+          <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2 flex items-center">
               <div className="icon">
                 <img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-1.png" alt="" />
@@ -268,7 +286,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-2 mx-auto w-[60%]">
+          <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2">
               <div>
                 <h3 className="text-3xl font-semibold py-3">Get Marry</h3>
@@ -292,10 +310,10 @@ function Home() {
 
       {/* Packages section start  */}
       <section className="packages py-5">
-        <div className="flex justify-between gap-3 px-3 items-center">
+        <div className="block sm:flex justify-between gap-3 px-3 items-center">
 
-          <div className="themes w-[60%]">
-            <div className="grid grid-cols-2 gap-14">
+          <div className="themes w-full sm:w-[60%]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-14">
               <div className="theme ">
                 <div className="flex flex-col items-center ">
                   <div className="package border-2 flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
@@ -368,7 +386,7 @@ function Home() {
 
             </div>
           </div>
-          <div className="w-[40%] flex justify-center items-center bg-cover bg-center h-[100vh] " style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
+          <div className="w-full sm:w-[40%] flex justify-center items-center bg-cover bg-center h-[100vh] " style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
             <div className="heading text-center"><h2 className="text-8xl text-[#BB1A04]">Pricing <br />Plans</h2>
               <img src="../images/headingImg.png" alt="" className="w-64" />
             </div>
@@ -385,7 +403,7 @@ function Home() {
         </div>
 
         <div className="weddingImages py-4 px-5">
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="sec">
               <img src="https://images.pexels.com/photos/18253230/pexels-photo-18253230/free-photo-of-traditional-indian-wedding-couple.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
               <img src="https://images.pexels.com/photos/7153798/pexels-photo-7153798.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" className="mt-3" />
