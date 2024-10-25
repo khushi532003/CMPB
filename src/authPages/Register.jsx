@@ -6,11 +6,12 @@ import { Registerschema } from '@/validation/AuthValidation';
 import { useFormik } from 'formik';
 import { Link } from "react-router-dom";
 import { CgMail } from "react-icons/cg";
+import Loader from '@/constant/loader';
 
 
 
 function Register() {
-    const { RegisterUser } = useAuthContext()
+    const { RegisterUser, loader } = useAuthContext()
 
     const { values, errors, touched, handleChange, handleBlur, handleSubmit } = useFormik({
         initialValues: RegisterValues,
@@ -72,7 +73,7 @@ function Register() {
                         </div>
 
                         <p className='text-center mb-4 font-semibold text-gray-500 '>Alreday Registered <Link to="/login" className="font-semibold text-blue-600 hover:underline ml-2" > Login </Link></p>
-                        <button type='submit' className='w-full p-2 bg-red-600 hover:bg-red-800 duration-300 text-white rounded-md font-bold' >Register</button>
+                        <button type='submit' className='w-full p-2 bg-red-600 hover:bg-red-800 duration-300 text-white rounded-md font-bold flex items-center justify-center' >{loader ? <Loader/> : "Register"}</button>
                     </form>
 
                     <div className='mt-6'>

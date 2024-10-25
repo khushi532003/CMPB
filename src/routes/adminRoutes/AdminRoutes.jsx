@@ -4,7 +4,7 @@ import Home from "@admin/pages/Home";
 
 export const AdminRoute= [
     {
-        path: "/admin",
+        path: "/",
         element: <Home/>
     },
     {

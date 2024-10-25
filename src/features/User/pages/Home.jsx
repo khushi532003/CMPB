@@ -3,11 +3,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
+import Loader from '@/constant/loader';
 
 function Home() {
   return (
     <div>
       {/* Banner section start  */}
+     
       <section className="mainBanner">
         <img src="../images/banner.jpg" alt="Chat Mangni Pat Byah" className='w-full object-cover' />
       </section>
@@ -435,7 +437,6 @@ function Home() {
         </div>
       </section>
       {/* Gallery section end  */}
-
     </div>
   )
 }

@@ -1,5 +1,4 @@
 import { AxiosHandler } from "@/config/Axios.config";
-import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
@@ -9,15 +8,17 @@ export const AuthContext = createContext();
 
 function AuthContextProvider({ children }) {
     const [loader, setLoader] = useState(false)
-    const [token, setToken] = useState(Cookies.get("token"))
-    const [role, setRole] = useState(Cookies.get('role'))
+    const [token, setToken] = useState(Cookies.get("CMPB_TOKEN"))
+    const [role, setRole] = useState(Cookies.get('UserRole'))
 
     const RegisterUser = async (data) => {
         setLoader(true)
         try {
             const res = await AxiosHandler.post("/user/signup", data)
-            setToken(res.data.token);
-            setRole(res.data.roal)
+            Cookies.set("CMPB_TOKEN", res.data.token)
+            Cookies.set("UserRole", res.data.role)
+            setToken(res.data.token)
+            setRole(res.data.role)
             toast.success(res.data.message)
         } catch (error) {
             console.log(error)
@@ -33,8 +34,10 @@ function AuthContextProvider({ children }) {
         setLoader(true)
         try {
             const res = await AxiosHandler.post("/user/login", data)
+            Cookies.set("CMPB_TOKEN", res.data.token)
+            Cookies.set("UserRole", res.data.role)
             setToken(res.data.token)
-            setRole(res.data.roal)
+            setRole(res.data.role)
             toast.success(res.data.message)
         } catch (error) {
             console.log(error)
