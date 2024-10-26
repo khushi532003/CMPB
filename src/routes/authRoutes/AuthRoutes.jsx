@@ -14,15 +14,15 @@ export const AuthRoutes = [
         element: <Register />
     },
     {
-        path: "/forgetPassword",
+        path: "/forget_password",
         element: <ForgetPassword />
     },
     {
-        path: "/verifyOtp",
+        path: "/verify_otp",
         element: <VerifyOtp />
     },
     {
-        path: "/newPassword",
+        path: "/new_password",
         element: <NewPassword />
     }
 ]

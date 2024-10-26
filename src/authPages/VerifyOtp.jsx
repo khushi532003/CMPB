@@ -1,12 +1,23 @@
 import { useAuthContext } from '@/context';
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect, useMemo } from 'react';
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Loader from '@/constant/loader';
 
 
 
 function VerifyOtp() {
     const { loader } = useAuthContext();
+    const {search} = useLocation();
+    const naviagte = useNavigate();
+
+    const email = useMemo(()=>{
+        const query = new URLSearchParams(search)
+        return query.get('email')
+    },[search])
+
+    useEffect(()=>{
+        if (!email) naviagte("/forget_password")
+    }, [search])
 
 
     return (

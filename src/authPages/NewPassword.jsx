@@ -1,15 +1,26 @@
 import { useAuthContext } from '@/context';
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Loader from '@/constant/loader';
-
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function NewPassword() {
     const { loader } = useAuthContext();
+    const { search } = useLocation();
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
+
+    const { verify, email } = useMemo(() => {
+        const query = new URLSearchParams(search);
+        return { verify:query.get('verify'), email: query.get('email') }
+    }, [search]);
+
+    useEffect(() => {
+        if (!verify || !email) navigate("/forget_password") ;
+    }, [search]);
 
 
     return (

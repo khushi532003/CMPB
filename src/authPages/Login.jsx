@@ -71,7 +71,7 @@ function Login() {
                                 )}
                             </div>
 
-                            <p className='text-end font-semibold text-gray-500 mb-4'> <Link to="/forgetPassword" className="font-semibold text-blue-600 hover:underline ml-2 " > Forget password </Link></p>
+                            <p className='text-end font-semibold text-gray-500 mb-4'> <Link to="/forget_password" className="font-semibold text-blue-600 hover:underline ml-2 " > Forget password </Link></p>
 
 
                             <button type='submit' className='w-full p-2 bg-RedTheme hover:bg-red-800 duration-300 text-white rounded-md font-semibold items-center justify-center flex' disabled={loader} >{loader ? <Loader /> : "Login"}</button>
