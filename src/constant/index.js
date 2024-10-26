@@ -62,7 +62,7 @@ export const AdminLnks = [
         icons: FaRegMoneyBillAlt
     },
     {
-        title: "Interested Users",
+        title: "Users interest's",
         path: "/interest",
         icons: GoHeart
     },

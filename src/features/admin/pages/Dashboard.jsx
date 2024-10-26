@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
-import NavBar from '@admin/components/NavBar'
-import { Link, Outlet, useLocation } from 'react-router-dom'
-import { AdminLnks } from '@/constant'
-import Notification from '@admin/pages/Notification'
+import React, { useState } from 'react';
+import NavBar from '@admin/components/NavBar';
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import { AdminLnks } from '@/constant';
+import Notification from '@admin/pages/Notification';
+import LogoutModal from '../components/LogoutModal';
 
 
 const Dashboard = () => {
-    const location = useLocation()
-    const [subMenu,setSubMenu] = useState(false)
-    const [notificationOpen, setNotificationOpen] = useState(false)
+    const location = useLocation();
+    const [subMenu,setSubMenu] = useState(false);
+    const [notificationOpen, setNotificationOpen] = useState(false);
+    const [logoutOpen,setLogoutOpen] = useState(false);
+
+    const handlePath = (path) => {
+        if (!path) setSubMenu(!subMenu);
+        else if (path === "/logout") setLogoutOpen(true)
+    }
 
     return (
         <div>
@@ -21,7 +28,7 @@ const Dashboard = () => {
                         <ul className="space-y-2 font-medium">
                             {AdminLnks.map((item, index) => (
                                 <li key={index} >
-                                    <Link to={item?.path} onClick={() =>{ if(!item.path) setSubMenu(!subMenu)}} className={`flex items-center p-2 text-gray-900 rounded-lg  hover:bg-blue-500  hover:text-white  group ${location.pathname === item.path && "bg-blue-500 text-white"} `}>
+                                    <Link to={item?.path !== "/logout" && item?.path} onClick={()=>handlePath(item.path)} className={`flex items-center p-2 text-gray-900 rounded-lg  hover:bg-blue-500  hover:text-white  group ${location.pathname === item.path && "bg-blue-500 text-white"} `}>
                                         {<item.icons />}
                                         <span className="ms-3">{item.title}</span>
                                     </Link>
@@ -45,6 +52,7 @@ const Dashboard = () => {
             </section>
 
             {notificationOpen && <Notification notificationOpen={notificationOpen}   setNotificationOpen={() => setNotificationOpen(!notificationOpen)} />}
+            {logoutOpen && <LogoutModal setLogoutOpen={() => setLogoutOpen(!logoutOpen)} />}
         </div>
     )
 }
