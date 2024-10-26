@@ -4,7 +4,6 @@ import { useAuthContext } from '@/context';
 import { Registerschema } from '@/validation/AuthValidation';
 import { useFormik } from 'formik';
 import { Link } from "react-router-dom";
-import { CgMail } from "react-icons/cg";
 import Loader from '@/constant/loader';
 
 
@@ -20,9 +19,8 @@ function Register() {
     const { values, errors, touched, handleChange, handleBlur, handleSubmit } = useFormik({
         initialValues: RegisterValues,
         validationSchema: Registerschema,
-        onSubmit: (value) => {
-            console.log(value)
-            RegisterUser(value)
+        onSubmit: async (value) => {
+            await RegisterUser(value)
         }
     })
 
@@ -34,7 +32,7 @@ function Register() {
                     <form onSubmit={handleSubmit} >
                         <div className='flex justify-center items-center mb-14 font-bold text-gray-500 text-2xl'>Create Your Account </div>
 
-                        <select className='w-full p-2  text-gray-600 mb-4 rounded-md  outline-none border hover:border-red-400 focus:border-red-400' name='gender'  value={values.gender} onChange={handleChange} onBlur={handleBlur}  >
+                        <select className='w-full p-2  text-gray-600 mb-4 rounded-md  outline-none border hover:border-red-400 focus:border-red-400' name='gender' value={values.gender} onChange={handleChange} onBlur={handleBlur}  >
                             <option disabled value="">Select gender</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
@@ -76,12 +74,11 @@ function Register() {
                                     onBlur={handleBlur}
                                     placeholder='Password'
                                 />
-                                
+
                                 {errors.password && touched.password && (
                                     <p className='text-red-500'>{errors.password}</p>
                                 )}
                             </div>
-
 
                             <div className='mb-4 relative'>
                                 <input
@@ -93,25 +90,22 @@ function Register() {
                                     onBlur={handleBlur}
                                     placeholder='confirmPassword'
                                 />
-                             
+
                                 {errors.confirmPassword && touched.confirmPassword && (
                                     <p className='text-red-500'>{errors.confirmPassword}</p>
                                 )}
                             </div>
                         </div>
-                        <div>
-                            <input type='checkbox' onChange={togglePasswordVisibility} /> show password
+                        <div className='pb-3 '>
+                            <label htmlFor="showPass" >
+                                <input className='font-bold ' id='showPass' type='checkbox' onChange={togglePasswordVisibility} /><span className='cursor-pointer ml-1'>show password </span>
+                            </label>
                         </div>
 
-                        <p className='text-center mb-4 font-semibold text-gray-500 '>Alreday Registered <Link to="/login" className="font-semibold text-blue-600 hover:underline ml-2" > Login </Link></p>
-                        <button type='submit' className='w-full p-2 bg-red-600 hover:bg-red-800 duration-300 text-white rounded-md font-bold flex items-center justify-center' disabled={loader} >{loader ? <Loader /> : "Register"}</button>
+                        <button type='submit' className='w-full  p-2 bg-red-600 hover:bg-red-800 duration-300 text-white rounded-md font-bold flex items-center justify-center' disabled={loader} >{loader ? <Loader /> : "Register"}</button>
                     </form>
 
-                    <div className='mt-6'>
-                        <p className='flex items-center justify-center mb-3 font-semibold text-gray-500'>or join with google</p>
-                        <Link className='flex items-center justify-center text-xl '><s className='p-2 bg-red-500 rounded-full text-white hover:bg-red-800 duration-300' ><CgMail /></s></Link>
-                    </div>
-
+                    <p className='text-center mt-4  font-semibold text-gray-500 '>Alreday Registered <Link to="/login" className="font-semibold text-blue-600 hover:underline ml-2" > Login </Link></p>
                 </div>
             </div>
         </div>
