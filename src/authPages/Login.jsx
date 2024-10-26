@@ -22,8 +22,8 @@ function Login() {
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: LoginValues,
         validationSchema: LoginSchema,
-        onSubmit: (value) => {
-            LoginUser(value)
+        onSubmit: async (value) => {
+            await LoginUser(value)
         }
     })
 
@@ -70,12 +70,16 @@ function Login() {
                                 )}
                             </div>
 
-                            <p className='text-center font-semibold text-gray-500 mb-4'>don't have account <Link to="/register" className="font-semibold text-blue-600 hover:underline ml-2 " > Register </Link></p>
+                            <p className='text-end font-semibold text-gray-500 mb-4'> <Link to="/forgetPassword" className="font-semibold text-blue-600 hover:underline ml-2 " > Forget password </Link></p>
+
+
                             <button type='submit' className='w-full p-2 bg-red-600 hover:bg-red-800 duration-300 text-white rounded-md font-semibold items-center justify-center flex' disabled={loader} >{loader ? <Loader /> : "Login"}</button>
                         </form>
-                        <div className='mt-6'>
+                        <div className='my-6'>
                             <GoogleLogin onSuccess={handleGoogle} onError={handleGoogle} />
                         </div>
+                        <p className='text-center font-semibold text-gray-500 mb-4'>don't have account <Link to="/register" className="font-semibold text-blue-600 hover:underline ml-2 " > Register </Link></p>
+
                     </div>
                 </div>
             </div>
