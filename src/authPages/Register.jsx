@@ -26,40 +26,42 @@ function Register() {
 
     return (
         <div >
-            <div className='w-full min-h-screen flex justify-center items-center bg-gradient-to-r from-red-400    bg-center bg-cover bg-no-repeat' style={{ backgroundSize: "110%", width: "100%" }}>
+            <div className='w-full min-h-screen flex justify-center items-center bg-gradient-to-r from-red-400    bg-center bg-cover bg-no-repeat' style={{ backgroundSize: "100%", width: "100%" }}>
 
                 <div className='w-full m-4 max-w-xl  bg-red-100 shadow-lg  py-16 rounded-md p-6'>
                     <form onSubmit={handleSubmit} >
                         <div className='flex justify-center items-center mb-14 font-bold text-gray-500 text-2xl'>Create Your Account </div>
 
-                        <select className='w-full p-2  text-gray-600 mb-4 rounded-md  outline-none border hover:border-red-400 focus:border-red-400' name='gender' value={values.gender} onChange={handleChange} onBlur={handleBlur}  >
+                        <select className='w-full p-2  text-gray-600  rounded-md  outline-none border hover:border-red-400 focus:border-red-400' name='gender' value={values.gender} onChange={handleChange} onBlur={handleBlur}  >
                             <option disabled value="">Select gender</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
-                        {errors.gender && touched.gender && <p className='text-red-500' >{errors.gender}</p>}
-                        <div className='mb-4'>
+                        {errors.gender && touched.gender && <p className='text-red-500 text-sm' >{errors.gender}</p>}
+                        <div className='mb-4 mt-4'>
+
                             <input className='w-full p-2 text-gray-600 rounded-md   outline-none border hover:border-red-400 focus:border-red-400' value={values.DOB} name='DOB' onChange={handleChange} onBlur={handleBlur} type="date" placeholder='first name' />
-                            {errors.DOB && touched.DOB && <p className='text-red-500' >{errors.DOB}</p>}
+                            {errors.DOB && touched.DOB && <p className='text-red-500 text-sm' >{errors.DOB}</p>}
                         </div>
+
                         <div className='flex justify-between items-center '>
                             <div className='mb-4'>
-                                <input className='w-full p-2   outline-none border hover:border-red-400 focus:border-red-400  rounded-md' value={values.firstName} name='firstName' onChange={handleChange} onBlur={handleBlur} type="text" placeholder='first name' />
-                                {errors.firstName && touched.firstName && <p className='text-red-500' >{errors.firstName}</p>}
+                                <input className='w-full p-2 outline-none border hover:border-red-400 focus:border-red-400  rounded-md' value={values.firstName} name='firstName' onChange={handleChange} onBlur={handleBlur} type="text" placeholder='first name' />
+                                {errors.firstName && touched.firstName && <p className='text-red-500 text-sm' >{errors.firstName}</p>}
                             </div>
                             <div className='mb-4'>
-                                <input className='w-full p-2 ml-4 rounded-md  outline-none border hover:border-red-400 focus:border-red-400' value={values.lastName} name='lastName' onChange={handleChange} onBlur={handleBlur} type="text" placeholder='last name' />
-                                {errors.lastName && touched.lastName && <p className='text-red-500' >{errors.lastName}</p>}
+                                <input className='w-full p-2 rounded-md  outline-none border hover:border-red-400 focus:border-red-400' value={values.lastName} name='lastName' onChange={handleChange} onBlur={handleBlur} type="text" placeholder='last name' />
+                                {errors.lastName && touched.lastName && <p className='text-red-500 text-sm' >{errors.lastName}</p>}
                             </div>
                         </div>
                         <div className='flex justify-between items-center '>
                             <div className='mb-4'>
                                 <input className='w-full p-2  rounded-md  outline-none border hover:border-red-400 focus:border-red-400' value={values.email} name='email' onChange={handleChange} onBlur={handleBlur} type="email" placeholder='Email' autoComplete="username" />
-                                {errors.email && touched.email && <p className='text-red-500' >{errors.email}</p>}
+                                {errors.email && touched.email && <p className='text-red-500 text-sm' >{errors.email}</p>}
                             </div>
                             <div className='mb-4'>
-                                <input className='w-full p-2 ml-4 rounded-md  outline-none border hover:border-red-400 focus:border-red-400' value={values.phone} name='phone' onChange={handleChange} onBlur={handleBlur} type="string" maxLength="12" placeholder='Phone ' />
-                                {errors.phone && touched.phone && <p className='text-red-500' >{errors.phone}</p>}
+                                <input className='w-full p-2  rounded-md  outline-none border hover:border-red-400 focus:border-red-400' value={values.phone} name='phone' onChange={handleChange} onBlur={handleBlur} type="number" maxLength="12" placeholder='Phone ' />
+                                {errors.phone && touched.phone && <p className='text-red-500 text-sm' >{errors.phone}</p>}
                             </div>
                         </div>
 
@@ -76,7 +78,7 @@ function Register() {
                                 />
 
                                 {errors.password && touched.password && (
-                                    <p className='text-red-500'>{errors.password}</p>
+                                    <p className='text-red-500 text-sm'>{errors.password}</p>
                                 )}
                             </div>
 
@@ -92,7 +94,7 @@ function Register() {
                                 />
 
                                 {errors.confirmPassword && touched.confirmPassword && (
-                                    <p className='text-red-500'>{errors.confirmPassword}</p>
+                                    <p className='text-red-500 text-sm'>{errors.confirmPassword}</p>
                                 )}
                             </div>
                         </div>
@@ -102,10 +104,14 @@ function Register() {
                             </label>
                         </div>
 
-                        <button type='submit' className='w-full  p-2 bg-red-600 hover:bg-red-800 duration-300 text-white rounded-md font-bold flex items-center justify-center' disabled={loader} >{loader ? <Loader /> : "Register"}</button>
+                        <button type='submit' className='w-full  p-2 bg-RedTheme hover:bg-red-800 duration-300 text-white rounded-md font-bold flex items-center justify-center' disabled={loader} >{loader ? <Loader /> : "Register"}</button>
                     </form>
 
-                    <p className='text-center mt-4  font-semibold text-gray-500 '>Alreday Registered <Link to="/login" className="font-semibold text-blue-600 hover:underline ml-2" > Login </Link></p>
+                    <p className='text-center mt-4 mb-8 font-semibold text-gray-500 '>Alreday Registered <Link to="/login" className="font-semibold text-blue-600 hover:underline ml-2" > Login </Link></p>
+
+                    <div className='flex items-center justify-center'>
+                        <button className='px-4 py-2 bg-RedTheme hover:bg-red-800 duration-300 rounded-md font-semibold  mb-4'><Link to="/" className="font-semibold text-white" > Back to home </Link></button>
+                    </div>
                 </div>
             </div>
         </div>

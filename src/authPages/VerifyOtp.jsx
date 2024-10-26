@@ -18,9 +18,7 @@ function VerifyOtp() {
                         <form  >
                             <div className='flex justify-center items-center mb-14 text-gray-500 font-bold text-2xl'>OTP Verfication</div>
 
-                            <div className='mb-4'>
-                                <input className='w-full p-2  rounded-md outline-none border font-bold hover:border-red-400 focus:border-red-400' name='email' type="text" placeholder='email or phone' />
-                            </div>
+                            <p className='bg-white py-2 my-3 w-full font-medium text-lg rounded-lg px-3'>exmaple@gmail.com</p>
                             <div className='mb-4'>
                                 <input className='w-full p-2  rounded-md outline-none border font-bold hover:border-red-400 focus:border-red-400' name='email' type="text" placeholder='Enter otp' />
                             </div>
