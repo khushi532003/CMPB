@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Loader from '@/constant/loader';
 import { GoogleLogin } from '@react-oauth/google';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { IoArrowBackSharp } from "react-icons/io5";
 
 
 
@@ -22,8 +23,8 @@ function Login() {
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: LoginValues,
         validationSchema: LoginSchema,
-        onSubmit: (value) => {
-            LoginUser(value)
+        onSubmit: async (value) => {
+            await LoginUser(value)
         }
     })
 
@@ -46,7 +47,7 @@ function Login() {
 
                             <div className='mb-4'>
                                 <input className='w-full p-2  rounded-md outline-none border hover:border-red-400 focus:border-red-400' value={values.email} name='email' onChange={handleChange} onBlur={handleBlur} type="text" placeholder='email or phone' />
-                                {errors.email && touched.email && <p className='text-red-500' >{errors.email}</p>}
+                                {errors.email && touched.email && <p className='text-red-500 text-sm' >{errors.email}</p>}
                             </div>
 
                             <div className='mb-4 relative'>
@@ -66,15 +67,22 @@ function Login() {
                                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                                 </span>
                                 {errors.password && touched.password && (
-                                    <p className='text-red-500'>{errors.password}</p>
+                                    <p className='text-red-500 text-sm'>{errors.password}</p>
                                 )}
                             </div>
 
-                            <p className='text-center font-semibold text-gray-500 mb-4'>don't have account <Link to="/register" className="font-semibold text-blue-600 hover:underline ml-2 " > Register </Link></p>
-                            <button type='submit' className='w-full p-2 bg-red-600 hover:bg-red-800 duration-300 text-white rounded-md font-semibold items-center justify-center flex' disabled={loader} >{loader ? <Loader /> : "Login"}</button>
+                            <p className='text-end font-semibold text-gray-500 mb-4'> <Link to="/forget_password" className="font-semibold text-blue-600 hover:underline ml-2 " > Forget password </Link></p>
+
+
+                            <button type='submit' className='w-full p-2 bg-RedTheme hover:bg-red-800 duration-300 text-white rounded-md font-semibold items-center justify-center flex' disabled={loader} >{loader ? <Loader /> : "Login"}</button>
                         </form>
-                        <div className='mt-6'>
+                        <div className='my-6'>
                             <GoogleLogin onSuccess={handleGoogle} onError={handleGoogle} />
+                        </div>
+                        <p className='text-center font-semibold text-gray-500 mb-4'>don't have account <Link to="/register" className="font-semibold text-blue-600 hover:underline ml-2 " > Register </Link></p>
+
+                        <div className='flex items-center justify-center'>
+                            <button className='px-4 py-2 bg-RedTheme hover:bg-red-900 duration-300 rounded-md font-semibold  mb-4'><Link to="/" className="font-semibold text-white" > Back to home </Link></button>
                         </div>
                     </div>
                 </div>
