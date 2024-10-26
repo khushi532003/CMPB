@@ -1,5 +1,4 @@
-import ChangePassword from "@/features/user/pages/ChangePassword";
-import ManageProfile from "@/features/User/pages/ManageProfile";
+import ChangePassword from "@user/pages/ChangePassword";
 import ActiveMembers from "@user/pages/ActiveMembers";
 import DeleteAccount from "@user/pages/DeleteAccount";
 import MyInterest from "@user/pages/MyInterest";
@@ -26,8 +25,5 @@ export const UserPrivateRoutes = [
         path: "/changePassword",
         element: <ChangePassword />
     },
-    {
-        path: "/manageProfile",
-        element: <ManageProfile />
-    }
+    
 ]
