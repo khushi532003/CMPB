@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ContectQueries = () => {
+    
   return (
       <div>
           <div className="HappyStories py-4 relative">
