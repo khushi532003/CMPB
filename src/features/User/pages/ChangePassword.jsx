@@ -36,7 +36,6 @@ function ChangePassword() {
                               <button className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">Change Password</button>
                           </div>
 
-
                       </form>
                   </div>
               </div>
@@ -45,4 +44,4 @@ function ChangePassword() {
   )
 }
 
-export default ChangePassword
+export default ChangePassword;

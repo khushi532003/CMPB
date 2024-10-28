@@ -26,11 +26,11 @@ function Register() {
 
     return (
         <div >
-            <div className='w-full min-h-screen flex justify-center items-center bg-gradient-to-r from-red-400    bg-center bg-cover bg-no-repeat' style={{ backgroundSize: "100%", width: "100%" }}>
+            <div className='w-full min-h-screen flex justify-center items-center bg-gradient-to-r from-red-400    bg-center bg-cover bg-no-repeat' style={{ backgroundImage: "url(https://www.shutterstock.com/shutterstock/photos/1881715708/display_1500/stock-vector-blush-pink-watercolor-fluid-painting-vector-design-card-dusty-rose-and-golden-marble-geode-frame-1881715708.jpg" }}>
 
-                <div className='w-full m-4 max-w-xl  bg-red-100 shadow-lg  py-16 rounded-md p-6'>
+                <div className='m-4 max-w-xl  py-5 w-[95%] sm:w-[50%]  bg-white mx-auto border border-yellow-600 px-10 pt-24 rounded-t-full shadow-lg rounded-md p-6'>
                     <form onSubmit={handleSubmit} >
-                        <div className='flex justify-center items-center mb-14 font-bold text-gray-500 text-2xl'>Create Your Account </div>
+                        <h3 className='flex justify-center items-center mb-14 font-bold text-gray-500 text-5xl'>Create Your Account </h3>
 
                         <select className='w-full p-2  text-gray-600  rounded-md  outline-none border hover:border-red-400 focus:border-red-400' name='gender' value={values.gender} onChange={handleChange} onBlur={handleBlur}  >
                             <option disabled value="">Select gender</option>
