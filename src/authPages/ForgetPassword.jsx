@@ -6,13 +6,10 @@ import Loader from '@/constant/loader';
 
 function ForgetPassword() {
     const { loader } = useAuthContext();
-
-
     return (
         <div>
             <div>
                 <div className='w-full min-h-screen flex justify-center items-center bg-gradient-to-r from-red-400    bg-center bg-cover bg-no-repeat' style={{ backgroundSize: "110%", width: "100%" }}>
-
                     <div className='w-full max-w-md bg-red-100  shadow-lg  py-16 rounded-md p-6'>
                         <form  >
                             <div className='flex justify-center items-center mb-14 text-gray-500 font-bold text-2xl'>Forget Password ?</div>

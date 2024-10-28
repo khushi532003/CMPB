@@ -1,7 +1,33 @@
+import { useContactContext } from '@/context';
+import { useFormik } from 'formik'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import * as yup from "yup";
 
 function Contact() {
+
+    const { createContact } = useContactContext()
+
+    const validation = yup.object({
+        fullname : yup.string().required("Full name is required"),
+        phone : yup.string().required("Phone Number is required"),
+        email : yup.string().email().required("Email is required"),
+        message : yup.string().required("Message is required"),
+    })
+    const {touched , errors, handleBlur, handleChange, handleSubmit, values, resetForm}=  useFormik({
+        initialValues : {
+            fullname : "",
+            phone  : "",
+            email : "",
+            message : ""
+        },
+        validationSchema : validation,
+        onSubmit: (data)=>{
+            createContact(data, "mY name is kkjfgjh");
+            resetForm()
+            
+        }
+    })
     return (
         <div>
             {/* Banner section start  */}
@@ -14,34 +40,39 @@ function Contact() {
             <section className="contact py-5">
                 <div
                     className="grid md:grid-cols-2 gap-16 items-center relative overflow-hidden p-8 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)]  max-w-6xl mx-auto bg-white mt-4 before:absolute before:right-0 before:w-[300px] ">
-                    <di8v>
-                        <h3 className="text-gray-800 text-7xl font-extrabold">Get In Touch </h3>
+                    <div>
+                        <h3 className="text-gray-800 text-5xl sm:text-7xl font-extrabold">Get In Touch </h3>
                         <img src="../images/headingImg.png" alt="" className="w-64" />
                         <p className="text-sm text-gray-500 mt-4 leading-relaxed">Have a specific inquiry or looking to explore new opportunities? Our
                             experienced team is ready to engage with you.</p>
 
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <div className="space-y-4 mt-8">
-                                <input type="text" placeholder="Full Name"
+                                <input type="text" onChange={handleChange} onBlur={handleBlur} value={values.fullname} name='fullname' placeholder="Full Name"
                                     className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-[#BB1A04]  outline-none" />
+                                    {touched.fullname && errors.fullname && <p className='py-2 text-red-400'>{errors.fullname}</p>}
 
-                                <input type="number" placeholder="Phone No."
+                                <input type="number" onChange={handleChange} onBlur={handleBlur} value={values.phone} name='phone' placeholder="Phone No."
                                     className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-[#BB1A04] outline-none" />
+                                {touched.phone && errors.phone && <p className='py-2 text-red-400'>{errors.phone}</p>}
 
-                                <input type="email" placeholder="Email"
+                                <input type="email" onChange={handleChange} onBlur={handleBlur} value={values.email} name='email' placeholder="Email"
                                     className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-[#BB1A04] outline-none" />
+                                {touched.email && errors.email && <p className='py-2 text-red-400'>{errors.email}</p>}
 
-                                <textarea placeholder="Write Message"
+                                <textarea placeholder="Write Message" onChange={handleChange} onBlur={handleBlur} value={values.message} name='message'
                                     className="px-2 pt-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-[#BB1A04] outline-none"></textarea>
+
+                                {touched.message && errors.message && <p className='py-2 text-red-400'>{errors.message}</p>}
                             </div>
 
-                            <button type="button"
+                            <button type="submit"
                                 className="mt-8 flex items-center justify-center text-sm w-full rounded-md px-6 py-3 bg-[#BB1A04] hover:bg-[#BB1A04] text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill='#fff' className="mr-2"
                                     viewBox="0 0 548.244 548.244">
-                                    <path fill-rule="evenodd"
+                                    <path fillRule="evenodd"
                                         d="M392.19 156.054 211.268 281.667 22.032 218.58C8.823 214.168-.076 201.775 0 187.852c.077-13.923 9.078-26.24 22.338-30.498L506.15 1.549c11.5-3.697 24.123-.663 32.666 7.88 8.542 8.543 11.577 21.165 7.879 32.666L390.89 525.906c-4.258 13.26-16.575 22.261-30.498 22.338-13.923.076-26.316-8.823-30.728-22.032l-63.393-190.153z"
-                                        clip-rule="evenodd" data-original="#000000" />
+                                        clipRule="evenodd" data-original="#000000" />
                                 </svg>
                                 Send Message
                             </button>
@@ -71,7 +102,7 @@ function Contact() {
                                 </Link>
                             </li>
                         </ul>
-                    </di8v>
+                    </div>
                     <div className="z-10 hidden sm:block relative h-full max-md:min-h-[350px] bg-cover bg-center" style={{ backgroundImage: "url(https://www.theoneshotfilms.com/auth/upload/slider/anmol-prachi-slider-1.jpg)" }}>
 
                     </div>

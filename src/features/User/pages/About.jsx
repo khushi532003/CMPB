@@ -12,10 +12,10 @@ function About() {
       {/* About section start  */}
       <section className="about py-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pe-4">
-          <div className="aboutImg bg-cover h-[500px] bg-right rounded-r-3xl w-[80%]" style={{ backgroundImage: "url(https://akshitphotography.com/wp-content/uploads/2023/08/15-1-scaled.jpg)" }}>
+          <div className="aboutImg bg-cover h-[350px] sm:h-[500px] bg-right rounded-r-3xl w-[80%]" style={{ backgroundImage: "url(https://akshitphotography.com/wp-content/uploads/2023/08/15-1-scaled.jpg)" }}>
 
           </div>
-          <div className="aboutContent flex flex-col justify-center ">
+          <div className="aboutContent flex flex-col justify-center ps-5 sm:ps-0">
             <h2 className='text-7xl ps-10'>About Us</h2>
             <img src="../images/headingImg.png" alt="" className="w-64" />
             <p className="py-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur facilis aut dolores earum natus consectetur ratione blanditiis nam minus. Quae expedita eligendi blanditiis consectetur velit aliquid omnis placeat facere, itaque fuga dignissimos veritatis ab, cum autem odit tempora nobis illum sequi commodi ratione est laboriosam! Veniam assumenda expedita qui rem, ea cum tenetur iste. Rerum molestias sint quisquam tempora et?</p>
@@ -44,7 +44,7 @@ function About() {
                 <img className='rounded-t-full h-96 object-cover w-full' src="https://i.ytimg.com/vi/bdoqUbWbrpA/maxresdefault.jpg" alt="" />
               </div>
             </div>
-            <div className="functionName w-full sm:w-[30%] flex flex-col justify-center text-center bg-cover bg-center h-[80vh]" style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
+            <div className="functionName w-full sm:w-[30%] flex flex-col justify-center text-center bg-cover bg-center h-[65vh] sm:h-[80vh]" style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
               <h3 className='text-6xl'>Haldi</h3>
               <h3 className='text-6xl py-4 ps-20'>Mehendi</h3>
               <h3 className='text-6xl'>Sangeet</h3>
@@ -53,7 +53,7 @@ function About() {
 
 
           <div className='block sm:flex gap-7 w-full px-4'>
-            <div className="functionName  w-full sm:w-[30%] flex flex-col justify-center text-center bg-cover bg-center h-[80vh]" style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
+            <div className="functionName  w-full sm:w-[30%] flex flex-col justify-center text-center bg-cover bg-center h-[65vh] sm:h-[80vh]" style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
               <h3 className='text-6xl'>Cocktail</h3>
               <h3 className='text-6xl py-4 pe-20'>Wedding</h3>
               <h3 className='text-6xl'>Reception</h3>
@@ -69,7 +69,6 @@ function About() {
                 <img className='rounded-t-full h-96 object-cover w-full' src="https://cdn0.weddingwire.in/article-gallery-o/00000/3_2/960/jpg/articulos-india/2019/non-troncales/indian-traditional-games-list/pixelstory-in-indian-traditional-games-list-add-a-little-amusement-to-your-fun-yet-hectic-wedding-functions.jpeg" alt="" />
               </div>
             </div>
-
           </div>
 
           <div className='block sm:flex gap-7 w-full px-4'>
@@ -85,14 +84,12 @@ function About() {
               </div>
 
             </div>
-            <div className="functionName w-full sm:w-[30%] flex flex-col justify-center text-center bg-cover bg-center h-[80vh]" style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
+            <div className="functionName w-full sm:w-[30%] flex flex-col justify-center text-center bg-cover bg-center h-[65vh] sm:h-[80vh]" style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
               <h3 className='text-6xl'>Clothes</h3>
               <h3 className='text-6xl py-4 '>Photographers</h3>
               <h3 className='text-6xl'>Caterers</h3>
             </div>
           </div>
-
-
         </div>
       </section>
       {/* Service section end  */}
@@ -100,4 +97,4 @@ function About() {
   )
 }
 
-export default About
+export default About;
