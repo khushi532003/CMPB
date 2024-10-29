@@ -8,15 +8,15 @@ function Home() {
   return (
     <div>
       {/* Banner section start  */}
-     
       <section className="mainBanner">
         <img src="../images/banner.jpg" alt="Chat Mangni Pat Byah" className='w-full object-cover' />
       </section>
       {/* Banner section end  */}
+
       {/* Testimonial section start  */}
       <section className="testimonial py-5">
         <div className="heading flex justify-center flex-col items-center text-center">
-          <h2 className="text-8xl">Testimonials</h2>
+          <h2 className="text-6xl sm:text-8xl">Testimonials</h2>
           <img src="../images/headingImg.png" alt="" className="w-64" />
         </div>
         <Swiper
@@ -24,20 +24,20 @@ function Home() {
             dynamicBullets: true,
           }}
           modules={[Pagination, Autoplay]}
-          loop={true}
-          autoplay={{
-            delay: 2000,
-            disableOnInteraction: false
-          }}
+          // loop={true}
+          // autoplay={{
+          //   delay: 2000,
+          //   disableOnInteraction: false
+          // }}
           className="mySwiper"
         >
           <SwiperSlide>
             <div className="reviews py-5 relative">
               <div className="block sm:flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
                 <div className="clientImage w-full sm:w-[30%] pb-5 sm:pb-0">
-                  <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-64" />
+                  <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-48 sm:w-64" />
                   <div className="imgCover">
-                    <img className="absolute left-0 sm:left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
+                    <img className="absolute left-2 sm:left-[6rem] top-7 w-[16rem] sm:w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
                   </div>
                 </div>
                 <div className="clientReview w-full  sm:w-[70%]">
@@ -53,9 +53,9 @@ function Home() {
             <div className="reviews py-5 relative">
               <div className="block sm:flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
                 <div className="clientImage w-full sm:w-[30%] pb-5 sm:pb-0">
-                  <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-64" />
+                  <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-48 sm:w-64" />
                   <div className="imgCover">
-                    <img className="absolute left-0 sm:left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
+                    <img className="absolute left-2 sm:left-[6rem] top-7 w-[16rem] sm:w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
                   </div>
                 </div>
                 <div className="clientReview w-full  sm:w-[70%]">
@@ -67,61 +67,7 @@ function Home() {
               </div>
             </div>
           </SwiperSlide>
-          <SwiperSlide>
-            <div className="reviews py-5 relative">
-              <div className="block sm:flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
-                <div className="clientImage w-full sm:w-[30%] pb-5 sm:pb-0">
-                  <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-64" />
-                  <div className="imgCover">
-                    <img className="absolute left-0 sm:left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
-                  </div>
-                </div>
-                <div className="clientReview w-full  sm:w-[70%]">
-                  <p className="text-xl font-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dicta, repellat placeat iste, distinctio autem impedit blanditiis, corrupti sequi facere cupiditate eius. Modi assumenda incidunt nobis debitis unde accusamus labore. Assumenda tempora eligendi sint ratione rem dolor commodi, voluptatibus molestias.
-                  </p>
 
-                  <div className="name font-semibold text-gray-600 py-3">Riya Verma</div>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="reviews py-5 relative">
-              <div className="block sm:flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
-                <div className="clientImage w-full sm:w-[30%] pb-5 sm:pb-0">
-                  <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-64" />
-                  <div className="imgCover">
-                    <img className="absolute left-0 sm:left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
-                  </div>
-                </div>
-                <div className="clientReview w-full  sm:w-[70%]">
-                  <p className="text-xl font-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dicta, repellat placeat iste, distinctio autem impedit blanditiis, corrupti sequi facere cupiditate eius. Modi assumenda incidunt nobis debitis unde accusamus labore. Assumenda tempora eligendi sint ratione rem dolor commodi, voluptatibus molestias.
-                  </p>
-
-                  <div className="name font-semibold text-gray-600 py-3">Riya Verma</div>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="reviews py-5 relative">
-              <div className="block sm:flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
-                <div className="clientImage w-full sm:w-[30%] pb-5 sm:pb-0">
-                  <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-64" />
-                  <div className="imgCover">
-                    <img className="absolute left-0 sm:left-[6rem] top-7 w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
-                  </div>
-                </div>
-                <div className="clientReview w-full  sm:w-[70%]">
-                  <p className="text-xl font-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dicta, repellat placeat iste, distinctio autem impedit blanditiis, corrupti sequi facere cupiditate eius. Modi assumenda incidunt nobis debitis unde accusamus labore. Assumenda tempora eligendi sint ratione rem dolor commodi, voluptatibus molestias.
-                  </p>
-
-                  <div className="name font-semibold text-gray-600 py-3">Riya Verma</div>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-         
         </Swiper>
       </section>
       {/* Testimonial section end  */}
@@ -154,12 +100,11 @@ function Home() {
       </section>
       {/* Why choose us section end  */}
 
-     
       {/* Wedding Theme section start  */}
       <section className="theme py-10 bg-no-repeat bg-cover" style={{ backgroundImage: "url(https://r2.erweima.ai/imgcompressed/compressed_cdec15e7b3c17fa59a279b02db89d69d.webp)" }}>
         <div className="block sm:flex justify-between gap-3 px-3 items-center">
           <div className="sm:w-[20%] w-full">
-            <div className="heading"><h2 className="text-8xl text-[#BB1A04]">Choose <br /> Wedding <br /> Themes</h2></div>
+            <div className="heading"><h2 className="text-6xl sm:text-8xl text-[#BB1A04]">Choose <br /> Wedding <br /> Themes</h2></div>
           </div>
           <div className="themes w-full sm:w-[80%]">
             <div className=" grid-cols-1 grid sm:grid-cols-3 gap-14">
@@ -194,7 +139,7 @@ function Home() {
       {/* Process section start  */}
       <section className="process py-10">
         <div className="heading flex justify-center flex-col items-center text-center">
-          <h2 className="text-8xl">Wedding Process</h2>
+          <h2 className="text-6xl sm:text-8xl">Wedding Process</h2>
           <img src="../images/headingImg.png" alt="" className="w-64" />
         </div>
 
@@ -211,7 +156,7 @@ function Home() {
             </div>
             <div className="px-2">
               <div>
-                <h3 className="text-3xl font-semibold py-3">Register</h3>
+                <h3 className="text-2xl sm:text-3xl font-semibold py-3">Register</h3>
                 <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
               </div>
             </div>
@@ -219,7 +164,7 @@ function Home() {
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2">
               <div>
-                <h3 className="text-3xl font-semibold py-3">Manage Profile</h3>
+                <h3 className="text-2xl sm:text-3xl font-semibold py-3">Manage Profile</h3>
                 <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
               </div>
             </div>
@@ -246,7 +191,7 @@ function Home() {
             </div>
             <div className="px-2">
               <div>
-                <h3 className="text-3xl font-semibold py-3">Attend Call</h3>
+                <h3 className="text-2xl sm:text-3xl font-semibold py-3">Attend Call</h3>
                 <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
               </div>
             </div>
@@ -254,7 +199,7 @@ function Home() {
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2">
               <div>
-                <h3 className="text-3xl font-semibold py-3">Purchase Package</h3>
+                <h3 className="text-2xl sm:text-3xl font-semibold py-3">Purchase Package</h3>
                 <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
               </div>
             </div>
@@ -281,7 +226,7 @@ function Home() {
             </div>
             <div className="px-2">
               <div>
-                <h3 className="text-3xl font-semibold py-3">Fix Meeting</h3>
+                <h3 className="text-2xl sm:text-3xl font-semibold py-3">Fix Meeting</h3>
                 <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
               </div>
             </div>
@@ -289,7 +234,7 @@ function Home() {
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2">
               <div>
-                <h3 className="text-3xl font-semibold py-3">Get Marry</h3>
+                <h3 className="text-2xl sm:text-3xl font-semibold py-3">Get Marry</h3>
                 <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
               </div>
             </div>
@@ -311,7 +256,6 @@ function Home() {
       {/* Packages section start  */}
       <section className="packages py-5">
         <div className="block sm:flex justify-between gap-3 px-3 items-center">
-
           <div className="themes w-full sm:w-[60%]">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-14">
               <div className="theme ">
@@ -386,7 +330,7 @@ function Home() {
 
             </div>
           </div>
-          <div className="w-full sm:w-[40%] flex justify-center items-center bg-cover bg-center h-[100vh] " style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
+          <div className="w-full sm:w-[40%] flex justify-center items-center bg-cover bg-center h-[65vh] sm:h-[100vh] " style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
             <div className="heading text-center"><h2 className="text-8xl text-[#BB1A04]">Pricing <br />Plans</h2>
               <img src="../images/headingImg.png" alt="" className="w-64" />
             </div>
@@ -398,10 +342,9 @@ function Home() {
       {/* Gallery section start  */}
       <section className="gallery py-5">
         <div className="heading flex justify-center flex-col items-center text-center">
-          <h2 className="text-8xl">Gallery</h2>
+          <h2 className="text-6xl sm:text-8xl">Gallery</h2>
           <img src="../images/headingImg.png" alt="" className="w-64" />
         </div>
-
         <div className="weddingImages py-4 px-5">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="sec">
@@ -429,6 +372,4 @@ function Home() {
   )
 }
 
-export default Home
-
-
+export default Home;

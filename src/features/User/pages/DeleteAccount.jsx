@@ -3,10 +3,10 @@ import React from 'react'
 function DeleteAccount() {
   return (
       <div style={{ backgroundImage: "url(https://www.shutterstock.com/shutterstock/photos/1881715708/display_1500/stock-vector-blush-pink-watercolor-fluid-painting-vector-design-card-dusty-rose-and-golden-marble-geode-frame-1881715708.jpg"}}>
-        <div className='pt-24'>
+        <div className='py-10'>
           <div className="py-5 w-[95%]  sm:w-[50%]  bg-white mx-auto border border-yellow-600 px-10 pt-24 rounded-t-full">
               <div className="heading flex justify-center flex-col items-center text-center">
-                  <h3 className="text-7xl">Delete Account</h3>
+                  <h3 className="text-5xl sm:text-7xl">Delete Account</h3>
                   <img src="../images/headingImg.png" alt="" className="w-64" />
               </div>
 
