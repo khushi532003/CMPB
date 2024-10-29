@@ -100,7 +100,7 @@ function Navbar() {
                     </div>
                     <div className="menus w-full pt-20">
                         <ul>
-                            <li onClick={() => { setSidebarToggle(false); handleLinkClick('/'); }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
+                            <li onClick={() => { setSidebarToggle(false); handleLinkClick('/manage_profile'); }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
                                 <span>Manage Profile</span>
                             </li>
                             <li onClick={() => { setSidebarToggle(false); handleLinkClick('/members'); }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>

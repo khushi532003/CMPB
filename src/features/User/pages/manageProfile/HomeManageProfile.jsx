@@ -12,8 +12,15 @@ import BackgroundInfo from './BackgroundInfo';
 import AstronomicInfo from './AstronomicInfo';
 import PartnerExpection from './PartnerExpection';
 import InterestedIn from './InterestedIn';
+import { useProfileContext } from '@/context';
+import { useEffect } from 'react';
+import Loader from '@/constant/loader';
 
 function HomeManageProfile() {
+    const { profile } = useProfileContext()
+    console.log(profile)
+
+    if (profile?.length < 1) return <Loader />;
     return (
         <div>
             <div className="flex py-4 gap-3 w-[90%] mx-auto">
@@ -26,15 +33,15 @@ function HomeManageProfile() {
                     </div>
                 </div>
                 <div className="members w-full sm:w-[70%] border border-gray-400 p-4">
-                    <BasicInfo />
+                    <BasicInfo data={profile?.basicDetails} />
                     <ProfileAddress />
-                    <CareerInfo />
-                    <EducationInfo />
-                    <PhysicalAttribute />
+                    <CareerInfo data={profile?.careerDetails} />
+                    <EducationInfo data={profile?.educationDetails} />
+                    <PhysicalAttribute data={profile?.physicalattributeDetails} />
                     <Languages />
                     <HobbiesInterest />
                     <PersonalAttitude />
-                    <ResidancyInfo />
+                    <ResidancyInfo data={profile?.residencyinfoDetails} />
                     <BackgroundInfo />
                     <AstronomicInfo />
                     <PartnerExpection />

@@ -13,12 +13,13 @@ function AuthContextProvider({ children }) {
     const RegisterUser = async (data) => {
         setLoader(true);
         try {
-            const res = await AxiosHandler.post("/user/signup", data)
+            const res = await AxiosHandler.post("/auth/signup", data)
             Cookies.set("CMPB_TOKEN", res.data.token)
             Cookies.set("UserRole", res.data.role)
             setToken(res.data.token)
             setRole(res.data.role)
             toast.success(res.data.message)
+            console.log(res)
         } catch (error) {
             console.log(error);
             toast.error(error.response?.data?.message || "User Registration Failed");
@@ -33,7 +34,7 @@ function AuthContextProvider({ children }) {
     const LoginUser = async (data) => {
         setLoader(true);
         try {
-            const res = await AxiosHandler.post("/user/login", data)
+            const res = await AxiosHandler.post("/auth/login", data)
             Cookies.set("CMPB_TOKEN", res.data.token)
             Cookies.set("UserRole", res.data.role)
             setToken(res.data.token)
