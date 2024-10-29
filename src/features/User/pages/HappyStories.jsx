@@ -3,7 +3,7 @@ import React from 'react'
 function HappyStories() {
     return (
         <div>
-            <div className="py-5 mt-20 bg-cover bg-no-repeat" style={{ backgroundImage: "url(https://images.pexels.com/photos/414660/pexels-photo-414660.jpeg?cs=srgb&dl=pexels-pixabay-414660.jpg&fm=jpg)" }}>
+            <div className="py-5 bg-cover bg-no-repeat" style={{ backgroundImage: "url(https://images.pexels.com/photos/414660/pexels-photo-414660.jpeg?cs=srgb&dl=pexels-pixabay-414660.jpg&fm=jpg)" }}>
                 <div className="heading flex justify-center flex-col items-center text-center">
                     <h2 className="text-8xl ">Happy Stories</h2>
                     <img src="../images/headingImg.png" alt="" className="w-64" />

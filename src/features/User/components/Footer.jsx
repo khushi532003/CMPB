@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -16,16 +17,27 @@ function Footer() {
                         
                           <div className="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:pl-20 md:mt-0 md:text-left">
                               <div className="w-full px-4 lg:w-1/4 md:w-1/2">
-                                  <h4 className="mb-3 text-sm  tracking-widest text-gray-900 uppercase font-semibold">About</h4>
+                                  <h4 className="mb-3 text-sm  tracking-widest text-gray-900 uppercase font-semibold">Login/Register</h4>
                                   <nav className="mb-10 list-none">
                                       <li className="mt-3">
-                                          <a className="text-gray-500 cursor-pointer hover:text-gray-900">Company</a>
+                                          <Link to="/login" className="text-gray-500 cursor-pointer hover:text-gray-900">Login</Link>
                                       </li>
                                       <li className="mt-3">
-                                          <a className="text-gray-500 cursor-pointer hover:text-gray-900">Careers</a>
+                                          <Link to="/register" className="text-gray-500 cursor-pointer hover:text-gray-900">Register</Link>
+                                      </li>
+                                  </nav>
+                              </div>
+                              <div className="w-full px-4 lg:w-1/4 md:w-1/2">
+                                  <h4 className="mb-3 text-sm  tracking-widest text-gray-900 uppercase font-semibold">Quick Links</h4>
+                                  <nav className="mb-10 list-none">
+                                      <li className="mt-3">
+                                          <Link to="/about" className="text-gray-500 cursor-pointer hover:text-gray-900">About</Link>
                                       </li>
                                       <li className="mt-3">
-                                          <a className="text-gray-500 cursor-pointer hover:text-gray-900">Blog</a>
+                                          <Link to="/happyStories" className="text-gray-500 cursor-pointer hover:text-gray-900">Happy Stories</Link>
+                                      </li>
+                                      <li className="mt-3">
+                                          <Link to="/contact" className="text-gray-500 cursor-pointer hover:text-gray-900">Contact us</Link>
                                       </li>
                                   </nav>
                               </div>
@@ -33,27 +45,13 @@ function Footer() {
                                   <h4 className="mb-3 text-sm  tracking-widest text-gray-900 uppercase font-semibold">About</h4>
                                   <nav className="mb-10 list-none">
                                       <li className="mt-3">
-                                          <a className="text-gray-500 cursor-pointer hover:text-gray-900">Contact Support</a>
+                                          <Link className="text-gray-500 cursor-pointer hover:text-gray-900">Terms &amp; Privacy</Link>
                                       </li>
                                       <li className="mt-3">
-                                          <a className="text-gray-500 cursor-pointer hover:text-gray-900">Help Resources</a>
+                                          <Link className="text-gray-500 cursor-pointer hover:text-gray-900">Pricing</Link>
                                       </li>
                                       <li className="mt-3">
-                                          <a className="text-gray-500 cursor-pointer hover:text-gray-900">Release Updates</a>
-                                      </li>
-                                  </nav>
-                              </div>
-                              <div className="w-full px-4 lg:w-1/4 md:w-1/2">
-                                  <h4 className="mb-3 text-sm  tracking-widest text-gray-900 uppercase font-semibold">About</h4>
-                                  <nav className="mb-10 list-none">
-                                      <li className="mt-3">
-                                          <a className="text-gray-500 cursor-pointer hover:text-gray-900">Terms &amp; Privacy</a>
-                                      </li>
-                                      <li className="mt-3">
-                                          <a className="text-gray-500 cursor-pointer hover:text-gray-900">Pricing</a>
-                                      </li>
-                                      <li className="mt-3">
-                                          <a className="text-gray-500 cursor-pointer hover:text-gray-900">FAQ</a>
+                                          <Link className="text-gray-500 cursor-pointer hover:text-gray-900">FAQ</Link>
                                       </li>
                                   </nav>
                               </div>
@@ -61,21 +59,21 @@ function Footer() {
                                   <h4 className="mb-3 text-sm  tracking-widest text-gray-900 uppercase font-semibold">About</h4>
                                   <nav className="mb-10 list-none">
                                       <li className="mt-3">
-                                          <a className="text-gray-500 cursor-pointer hover:text-gray-900">Send a Message</a>
+                                          <Link className="text-gray-500 cursor-pointer hover:text-gray-900">Send a Message</Link>
                                       </li>
                                       <li className="mt-3">
-                                          <a className="text-gray-500 cursor-pointer hover:text-gray-900">Request a Quote</a>
+                                          <Link className="text-gray-500 cursor-pointer hover:text-gray-900">Request a Quote</Link>
                                       </li>
                                       <li className="mt-3">
-                                          <a className="text-gray-500 cursor-pointer hover:text-gray-900">+123-456-7890</a>
+                                          <Link className="text-gray-500 cursor-pointer hover:text-gray-900">+123-456-7890</Link>
                                       </li>
                                   </nav>
                               </div>
                           </div>
                       </div>
-                      <div className="bg-gray-300">
+                      <div className="bg-RedTheme">
                           <div className="container px-5 py-4 mx-auto">
-                              <p className="text-sm text-gray-700 capitalize xl:text-center">© 2024  All rights reserved </p>
+                              <p className="text-sm text-white capitalize xl:text-center">© 2024  All rights reserved </p>
                           </div>
                       </div>
                   </footer>
