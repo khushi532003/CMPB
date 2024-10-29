@@ -18,7 +18,6 @@ function AuthContextProvider({ children }) {
             Cookies.set("UserRole", res.data.role)
             setToken(res.data.token)
             setRole(res.data.role)
-            AxiosHandler.defaults.headers.Authorization = `Bearer ${res.data.token}`
             toast.success(res.data.message)
         } catch (error) {
             console.log(error);
@@ -38,7 +37,6 @@ function AuthContextProvider({ children }) {
             Cookies.set("UserRole", res.data.role)
             setToken(res.data.token)
             setRole(res.data.role)
-            AxiosHandler.defaults.headers.Authorization = `Bearer ${res.data.token}`
             toast.success(res.data.message)
         } catch (error) {
             console.log(error);
