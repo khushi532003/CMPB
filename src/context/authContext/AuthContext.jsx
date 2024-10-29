@@ -1,5 +1,5 @@
 import { AxiosHandler } from "@/config/Axios.config";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 
@@ -18,7 +18,6 @@ function AuthContextProvider({ children }) {
             Cookies.set("UserRole", res.data.role)
             setToken(res.data.token)
             setRole(res.data.role)
-            AxiosHandler.defaults.headers.Authorization = `Bearer ${res.data.token}`
             toast.success(res.data.message)
         } catch (error) {
             console.log(error);
@@ -39,7 +38,6 @@ function AuthContextProvider({ children }) {
             Cookies.set("UserRole", res.data.role)
             setToken(res.data.token)
             setRole(res.data.role)
-            AxiosHandler.defaults.headers.Authorization = `Bearer ${res.data.token}`
             toast.success(res.data.message)
         } catch (error) {
             console.log(error);
