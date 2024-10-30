@@ -3,6 +3,7 @@ import About from "@user/pages/About";
 import Contact from "@user/pages/Contact";
 import Home from "@user/pages/Home";
 import Notfound from "@/features/user/pages/Notfound";
+import Story from "@/features/user/pages/Story";
 
 
 export const UserPublicRoutes = [
@@ -21,6 +22,10 @@ export const UserPublicRoutes = [
     {
         path: "/happyStories",
         element: <HappyStories/>
+    },
+    {
+        path: "/story",
+        element: <Story/>
     },
    
 ]

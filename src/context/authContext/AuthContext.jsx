@@ -1,5 +1,5 @@
 import { AxiosHandler } from "@/config/Axios.config";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 
@@ -9,6 +9,8 @@ function AuthContextProvider({ children }) {
     const [loader, setLoader] = useState(false);
     const [token, setToken] = useState(Cookies.get("CMPB_TOKEN"));
     const [role, setRole] = useState(Cookies.get('UserRole'));
+    const [forgetEmail, setForgetEmail] = useState(null)
+    const [OTPverify, setOTPVerify] = useState(null)
 
     const RegisterUser = async (data) => {
         setLoader(true);
@@ -30,7 +32,7 @@ function AuthContextProvider({ children }) {
 
 
 
-    
+
     const LoginUser = async (data) => {
         setLoader(true);
         try {
@@ -48,6 +50,53 @@ function AuthContextProvider({ children }) {
         };
     };
 
+    const ForgetPassword = async (data) => {
+        setLoader(true);
+
+        try {
+            const response = await AxiosHandler.post("/auth/sendotp", data);
+            toast.success(response.data.message);
+            setForgetEmail(data);
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Forge password failed");
+        } finally {
+            setLoader(false);
+        }
+    }
+
+    const VerifyOtp = async (data, email) => {
+        setLoader(true);
+        try {
+            const response = await AxiosHandler.post(`/auth/verify/${data}`, { email })
+            toast.success(response.data.message);
+            if (response.status == 200) {
+                setOTPVerify(true)
+            }
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Forge password failed");
+            console.log(error)
+        } finally {
+            setLoader(false);
+        }
+    }
+
+    const newPassword = async (data) => {
+        setLoader(true);
+        try {
+            const response = await AxiosHandler.post(`/auth/newpassword`, data)
+            toast.success(response.data.message);
+            console.log(response);
+            window.location.href = "/";
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Forge password failed");
+            console.log(error)
+        } finally {
+            setLoader(false);
+        }
+    }
+
+
+
 
     const Logout = () => {
         Cookies.remove("CMPB_TOKEN");
@@ -56,12 +105,14 @@ function AuthContextProvider({ children }) {
         setRole(null);
         toast.success("Logged out successfully!");
         setTimeout(() => {
-            window.location.href = "/" 
+            window.location.href = "/"
         }, 1000);
     };
 
+
+
     return (
-        <AuthContext.Provider value={{ RegisterUser, loader, LoginUser, token, role, Logout }}>
+        <AuthContext.Provider value={{ RegisterUser, loader, LoginUser, token, role, Logout, ForgetPassword, VerifyOtp, forgetEmail, OTPverify, newPassword }}>
             {children}
         </AuthContext.Provider>
     );

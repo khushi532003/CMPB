@@ -27,10 +27,9 @@ function About() {
       {/* Service section start  */}
       <section className="services py-5">
         <div className="heading flex justify-center flex-col items-center text-center">
-          <h2 className="text-8xl">Services Includes</h2>
+          <h2 className="text-6xl sm:text-8xl">Services Includes</h2>
           <img src="../images/headingImg.png" alt="" className="w-64" />
         </div>
-
         <div className="service py-5">
           <div className='block sm:flex gap-7 w-full px-4'>
             <div className="functions block sm:flex gap-3 w-full sm:w-[70%] items-center">
@@ -45,18 +44,16 @@ function About() {
               </div>
             </div>
             <div className="functionName w-full sm:w-[30%] flex flex-col justify-center text-center bg-cover bg-center h-[65vh] sm:h-[80vh]" style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
-              <h3 className='text-6xl'>Haldi</h3>
-              <h3 className='text-6xl py-4 ps-20'>Mehendi</h3>
-              <h3 className='text-6xl'>Sangeet</h3>
+              <h3 className='text-5xl sm:text-6xl'>Haldi</h3>
+              <h3 className='text-5xl sm:text-6xl py-4 ps-20'>Mehendi</h3>
+              <h3 className='text-5xl sm:text-6xl'>Sangeet</h3>
             </div>
           </div>
-
-
           <div className='block sm:flex gap-7 w-full px-4'>
             <div className="functionName  w-full sm:w-[30%] flex flex-col justify-center text-center bg-cover bg-center h-[65vh] sm:h-[80vh]" style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
-              <h3 className='text-6xl'>Cocktail</h3>
-              <h3 className='text-6xl py-4 pe-20'>Wedding</h3>
-              <h3 className='text-6xl'>Reception</h3>
+              <h3 className='text-5xl sm:text-6xl'>Cocktail</h3>
+              <h3 className='text-5xl sm:text-6xl py-4 pe-20'>Wedding</h3>
+              <h3 className='text-5xl sm:text-6xl'>Reception</h3>
             </div>
             <div className="functions block sm:flex gap-3 w-full sm:w-[70%] items-center">
               <div className="function  py-2">
@@ -70,7 +67,6 @@ function About() {
               </div>
             </div>
           </div>
-
           <div className='block sm:flex gap-7 w-full px-4'>
             <div className="functions block sm:flex gap-3 w-full sm:w-[70%] items-center">
               <div className="function  py-2">
@@ -82,12 +78,11 @@ function About() {
               <div className="function py-2">
                 <img className='rounded-t-full h-96 object-cover w-full' src="https://www.weddingsutra.com/images/gyanjee-caterers-thumb-700x452.jpg?%3E" alt="" />
               </div>
-
             </div>
             <div className="functionName w-full sm:w-[30%] flex flex-col justify-center text-center bg-cover bg-center h-[65vh] sm:h-[80vh]" style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
-              <h3 className='text-6xl'>Clothes</h3>
-              <h3 className='text-6xl py-4 '>Photographers</h3>
-              <h3 className='text-6xl'>Caterers</h3>
+              <h3 className='text-5xl sm:text-6xl'>Clothes</h3>
+              <h3 className='text-5xl sm:text-6xl py-4 '>Photographers</h3>
+              <h3 className='text-5xl sm:text-6xl'>Caterers</h3>
             </div>
           </div>
         </div>

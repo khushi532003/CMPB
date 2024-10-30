@@ -8,7 +8,7 @@ function Home() {
   return (
     <div>
       {/* Banner section start  */}
-      <section className="mainBanner">
+      <section className="mainBanner py-5">
         <img src="../images/banner.jpg" alt="Chat Mangni Pat Byah" className='w-full object-cover' />
       </section>
       {/* Banner section end  */}
@@ -24,11 +24,11 @@ function Home() {
             dynamicBullets: true,
           }}
           modules={[Pagination, Autoplay]}
-          // loop={true}
-          // autoplay={{
-          //   delay: 2000,
-          //   disableOnInteraction: false
-          // }}
+          loop={true}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false
+          }}
           className="mySwiper"
         >
           <SwiperSlide>
@@ -43,7 +43,6 @@ function Home() {
                 <div className="clientReview w-full  sm:w-[70%]">
                   <p className="text-xl font-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dicta, repellat placeat iste, distinctio autem impedit blanditiis, corrupti sequi facere cupiditate eius. Modi assumenda incidunt nobis debitis unde accusamus labore. Assumenda tempora eligendi sint ratione rem dolor commodi, voluptatibus molestias.
                   </p>
-
                   <div className="name font-semibold text-gray-600 py-3">Riya Verma</div>
                 </div>
               </div>
@@ -61,8 +60,7 @@ function Home() {
                 <div className="clientReview w-full  sm:w-[70%]">
                   <p className="text-xl font-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dicta, repellat placeat iste, distinctio autem impedit blanditiis, corrupti sequi facere cupiditate eius. Modi assumenda incidunt nobis debitis unde accusamus labore. Assumenda tempora eligendi sint ratione rem dolor commodi, voluptatibus molestias.
                   </p>
-
-                  <div className="name font-semibold text-gray-600 py-3">Riya Verma</div>
+                    <div className="name font-semibold text-gray-600 py-3">Riya Verma</div>                   
                 </div>
               </div>
             </div>
@@ -75,7 +73,6 @@ function Home() {
       {/* Why choose us section start  */}
       <section className="whyus py-5 flex justify-center items-center" style={{
         backgroundImage: "url(https://img.freepik.com/free-vector/cute-watercolor-leaves-frame-with-watercolor-background_1361-3335.jpg?semt=ais_hybrid)",
-        height: "450px",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -101,30 +98,30 @@ function Home() {
       {/* Why choose us section end  */}
 
       {/* Wedding Theme section start  */}
-      <section className="theme py-10 bg-no-repeat bg-cover" style={{ backgroundImage: "url(https://r2.erweima.ai/imgcompressed/compressed_cdec15e7b3c17fa59a279b02db89d69d.webp)" }}>
+      <section className="theme py-10 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: "url(https://r2.erweima.ai/imgcompressed/compressed_cdec15e7b3c17fa59a279b02db89d69d.webp)" }}>
         <div className="block sm:flex justify-between gap-3 px-3 items-center">
           <div className="sm:w-[20%] w-full">
             <div className="heading"><h2 className="text-6xl sm:text-8xl text-[#BB1A04]">Choose <br /> Wedding <br /> Themes</h2></div>
           </div>
           <div className="themes w-full sm:w-[80%]">
-            <div className=" grid-cols-1 grid sm:grid-cols-3 gap-14">
+            <div className=" grid-cols-1 grid sm:grid-cols-3 gap-10">
               <div className="theme ">
                 <div className="flex flex-col items-center">
-                  <div className="">
+                  <div className="w-full">
                     <img className="rounded-t-full h-96 object-cover w-full" src="https://luxaus.au/wp-content/uploads/2023/03/kerala-1024x683.jpeg" alt="" /></div>
                   <div className="themeName pt-4 text-center"><h3 className=" text-5xl">Destination</h3> </div>
                 </div>
               </div>
               <div className="theme ">
                 <div className="flex flex-col items-center">
-                  <div className="">
+                  <div className="w-full">
                     <img className="rounded-t-full h-96 object-cover w-full" src="https://images.shaadisaga.com/shaadisaga_production/photos/pictures/005/385/981/new_medium/307137831_1218744365589893_7565817865238985355_n.jpg?1669191321" alt="" /></div>
                   <div className="themeName pt-4 text-center"><h3 className=" text-5xl">Cultural</h3> </div>
                 </div>
               </div>
               <div className="theme ">
                 <div className="flex flex-col items-center">
-                  <div className="">
+                  <div className="w-full">
                     <img className="rounded-t-full h-96 object-cover w-full" src="https://themaharanidiaries.com/wp-content/uploads/2018/03/5-Steps-to-Planning-a-Modern-Wedding-Lin-Jirsa-Photography-The-Maharani-Diaries.jpg" alt="" /></div>
                   <div className="themeName pt-4 text-center"><h3 className=" text-5xl">Modern</h3> </div>
                 </div>
@@ -140,9 +137,8 @@ function Home() {
       <section className="process py-10">
         <div className="heading flex justify-center flex-col items-center text-center">
           <h2 className="text-6xl sm:text-8xl">Wedding Process</h2>
-          <img src="../images/headingImg.png" alt="" className="w-64" />
+          <img src="../images/headingImg.png" alt="" className="w-64 object-cover" />
         </div>
-
         <div className="process py-4">
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2 flex items-center">
@@ -331,7 +327,7 @@ function Home() {
             </div>
           </div>
           <div className="w-full sm:w-[40%] flex justify-center items-center bg-cover bg-center h-[65vh] sm:h-[100vh] " style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
-            <div className="heading text-center"><h2 className="text-8xl text-[#BB1A04]">Pricing <br />Plans</h2>
+            <div className="heading text-center"><h2 className="text-6xl sm:text-8xl text-[#BB1A04]">Pricing <br />Plans</h2>
               <img src="../images/headingImg.png" alt="" className="w-64" />
             </div>
           </div>
@@ -368,6 +364,7 @@ function Home() {
         </div>
       </section>
       {/* Gallery section end  */}
+
     </div>
   )
 }
