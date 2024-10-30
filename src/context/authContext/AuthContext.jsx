@@ -13,7 +13,7 @@ function AuthContextProvider({ children }) {
     const RegisterUser = async (data) => {
         setLoader(true);
         try {
-            const res = await AxiosHandler.post("/user/signup", data)
+            const res = await AxiosHandler.post("/auth/signup", data)
             Cookies.set("CMPB_TOKEN", res.data.token)
             Cookies.set("UserRole", res.data.role)
             setToken(res.data.token)
@@ -33,7 +33,7 @@ function AuthContextProvider({ children }) {
     const LoginUser = async (data) => {
         setLoader(true);
         try {
-            const res = await AxiosHandler.post("/user/login", data)
+            const res = await AxiosHandler.post("/auth/login", data)
             Cookies.set("CMPB_TOKEN", res.data.token)
             Cookies.set("UserRole", res.data.role)
             setToken(res.data.token)

@@ -25,8 +25,14 @@ const AddStory = ({ onClose }) => {
               </div>
               <div className="grid grid-cols-1 py-2">
                   <div>
-                      <label className="" for="newpassword">Add Image / Video</label>
+                      <label className="" for="newpassword">Add Image</label>
                       <input id="newpassword" type="file" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='Enter New Password' />
+                  </div>
+              </div>
+              <div className="grid grid-cols-1 py-2">
+                  <div>
+                      <label className="" for="newpassword">Upload Video</label>
+                      <input id="newpassword" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='Add Video URL' />
                   </div>
               </div>
               <div className="grid grid-cols-1 py-2">

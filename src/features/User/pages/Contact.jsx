@@ -2,30 +2,29 @@ import { useContactContext } from '@/context';
 import { useFormik } from 'formik'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import * as yup from "yup";
+import * as yup from "yup"; 
 
 function Contact() {
 
-    const { createContact } = useContactContext()
+    const { createContact } = useContactContext();
 
     const validation = yup.object({
-        fullname : yup.string().required("Full name is required"),
-        phone : yup.string().required("Phone Number is required"),
-        email : yup.string().email().required("Email is required"),
-        message : yup.string().required("Message is required"),
+        name: yup.string().required("name is required"),
+        phone: yup.string().min(10).max(12).required("Phone Number is required"),
+        email: yup.string().email().required("Email is required"),
+        message: yup.string().required("Message is required"),
     })
-    const {touched , errors, handleBlur, handleChange, handleSubmit, values, resetForm}=  useFormik({
-        initialValues : {
-            fullname : "",
-            phone  : "",
-            email : "",
-            message : ""
+    const { touched, errors, handleBlur, handleChange, handleSubmit, values, resetForm } = useFormik({
+        initialValues: {
+            name: "",
+            phone: "",
+            email: "",
+            message: ""
         },
-        validationSchema : validation,
-        onSubmit: (data)=>{
-            createContact(data, "mY name is kkjfgjh");
+        validationSchema: validation,
+        onSubmit: (data) => {
+            createContact(data);
             resetForm()
-            
         }
     })
     return (
@@ -48,11 +47,11 @@ function Contact() {
 
                         <form onSubmit={handleSubmit}>
                             <div className="space-y-4 mt-8">
-                                <input type="text" onChange={handleChange} onBlur={handleBlur} value={values.fullname} name='fullname' placeholder="Full Name"
+                                <input type="text" onChange={handleChange} onBlur={handleBlur} value={values.name} name='name' placeholder="Name"
                                     className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-[#BB1A04]  outline-none" />
-                                    {touched.fullname && errors.fullname && <p className='py-2 text-red-400'>{errors.fullname}</p>}
+                                {touched.name && errors.name && <p className='py-2 text-red-400'>{errors.name}</p>}
 
-                                <input type="number" onChange={handleChange} onBlur={handleBlur} value={values.phone} name='phone' placeholder="Phone No."
+                                <input type="text" onChange={handleChange} onBlur={handleBlur} value={values.phone} name='phone' placeholder="Phone No."
                                     className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-[#BB1A04] outline-none" />
                                 {touched.phone && errors.phone && <p className='py-2 text-red-400'>{errors.phone}</p>}
 
@@ -113,4 +112,4 @@ function Contact() {
     )
 }
 
-export default Contact
+export default Contact;

@@ -4,7 +4,7 @@ function ActiveMembers() {
     return (
         <div>
             <div className="activeMemebers py-8 mt-20">
-                <div className="flex  gap-3 w-[90%] mx-auto">
+                <div className="flex gap-3 w-[90%] mx-auto">
                     <div className="filter hidden sm:block w-[30%] border border-gray-400 p-4">
                         <h4 className='text-xl'>FILTER SEARCH</h4>
                         <form action="">
@@ -106,7 +106,6 @@ function ActiveMembers() {
                                 <button className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">Search</button>
                             </div>
                         </form>
-
                     </div>
                     <div className="members w-full sm:w-[70%] border border-gray-400 p-4">
                         <div className="heading flex justify-center flex-col py-3">
