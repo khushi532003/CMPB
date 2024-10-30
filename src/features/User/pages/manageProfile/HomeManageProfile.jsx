@@ -33,7 +33,7 @@ function HomeManageProfile() {
                     </div>
                 </div>
                 <div className="members w-full sm:w-[70%] border border-gray-400 p-4">
-                    <BasicInfo data={profile?.basicDetails} />
+                    <BasicInfo data={profile?.user} />
                     <ProfileAddress />
                     <CareerInfo data={profile?.careerDetails} />
                     <EducationInfo data={profile?.educationDetails} />

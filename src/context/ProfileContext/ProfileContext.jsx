@@ -12,7 +12,8 @@ function ProfileContextProvider({ children }) {
     const GetProfile = async () => {
         try {
             const res = await AxiosHandler.get("/profile/get")
-            setProfile(res.data.profileDetails[0])
+            setProfile(res.data.profileDetails);
+            console.log(res);
         } catch (error) {
             console.log(error)
             toast.error(error || "Something went wrong")
