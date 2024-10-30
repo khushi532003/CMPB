@@ -5,7 +5,7 @@ function HappyStories() {
         <div>
             <div className="py-5 bg-cover bg-no-repeat" style={{ backgroundImage: "url(https://images.pexels.com/photos/414660/pexels-photo-414660.jpeg?cs=srgb&dl=pexels-pixabay-414660.jpg&fm=jpg)" }}>
                 <div className="heading flex justify-center flex-col items-center text-center">
-                    <h2 className="text-8xl ">Happy Stories</h2>
+                    <h2 className="text-6xl sm:text-8xl ">Happy Stories</h2>
                     <img src="../images/headingImg.png" alt="" className="w-64" />
                 </div>
 
@@ -22,8 +22,15 @@ function HappyStories() {
                             </div>
                             <div className="bg-white p-3">
                                 <div className="storyDetails  py-3 flex flex-col items-center">
+                                    <div className="flex items-center gap-2">
+
+                                        <div className="name font-semibold text-gray-600 py-3">Riya Verma</div>
+                                        <img className='w-10' src="https://banner2.cleanpng.com/20240127/qgp/transparent-heart-emoji-cute-heart-icon-with-big-smiling-1710896636255.webp" alt="" />
+                                        <div className="name font-semibold text-gray-600 py-3">Vicky Verma</div>
+                                    </div>
                                     <p className="text-sm">Posted by : <strong className='text-[#BB1A04]'>Shreya Mehra</strong></p>
                                     <p className="text-sm">On : <strong className='text-[#BB1A04]'>9 Oct 2023</strong></p>
+
                                     <img src="../images/headingImg.png" alt="" className="w-52" />
                                 </div>
                                 <div className="storyDesc text-center">
@@ -45,8 +52,15 @@ function HappyStories() {
                             </div>
                             <div className="bg-white p-3">
                                 <div className="storyDetails  py-3 flex flex-col items-center">
+                                    <div className="flex items-center gap-2">
+
+                                        <div className="name font-semibold text-gray-600 py-3">Riya Verma</div>
+                                        <img className='w-10' src="https://banner2.cleanpng.com/20240127/qgp/transparent-heart-emoji-cute-heart-icon-with-big-smiling-1710896636255.webp" alt="" />
+                                        <div className="name font-semibold text-gray-600 py-3">Vicky Verma</div>
+                                    </div>
                                     <p className="text-sm">Posted by : <strong className='text-[#BB1A04]'>Shreya Mehra</strong></p>
                                     <p className="text-sm">On : <strong className='text-[#BB1A04]'>9 Oct 2023</strong></p>
+
                                     <img src="../images/headingImg.png" alt="" className="w-52" />
                                 </div>
                                 <div className="storyDesc text-center">
@@ -68,8 +82,15 @@ function HappyStories() {
                             </div>
                             <div className="bg-white p-3">
                                 <div className="storyDetails  py-3 flex flex-col items-center">
+                                    <div className="flex items-center gap-2">
+
+                                        <div className="name font-semibold text-gray-600 py-3">Riya Verma</div>
+                                        <img className='w-10' src="https://banner2.cleanpng.com/20240127/qgp/transparent-heart-emoji-cute-heart-icon-with-big-smiling-1710896636255.webp" alt="" />
+                                        <div className="name font-semibold text-gray-600 py-3">Vicky Verma</div>
+                                    </div>
                                     <p className="text-sm">Posted by : <strong className='text-[#BB1A04]'>Shreya Mehra</strong></p>
                                     <p className="text-sm">On : <strong className='text-[#BB1A04]'>9 Oct 2023</strong></p>
+
                                     <img src="../images/headingImg.png" alt="" className="w-52" />
                                 </div>
                                 <div className="storyDesc text-center">
@@ -80,7 +101,7 @@ function HappyStories() {
                                 </div>
                             </div>
                         </div>
-
+                       
                     </div>
                 </div>
             </div>
