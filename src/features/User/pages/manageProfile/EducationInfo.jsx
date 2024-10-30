@@ -1,9 +1,32 @@
-import React from 'react';
+import { useProfileContext } from '@/context';
+import { EducationSchema } from '@/validation/ProfileValidation';
+import { useFormik } from 'formik';
+import React, { useState } from 'react';
 
 
-function EducationInfo() {
+function EducationInfo({data}) {
+    const { Create, Update } = useProfileContext();
+    const [toogle,setToggle] = useState(false)
+
+    const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
+        initialValues: {
+            start: data?.start ? data.start : "",
+            insitution: data?.insitution ? data.insitution : "",
+            end: data?.end ? data.end : "",
+            Degree: data?.Degree ? data.Degree : "",
+        },
+        enableReinitialize: true,
+        validationSchema: EducationSchema,
+        onSubmit: async (value) => {
+            if (!data) {
+                await Create("/profile/physicalattribute/create", value);
+            } else {
+                await Update("/profile/physicalattribute/update", value)
+            }
+        }
+    })
     return (
-        <form>
+        <form onSubmit={handleSubmit} >
             <div className="space-y-12">
 
                 <div className="border-b border-gray-900/10 pb-12">
@@ -17,12 +40,16 @@ function EducationInfo() {
                             <div className="mt-2">
                                 <input
                                     id="degree"
-                                    name="degree"
+                                    name="Degree"
                                     type="text"
+                                    value={values.Degree}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
                                     placeholder='degree'
                                     autoComplete="given-name"
                                     className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.Degree && touched.Degree && <span className='text-red-500' >{errors.Degree}</span>}
                             </div>
                         </div>
 
@@ -33,12 +60,17 @@ function EducationInfo() {
                             <div className="mt-2">
                                 <input
                                     id="institution"
-                                    name="institution"
+                                    name="insitution"
                                     placeholder='institution'
+                                    value={values.insitution}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
                                     type="text"
                                     autoComplete="family-name"
                                     className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.insitution && touched.insitution && <span className='text-red-500' >{errors.insitution}</span>}
+
                             </div>
                         </div>
 
@@ -49,12 +81,16 @@ function EducationInfo() {
                             <div className="mt-2">
                                 <input
                                     id="date"
-                                    name="start-date"
+                                    name="start"
                                     type="date"
+                                    value={values.start}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
                                     placeholder='start date'
                                     autoComplete="email"
                                     className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.start && touched.start && <span className='text-red-500' >{errors.start}</span>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -64,18 +100,23 @@ function EducationInfo() {
                             <div className="mt-2">
                                 <input
                                     id="end-date"
-                                    name="end-date"
-                                    type="date"
+                                    name="end"
+                                    type="date" 
+                                    value={values.end}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
                                     placeholder='end date'
                                     autoComplete="email"
                                     className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.end && touched.end && <span className='text-red-500' >{errors.end}</span>}
                             </div>
                         </div>
                     </div>
                     <div className='flex justify-end py-4'>
                         <div>
-                            <button className='px-4 py-2 bg-RedTheme text-white mx-2'>Update</button>
+                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>Update</button>
+                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>cancel</button>
                         </div>
                     </div>
                 </div>

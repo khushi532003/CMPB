@@ -1,9 +1,27 @@
+import { useProfileContext } from '@/context';
+import { BasicDetailsSchema } from '@/validation/ProfileValidation';
+import { useFormik } from 'formik';
 import React from 'react';
 
 
-function BasicInfo() {
+function BasicInfo({data}) {
+    const { Update } = useProfileContext()
+
+    const {values,errors,touched,handleBlur,handleChange,handleSubmit} = useFormik({
+        initialValues: { 
+            lastName: data?.lastName ? data?.lastName : "" , 
+            gender: data?.gender ? data?.gender : "", 
+            firstName: data?.firstName ? data?.firstName : "" ,
+            DOB: data?.DOB ? data?.DOB : ""
+        },
+        enableReinitialize:true,
+        validationSchema: BasicDetailsSchema,
+        onSubmit:async (value)=>{
+            await Update("/profile/update",value)
+        }
+    })
     return (
-        <form>
+        <form onSubmit={handleSubmit} >
             <div className="space-y-12">
                 <div className="border-b border-gray-900/10 pb-12">
                     <h4 className="text-base  font-semibold leading-7 text-gray-900">Personal Information</h4>
@@ -15,12 +33,16 @@ function BasicInfo() {
                             <div className="mt-2">
                                 <input
                                     id="first-name"
-                                    name="first-name"
+                                    name="firstName"
                                     type="text"
+                                    value={values.firstName}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
                                     placeholder='first name'
                                     autoComplete="given-name"
                                     className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.firstName && touched.firstName && <span className='text-red-500' >{errors.firstName}</span>}
                             </div>
                         </div>
 
@@ -31,12 +53,16 @@ function BasicInfo() {
                             <div className="mt-2">
                                 <input
                                     id="last-name"
-                                    name="last-name"
+                                    name="lastName"
                                     placeholder='last name'
                                     type="text"
+                                    value={values.lastName}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
                                     autoComplete="family-name"
                                     className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.lastName && touched.lastName && <span className='text-red-500' >{errors.lastName}</span>}
                             </div>
                         </div>
 
@@ -47,11 +73,15 @@ function BasicInfo() {
                             <div className="mt-2">
                                 <input
                                     id="date"
-                                    name="date"
+                                    name="DOB"
                                     type="date"
+                                    value={values.DOB}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
                                     autoComplete="email"
                                     className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.DOB && touched.DOB && <span className='text-red-500' >{errors.DOB}</span>}
                             </div>
                         </div>
 
@@ -64,6 +94,9 @@ function BasicInfo() {
                                     id="gender"
                                     name="gender"
                                     placeholder="gender"
+                                    value={values.gender}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
                                     autoComplete="country-name"
                                     className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
@@ -71,12 +104,13 @@ function BasicInfo() {
                                     <option>Male</option>
                                     <option>Female</option>
                                 </select>
+                                {errors.gender && touched.gender && <span className='text-red-500' >{errors.gender}</span>}
                             </div>
                         </div>
                     </div>
                     <div className='flex justify-end py-4'>
                         <div>
-                            <button className='px-4 py-2 bg-RedTheme text-white mx-2'>Update</button>
+                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>Update</button>
                         </div>
                     </div>
                 </div>
