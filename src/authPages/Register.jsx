@@ -60,7 +60,7 @@ function Register() {
                                 {errors.email && touched.email && <p className='text-red-500 text-sm' >{errors.email}</p>}
                             </div>
                             <div className='mb-4'>
-                                <input className='w-full p-2  rounded-md  outline-none border hover:border-red-400 focus:border-red-400' value={values.phone} name='phone' onChange={handleChange} onBlur={handleBlur} type="number" maxLength="12" placeholder='Phone ' />
+                                <input className='w-full p-2  rounded-md  outline-none border hover:border-red-400 focus:border-red-400' value={values.phone} name='phone' onChange={handleChange} onBlur={handleBlur} type="text" maxLength="12" placeholder='Phone ' />
                                 {errors.phone && touched.phone && <p className='text-red-500 text-sm' >{errors.phone}</p>}
                             </div>
                         </div>
