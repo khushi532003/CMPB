@@ -3,7 +3,7 @@ import React from 'react'
 function ActiveMembers() {
     return (
         <div>
-            <div className="activeMemebers py-8 mt-20">
+            <div className="activeMemebers py-8 mt-5">
                 <div className="flex gap-3 w-[90%] mx-auto">
                     <div className="filter hidden sm:block w-[30%] border border-gray-400 p-4">
                         <h4 className='text-xl'>FILTER SEARCH</h4>
