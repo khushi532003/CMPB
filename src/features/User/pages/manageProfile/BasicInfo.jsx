@@ -17,7 +17,7 @@ function BasicInfo({data}) {
         enableReinitialize:true,
         validationSchema: BasicDetailsSchema,
         onSubmit:async (value)=>{
-            await Update("/profile/update",value)
+            await Update("/user/update",value)
         }
     })
     return (

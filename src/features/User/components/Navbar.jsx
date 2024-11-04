@@ -106,9 +106,7 @@ function Navbar() {
                             <li onClick={() => { setSidebarToggle(false); handleLinkClick('/members'); }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
                                 <span>Active Members</span>
                             </li>
-                            <li onClick={() => { setSidebarToggle(false); handleLinkClick('/myInterests'); }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
-                                <span>My Interests</span>
-                            </li>
+                          
                             <li onClick={() => { setSidebarToggle(false); handleLinkClick('/purchaseHistory'); }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
                                 <span>Your Packages</span>
                             </li>
