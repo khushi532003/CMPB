@@ -101,7 +101,7 @@ function HappyStories() {
                                 </div>
                             </div>
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
@@ -109,4 +109,4 @@ function HappyStories() {
     )
 }
 
-export default HappyStories
+export default HappyStories;    
