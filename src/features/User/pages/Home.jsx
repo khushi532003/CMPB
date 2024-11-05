@@ -8,7 +8,6 @@ import { usePackageContext } from '@/context';
 function Home() {
 
   const { programme } = usePackageContext()
-  console.log(programme);
 
   return (
     <div>

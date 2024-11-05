@@ -1,5 +1,5 @@
 import { AxiosHandler } from "@/config/Axios.config";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 
@@ -29,9 +29,6 @@ function AuthContextProvider({ children }) {
             setLoader(false)
         };
     };
-
-
-
 
     const LoginUser = async (data) => {
         setLoader(true);
@@ -88,15 +85,36 @@ function AuthContextProvider({ children }) {
             console.log(response);
             window.location.href = "/";
         } catch (error) {
-            toast.error(error.response?.data?.message || "Forge password failed");
+            toast.error(error.response?.data?.message || "Forget password failed");
             console.log(error)
         } finally {
             setLoader(false);
         }
     }
 
+    const deactivateAccount = async () => {
+        try {
+            const res = await AxiosHandler.post("/deactivate-account/delete");
+            toast.success("Account Deactivated");
+            console.log(res);
+            Logout()
 
+        } catch (error) {
+            toast.error("Failed to deactivate account");
+            console.log(error);
+        }
+    };
 
+    const changePassword = async (data) => {
+        try {
+            const res = await AxiosHandler.post("/auth/changepassword", { oldPassword: data?.oldpassword, password: data?.confirmPassword });
+            console.log(res);
+            toast.success(res?.data?.data?.message || "Password change successfully");
+            window.location.href = "/";
+        } catch (error) {
+            toast.error(error?.response?.data?.messages);
+        }
+    };
 
     const Logout = () => {
         Cookies.remove("CMPB_TOKEN");
@@ -109,10 +127,8 @@ function AuthContextProvider({ children }) {
         }, 1000);
     };
 
-
-
     return (
-        <AuthContext.Provider value={{ RegisterUser, loader, LoginUser, token, role, Logout, ForgetPassword, VerifyOtp, forgetEmail, OTPverify, newPassword }}>
+        <AuthContext.Provider value={{ RegisterUser, loader, LoginUser, token, role, Logout, ForgetPassword, VerifyOtp, forgetEmail, OTPverify, newPassword, deactivateAccount, changePassword }}>
             {children}
         </AuthContext.Provider>
     );

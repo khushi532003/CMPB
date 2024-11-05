@@ -114,7 +114,7 @@ function About() {
         </div>
       </section>
       {/* Service section end  */}
-    </div>
+    </div> 
   )
 }
 

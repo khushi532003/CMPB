@@ -2,9 +2,9 @@ import { RxDashboard } from "react-icons/rx";
 import { IoNotificationsOutline, IoHappyOutline } from "react-icons/io5";
 import { GoPeople, GoHeart, GoDotFill } from "react-icons/go";
 import { MdEventAvailable, MdOutlinePhone } from "react-icons/md";
-import { BsInfoCircle } from "react-icons/bs";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
+import { GiThirdEye } from "react-icons/gi";
 
 
 export const AdminLnks = [
@@ -13,19 +13,19 @@ export const AdminLnks = [
         path: "/",
         icons: RxDashboard
     },
-    
+
     {
         title: "Members",
         icons: GoPeople,
         submenu: [
             {
                 title: "Free Members",
-                path: "/members",
+                path: "/freemembers",
                 icons: GoDotFill,
             },
             {
                 title: "Premium Members",
-                path: "/members",
+                path: "/premiummembers",
                 icons: GoDotFill,
             },
             {
@@ -34,8 +34,8 @@ export const AdminLnks = [
                 icons: GoDotFill,
             },
         ]
-
     },
+
     {
         title: "Program",
         path: "/program",
@@ -47,9 +47,9 @@ export const AdminLnks = [
         icons: IoHappyOutline
     },
     {
-        title: "Users Details",
-        path: "/users_details",
-        icons: BsInfoCircle
+        title: "Churay Hue Pal",
+        path: "/churay_hue_pal",
+        icons: GiThirdEye
     },
     {
         title: "Contact Queries",
@@ -71,8 +71,5 @@ export const AdminLnks = [
         path: "/logout",
         icons: CiLogout
     },
-
-
-
 
 ] 

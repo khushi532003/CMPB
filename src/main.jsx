@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { AuthContextPRovider, ContactContextProvider, HappyStoriesContextProvider, PackageContextProvider, ProfileContextProvider } from '@/context'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import MemberContextProvider from './context/MembersContext/MembersContext.jsx'
+import AdminMembersContextProvider from './AdminContext/MembersContext/AdminMembersContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <GoogleOAuthProvider clientId={`${import.meta.env.VITE_APP_CLIENT_ID}`} >
@@ -15,9 +16,11 @@ createRoot(document.getElementById('root')).render(
           <ProfileContextProvider>
             <HappyStoriesContextProvider>
               <MemberContextProvider>
-              <BrowserRouter>
-                <App />
-              </BrowserRouter>
+                <AdminMembersContextProvider>
+                  <BrowserRouter>
+                    <App />
+                  </BrowserRouter>
+                </AdminMembersContextProvider>
               </MemberContextProvider>
             </HappyStoriesContextProvider>
           </ProfileContextProvider>
