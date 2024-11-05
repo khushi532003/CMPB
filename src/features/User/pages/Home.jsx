@@ -41,7 +41,7 @@ function Home() {
 
           <SwiperSlide>
             <div className="pal py-10 relative">
-              <iframe width="100%" className='sm:rounded-full' height="350" src="https://www.youtube.com/embed/sPQI-7-Qoh0?si=OhzRlrPA8rkUSjq4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="100%" className='sm:rounded-full' height="350" src="https://www.youtube.com/embed/sPQI-7-Qoh0?si=OhzRlrPA8rkUSjq4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
               <div className="petal hidden sm:block absolute top-4 left-0">
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/036/296/405/small_2x/ai-generated-green-floral-watercolor-illustration-for-wedding-invitation-botanical-frame-png.png" alt="" />
               </div>
@@ -53,7 +53,7 @@ function Home() {
           </SwiperSlide>
           <SwiperSlide>
             <div className="pal py-10 relative">
-              <iframe width="100%" className='sm:rounded-full' height="350" src="https://www.youtube.com/embed/6BCA0uEfUw4?si=yjMaGGfNxhU2EOQm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="100%" className='sm:rounded-full' height="350" src="https://www.youtube.com/embed/6BCA0uEfUw4?si=yjMaGGfNxhU2EOQm" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
               <div className="petal hidden sm:block absolute top-4 left-0">
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/036/296/405/small_2x/ai-generated-green-floral-watercolor-illustration-for-wedding-invitation-botanical-frame-png.png" alt="" />
               </div>
@@ -159,7 +159,7 @@ function Home() {
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2 flex items-center">
               <div className="icon">
-                <img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-1.png" alt="" />
+                <img src="../images/processIcons/register.png" alt="" /> 
               </div>
             </div>
             <div className="relative px-2 flex  justify-center mx-auto">
@@ -167,7 +167,7 @@ function Home() {
               <div className="absolute w-10 h-10 bg-[#DEAC80] text-white text-center leading-10 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-2">1</div>
             </div>
             <div className="px-2">
-              <div>
+              <div className='flex flex-col justify-center h-full'>
                 <h3 className="text-2xl sm:text-3xl font-semibold py-3">Register</h3>
                 <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
               </div>
@@ -175,7 +175,7 @@ function Home() {
           </div>
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2">
-              <div>
+              <div className='flex flex-col justify-center h-full'>
                 <h3 className="text-2xl sm:text-3xl font-semibold py-3">Manage Profile</h3>
                 <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
               </div>
@@ -186,14 +186,14 @@ function Home() {
             </div>
             <div className="px-2 flex items-center">
               <div className="icon ">
-                <img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-2.png" alt="" />
+                <img src="../images/processIcons/manageProfile.png" alt="" />
               </div>
             </div>
           </div>
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2 flex items-center">
               <div className="icon">
-                <img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-1.png" alt="" />
+                <img src="../images/processIcons/attendCall.png" alt="" />
               </div>
             </div>
             <div className="relative px-2 flex  justify-center mx-auto">
@@ -201,7 +201,7 @@ function Home() {
               <div className="absolute w-10 h-10 bg-[#DEAC80] text-white text-center leading-10 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-2">3</div>
             </div>
             <div className="px-2">
-              <div>
+              <div className='flex flex-col justify-center h-full'>
                 <h3 className="text-2xl sm:text-3xl font-semibold py-3">Attend Call</h3>
                 <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
               </div>
@@ -209,7 +209,7 @@ function Home() {
           </div>
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2">
-              <div>
+              <div className='flex flex-col justify-center h-full'>
                 <h3 className="text-2xl sm:text-3xl font-semibold py-3">Purchase Package</h3>
                 <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
               </div>
@@ -220,14 +220,14 @@ function Home() {
             </div>
             <div className="px-2 flex items-center">
               <div className="icon ">
-                <img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-2.png" alt="" />
+                <img src="../images/processIcons/package.png" alt="" />
               </div>
             </div>
           </div>
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2 flex items-center">
               <div className="icon">
-                <img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-1.png" alt="" />
+                <img src="../images/processIcons/meeting.png" alt="" />
               </div>
             </div>
             <div className="relative px-2 flex  justify-center mx-auto">
@@ -235,7 +235,7 @@ function Home() {
               <div className="absolute w-10 h-10 bg-[#DEAC80] text-white text-center leading-10 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-2">5</div>
             </div>
             <div className="px-2">
-              <div>
+              <div className='flex flex-col justify-center h-full'>
                 <h3 className="text-2xl sm:text-3xl font-semibold py-3">Fix Meeting</h3>
                 <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
               </div>
@@ -243,7 +243,7 @@ function Home() {
           </div>
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2">
-              <div>
+              <div className='flex flex-col justify-center h-full'>
                 <h3 className="text-2xl sm:text-3xl font-semibold py-3">Get Marry</h3>
                 <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
               </div>
@@ -254,7 +254,7 @@ function Home() {
             </div>
             <div className="px-2 flex items-center">
               <div className="icon ">
-                <img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-2.png" alt="" />
+                <img src="../images/processIcons/marry.png" alt="" />
               </div>
             </div>
           </div>
