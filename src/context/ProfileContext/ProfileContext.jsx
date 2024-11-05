@@ -13,17 +13,17 @@ function ProfileContextProvider({ children }) {
         try {
             const res = await AxiosHandler.get("/profile/get")
             setProfile(res.data.profileDetails);
-            console.log(res);
+            // console.log(res);
         } catch (error) {
             console.log(error)
             toast.error(error || "Something went wrong")
         };
     };
 
-    const Create = async(api,data) => {
+    const Create = async (api, data) => {
         try {
             const res = await AxiosHandler.post(api, data)
-            toast.success(res.data.message)
+            toast.success(res.data.message || "Data Created successfully")
             GetProfile()
         } catch (error) {
             console.log(error)
@@ -31,16 +31,17 @@ function ProfileContextProvider({ children }) {
         }
     }
 
-    const Update = async (api,data) => {
+    const Update = async (api, data) => {
         try {
             const res = await AxiosHandler.put(api, data)
-            toast.success(res.data.message)
+            toast.success(res.data.message || "Data Updated Successfully")
+            console.log(res)
             GetProfile()
         } catch (error) {
             toast.error(error.responses.message || "Something went wrong")
         }
     }
-    
+
 
 
 

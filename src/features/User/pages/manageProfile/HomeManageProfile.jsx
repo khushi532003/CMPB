@@ -1,6 +1,6 @@
 import React from 'react'
 import BasicInfo from './BasicInfo';
-import ProfileAddress from './ProfileAddress';
+import PresentAddress from './presentAddress';
 import CareerInfo from './CareerInfo';
 import EducationInfo from './EducationInfo';
 import PhysicalAttribute from './PhysicalAttribute';
@@ -13,12 +13,12 @@ import AstronomicInfo from './AstronomicInfo';
 import PartnerExpection from './PartnerExpection';
 import InterestedIn from './InterestedIn';
 import { useProfileContext } from '@/context';
-import { useEffect } from 'react';
 import Loader from '@/constant/loader';
+import PermanentAddress from './PermanentAddress';
 
 function HomeManageProfile() {
     const { profile } = useProfileContext()
-    console.log(profile)
+    console.log(profile);
 
     if (profile?.length < 1) return <Loader />;
     return (
@@ -27,24 +27,26 @@ function HomeManageProfile() {
                 <div className="filter sm:block w-[30%] border border-gray-400 p-4">
                     <div>
                         <div className='w-full flex items-center text-center !justify-center'>
-                            <img className='rounded-full w-52 h-52 ' src="https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg" alt="" />
+                            <img className='rounded-full w-52 h-52 ' src={profile?.user?.profileImage?.ImageURL} alt="" />
                         </div>
-                        <p className='text-center py-4'>Paras Parivaar</p>
+                        <p className='text-center py-4'>{profile?.user?.firstName}</p>
                     </div>
                 </div>
+
                 <div className="members w-full sm:w-[70%] border border-gray-400 p-4">
                     <BasicInfo data={profile?.user} />
-                    <ProfileAddress />
+                    <PresentAddress data={profile?.addressDetails} />
                     <CareerInfo data={profile?.careerDetails} />
                     <EducationInfo data={profile?.educationDetails} />
                     <PhysicalAttribute data={profile?.physicalattributeDetails} />
-                    <Languages />
-                    <HobbiesInterest />
-                    <PersonalAttitude />
+                    <Languages data={profile?.languageDetails} />
+                    <HobbiesInterest data={profile?.hoobiesandintrestDetails} />
+                    <PermanentAddress data={profile?.permanentaddressDetails} />
+                    <PersonalAttitude data={profile?.personalattitudeDetails} />
                     <ResidancyInfo data={profile?.residencyinfoDetails} />
-                    <BackgroundInfo />
-                    <AstronomicInfo />
-                    <PartnerExpection />
+                    <BackgroundInfo data={profile?.backgroundDetails} />
+                    <AstronomicInfo data={profile?.astronomicDetails} />
+                    <PartnerExpection data={profile?.partnerexpectationDetails} />
                     <InterestedIn />
                 </div>
             </div>

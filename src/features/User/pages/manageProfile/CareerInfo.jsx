@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import React from 'react';
 
 
-function CareerInfo({data}) {
+function CareerInfo({ data }) {
 
     const { Create, Update } = useProfileContext();
 
@@ -14,7 +14,7 @@ function CareerInfo({data}) {
             company: data?.company ? data.company : "",
             start: data?.start ? data.start : "",
             end: data?.end ? data.end : ""
-        },
+        }, 
         enableReinitialize: true,
         validationSchema: CareerInfoSchema,
         onSubmit: async (value) => {
