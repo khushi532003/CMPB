@@ -1,0 +1,30 @@
+import React, { useEffect } from 'react'
+import Table from '../components/Table'
+import { useAdminMemberContext } from '@/AdminContext'
+import { useAuthContext } from '@/context';
+
+function FreeMembers() {
+
+    const { freeMembers, freeMembersData } = useAdminMemberContext()
+    const { token } = useAuthContext()
+
+
+    useEffect(() => {
+        if (token)
+            freeMembers()
+    }, [token])
+
+
+    return (
+        <div>
+            <div class=" flex items-center justify-between pb-6">
+                <div>
+                    <h3 class="text-gray-600 font-semibold text-3xl">Free Members</h3>
+                </div>
+            </div>
+            <Table id={'S.N0.'} profileImage={"Profile Image"} memeberName={"Member Name"} memberId={"Member ID"} detail={"View Details"} data={freeMembersData} />
+        </div>
+    )
+}
+
+export default FreeMembers;
