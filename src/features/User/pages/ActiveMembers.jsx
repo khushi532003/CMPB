@@ -1,6 +1,12 @@
+import { useMembersContext } from '@/context';
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function ActiveMembers() {
+
+    const { activeUser } = useMembersContext();
+    console.log(activeUser);
+    
     return (
         <div>
             <div className="activeMemebers py-8 mt-5">
@@ -109,71 +115,26 @@ function ActiveMembers() {
                     </div>
                     <div className="members w-full sm:w-[70%] border border-gray-400 p-4">
                         <div className="heading flex justify-center flex-col py-3">
-                            <h2 className="text-6xl">Active Members</h2>
+                                <h2 className="text-6xl">Active Members</h2>
                             <img src="../images/headingImg.png" alt="" className="w-64" />
                         </div>
 
-                        <div className="member relative border my-2 border-yellow-600 rounded-md">
+                        {activeUser.map((item)=> <div className="member relative border my-2 border-yellow-600 rounded-md">
                             <div className="block sm:flex items-center gap-6 p-3">
                                 <div className="profileImg pb-5 sm:pb-0">
-                                    <img className='w-52 rounded-full' src="https://writestylesonline.com/wp-content/uploads/2018/11/Three-Statistics-That-Will-Make-You-Rethink-Your-Professional-Profile-Picture-1024x1024.jpg" alt="" />
+                                    <img className='w-52 h-52 object-cover rounded-full' src={item?.profileImage?.ImageURL} alt="" />
                                 </div>
                                 <div className="profileDetails">
-                                    <div className="memberType absolute right-2 top-2 rounded-sm px-3 py-1 bg-[#BB1A04] text-white">Free</div>
-                                    <h3 className='text-3xl'> Shreya Mehra</h3>
-                                    <div className="id py-3"> <strong>MEMBER ID : </strong> 12656362</div>
+                                    <div className="memberType absolute right-2 top-2 rounded-sm px-3 py-1 bg-[#BB1A04] text-white">{item?.RegisterPackage ? "Premium" : "Free"}</div>
+                                    <h3 className='text-3xl'> {item?.firstName} {item?.lastName} </h3>
+                                    <div className="id py-3"> <strong>MEMBER ID : </strong> {item?.MemberID}</div>
                                     <div className="w-full mt-6">
-                                        <button className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">View Details</button>
+                                        <Link to={`/member_profile/${item?._id}`}> <button className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">View Details</button></Link>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="member relative border my-2 border-yellow-600 rounded-md">
-                            <div className="block sm:flex items-center gap-6 p-3">
-                                <div className="profileImg pb-5 sm:pb-0">
-                                    <img className='w-52 rounded-full' src="https://writestylesonline.com/wp-content/uploads/2018/11/Three-Statistics-That-Will-Make-You-Rethink-Your-Professional-Profile-Picture-1024x1024.jpg" alt="" />
-                                </div>
-                                <div className="profileDetails">
-                                    <div className="memberType absolute right-2 top-2 rounded-sm px-3 py-1 bg-[#BB1A04] text-white">Free</div>
-                                    <h3 className='text-3xl'> Shreya Mehra</h3>
-                                    <div className="id py-3"> <strong>MEMBER ID : </strong> 12656362</div>
-                                    <div className="w-full mt-6">
-                                        <button className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">View Details</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="member relative border my-2 border-yellow-600 rounded-md">
-                            <div className="block sm:flex items-center gap-6 p-3">
-                                <div className="profileImg pb-5 sm:pb-0">
-                                    <img className='w-52 rounded-full' src="https://writestylesonline.com/wp-content/uploads/2018/11/Three-Statistics-That-Will-Make-You-Rethink-Your-Professional-Profile-Picture-1024x1024.jpg" alt="" />
-                                </div>
-                                <div className="profileDetails">
-                                    <div className="memberType absolute right-2 top-2 rounded-sm px-3 py-1 bg-[#BB1A04] text-white">Free</div>
-                                    <h3 className='text-3xl'> Shreya Mehra</h3>
-                                    <div className="id py-3"> <strong>MEMBER ID : </strong> 12656362</div>
-                                    <div className="w-full mt-6">
-                                        <button className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">View Details</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="member relative border my-2 border-yellow-600 rounded-md">
-                            <div className="block sm:flex items-center gap-6 p-3">
-                                <div className="profileImg pb-5 sm:pb-0">
-                                    <img className='w-52 rounded-full' src="https://writestylesonline.com/wp-content/uploads/2018/11/Three-Statistics-That-Will-Make-You-Rethink-Your-Professional-Profile-Picture-1024x1024.jpg" alt="" />
-                                </div>
-                                <div className="profileDetails">
-                                    <div className="memberType absolute right-2 top-2 rounded-sm px-3 py-1 bg-[#BB1A04] text-white">Free</div>
-                                    <h3 className='text-3xl'> Shreya Mehra</h3>
-                                    <div className="id py-3"> <strong>MEMBER ID : </strong> 12656362</div>
-                                    <div className="w-full mt-6">
-                                        <button className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">View Details</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        </div>) }
+                        
                     </div>
                 </div>
             </div>

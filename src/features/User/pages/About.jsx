@@ -24,6 +24,32 @@ function About() {
       </section>
       {/* About section end  */}
 
+      {/* Why choose us section start  */}
+      <section className="wcu py-5">
+        <div className="heading flex justify-center flex-col items-center text-center">
+          <h2 className="text-6xl sm:text-8xl">Why Choose Us</h2>
+          <img src="../images/headingImg.png" alt="" className="w-64" />
+        </div>
+
+        <div className="reasons py-5 w-[90%] mx-auto">
+          <div className="grid grid-cols-4 gap-4 ">
+            <div className="reason rounded-full w-60 flex justify-center items-center h-60 text-center bg-[#bb1904ad] text-white">
+              <p className="">We are a symbol of <strong>Vedic & Modern</strong> Culture</p>
+            </div>
+            <div className="reason rounded-full w-60 flex justify-center items-center h-60  text-center bg-[#bb1904ad] text-white">
+              <p className="">We Know you, <strong>better than you</strong> </p>
+            </div>
+            <div className="reason rounded-full w-60 flex justify-center items-center h-60  text-center bg-[#bb1904ad] text-white">
+              <p className="">Having valid experience of <strong>16-17</strong>  years</p>
+            </div>
+            <div className="reason rounded-full w-60 flex justify-center items-center h-60 text-center bg-[#bb1904ad] text-white">
+              <p className="">Because there is one and only <strong>Paras Bhai</strong> </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Why choose us section end  */}
+
       {/* Service section start  */}
       <section className="services py-5">
         <div className="heading flex justify-center flex-col items-center text-center">

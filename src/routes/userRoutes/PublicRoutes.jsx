@@ -24,7 +24,7 @@ export const UserPublicRoutes = [
         element: <HappyStories/>
     },
     {
-        path: "/story",
+        path: "/story/:id",
         element: <Story/>
     },
    

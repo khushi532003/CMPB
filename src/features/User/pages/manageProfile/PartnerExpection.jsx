@@ -1,9 +1,52 @@
+import { useProfileContext } from '@/context';
+import { PartnerExpectionSchema } from '@/validation/ProfileValidation';
+import { data } from 'autoprefixer';
+import { useFormik } from 'formik';
 import React from 'react';
 
 
-function PartnerExpection() {
+function PartnerExpection({ data }) {
+    const { Create, Update } = useProfileContext();
+
+    const { values, errors, touched, handleBlur, handleSubmit, handleChange } = useFormik({
+        initialValues: {
+            GernalRequirement: data?.GernalRequirement ? data?.GernalRequirement : "",
+            ResidenceCountry: data?.ResidenceCountry ? data?.ResidenceCountry : "",
+            Height: data?.Height ? data?.Height : "",
+            weight: data?.weight ? data?.weight : "",
+            MaritalStatus: data?.MaritalStatus ? data?.MaritalStatus : "",
+            Children: data?.Children ? data?.Children : "",
+            Religion: data?.Religion ? data?.Religion : "",
+            Caste: data?.Caste ? data?.Caste : "",
+            SubCaste: data?.SubCaste ? data?.SubCaste : "",
+            Language: data?.Language ? data?.Language : "",
+            Education: data?.Education ? data?.Education : "",
+            Profession: data?.Profession ? data?.Profession : "",
+            SmokingAcceptable: data?.SmokingAcceptable ? data?.SmokingAcceptable : "",
+            DrinkAcceptable: data?.DrinkAcceptable ? data?.DrinkAcceptable : "",
+            DietAcceptable: data?.DietAcceptable ? data?.DietAcceptable : "",
+            personalValue: data?.personalValue ? data?.personalValue : "",
+            Manglik: data?.Manglik ? data?.Manglik : "",
+            PreferredCountry: data?.PreferredCountry ? data?.PreferredCountry : "",
+            PreferredState: data?.PreferredState ? data?.PreferredState : "",
+            FamilyValue: data?.FamilyValue ? data?.FamilyValue : "",
+            Complexion: data?.Complexion ? data?.Complexion : ""
+        },
+        enableReinitialize: true,
+        validationSchema: PartnerExpectionSchema,
+        onSubmit: async (value) => {
+            if (!data) {
+                await Create("/profile/partnerexpectation/create", value)
+            } else {
+                await Update("/profile/partnerexpectation/update", value)
+            }
+        }
+    })
+
+
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className="space-y-12">
 
                 <div className="border-b border-gray-900/10 pb-12">
@@ -17,11 +60,15 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <input
                                     id="first-name"
-                                    name="first-name"
+                                    name="GernalRequirement"
+                                    value={values.GernalRequirement}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     type="text"
                                     autoComplete="given-name"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.GernalRequirement && touched.GernalRequirement && <p className='text-red-500 text-sm'>{errors.GernalRequirement}</p>}
                             </div>
                         </div>
 
@@ -33,10 +80,14 @@ function PartnerExpection() {
                                 <input
                                     id="last-name"
                                     name="last-name"
+                                    value={values.ResidenceCountry}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     type="text"
                                     autoComplete="family-name"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.ResidenceCountry && touched.ResidenceCountry && <p className='text-red-500 text-sm'>{errors.ResidenceCountry}</p>}
                             </div>
                         </div>
 
@@ -47,11 +98,15 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <input
                                     id="date"
-                                    name="date"
+                                    name="Height"
+                                    value={values.Height}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.Height && touched.Height && <p className='text-red-500 text-sm'>{errors.Height}</p>}
                             </div>
                         </div>
 
@@ -62,11 +117,15 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <input
                                     id="date"
-                                    name="date"
+                                    name="weight"
+                                    value={values.weight}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.weight && touched.weight && <p className='text-red-500 text-sm'>{errors.weight}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -76,11 +135,15 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <input
                                     id="date"
-                                    name="date"
+                                    name="MaritalStatus"
+                                    value={values.MaritalStatus}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.MaritalStatus && touched.MaritalStatus && <p className='text-red-500 text-sm'>{errors.MaritalStatus}</p>}
                             </div>
                         </div>
 
@@ -91,13 +154,18 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <select
                                     id="country"
-                                    name="country"
+                                    name="Children"
+                                    value={values.Children}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     autoComplete="country-name"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
+                                    <option disabled>Select</option>
                                     <option>Yes</option>
                                     <option>No</option>
                                 </select>
+                                {errors.Children && touched.Children && <p className='text-red-500 text-sm'>{errors.Children}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -107,11 +175,15 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <input
                                     id="date"
-                                    name="date"
+                                    name="Religion"
+                                    value={values.Religion}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.Religion && touched.Religion && <p className='text-red-500 text-sm'>{errors.Religion}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -121,11 +193,15 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <input
                                     id="date"
-                                    name="date"
+                                    name="Caste"
+                                    value={values.Caste}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.Caste && touched.Caste && <p className='text-red-500 text-sm'>{errors.Caste}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -135,11 +211,15 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <input
                                     id="date"
-                                    name="date"
+                                    name="SubCaste"
+                                    value={values.SubCaste}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.SubCaste && touched.SubCaste && <p className='text-red-500 text-sm'>{errors.SubCaste}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -149,11 +229,15 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <input
                                     id="date"
-                                    name="date"
+                                    name="Language"
+                                    value={values.Language}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.Language && touched.Language && <p className='text-red-500 text-sm'>{errors.Language}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -163,11 +247,15 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <input
                                     id="date"
-                                    name="date"
+                                    name="Education"
+                                    value={values.Education}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.Education && touched.Education && <p className='text-red-500 text-sm'>{errors.Education}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -177,11 +265,15 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <input
                                     id="date"
-                                    name="date"
+                                    name="Profession"
+                                    value={values.Profession}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.Profession && touched.Profession && <p className='text-red-500 text-sm'>{errors.Profession}</p>}
                             </div>
                         </div>
 
@@ -192,13 +284,18 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <select
                                     id="country"
-                                    name="country"
+                                    name="SmokingAcceptable"
+                                    value={values.SmokingAcceptable}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     autoComplete="country-name"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
+                                    <option disabled>Select</option>
                                     <option>Yes</option>
                                     <option>No</option>
                                 </select>
+                                {errors.SmokingAcceptable && touched.SmokingAcceptable && <p className='text-red-500 text-sm'>{errors.SmokingAcceptable}</p>}
                             </div>
                         </div>
 
@@ -209,13 +306,18 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <select
                                     id="country"
-                                    name="country"
+                                    name="DrinkAcceptable"
+                                    value={values.DrinkAcceptable}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     autoComplete="country-name"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
+                                    <option disabled>Select</option>
                                     <option>Yes</option>
                                     <option>No</option>
                                 </select>
+                                {errors.DrinkAcceptable && touched.DrinkAcceptable && <p className='text-red-500 text-sm'>{errors.DrinkAcceptable}</p>}
                             </div>
                         </div>
 
@@ -226,13 +328,18 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <select
                                     id="country"
-                                    name="country"
+                                    name="DietAcceptable"
+                                    value={values.DietAcceptable}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     autoComplete="country-name"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
+                                    <option disabled>Select</option>
                                     <option>Yes</option>
                                     <option>No</option>
                                 </select>
+                                {errors.DietAcceptable && touched.DietAcceptable && <p className='text-red-500 text-sm'>{errors.DietAcceptable}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -242,13 +349,18 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <select
                                     id="country"
-                                    name="country"
+                                    name="Manglik"
+                                    value={values.Manglik}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     autoComplete="country-name"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
+                                    <option disabled>Select</option>
                                     <option>Yes</option>
                                     <option>No</option>
                                 </select>
+                                {errors.Manglik && touched.Manglik && <p className='text-red-500 text-sm'>{errors.Manglik}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -258,11 +370,15 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <input
                                     id="date"
-                                    name="date"
+                                    name="personalValue"
+                                    value={values.personalValue}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     type="Number"
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.personalValue && touched.personalValue && <p className='text-red-500 text-sm'>{errors.personalValue}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -272,11 +388,15 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <input
                                     id="date"
-                                    name="date"
+                                    name="FamilyValue"
+                                    value={values.FamilyValue}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     type="Number"
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.FamilyValue && touched.FamilyValue && <p className='text-red-500 text-sm'>{errors.FamilyValue}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -286,11 +406,15 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <input
                                     id="date"
-                                    name="date"
+                                    name="PreferredCountry"
+                                    value={values.PreferredCountry}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.PreferredCountry && touched.PreferredCountry && <p className='text-red-500 text-sm'>{errors.PreferredCountry}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -300,11 +424,15 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <input
                                     id="date"
-                                    name="date"
+                                    name="PreferredState"
+                                    value={values.PreferredState}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.PreferredState && touched.PreferredState && <p className='text-red-500 text-sm'>{errors.PreferredState}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -314,17 +442,21 @@ function PartnerExpection() {
                             <div className="mt-2">
                                 <input
                                     id="date"
-                                    name="date"
+                                    name="Complexion"
+                                    value={values.Complexion}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {errors.Complexion && touched.Complexion && <p className='text-red-500 text-sm'>{errors.Complexion}</p>}
                             </div>
                         </div>
                     </div>
                     <div className='flex justify-end py-4'>
                         <div>
-                            <button className='px-4 py-2 bg-RedTheme text-white mx-2'>Update</button>
+                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>Update</button>
                         </div>
                     </div>
                 </div>
