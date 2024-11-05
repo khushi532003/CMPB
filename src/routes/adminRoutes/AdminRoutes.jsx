@@ -1,9 +1,10 @@
 import Packages from "@admin/pages/Packages";
-import UserDetails from "@admin/pages/UserDetails";
+import UserDetails from "@/features/admin/pages/ChurayHuePal";
 import UserInterests from "@admin/pages/UserInterests";
 import ContectQueries from "@admin/pages/ContectQueries";
 import HappyStory from "@admin/pages/HappyStory";
 import Home from "@admin/pages/Home";
+import ChurayHuePal from "@/features/admin/pages/ChurayHuePal";
 
 
 export const AdminRoute= [
@@ -28,7 +29,7 @@ export const AdminRoute= [
         element: <Packages />
     },
     {
-        path: "/users_details",
-        element: <UserDetails />
+        path: "/churay_hue_pal",
+        element: <ChurayHuePal />
     },
 ]
