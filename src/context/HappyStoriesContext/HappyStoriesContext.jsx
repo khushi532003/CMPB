@@ -10,7 +10,6 @@ const HappyStoriesContextProvider = ({children})=>{
     const GetHappyStories = async ()=>{
         try {
             const res = await AxiosHandler.get("/happystories/get")
-            console.log(res.data.data);
             setHappyStory(res.data.data);
             
         } catch (error) {

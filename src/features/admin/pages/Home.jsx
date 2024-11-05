@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ListCards from "@admin/components/ListCards";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import Table from '../components/Table';
 
 const Home = () => {
     const data = [{ name: 'Page A', uv: 100, amt: 2400 }, { name: 'Page B', uv: 350, amt: 2400 }, { name: 'Page C', uv: 10, amt: 1500 }, { name: 'Page D', uv: 220, amt: 1500 }];
@@ -12,6 +13,7 @@ const Home = () => {
                 <ListCards title={"Free Members"} member={20} className={"bg-total_user2 text-white"} />
                 <ListCards title={"Programs Bookings"} member={20} className={"bg-total_user3 text-white"} />
             </div>
+
             <div className='py-20 z-0 ' >
                     <LineChart width={900} height={350} data={data}
                         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>

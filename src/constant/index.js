@@ -20,12 +20,12 @@ export const AdminLnks = [
         submenu: [
             {
                 title: "Free Members",
-                path: "/members",
+                path: "/freemembers",
                 icons: GoDotFill,
             },
             {
                 title: "Premium Members",
-                path: "/members",
+                path: "/premiummembers",
                 icons: GoDotFill,
             },
             {

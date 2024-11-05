@@ -37,9 +37,9 @@ function HappyStories() {
                                 <div className="storyDetails  py-3 flex flex-col items-center">
                                     <div className="flex items-center gap-2">
 
-                                        <div className="name font-semibold text-gray-600 py-3">{item?.Bride}</div>
+                                        <div className="name capitalize font-semibold text-gray-600 py-3">{item?.Bride}</div>
                                         <img className='w-10' src="https://banner2.cleanpng.com/20240127/qgp/transparent-heart-emoji-cute-heart-icon-with-big-smiling-1710896636255.webp" alt="" />
-                                        <div className="name font-semibold text-gray-600 py-3">{item?.Groom}</div>
+                                        <div className="name capitalize font-semibold text-gray-600 py-3">{item?.Groom}</div>
                                     </div>
                                     <p className="text-sm">Posted by : <strong className='text-[#BB1A04]'>Admin</strong></p>
                                     <p className="text-sm">On : <strong className='text-[#BB1A04]'>{formatDate(item?.createdAt)}</strong></p>

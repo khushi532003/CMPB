@@ -1,14 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { TfiClose } from "react-icons/tfi";
 import { useAuthContext } from '@/context';
+import ConfirmModal from './ConfirmModal';
 
 function Navbar() {
     const [scrolling, setScrolling] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [sideBarToggle, setSidebarToggle] = useState(false);
-    const { token, Logout } = useAuthContext();
+    const { token, Logout, deactivateAccount } = useAuthContext();
     const navigate = useNavigate();
+    const [showConfirm, setShowConfirm] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    // Handle click to show confirmation
+    const handleDeactivateClick = () => {
+        setShowConfirm(true); // Show the confirmation modal
+    };
+
+    // Handle cancel (close the modal without doing anything)
+    const handleCancel = () => {
+        setShowConfirm(false);
+    };
+
+
+    
 
     useEffect(() => {
         const handleScroll = () => {
@@ -113,8 +129,9 @@ function Navbar() {
                             <li onClick={() => { setSidebarToggle(false); handleLinkClick('/changePassword'); }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
                                 <span>Change Password</span>
                             </li>
-                            <li onClick={() => { setSidebarToggle(false); handleLinkClick('/deleteAccount'); }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
-                                <span>Delete Account</span>
+                            <li onClick={() => {
+                                setSidebarToggle(false); handleDeactivateClick();}}className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
+                                <span>Deactivate Account</span>
                             </li>
                             <li onClick={() => { setSidebarToggle(false); Logout(); }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
                                 Log Out
@@ -123,6 +140,12 @@ function Navbar() {
                     </div>
                 </div>
             )}
+            <ConfirmModal
+                isOpen={showConfirm} // Show modal if showConfirm is true
+                onClose={handleCancel} // Close the modal when the user clicks Cancel
+                onConfirm={deactivateAccount} // Trigger the deactivation when user confirms
+                message="Are you sure you want to deactivate your account?" // Message in the modal
+            />
         </div>
     );
 }
