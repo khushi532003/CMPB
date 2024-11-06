@@ -30,15 +30,15 @@ export const AdminLnks = [
             },
             {
                 title: "Program Booking ",
-                path: "/members",
+                path: "/programme-booking",
                 icons: GoDotFill,
             },
         ]
     },
 
     {
-        title: "Program",
-        path: "/program",
+        title: "Add Program",
+        path: "/add-programme",
         icons: MdEventAvailable
     },
     {
@@ -47,8 +47,8 @@ export const AdminLnks = [
         icons: IoHappyOutline
     },
     {
-        title: "Churay Hue Pal",
-        path: "/churay_hue_pal",
+        title: "Churaye Hue Pal",
+        path: "/churaye_hue_pal",
         icons: GiThirdEye
     },
     {

@@ -3,10 +3,11 @@ import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
-import { AuthContextPRovider, ContactContextProvider, HappyStoriesContextProvider, PackageContextProvider, ProfileContextProvider } from '@/context'
+import { AuthContextPRovider, ChurayePalContextProvider, ContactContextProvider, HappyStoriesContextProvider, PackageContextProvider, ProfileContextProvider } from '@/context'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import MemberContextProvider from './context/MembersContext/MembersContext.jsx'
 import AdminMembersContextProvider from './AdminContext/MembersContext/AdminMembersContext.jsx'
+import { ChurayeHuePalContextProvider, HappyStoryContextProvider, ProgrammeContextProvider } from './AdminContext/index.jsx'
 
 createRoot(document.getElementById('root')).render(
   <GoogleOAuthProvider clientId={`${import.meta.env.VITE_APP_CLIENT_ID}`} >
@@ -17,9 +18,17 @@ createRoot(document.getElementById('root')).render(
             <HappyStoriesContextProvider>
               <MemberContextProvider>
                 <AdminMembersContextProvider>
-                  <BrowserRouter>
-                    <App />
-                  </BrowserRouter>
+                  <ProgrammeContextProvider>
+                    <ChurayeHuePalContextProvider>
+                      <ChurayePalContextProvider>
+                        <HappyStoryContextProvider>
+                          <BrowserRouter>
+                            <App />
+                          </BrowserRouter>
+                        </HappyStoryContextProvider>
+                      </ChurayePalContextProvider>
+                    </ChurayeHuePalContextProvider>
+                  </ProgrammeContextProvider>
                 </AdminMembersContextProvider>
               </MemberContextProvider>
             </HappyStoriesContextProvider>
