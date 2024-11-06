@@ -3,11 +3,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
-import { usePackageContext } from '@/context';
+import { useChurayePalContext, usePackageContext } from '@/context';
 
 function Home() {
 
-  const { programme } = usePackageContext()
+  const { programme } = usePackageContext();
+  const { videoURLData } = useChurayePalContext();
+  console.log(videoURLData);
+  
 
   return (
     <div>
@@ -38,9 +41,9 @@ function Home() {
           className="mySwiper"
         >
 
-          <SwiperSlide>
+          {videoURLData?.map((item) => <SwiperSlide>
             <div className="pal py-10 relative">
-              <iframe width="100%" className='sm:rounded-full' height="350" src="https://www.youtube.com/embed/sPQI-7-Qoh0?si=OhzRlrPA8rkUSjq4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+              <iframe width="100%" className='sm:rounded-full' height="350" src={item?.VideoURL} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe> 
               <div className="petal hidden sm:block absolute top-4 left-0">
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/036/296/405/small_2x/ai-generated-green-floral-watercolor-illustration-for-wedding-invitation-botanical-frame-png.png" alt="" />
               </div>
@@ -49,37 +52,8 @@ function Home() {
               </div>
             </div>
 
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="pal py-10 relative">
-              <iframe width="100%" className='sm:rounded-full' height="350" src="https://www.youtube.com/embed/6BCA0uEfUw4?si=yjMaGGfNxhU2EOQm" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-              <div className="petal hidden sm:block absolute top-4 left-0">
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/036/296/405/small_2x/ai-generated-green-floral-watercolor-illustration-for-wedding-invitation-botanical-frame-png.png" alt="" />
-              </div>
-              <div className="petal hidden sm:block absolute top-4 right-0 rotate-180">
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/036/296/405/small_2x/ai-generated-green-floral-watercolor-illustration-for-wedding-invitation-botanical-frame-png.png" alt="" />
-              </div>
-            </div>
-
-          </SwiperSlide>
-
-          {/* <SwiperSlide>
-            <div className="reviews py-5 relative">
-              <div className="block sm:flex justify-between gap-3 py-6 items-center w-[80%] mx-auto">
-                <div className="clientImage w-full sm:w-[30%] pb-5 sm:pb-0">
-                  <img src="https://cdn0.weddingwire.in/article/4650/original/1280/jpg/120564-wedding-couple-poses-stories-by-joseph-radhik.jpeg" alt="client" className="rounded-full w-48 sm:w-64" />
-                  <div className="imgCover">
-                    <img className="absolute left-2 sm:left-[6rem] top-7 w-[16rem] sm:w-[21rem]" src="https://static.vecteezy.com/system/resources/previews/023/546/066/non_2x/circle-floral-border-with-hand-drawn-flowers-and-leaves-for-wedding-or-engagement-or-greeting-card-free-png.png" alt="" />
-                  </div>
-                </div>
-                <div className="clientReview w-full  sm:w-[70%]">
-                  <p className="text-xl font-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dicta, repellat placeat iste, distinctio autem impedit blanditiis, corrupti sequi facere cupiditate eius. Modi assumenda incidunt nobis debitis unde accusamus labore. Assumenda tempora eligendi sint ratione rem dolor commodi, voluptatibus molestias.
-                  </p>
-                    <div className="name font-semibold text-gray-600 py-3">Riya Verma</div>                   
-                </div>
-              </div>
-            </div>
-          </SwiperSlide> */}
+          </SwiperSlide>)}
+        
 
         </Swiper>
       </section>
