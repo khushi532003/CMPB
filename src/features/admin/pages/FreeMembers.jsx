@@ -22,7 +22,7 @@ function FreeMembers() {
                     <h3 class="text-gray-600 font-semibold text-3xl">Free Members</h3>
                 </div>
             </div>
-            <Table id={'S.N0.'} profileImage={"Profile Image"} memeberName={"Member Name"} memberId={"Member ID"} detail={"View Details"} data={freeMembersData} />
+            <Table id={'S.N0.'} profileImage={"Profile Image"} memeberName={"Member Name"} memberId={"Member ID"} detail={"View Details"} data={freeMembersData} identifier={"members"} />
         </div>
     )
 }
