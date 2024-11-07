@@ -17,7 +17,6 @@ import PermanentAddress from './PermanentAddress';
 
 function HomeManageProfile() {
     const { profile } = useProfileContext()
-    console.log(profile);
 
     if (profile?.length < 1) return <Loader />;
     return (

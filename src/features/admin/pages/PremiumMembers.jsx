@@ -15,9 +15,9 @@ function PremiumMembers() {
     }, [token])
     return (
         <div>
-            <div class=" flex items-center justify-between pb-6">
+            <div className=" flex items-center justify-between pb-6">
                 <div>
-                    <h3 class="text-gray-600 font-semibold text-3xl">Premium Members</h3>
+                    <h3 className="text-gray-600 font-semibold text-3xl">Premium Members</h3>
                 </div>
             </div>
             <Table id={'S.No'} profileImage={"Profile Image"} memeberName={"Member Name"} memberId={"Member ID"} detail={"View Details"} data={premiumMembersData} identifier={"members"} />

@@ -9,7 +9,7 @@ function Home() {
 
   const { programme } = usePackageContext();
   const { videoURLData } = useChurayePalContext();
-  console.log(videoURLData);
+  // console.log(videoURLData);
   
 
   return (
@@ -41,7 +41,7 @@ function Home() {
           className="mySwiper"
         >
 
-          {videoURLData?.map((item) => <SwiperSlide>
+          {videoURLData?.map((item, i) => <SwiperSlide key={i} >
             <div className="pal py-10 relative">
               <iframe width="100%" className='sm:rounded-full' height="350" src={item?.VideoURL} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe> 
               <div className="petal hidden sm:block absolute top-4 left-0">

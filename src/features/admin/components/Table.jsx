@@ -116,7 +116,7 @@ function Table(props) {
                                     {props?.action}
                                 </th>
                                 }
-                                {props?.identifier === "happystory" && <>
+                                {props?.identifier === "happyStoryData" && <>
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                                         {props?.partnerName}

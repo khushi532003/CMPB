@@ -58,11 +58,6 @@ export const AdminLnks = [
     },
    
     {
-        title: "Users interest's",
-        path: "/interest",
-        icons: GoHeart
-    },
-    {
         title: "Logout",
         path: "/logout",
         icons: CiLogout

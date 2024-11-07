@@ -23,10 +23,6 @@ export const AdminRoute= [
         element: <ContectQueries />
     },
     {
-        path: "/interest",
-        element: <UserInterests />
-    },
-    {
         path: "/packages",
         element: <Packages />
     },
