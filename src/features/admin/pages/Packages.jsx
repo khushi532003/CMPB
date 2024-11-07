@@ -34,7 +34,7 @@ const Packages = () => {
               <Table id={"S.no"} amount={'Amount Paid'} identifier={"register"} actions={"Actions"} register={"kjdzhfkjes"} />
               <h4 className="text-gray-600 font-semibold text-xl">Current Event</h4>
 
-              <Table id={"S.no"} date={"Date"} venue={"Venue"} state={"State"} amount={"Amount Paid"} eventName={"Event Name"} description={"Description"} identifier={"programme"} actions={"Actions"} data={programmeData} />
+              <Table id={"S.no"} date={"Date"} venue={"Venue"} state={"State"} amount={"Amount Paid"} eventName={"Event Name"} description={"Description"} identifier={"programme"} actions={"Actions"} event={"hdfjs"} />
             </div>
           </div>
         </div>

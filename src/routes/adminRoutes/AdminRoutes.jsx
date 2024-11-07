@@ -1,4 +1,3 @@
-import UserInterests from "@admin/pages/UserInterests";
 import ContectQueries from "@admin/pages/ContectQueries";
 import HappyStory from "@admin/pages/HappyStory";
 import Home from "@admin/pages/Home";
