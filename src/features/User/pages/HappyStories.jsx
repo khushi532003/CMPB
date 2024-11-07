@@ -18,7 +18,7 @@ function HappyStories() {
         <div>
             <div className="py-5 bg-cover bg-no-repeat" style={{ backgroundImage: "url(https://images.pexels.com/photos/414660/pexels-photo-414660.jpeg?cs=srgb&dl=pexels-pixabay-414660.jpg&fm=jpg)" }}>
                 <div className="heading flex justify-center flex-col items-center text-center">
-                    <h2 className="text-6xl sm:text-8xl ">Happy Stories</h2>
+                    <h2 className="text-6xl sm:text-7xl ">Happy Stories</h2>
                     <img src="../images/headingImg.png" alt="" className="w-64" />
                 </div>
 
