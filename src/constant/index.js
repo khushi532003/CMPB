@@ -62,11 +62,6 @@ export const AdminLnks = [
         icons: FaRegMoneyBillAlt
     },
     {
-        title: "Users interest's",
-        path: "/interest",
-        icons: GoHeart
-    },
-    {
         title: "Logout",
         path: "/logout",
         icons: CiLogout

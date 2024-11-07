@@ -6,7 +6,7 @@ import { LuEye } from 'react-icons/lu';
 
 function Table(props) {
     console.log("props is ", props?.data);
-    const { DeleteVideo } = useChurayeHuePalContext()
+    const { DeleteVideo } = useChurayeHuePalContext();
 
 
     return (
@@ -103,7 +103,7 @@ function Table(props) {
                                     {props?.action}
                                 </th>
                                 }
-                                {props?.identifier === "happystory" && <>
+                                {props?.identifier === "happyStoryData" && <>
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                                         {props?.partnerName}
@@ -158,7 +158,7 @@ function Table(props) {
 
                                         </td>
                                     </>}
-                                    {props?.identifier === "happystory" && <> <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                    {props?.identifier === "happyStoryData" && <> <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
                                         <p class="text-gray-900  text-sm whitespace-no-wrap">
                                             {item?.Groom}
                                         </p>
@@ -191,7 +191,7 @@ function Table(props) {
                                                 <LuEye />
                                             </span>
                                         </td>
-                                      
+
                                     </>}
                                     {/* <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
                                         <p class="text-gray-900 whitespace-no-wrap">
