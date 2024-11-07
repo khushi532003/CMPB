@@ -1,4 +1,4 @@
-import { useChurayeHuePalContext } from '@/AdminContext';
+import { useAdminContactContext, useChurayeHuePalContext, useProgrammeContext } from '@/AdminContext';
 import React from 'react'
 import { FaTrash } from 'react-icons/fa';
 import { LiaEdit } from 'react-icons/lia';
@@ -6,8 +6,8 @@ import { LuEye } from 'react-icons/lu';
 
 function Table(props) {
     console.log("props is ", props?.data);
-    const { DeleteVideo } = useChurayeHuePalContext()
-
+    const { DeleteVideo } = useChurayeHuePalContext();
+    const { DeleteQuery } = useAdminContactContext();
 
     return (
         <div>
@@ -39,7 +39,6 @@ function Table(props) {
                                             class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                                             {props?.detail}
                                         </th>
-
                                     </>
                                 }
                                 {
@@ -63,36 +62,50 @@ function Table(props) {
 
                                     </>
                                 }
-                                {props?.programme && <th
+                                {props?.identifier === "programme" && <><th
                                     class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                                     {props?.date}
                                 </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                        {props?.venue}
+                                    </th>
+
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                        {props?.state}
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                        {props?.amount}
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                        {props?.eventName}
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                        {props?.description}
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                        {props?.actions}
+                                    </th>
+                                </>
                                 }
-                                {props?.programme && <th
-                                    class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                                    {props?.venue}
-                                </th>
+                                {props?.identifier === "register" && <>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                        {props?.amount}
+                                    </th>
+                                   
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                        {props?.actions}
+                                    </th>
+                                </>
                                 }
-                                {props?.programme && <th
-                                    class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                                    {props?.state}
-                                </th>
-                                }
-                                {props?.programme && <th
-                                    class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                                    {props?.amount}
-                                </th>
-                                }
-                                {props?.programme && <th
-                                    class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                                    {props?.eventName}
-                                </th>
-                                }
-                                {props?.programme && <th
-                                    class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                                    {props?.description}
-                                </th>
-                                }
+
                                 {props?.link && <th
                                     class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                                     {props?.link}
@@ -103,7 +116,7 @@ function Table(props) {
                                     {props?.action}
                                 </th>
                                 }
-                                {props?.identifier === "happystory" && <>
+                                {props?.identifier === "happyStoryData" && <>
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                                         {props?.partnerName}
@@ -121,7 +134,28 @@ function Table(props) {
                                         {props?.actions}
                                     </th>
                                 </>}
-
+                                {props?.identifier === "contact" && <>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                        {props?.name}
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                        {props?.email}
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                        {props?.phone}
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                        {props?.message}
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                        {props?.action}
+                                    </th>
+                                </>}
 
                             </tr>
                         </thead>
@@ -152,6 +186,34 @@ function Table(props) {
                                     </td>
                                         <td className="px-5 py-2 border-b flex gap-1 border-gray-200 bg-white text-lg">
                                             <button onClick={() => DeleteVideo(item?._id)}
+                                                className="relative cursor-pointer bg-RedTheme rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
+                                                <FaTrash />
+                                            </button>
+
+                                        </td>
+                                    </>}
+                                    {props?.identifier === "contact" && <> <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <p class="text-gray-900  text-sm whitespace-no-wrap">
+                                            {item?.name}
+                                        </p>
+                                    </td>
+                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                            <p class="text-gray-900  text-sm whitespace-no-wrap">
+                                                {item?.email}
+                                            </p>
+                                        </td>
+                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                            <p class="text-gray-900  text-sm whitespace-no-wrap">
+                                                {item?.phone}
+                                            </p>
+                                        </td>
+                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                            <p class="text-gray-900  text-sm whitespace-no-wrap">
+                                                {item?.message}
+                                            </p>
+                                        </td>
+                                        <td className="px-5 py-2 border-b flex gap-1 border-gray-200 bg-white text-lg">
+                                            <button onClick={() => DeleteQuery(item?._id)}
                                                 className="relative cursor-pointer bg-RedTheme rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                                                 <FaTrash />
                                             </button>
@@ -191,7 +253,66 @@ function Table(props) {
                                                 <LuEye />
                                             </span>
                                         </td>
-                                      
+
+                                    </>}
+                                    {props?.identifier === "programme" && <> <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <p class="text-gray-900  text-sm whitespace-no-wrap">
+                                            {item?.availableDates}
+                                        </p>
+                                    </td>
+                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                            <p class="text-gray-900  text-sm whitespace-no-wrap">
+                                                {item?.venues}
+                                            </p>
+                                        </td>
+                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                            <p class="text-gray-900  text-sm whitespace-no-wrap">
+                                                {item?.state}
+                                            </p>
+                                        </td>
+                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                            <p class="text-gray-900  text-sm whitespace-no-wrap">
+                                                {item?.amount}
+                                            </p>
+                                        </td>
+                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                            <p class="text-gray-900  text-sm whitespace-no-wrap">
+                                                {item?.eventName}
+                                            </p>
+                                        </td>
+                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                            <p class="text-gray-900  text-sm whitespace-no-wrap">
+                                                {item?.description}
+                                            </p>
+                                        </td>
+                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg flex gap-2">
+                                            <span
+                                                className="relative cursor-pointer bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
+                                                <LiaEdit />
+                                            </span>
+                                            
+                                        </td>
+
+
+
+                                    </>}
+                                    {props?.identifier === "register" && <> 
+                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                            <p class="text-gray-900  text-sm whitespace-no-wrap">
+                                                {item?.amount}651
+                                            </p>
+                                        </td>
+                                        
+                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg flex gap-2">
+                                            <span
+                                                className="relative cursor-pointer bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
+                                                <LiaEdit />
+                                            </span>
+                                            
+                                        </td>
+
+
+
                                     </>}
                                     {/* <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
                                         <p class="text-gray-900 whitespace-no-wrap">
@@ -220,4 +341,4 @@ function Table(props) {
     )
 }
 
-export default Table
+export default Table;   

@@ -1,12 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { GoPlus } from 'react-icons/go'
-import { LiaEdit } from 'react-icons/lia'
-import { LuEye } from "react-icons/lu";
 import AddStory from '../components/AddStory';
 import Table from '../components/Table';
+import { useHappyStroyContext } from '@/AdminContext';
+import { useAuthContext } from '@/context';
 
 const HappyStory = () => {
-  const [addStory, setAddStory] = useState(false)
+  const [addStory, setAddStory] = useState(false);
+  const { GetHappyStory, happyStoryData } = useHappyStroyContext();
+  const { token } = useAuthContext();
+
+  // useEffect(() => {
+  //   if (token) GetHappyStory();
+  // }, [token])
+
+  
+
   return (
     <div>
       <div className="HappyStories py-4 relative">
@@ -19,8 +28,7 @@ const HappyStory = () => {
               <div onClick={() => setAddStory(true)} className="px-4 py-1 text-white bg-[#BB1A04] flex gap-1 items-center rounded-sm cursor-pointer"><GoPlus /> Add Story</div>
             </div>
             <div>
-              <Table id={'S.N0.'} memeberName={"Member Name"} partnerName={"Partner Name"} postTime={"Post Time"} show={"Show"} actions={"Actions"} identifier={"happystory"} story={"sklfjoeaif"} />
-             
+              <Table id={'S.N0.'} memeberName={"Member Name"} partnerName={"Partner Name"} postTime={"Post Time"} show={"Show"} actions={"Actions"}  identifier={"happyStoryData"} story={"sdfs sdfs"} />
             </div>
           </div>
         </div>

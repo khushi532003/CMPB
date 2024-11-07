@@ -34,18 +34,15 @@ const ChurayeHuePalContextProvider = ({ children }) => {
     }
 
     const DeleteVideo = async (id)=>{
-        console.log(id);
         
         try {
             const res = await AxiosHandler.delete(`churaye-hua-pal/delete/${id}`);
             console.log(res);
             toast.success("Video deleted successfully")
             GetVideo();
-            
         } catch (error) {
             console.log(error);
-            toast.error("Video not deleted")
-            
+            toast.error("Video not deleted")   
         }
     }
 

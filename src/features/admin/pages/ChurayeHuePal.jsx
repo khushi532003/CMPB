@@ -13,9 +13,10 @@ function ChurayeHuePal() {
 
 
   useEffect(() => {
-    if(token)
+    if (token)
       GetVideo()
   }, [token])
+
   return (
     <div>
       <div className=" flex items-center justify-between pb-6">
@@ -24,11 +25,11 @@ function ChurayeHuePal() {
         </div>
         <div onClick={() => setAddLink(true)} className="px-4 py-1 text-white bg-[#BB1A04] flex gap-1 items-center rounded-sm cursor-pointer"><GoPlus /> Add Link</div>
       </div>
-          <Table id={"S.no"} link={"Video Link"} action={"Action"} data={video} identifier={"video"} />
+      <Table id={"S.no"} link={"Video Link"} action={"Action"} data={video} identifier={"video"} />
 
       {addLink ? <AddLinkForm onClose={() => setAddLink(false)} /> : ""}
     </div>
   )
 }
 
-export default ChurayeHuePal
+export default ChurayeHuePal;

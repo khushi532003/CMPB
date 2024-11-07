@@ -9,7 +9,7 @@ function Home() {
 
   const { programme } = usePackageContext();
   const { videoURLData } = useChurayePalContext();
-  console.log(videoURLData);
+  // console.log(videoURLData);
   
 
   return (
@@ -17,14 +17,14 @@ function Home() {
 
       {/* Banner section start  */}
       <section className="mainBanner">
-        <img src="../images/banner.jpg" alt="Chat Mangni Pat Byah" className='w-full object-cover' />
+        <img src="../images/banner3.jpg" alt="Chat Mangni Pat Byah" className='w-full object-cover' />
       </section>
       {/* Banner section end  */}
 
       {/* Testimonial section start  */}
       <section className="testimonial py-5 w-[80%] mx-auto">
         <div className="heading flex justify-center flex-col items-center text-center">
-          <h2 className="text-6xl sm:text-8xl">Churaye hue pal</h2>
+          <h2 className="text-6xl sm:text-7xl">Churaye hue pal</h2>
           <img src="../images/headingImg.png" alt="" className="w-64" />
         </div>
         <Swiper
@@ -41,7 +41,7 @@ function Home() {
           className="mySwiper"
         >
 
-          {videoURLData?.map((item) => <SwiperSlide>
+          {videoURLData?.map((item, i) => <SwiperSlide key={i} >
             <div className="pal py-10 relative">
               <iframe width="100%" className='sm:rounded-full' height="350" src={item?.VideoURL} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe> 
               <div className="petal hidden sm:block absolute top-4 left-0">
@@ -90,7 +90,7 @@ function Home() {
       <section className="theme py-10 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: "url(https://r2.erweima.ai/imgcompressed/compressed_cdec15e7b3c17fa59a279b02db89d69d.webp)" }}>
         <div className="block sm:flex justify-between gap-3 px-3 items-center">
           <div className="sm:w-[20%] w-full">
-            <div className="heading"><h2 className="text-6xl sm:text-8xl text-[#BB1A04]">Choose <br /> Wedding <br /> Themes</h2></div>
+            <div className="heading"><h2 className="text-6xl sm:text-7xl text-[#BB1A04]">Choose <br /> Wedding <br /> Themes</h2></div>
           </div>
           <div className="themes w-full sm:w-[80%]">
             <div className=" grid-cols-1 grid sm:grid-cols-3 gap-10">
@@ -125,7 +125,7 @@ function Home() {
       {/* Process section start  */}
       <section className="process py-10">
         <div className="heading flex justify-center flex-col items-center text-center">
-          <h2 className="text-6xl sm:text-8xl">Wedding Process</h2>
+          <h2 className="text-6xl sm:text-7xl">Wedding Process</h2>
           <img src="../images/headingImg.png" alt="" className="w-64 object-cover" />
         </div>
         <div className="process py-4">
@@ -244,7 +244,7 @@ function Home() {
                 <div key={item?._id} className="theme">
                   <div className="flex flex-col items-center">
                     <div className="package  h-[550px] border-2 flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
-                      <h2 className="text-5xl">Program Package</h2>
+                      <h2 className="text-4xl">Program Package</h2>
 
                       <h3 className="text-5xl py-3 font-semibold text-yellow-500">₹ {item?.amount} /-</h3>
                       <div className="programme py-2 text-2xl font-semibold">{item?.eventName}</div>
@@ -274,7 +274,7 @@ function Home() {
               <div className="theme ">
                 <div className="flex flex-col items-center ">
                   <div className="package h-[550px] border-2 flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
-                    <h2 className="text-5xl">Registration  Package </h2>
+                    <h2 className="text-4xl">Registration  Package </h2>
 
                     <h3 className="text-5xl py-3 font-semibold text-yellow-500">₹ 20000 /-</h3>
                     <p className="py-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quas quisquam veniam nam nisi quo? Nihil aspernatur labore nisi quibusdam</p>
@@ -307,7 +307,7 @@ function Home() {
             </div>
           </div>
           <div className="w-full sm:w-[40%] flex justify-center items-center bg-cover bg-center h-[65vh] sm:h-[100vh] " style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
-            <div className="heading text-center"><h2 className="text-6xl sm:text-8xl text-[#BB1A04]">Pricing <br />Plans</h2>
+            <div className="heading text-center"><h2 className="text-6xl sm:text-7xl text-[#BB1A04]">Pricing <br />Plans</h2>
               <img src="../images/headingImg.png" alt="" className="w-64" />
             </div>
           </div>
@@ -318,7 +318,7 @@ function Home() {
       {/* Gallery section start  */}
       <section className="gallery py-5">
         <div className="heading flex justify-center flex-col items-center text-center">
-          <h2 className="text-6xl sm:text-8xl">Gallery</h2>
+          <h2 className="text-6xl sm:text-7xl">Gallery</h2>
           <img src="../images/headingImg.png" alt="" className="w-64" />
         </div>
         <div className="weddingImages py-4 px-5">

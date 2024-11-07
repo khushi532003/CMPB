@@ -7,7 +7,7 @@ import { AuthContextPRovider, ChurayePalContextProvider, ContactContextProvider,
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import MemberContextProvider from './context/MembersContext/MembersContext.jsx'
 import AdminMembersContextProvider from './AdminContext/MembersContext/AdminMembersContext.jsx'
-import { ChurayeHuePalContextProvider, HappyStoryContextProvider, ProgrammeContextProvider } from './AdminContext/index.jsx'
+import { AdminContactContextProvider, ChurayeHuePalContextProvider, HappyStoryContextProvider, ProgrammeContextProvider } from './AdminContext/index.jsx'
 
 createRoot(document.getElementById('root')).render(
   <GoogleOAuthProvider clientId={`${import.meta.env.VITE_APP_CLIENT_ID}`} >
@@ -22,9 +22,11 @@ createRoot(document.getElementById('root')).render(
                     <ChurayeHuePalContextProvider>
                       <ChurayePalContextProvider>
                         <HappyStoryContextProvider>
+                          <AdminContactContextProvider>
                           <BrowserRouter>
                             <App />
                           </BrowserRouter>
+                          </AdminContactContextProvider>
                         </HappyStoryContextProvider>
                       </ChurayePalContextProvider>
                     </ChurayeHuePalContextProvider>

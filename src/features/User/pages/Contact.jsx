@@ -40,7 +40,7 @@ function Contact() {
                 <div
                     className="grid md:grid-cols-2 gap-16 items-center relative overflow-hidden p-8 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)]  max-w-6xl mx-auto bg-white mt-4 before:absolute before:right-0 before:w-[300px] ">
                     <div>
-                        <h3 className="text-gray-800 text-5xl sm:text-7xl font-extrabold">Get In Touch </h3>
+                        <h2 className="text-gray-800 text-5xl sm:text-7xl font-extrabold">Get In Touch </h2>
                         <img src="../images/headingImg.png" alt="" className="w-64" />
                         <p className="text-sm text-gray-500 mt-4 leading-relaxed">Have a specific inquiry or looking to explore new opportunities? Our
                             experienced team is ready to engage with you.</p>

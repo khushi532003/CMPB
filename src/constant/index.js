@@ -37,11 +37,6 @@ export const AdminLnks = [
     },
 
     {
-        title: "Add Program",
-        path: "/add-programme",
-        icons: MdEventAvailable
-    },
-    {
         title: "Happy Stories",
         path: "/happy_stories",
         icons: IoHappyOutline
@@ -57,15 +52,11 @@ export const AdminLnks = [
         icons: MdOutlinePhone
     },
     {
-        title: "Packages",
+        title: "Packges",
         path: "/packages",
         icons: FaRegMoneyBillAlt
     },
-    {
-        title: "Users interest's",
-        path: "/interest",
-        icons: GoHeart
-    },
+   
     {
         title: "Logout",
         path: "/logout",

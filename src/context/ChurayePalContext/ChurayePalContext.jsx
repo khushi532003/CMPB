@@ -9,7 +9,7 @@ const ChurayePalContextProvider = ({children}) =>{
     const GetVideo = async () => {
         try {
             const res = await AxiosHandler.get("/churaye-hua-pal/get");
-            console.log("video", res?.data?.data);
+            // console.log("video", res?.data?.data);
             setVideoURLData(res?.data?.data);
 
         } catch (error) {
