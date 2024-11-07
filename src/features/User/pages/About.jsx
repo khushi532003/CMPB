@@ -27,7 +27,7 @@ function About() {
       {/* Why choose us section start  */}
       <section className="wcu py-5">
         <div className="heading flex justify-center flex-col items-center text-center">
-          <h2 className="text-6xl sm:text-8xl">Why Choose Us</h2>
+          <h2 className="text-6xl sm:text-7xl">Why Choose Us</h2>
           <img src="../images/headingImg.png" alt="" className="w-64" />
         </div>
 
@@ -53,7 +53,7 @@ function About() {
       {/* Service section start  */}
       <section className="services py-5">
         <div className="heading flex justify-center flex-col items-center text-center">
-          <h2 className="text-6xl sm:text-8xl">Services Includes</h2>
+          <h2 className="text-6xl sm:text-7xl">Services Includes</h2>
           <img src="../images/headingImg.png" alt="" className="w-64" />
         </div>
         <div className="service py-5">
