@@ -4,77 +4,74 @@ import { toast } from "react-toastify";
 
 export const ProgrammeContext = createContext();
 
-const ProgrammeContextProvider = ({children}) =>{
+const ProgrammeContextProvider = ({ children }) => {
 
     const [programmeData, setProgrammeData] = useState([])
     const [packageData, setPackageData] = useState([])
-    console.log(packageData);
-    
 
-    const GetProgramme = async ()=>{
+
+
+    const GetProgramme = async () => {
         try {
-            const res = await AxiosHandler.get("events/get");
-            // console.log(res?.data?.data);
+            const res = await AxiosHandler.get("events/get-admin");
             setProgrammeData(res?.data?.data);
-            
+
         } catch (error) {
             console.log(error);
-            
+
         }
     }
-    const GetPackage = async ()=>{
+    const GetPackage = async () => {
         try {
             const res = await AxiosHandler.get("RegisterPackage/get");
-            console.log(res?.data?.data);
             setPackageData(res?.data?.data);
-            
+
         } catch (error) {
             console.log(error);
-            
+
         }
     }
 
-    const createProgramme = async (data)=>{
+    const createProgramme = async (data) => {
         try {
             const res = await AxiosHandler.post("/events/create", data)
-            console.log(res);
-            toast.success("Programme created successfully")
+
+            toast.success("Programme created successfully");
             GetProgramme();
-            
         } catch (error) {
             console.log(error);
             toast.error("Programme not created")
-            
+
         }
     }
-    const createPackage = async (data)=>{
+    const createPackage = async (data) => {
         try {
             const res = await AxiosHandler.post("RegisterPackage/create", data)
-            console.log(res);
+
             toast.success("Package created successfully")
             GetPackage();
-            
         } catch (error) {
             console.log(error);
             toast.error("Package not created")
-            
+
         }
     }
 
-    const updateProgramme = async (id, data) =>{
+
+    const updateProgramme = async (id, data) => {
         try {
             const res = await AxiosHandler.put(`events/update/${id}`, data);
             console.log(res);
-            toast.success("Programme updated successfully")
-            
+            GetProgramme();
+            toast.success("Events updated successfully")
         } catch (error) {
             console.log(error);
-            toast.error("Programme not updated")
-            
+            toast.error("Events not updated")
         }
     }
 
-    const DeleteProgramme = async (id)=>{
+
+    const DeleteProgramme = async (id) => {
         try {
             const res = await AxiosHandler.delete(`events/delete/${id}`);
             toast.success("Event deleted successfully");
@@ -85,15 +82,15 @@ const ProgrammeContextProvider = ({children}) =>{
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         GetProgramme()
-    },[])
+    }, [])
 
-    useEffect(()=>{
+    useEffect(() => {
         GetPackage()
-    },[])
+    }, [])
 
-    return(
+    return (
         <ProgrammeContext.Provider value={{ createProgramme, updateProgramme, programmeData, DeleteProgramme, packageData, createPackage }}>
             {children}
         </ProgrammeContext.Provider>
