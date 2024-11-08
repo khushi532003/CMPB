@@ -9,16 +9,11 @@ function Home() {
 
   const { programme, GetProgramme } = usePackageContext();
   const { videoURLData } = useChurayePalContext();
-  // console.log(videoURLData);
-  
-  console.log("Home data",programme)
+
   useEffect(() => {
-    // console.log(GetProgramme);
     GetProgramme()
-    console.log("infinite");
-    
-  }, [programme])
-  
+  }, [])
+
 
   return (
     <div>
@@ -51,7 +46,7 @@ function Home() {
 
           {videoURLData?.map((item, i) => <SwiperSlide key={i} >
             <div className="pal py-10 relative">
-              <iframe width="100%" className='sm:rounded-full' height="350" src={item?.VideoURL} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe> 
+              <iframe width="100%" className='sm:rounded-full' height="350" src={item?.VideoURL} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
               <div className="petal hidden sm:block absolute top-4 left-0">
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/036/296/405/small_2x/ai-generated-green-floral-watercolor-illustration-for-wedding-invitation-botanical-frame-png.png" alt="" />
               </div>
@@ -61,7 +56,7 @@ function Home() {
             </div>
 
           </SwiperSlide>)}
-        
+
 
         </Swiper>
       </section>
@@ -140,7 +135,7 @@ function Home() {
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2 flex items-center">
               <div className="icon">
-                <img src="../images/processIcons/register.png" alt="" /> 
+                <img src="../images/processIcons/register.png" alt="" />
               </div>
             </div>
             <div className="relative px-2 flex  justify-center mx-auto">
@@ -249,36 +244,36 @@ function Home() {
           <div className="themes w-full sm:w-[60%]">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-14">
 
-                
-              {programme && <div  className="theme">
-                  <div className="flex flex-col items-center">
-                    <div className="package  h-[550px] border-2 flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
-                      <h2 className="text-4xl">Program Package</h2>
+
+              {programme && <div className="theme">
+                <div className="flex flex-col items-center">
+                  <div className="package  h-[550px] border-2 flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
+                    <h2 className="text-4xl">Program Package</h2>
 
                     <h3 className="text-5xl py-3 font-semibold text-yellow-500">₹{programme?.amount}  /-</h3>
                     <div className="programme py-2 text-2xl font-semibold">{programme?.eventName}</div>
                     <p className="py-2">{programme?.description}</p>
-                      <div className="programmeDetails mb-4">
-                        <div className="state py-2 text-lg">
-                          <strong>Location :</strong>{programme?.state}
-                        </div>
-                        <div className="state py-2 text-lg">
-                        <strong>Venue :</strong> {programme?.venues}
-                        </div>
-                        <div className="state py-2 text-lg">
-                        <strong>Date & Time :</strong> {programme?.availableDates}
-                        </div>
+                    <div className="programmeDetails mb-4">
+                      <div className="state py-2 text-lg">
+                        <strong>Location :</strong>{programme?.state}
                       </div>
-                      <button
-                        className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500"
-                       
-                      >
-                        Book Now
-                      </button>
+                      <div className="state py-2 text-lg">
+                        <strong>Venue :</strong> {programme?.venues}
+                      </div>
+                      <div className="state py-2 text-lg">
+                        <strong>Date & Time :</strong> {programme?.availableDates}
+                      </div>
                     </div>
+                    <button
+                      className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500"
+
+                    >
+                      Book Now
+                    </button>
                   </div>
-                </div>}
-        
+                </div>
+              </div>}
+
 
               <div className="theme ">
                 <div className="flex flex-col items-center ">
