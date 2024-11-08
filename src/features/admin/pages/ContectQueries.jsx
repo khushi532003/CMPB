@@ -4,10 +4,12 @@ import { useAdminContactContext } from '@/AdminContext';
 
 const ContectQueries = () => {
 
-    const { contactQuery } = useAdminContactContext();
+    const { contactQuery, GetContactQueries } = useAdminContactContext();
     console.log(contactQuery);
     
-
+    useEffect(() => {
+        GetContactQueries()
+    }, [])
     return (
         <div>
             <div className=" py-4 relative">

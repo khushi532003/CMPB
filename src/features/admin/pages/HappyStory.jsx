@@ -14,7 +14,7 @@ const HappyStory = () => {
   //   if (token) GetHappyStory();
   // }, [token])
 
-  
+
 
   return (
     <div>
@@ -28,7 +28,7 @@ const HappyStory = () => {
               <div onClick={() => setAddStory(true)} className="px-4 py-1 text-white bg-[#BB1A04] flex gap-1 items-center rounded-sm cursor-pointer"><GoPlus /> Add Story</div>
             </div>
             <div>
-              <Table id={'S.N0.'} memeberName={"Member Name"} partnerName={"Partner Name"} postTime={"Post Time"} show={"Show"} actions={"Actions"}  identifier={"happyStoryData"} story={"sdfs sdfs"} />
+              <Table id={'S.N0.'} memeberName={"Member Name"} partnerName={"Partner Name"} postTime={"Post Time"} show={"Show"} actions={"Actions"} identifier={"happyStoryData"} story={"sdfs sdfs"} />
             </div>
           </div>
         </div>

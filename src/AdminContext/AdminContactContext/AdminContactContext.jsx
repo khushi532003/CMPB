@@ -30,9 +30,7 @@ const AdminContactContextProvider = ({children}) =>{
         }
     }
 
-    useEffect(()=>{
-        GetContactQueries()
-    },[])
+  
 
     return(
         <AdminContactContext.Provider value={{ contactQuery, DeleteQuery }}>

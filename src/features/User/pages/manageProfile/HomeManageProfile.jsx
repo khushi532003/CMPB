@@ -16,7 +16,13 @@ import Loader from '@/constant/loader';
 import PermanentAddress from './PermanentAddress';
 
 function HomeManageProfile() {
-    const { profile } = useProfileContext()
+    const { profile } = useProfileContext();
+
+
+    useEffect(() => {
+        GetProfile();
+    }, []);
+
 
     if (profile?.length < 1) return <Loader />;
     return (

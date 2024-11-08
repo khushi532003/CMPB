@@ -45,10 +45,6 @@ function ProfileContextProvider({ children }) {
 
 
 
-    useEffect(() => {
-        GetProfile();
-    }, []);
-
 
     return (
         <ProfileContext.Provider value={{ profile, Create, Update }} >

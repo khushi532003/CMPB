@@ -17,10 +17,7 @@ const HappyStoriesContextProvider = ({children})=>{
             
         }
     }
-
-    useEffect(()=>{
-        GetHappyStories()
-    },[])
+   
     return(
         <HappyStoriesContext.Provider value={{ happyStory }}>
             {children}
