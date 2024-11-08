@@ -32,11 +32,7 @@ const MemberContextProvider = ({children}) =>{
         }
     }
 
-    useEffect(()=>{
-        GetActiveMembers()
-    },[])
-
-
+    
     return(
         <MemberContext.Provider value={{ activeUser, GetActiveUserById, userDetails }}>
             {children}

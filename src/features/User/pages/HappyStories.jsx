@@ -13,6 +13,10 @@ function HappyStories() {
         return new Intl.DateTimeFormat('en-US', options).format(date);
     };
 
+    useEffect(() => {
+        GetHappyStories()
+    }, [])
+
     
     return (
         <div>

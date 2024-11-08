@@ -1,5 +1,5 @@
 import { AxiosHandler } from "@/config/Axios.config";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 export const HappyStoryContext = createContext();
@@ -11,9 +11,8 @@ const HappyStoryContextProvider = ({ children }) => {
     const GetHappyStory = async () => {
         try {
             const res = await AxiosHandler.get("/happystories/admin-get")
-            sethappyStoryData(res?.data);
+            sethappyStoryData(res?.data?.data);
             toast.success("Happy story created successfully")
-            // console.log(res.data);
         } catch (error) {
             console.log(error);
             toast.error("Happy story failed to fetch")
@@ -25,7 +24,7 @@ const HappyStoryContextProvider = ({ children }) => {
         setLoader(true)
         try {
             const res = await AxiosHandler.post("/happystories/create", data)
-            window.location.href = "/happy_stories";
+
             toast.success("Happy Story Created Successfully");
         } catch (error) {
             console.log(error)
@@ -46,9 +45,19 @@ const HappyStoryContextProvider = ({ children }) => {
         }
     }
 
+    const UpdateHappyStory = async (id, data) => {
+        try {
+            const res = await AxiosHandler.put(`/happystories/update/${id}`, data)
+            GetHappyStory();
+            console.log(res?.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 
     return (
-        <HappyStoryContext.Provider value={{ happyStoryData, GetHappyStory, CreateHappyStory, loader, setLoader, DeleteHappyStory }}>
+        <HappyStoryContext.Provider value={{ happyStoryData, GetHappyStory, CreateHappyStory, loader, setLoader, DeleteHappyStory, UpdateHappyStory }}>
             {children}
         </HappyStoryContext.Provider>
     )

@@ -16,6 +16,12 @@ function MemberProfile() {
     };
 
     useEffect(() => {
+        GetActiveMembers()
+    }, [])
+
+
+
+    useEffect(() => {
         if (id) {
             GetActiveUserById(id)
         }
