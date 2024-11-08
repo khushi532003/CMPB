@@ -1,5 +1,5 @@
 import { AxiosHandler } from "@/config/Axios.config";
-import { createContext, useEffect, useState } from "react";
+import { createContext,  useState } from "react";
 
 export const PackageContext = createContext();
 
@@ -10,7 +10,7 @@ const PackageContextProvider = ({ children }) => {
     const GetProgramme = async () => {
         try {
             const res = await AxiosHandler.get("/events/get");
-            console.log("respos of packag", res?.data.data)
+            // console.log("respos of package", res?.data?.data);
             setProgramme(res?.data?.data);
         } catch (error) {
             console.log(error);
