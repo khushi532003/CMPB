@@ -14,7 +14,7 @@ const ProgrammeContextProvider = ({children}) =>{
     const GetProgramme = async ()=>{
         try {
             const res = await AxiosHandler.get("events/get");
-            console.log(res?.data?.data);
+            // console.log(res?.data?.data);
             setProgrammeData(res?.data?.data);
             
         } catch (error) {
