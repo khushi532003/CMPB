@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -7,9 +7,17 @@ import { useChurayePalContext, usePackageContext } from '@/context';
 
 function Home() {
 
-  const { programme } = usePackageContext();
+  const { programme, GetProgramme } = usePackageContext();
   const { videoURLData } = useChurayePalContext();
   // console.log(videoURLData);
+  
+  console.log("Home data",programme)
+  useEffect(() => {
+    // console.log(GetProgramme);
+    GetProgramme()
+    console.log("infinite");
+    
+  }, [programme])
   
 
   return (
@@ -240,36 +248,37 @@ function Home() {
         <div className="block sm:flex justify-between gap-3 px-3 items-center">
           <div className="themes w-full sm:w-[60%]">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-14">
-              {programme?.map((item) => (
-                <div key={item?._id} className="theme">
+
+                
+              {programme && <div  className="theme">
                   <div className="flex flex-col items-center">
                     <div className="package  h-[550px] border-2 flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
                       <h2 className="text-4xl">Program Package</h2>
 
-                      <h3 className="text-5xl py-3 font-semibold text-yellow-500">₹ {item?.amount} /-</h3>
-                      <div className="programme py-2 text-2xl font-semibold">{item?.eventName}</div>
-                      <p className="py-2">{item?.description}</p>
+                    <h3 className="text-5xl py-3 font-semibold text-yellow-500">₹{programme?.amount}  /-</h3>
+                    <div className="programme py-2 text-2xl font-semibold">{programme?.eventName}</div>
+                    <p className="py-2">{programme?.description}</p>
                       <div className="programmeDetails mb-4">
                         <div className="state py-2 text-lg">
-                          <strong>Location :</strong> {item?.state}
+                          <strong>Location :</strong>{programme?.state}
                         </div>
                         <div className="state py-2 text-lg">
-                          <strong>Venue :</strong> {item?.venues}
+                        <strong>Venue :</strong> {programme?.venues}
                         </div>
                         <div className="state py-2 text-lg">
-                          <strong>Date :</strong> {item?.availableDates}
+                        <strong>Date & Time :</strong> {programme?.availableDates}
                         </div>
                       </div>
                       <button
                         className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500"
-                        aria-label={`Book ${item?.name} package`}
+                       
                       >
                         Book Now
                       </button>
                     </div>
                   </div>
-                </div>
-              ))}
+                </div>}
+        
 
               <div className="theme ">
                 <div className="flex flex-col items-center ">
