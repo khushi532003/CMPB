@@ -1,13 +1,14 @@
-import { useAdminContactContext, useChurayeHuePalContext, useProgrammeContext } from '@/AdminContext';
+import { useAdminContactContext, useChurayeHuePalContext, useHappyStroyContext } from '@/AdminContext';
 import React from 'react'
 import { FaTrash } from 'react-icons/fa';
 import { LiaEdit } from 'react-icons/lia';
 import { LuEye } from 'react-icons/lu';
 
 function Table(props) {
-    console.log("props is ", props?.data);
+    console.log("props is ", props?.objectData[0]);
     const { DeleteVideo } = useChurayeHuePalContext();
     const { DeleteQuery } = useAdminContactContext();
+    const { DeleteHappyStory } = useHappyStroyContext();
 
     return (
         <div>
@@ -62,43 +63,13 @@ function Table(props) {
 
                                     </>
                                 }
-                                {props?.identifier === "programme" && <><th
-                                    class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                                    {props?.date}
-                                </th>
-                                    <th
-                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                                        {props?.venue}
-                                    </th>
-
-                                    <th
-                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                                        {props?.state}
-                                    </th>
-                                    <th
-                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                                        {props?.amount}
-                                    </th>
-                                    <th
-                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                                        {props?.eventName}
-                                    </th>
-                                    <th
-                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                                        {props?.description}
-                                    </th>
-                                    <th
-                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                                        {props?.actions}
-                                    </th>
-                                </>
-                                }
+                             
                                 {props?.identifier === "register" && <>
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                                         {props?.amount}
                                     </th>
-                                   
+
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                                         {props?.actions}
@@ -119,16 +90,17 @@ function Table(props) {
                                 {props?.identifier === "happyStoryData" && <>
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                        {props?.memeberName}
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                                         {props?.partnerName}
                                     </th>
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                                         {props?.postTime}
                                     </th>
-                                    <th
-                                        class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                                        {props?.show}
-                                    </th>
+
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                                         {props?.actions}
@@ -255,60 +227,48 @@ function Table(props) {
                                         </td>
 
                                     </>}
-                                    {props?.identifier === "programme" && <> <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                   
+                                    {props?.identifier === "happyStoryData" && <> <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
                                         <p class="text-gray-900  text-sm whitespace-no-wrap">
-                                            {item?.availableDates}
+                                            {item?.Groom}
                                         </p>
                                     </td>
                                         <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
                                             <p class="text-gray-900  text-sm whitespace-no-wrap">
-                                                {item?.venues}
+                                                {item?.Bride}
                                             </p>
                                         </td>
                                         <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
                                             <p class="text-gray-900  text-sm whitespace-no-wrap">
-                                                {item?.state}
+                                                {item?.createdAt}
                                             </p>
                                         </td>
-                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
-                                            <p class="text-gray-900  text-sm whitespace-no-wrap">
-                                                {item?.amount}
-                                            </p>
-                                        </td>
-                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
-                                            <p class="text-gray-900  text-sm whitespace-no-wrap">
-                                                {item?.eventName}
-                                            </p>
-                                        </td>
-                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
-                                            <p class="text-gray-900  text-sm whitespace-no-wrap">
-                                                {item?.description}
-                                            </p>
-                                        </td>
-                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg flex gap-2">
-                                            <span
-                                                className="relative cursor-pointer bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
+
+                                        <td class="px-5  py-2 border-b border-gray-200 flex gap-2 bg-white text-lg">
+                                            <span type='button'
+                                                className="relative bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                                                 <LiaEdit />
                                             </span>
-                                            
+                                            <span type='button' onClick={() => DeleteHappyStory(item?._id)}
+                                                className="relative bg-RedTheme rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
+                                                <FaTrash />
+                                            </span>
                                         </td>
-
-
-
                                     </>}
-                                    {props?.identifier === "register" && <> 
+
+                                    {props?.identifier === "register" && <>
                                         <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
                                             <p class="text-gray-900  text-sm whitespace-no-wrap">
                                                 {item?.amount}651
                                             </p>
                                         </td>
-                                        
+
                                         <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg flex gap-2">
                                             <span
                                                 className="relative cursor-pointer bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                                                 <LiaEdit />
                                             </span>
-                                            
+
                                         </td>
 
 
@@ -337,7 +297,7 @@ function Table(props) {
                     </table>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

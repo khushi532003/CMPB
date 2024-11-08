@@ -7,12 +7,26 @@ export const ProgrammeContext = createContext();
 const ProgrammeContextProvider = ({children}) =>{
 
     const [programmeData, setProgrammeData] = useState([])
+    const [packageData, setPackageData] = useState([])
+    console.log(packageData);
+    
 
     const GetProgramme = async ()=>{
         try {
             const res = await AxiosHandler.get("events/get");
             console.log(res?.data?.data);
             setProgrammeData(res?.data?.data);
+            
+        } catch (error) {
+            console.log(error);
+            
+        }
+    }
+    const GetPackage = async ()=>{
+        try {
+            const res = await AxiosHandler.get("RegisterPackage/get");
+            console.log(res?.data?.data);
+            setPackageData(res?.data?.data);
             
         } catch (error) {
             console.log(error);
@@ -30,6 +44,19 @@ const ProgrammeContextProvider = ({children}) =>{
         } catch (error) {
             console.log(error);
             toast.error("Programme not created")
+            
+        }
+    }
+    const createPackage = async (data)=>{
+        try {
+            const res = await AxiosHandler.post("RegisterPackage/create", data)
+            console.log(res);
+            toast.success("Package created successfully")
+            GetPackage();
+            
+        } catch (error) {
+            console.log(error);
+            toast.error("Package not created")
             
         }
     }
@@ -62,8 +89,12 @@ const ProgrammeContextProvider = ({children}) =>{
         GetProgramme()
     },[])
 
+    useEffect(()=>{
+        GetPackage()
+    },[])
+
     return(
-        <ProgrammeContext.Provider value={{ createProgramme, updateProgramme, programmeData, DeleteProgramme }}>
+        <ProgrammeContext.Provider value={{ createProgramme, updateProgramme, programmeData, DeleteProgramme, packageData, createPackage }}>
             {children}
         </ProgrammeContext.Provider>
     )
