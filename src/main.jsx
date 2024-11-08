@@ -23,9 +23,9 @@ createRoot(document.getElementById('root')).render(
                       <ChurayePalContextProvider>
                         <HappyStoryContextProvider>
                           <AdminContactContextProvider>
-                          <BrowserRouter>
-                            <App />
-                          </BrowserRouter>
+                            <BrowserRouter>
+                              <App />
+                            </BrowserRouter>
                           </AdminContactContextProvider>
                         </HappyStoryContextProvider>
                       </ChurayePalContextProvider>

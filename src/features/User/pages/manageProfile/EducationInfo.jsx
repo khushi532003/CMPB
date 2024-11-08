@@ -14,7 +14,7 @@ function EducationInfo({data}) {
             insitution: data?.insitution ? data.insitution : "",
             end: data?.end ? data.end : "",
             Degree: data?.Degree ? data.Degree : "",
-        },
+        }, 
         enableReinitialize: true,
         validationSchema: EducationSchema,
         onSubmit: async (value) => {
