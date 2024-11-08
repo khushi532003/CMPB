@@ -5,7 +5,7 @@ import { LiaEdit } from 'react-icons/lia';
 import { LuEye } from 'react-icons/lu';
 
 function Table(props) {
-    console.log("props is ", props?.objectData[0]);
+    console.log("props is ", props?.data);
     const { DeleteVideo } = useChurayeHuePalContext();
     const { DeleteQuery } = useAdminContactContext();
     const { DeleteHappyStory } = useHappyStroyContext();
