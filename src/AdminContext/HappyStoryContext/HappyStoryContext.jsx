@@ -1,5 +1,6 @@
 import { AxiosHandler } from "@/config/Axios.config";
-import { createContext, useState } from "react";
+import { useAuthContext } from "@/context";
+import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 export const HappyStoryContext = createContext();
@@ -7,13 +8,14 @@ export const HappyStoryContext = createContext();
 const HappyStoryContextProvider = ({ children }) => {
     const [happyStoryData, sethappyStoryData] = useState();
     const [loader, setLoader] = useState(false);
+    const { token } = useAuthContext()
 
     const GetHappyStory = async () => {
         try {
             const res = await AxiosHandler.get("/happystories/admin-get")
-            sethappyStoryData(res?.data);
+            sethappyStoryData(res?.data?.data);
             toast.success("Happy story created successfully")
-            // console.log(res.data);
+            console.log(res.data?.data);
         } catch (error) {
             console.log(error);
             toast.error("Happy story failed to fetch")
@@ -25,7 +27,7 @@ const HappyStoryContextProvider = ({ children }) => {
         setLoader(true)
         try {
             const res = await AxiosHandler.post("/happystories/create", data)
-            window.location.href = "/happy_stories";
+
             toast.success("Happy Story Created Successfully");
         } catch (error) {
             console.log(error)
@@ -45,6 +47,10 @@ const HappyStoryContextProvider = ({ children }) => {
             console.log("Story delete failed")
         }
     }
+
+    useEffect(() => {
+        GetHappyStory()
+    }, [])
 
 
     return (
