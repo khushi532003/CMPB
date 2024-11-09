@@ -8,6 +8,8 @@ export const ProfileContext = createContext();
 
 function ProfileContextProvider({ children }) {
     const [profile, setProfile] = useState([]);
+    console.log(profile);
+    
 
     const GetProfile = async () => {
         try {
@@ -47,7 +49,7 @@ function ProfileContextProvider({ children }) {
 
 
     return (
-        <ProfileContext.Provider value={{ profile, Create, Update }} >
+        <ProfileContext.Provider value={{ profile, Create, Update, GetProfile }} >
             {children}
         </ProfileContext.Provider>
     )

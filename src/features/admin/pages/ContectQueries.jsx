@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Table from '../components/Table';
 import { useAdminContactContext } from '@/AdminContext';
 
@@ -6,10 +6,11 @@ const ContectQueries = () => {
 
     const { contactQuery, GetContactQueries } = useAdminContactContext();
     console.log(contactQuery);
-    
+
     useEffect(() => {
         GetContactQueries()
     }, [])
+
     return (
         <div>
             <div className=" py-4 relative">

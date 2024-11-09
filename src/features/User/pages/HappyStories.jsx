@@ -1,11 +1,11 @@
-import { useHappyStoriesContext } from '@/context';
-import React from 'react'
+import { useAuthContext, useHappyStoriesContext } from '@/context';
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 function HappyStories() {
 
-    const { happyStory } = useHappyStoriesContext();
-    console.log(happyStory);
+    const { happyStory, GetHappyStories } = useHappyStoriesContext();
+    const { token } = useAuthContext();
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -14,10 +14,12 @@ function HappyStories() {
     };
 
     useEffect(() => {
-        GetHappyStories()
-    }, [])
+        console.log("happy")
+        if (token) {
+            GetHappyStories()
+        }
+    }, [token])
 
-    
     return (
         <div>
             <div className="py-5 bg-cover bg-no-repeat" style={{ backgroundImage: "url(https://images.pexels.com/photos/414660/pexels-photo-414660.jpeg?cs=srgb&dl=pexels-pixabay-414660.jpg&fm=jpg)" }}>
@@ -57,8 +59,8 @@ function HappyStories() {
                                     <Link to={`/story/${item?._id}`}> <button className="px-6  py-2 leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">Read more...</button></Link>
                                 </div>
                             </div>
-                </div>)}
-                       
+                        </div>)}
+
                     </div>
                 </div>
             </div>
