@@ -4,7 +4,7 @@ import React from 'react'
 import { TfiClose } from 'react-icons/tfi'
 import * as yup from "yup"
 
-function ProgrammeForm({ onClose }) {
+function ProgrammeForm({ onClose, Event }) {
 
     const { createProgramme, updateProgramme } = useProgrammeContext();
 
@@ -19,38 +19,49 @@ function ProgrammeForm({ onClose }) {
 
     const { values, errors, handleBlur, handleChange, handleSubmit, resetForm, touched } = useFormik({
         initialValues: {
-            availableDates: "",
-            venues: "",
-            state: "",
-            amount: "",
-            eventName: "",
-            description: ""
+            availableDates: Event ? Event?.availableDates : "",
+            venues: Event ? Event?.venues : "",
+            state: Event ? Event?.state : "",
+            amount: Event ? Event?.amount : "",
+            eventName: Event ? Event?.eventName : "",
+            description: Event ? Event?.description : ""
         },
+        enableReinitialize: true,
         validationSchema: validation,
-        onSubmit: (value) => {
-            createProgramme(value);
-
+        onSubmit: async (value) => {
+            try {
+                Event?.new ? await createProgramme(value) : await updateProgramme(Event?._id, value);
+            } catch (error) {
+                console.log(error);
+            } finally {
+                onClose();
+            }
         }
     })
+
+
     return (
         <div>
             <div className='addProgramme absolute top-0 flex justify-center items-center h-[100vh]  w-full '>
                 <form onSubmit={handleSubmit} className='w-[70%] mx-auto bg-white shadow z-10 px-4 py-5 rounded-md' style={{ boxShadow: "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px" }}>
+
                     <div className="heading flex justify-between py-4  items-start ">
-                        <h4 className="text-4xl">Add Programme</h4>
+                        <h4 className="text-4xl">{Event?.new ? "Add Event" : "Update Event"}</h4>
                         <div onClick={onClose} className="close relative top-2 right-2 text-xl">
                             <TfiClose />
                         </div>
                     </div>
+
                     <div className="grid grid-cols-2 py-2 gap-2">
                         <div>
                             <label className="" htmlFor="availableDates">Date</label>
-                            <input id="availableDates" value={values.availableDates} name='availableDates' onChange={handleChange} onBlur={handleBlur} type="date" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='Enter Date' />
+                            <input id="availableDates" value={values?.availableDates} name='availableDates' onChange={handleChange} onBlur={handleBlur} type="date" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='Enter Date' />
                             {touched.availableDates && errors.availableDates && <p className='py-2 text-red-500 text-sm ps-3'>{errors.availableDates}</p>}
                         </div>
+
                         <div>
                             <label className="" htmlFor="venues">Venue</label>
-                            <input id="venues" value={values.venues} name='venues' onChange={handleChange} onBlur={handleBlur} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='Enter Venue' />
+                            <input id="venues" value={values?.venues} name='venues' onChange={handleChange} onBlur={handleBlur} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='Enter Venue' />
                             {touched.venues && errors.venues && <p className='py-2 text-red-500 text-sm ps-3'>{errors.venues}</p>}
                         </div>
                     </div>
@@ -79,11 +90,13 @@ function ProgrammeForm({ onClose }) {
                             <textarea rows={5} value={values.description} id="description" name='description' onChange={handleChange} onBlur={handleBlur} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='Describe Story' />
                             {touched.description && errors.description && <p className='py-2 text-red-500 text-sm ps-3'>{errors.description}</p>}
                         </div>
-                    </div>                
-                    <div className=""></div>
+                    </div>
+
                     <div className="w-full mt-6">
                         <button type='submit' className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">Add Programme</button>
                     </div>
+
+
                 </form>
             </div>
         </div>

@@ -1,35 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import Table from '../components/Table';
+import React, { useState } from 'react'
 import ProgrammeForm from '../components/ProgrammeForm';
 import RegistrationAmtForm from '../components/RegistrationAmtForm';
 import { GoPlus } from 'react-icons/go';
 import { useProgrammeContext } from '@/AdminContext';
 import { LiaEdit } from 'react-icons/lia';
-import { LuEye } from 'react-icons/lu';
-import { useAuthContext } from '@/context';
-import { FaEye } from 'react-icons/fa';
+
 
 const Packages = () => {
 
-  const { programmeData, packageData, GetBookedEvent } = useProgrammeContext();
-  const {token} = useAuthContext()
-  console.log("console", packageData);
+  const { programmeData, packageData } = useProgrammeContext();
+  const [eventId, setEventId] = useState(null);
 
-  const [addProgramme, setAddProgramme] = useState(false)
-  const [addAmount, setAddAmount] = useState(false)
-  
-  const formatDate = (dateString) => {
-    if (!dateString) {
-      return "Invalid Date"; 
-    }
-    const date = new Date(dateString);
-    if (isNaN(date)) {
-      return "Invalid Date";
-    }
-    const options = { day: '2-digit', month: 'numeric', year: 'numeric' };
-    return new Intl.DateTimeFormat('en-US', options).format(date);
-  };
 
+  const [addProgramme, setAddProgramme] = useState(false);
+  const [addAmount, setAddAmount] = useState(false);
 
 
 
@@ -44,7 +28,9 @@ const Packages = () => {
               </div>
               <div className="flex gap-2">
                 <div onClick={() => setAddAmount(true)} className="px-4 py-1 text-white bg-[#BB1A04] flex gap-1 items-center rounded-sm cursor-pointer"><GoPlus /> Add Registration Amount</div>
-                <div onClick={() => setAddProgramme(true)} className="px-4 py-1 text-white bg-[#BB1A04] flex gap-1 items-center rounded-sm cursor-pointer"><GoPlus /> Add Event</div>
+                <div onClick={() => { setAddProgramme(true) 
+                  setEventId({new:"new"})
+                }} className="px-4 py-1 text-white bg-[#BB1A04] flex gap-1 items-center rounded-sm cursor-pointer"><GoPlus /> Add Event</div>
               </div>
             </div>
             <div>
@@ -59,12 +45,12 @@ const Packages = () => {
                           class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                           S.No.
                         </th>
-                       
+
                         <th
                           class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                           Amount
                         </th>
-                       
+
                         <th
                           class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                           Actions
@@ -76,18 +62,16 @@ const Packages = () => {
                         <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
                           <p class="text-gray-900 whitespace-no-wrap">1</p>
                         </td>
-                       
+
                         <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
                           <p class="text-gray-900 whitespace-no-wrap">₹{packageData?.amount}</p>
                         </td>
-                       
+
                         <td class="px-5  py-2  border-gray-200 bg-white text-lg">
                           <span onClick={() => setAddAmount(true)}
                             className="relative  bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                             <LiaEdit />
                           </span>
-                         
-                         
                         </td>
                       </tr>
                     </tbody>
@@ -104,75 +88,71 @@ const Packages = () => {
                       <tr>
                         <th
                           class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                         S.No.
+                          S.No.
                         </th>
                         <th
                           class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                         Date
+                          Date
                         </th>
                         <th
                           class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                         Venue
+                          Venue
                         </th>
                         <th
                           class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                         State
+                          State
                         </th>
                         <th
                           class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                         Event Name
+                          Event Name
                         </th>
                         <th
                           class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                         Amount
+                          Amount
                         </th>
                         <th
                           class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                         Description
+                          Description
                         </th>
                         <th
                           class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
-                         Actions
+                          Actions
                         </th>
                       </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                          <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
-                            <p class="text-gray-900 whitespace-no-wrap">1</p>
-                          </td>                      
-                          <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
-                          <p className="text-gray-900 whitespace-no-wrap">
-                            {formatDate(programmeData?.createdAt)}
-                          </p>
-                          </td>                      
-                          <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
-                          <p class="text-gray-900 whitespace-no-wrap">{programmeData?.venues}</p>
-                          </td>                      
-                          <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
-                          <p class="text-gray-900 whitespace-no-wrap">{programmeData?.state}</p>
-                          </td>                      
-                          <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
-                          <p class="text-gray-900 whitespace-no-wrap">{programmeData?.eventName}</p>
-                          </td>                      
-                          <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
-                          <p class="text-gray-900 whitespace-no-wrap">₹{programmeData?.amount}</p>
-                          </td>                      
-                          <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
-                          <p class="text-gray-900 whitespace-no-wrap">{programmeData?.description}</p>
-                          </td>                      
-                        <td class="px-5  py-2 flex gap-2  border-gray-200 bg-white text-lg">
-                          <span onClick={() => setAddProgramme(true)}
+                      {programmeData?.map((item) => <tr key={item?._id}>
+                        <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                          <p class="text-gray-900 whitespace-no-wrap">1</p>
+                        </td>
+                        <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                          <p class="text-gray-900 whitespace-no-wrap">{item?.createdAt}</p>
+                        </td>
+                        <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                          <p class="text-gray-900 whitespace-no-wrap">{item?.venues}</p>
+                        </td>
+                        <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                          <p class="text-gray-900 whitespace-no-wrap">{item?.state}</p>
+                        </td>
+                        <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                          <p class="text-gray-900 whitespace-no-wrap">{item?.eventName}</p>
+                        </td>
+                        <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                          <p class="text-gray-900 whitespace-no-wrap">₹{item?.amount}</p>
+                        </td>
+                        <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                          <p class="text-gray-900 whitespace-no-wrap">{item?.description}</p>
+                        </td>
+                        <td class="px-5  py-2  border-gray-200 bg-white text-lg">
+                          <span onClick={() => { setAddProgramme(true) 
+                            setEventId(item)
+                          }}
                             className="relative  bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                             <LiaEdit />
                           </span>
-                          <span onClick={() => GetBookedEvent() } 
-                            className="relative cursor-pointer  bg-green-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
-                            <FaEye />
-                          </span>
-                         
-                        </td>                     
-                        </tr>
+
+                        </td>
+                      </tr>)}
                     </tbody>
                   </table>
                 </div>
@@ -180,7 +160,7 @@ const Packages = () => {
             </div>
           </div>
         </div>
-        {addProgramme ? <ProgrammeForm onClose={() => setAddProgramme(false)} /> : ""}
+        {addProgramme ? <ProgrammeForm Event={eventId} onClose={() => setAddProgramme(false)} /> : ""}
         {addAmount ? <RegistrationAmtForm onClose={() => setAddAmount(false)} /> : ""}
       </div>
     </div>

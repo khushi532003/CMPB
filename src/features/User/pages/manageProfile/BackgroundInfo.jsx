@@ -6,7 +6,7 @@ import React from 'react';
 
 function BackgroundInfo({ data }) {
     const { Create, Update } = useProfileContext();
-
+ 
     const { values, errors, touched, handleSubmit, handleBlur, handleChange } = useFormik({
         initialValues: {
             Religion: data?.Religion ? data?.Religion : "",
