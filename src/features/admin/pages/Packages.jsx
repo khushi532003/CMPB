@@ -4,16 +4,24 @@ import RegistrationAmtForm from '../components/RegistrationAmtForm';
 import { GoPlus } from 'react-icons/go';
 import { useProgrammeContext } from '@/AdminContext';
 import { LiaEdit } from 'react-icons/lia';
+import { FaEye } from 'react-icons/fa';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const Packages = () => {
 
-  const { programmeData, packageData } = useProgrammeContext();
+  const { programmeData, packageData, GetBookedEvent } = useProgrammeContext();
   const [eventId, setEventId] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation()
 
 
   const [addProgramme, setAddProgramme] = useState(false);
   const [addAmount, setAddAmount] = useState(false);
+
+  const eventUserData = async (id)=>{
+    navigate(`/programme-booking/${id}`)
+  }
 
 
 
@@ -143,12 +151,16 @@ const Packages = () => {
                         <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
                           <p class="text-gray-900 whitespace-no-wrap">{item?.description}</p>
                         </td>
-                        <td class="px-5  py-2  border-gray-200 bg-white text-lg">
+                        <td class="px-5 flex gap-2 py-2  border-gray-200 bg-white text-lg">
                           <span onClick={() => { setAddProgramme(true) 
                             setEventId(item)
                           }}
                             className="relative  bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                             <LiaEdit />
+                          </span>
+                          <span onClick={() => eventUserData(item?._id)}
+                            className="relative  bg-green-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
+                            <FaEye />
                           </span>
 
                         </td>

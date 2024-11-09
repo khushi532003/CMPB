@@ -55,7 +55,7 @@ function Navbar() {
             <div className={`responsive-bar md:hidden left-0 w-full ${scrolling ? 'bg-gray-800 h-16 p-2 top-0 fixed' : 'bg-white h-20 p-4 relative'} flex justify-between items-center p-5 z-50`}>
                 <Link to="/">
                     <div className="logo">
-                        <img src="https://static1.squarespace.com/static/56538fa7e4b0eb26e633fae6/t/5e4b23d4b6e8306d010ab29f/1581982686307/PrimaryLogoTransparentBG.png?format=1500w" alt="logo" className="h-12" />
+                        <img src="../images/logo.png" alt="logo" className="h-12" />
                     </div>
                 </Link>
                 <div className="sideMenu flex gap-2">
@@ -85,7 +85,7 @@ function Navbar() {
                 <div className="flex items-center justify-between h-full">
                     <Link to="/">
                         <div className="logo">
-                            <img src="https://static1.squarespace.com/static/56538fa7e4b0eb26e633fae6/t/5e4b23d4b6e8306d010ab29f/1581982686307/PrimaryLogoTransparentBG.png?format=1500w" alt="logo" className={`transition-all duration-500 ${scrolling ? 'h-14' : 'h-20'}`} />
+                            <img src="../images/logo.png" alt="logo" className={`transition-all duration-500 ${scrolling ? 'h-14' : 'h-20'}`} />
                         </div>
                     </Link>
                     <ul className={`hidden md:flex space-x-4 ${scrolling ? 'text-white' : 'text-gray-800'}`}>

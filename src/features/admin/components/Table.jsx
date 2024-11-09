@@ -10,7 +10,7 @@ function Table(props) {
     const { DeleteQuery } = useAdminContactContext();
     const { DeleteHappyStory } = useHappyStroyContext();
 
-    
+
     return (
         <div>
             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
@@ -45,22 +45,38 @@ function Table(props) {
                                 }
                                 {
                                     props?.identifier === "bookProgram" && <>
-                                        {props?.abc && <th
+                                        <th
+                                            className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                            {props?.profile}
+                                        </th>
+                                        <th
+                                            className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                            {props?.memeberName}
+                                        </th>
+                                        <th
+                                            className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                            {props?.memberId}
+                                        </th>
+                                        <th
                                             className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                                             {props?.Membership}
                                         </th>
-                                        }
-
-                                        {props?.abc && <th
+                                        <th
                                             className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                                             {props?.price}
                                         </th>
-                                        }
-                                        {props?.abc && <th
+                                        <th
+                                            className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                            {props?.email}
+                                        </th>
+                                        <th
+                                            className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                            {props?.phone}
+                                        </th>
+                                        <th
                                             className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
                                             {props?.dateTime}
                                         </th>
-                                        }
                                     </>
                                 }
 
@@ -131,7 +147,7 @@ function Table(props) {
                             </tr>
                         </thead>
                         <tbody>
-                            {props?.data && props?.data?.map((item, i) => (
+                            { props?.data && props?.data?.map((item, i) => (
                                 <tr key={i}>
                                     <td className="px-5 py-2 border-b border-gray-200 bg-white text-lg">
                                         <p className="text-gray-900 whitespace-no-wrap">{i + 1}</p>
@@ -192,6 +208,46 @@ function Table(props) {
 
                                         </td>
                                     </>}
+                                    {props?.identifier === "bookProgram" && item?.users && item?.users?.map((user, i) => <React.Fragment key={i}> <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <img src={user?.profileImage?.ImageURL} alt="" />
+                                    </td>
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                            <p className="text-gray-900  text-sm whitespace-no-wrap">
+                                                {user?.firstName}
+                                            </p>
+                                        </td>
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                            <p className="text-gray-900  text-sm whitespace-no-wrap">
+                                                {user?.firstName}
+                                            </p>
+                                        </td>
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                            <p className="text-gray-900  text-sm whitespace-no-wrap">
+                                                {user?.RegisterPackage}
+                                            </p>
+                                        </td>
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                            <p className="text-gray-900  text-sm whitespace-no-wrap">
+                                                {item?.amount}
+                                            </p>
+                                        </td>
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                            <p className="text-gray-900  text-sm whitespace-no-wrap">
+                                                {user?.email}
+                                            </p>
+                                        </td>
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                            <p className="text-gray-900  text-sm whitespace-no-wrap">
+                                                {user?.phone}
+                                            </p>
+                                        </td>
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                            <p className="text-gray-900  text-sm whitespace-no-wrap">
+                                                {user?.phone}
+                                            </p>
+                                        </td>
+
+                                    </React.Fragment>)}
                                     {props?.identifier === "happystory" && <> <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
                                         <p className="text-gray-900  text-sm whitespace-no-wrap">
                                             {item?.Groom}

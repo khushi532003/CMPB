@@ -19,7 +19,7 @@ const HappyStoriesContextProvider = ({children})=>{
     }
    
     return(
-        <HappyStoriesContext.Provider value={{ happyStory }}>
+        <HappyStoriesContext.Provider value={{ happyStory, GetHappyStories }}>
             {children}
         </HappyStoriesContext.Provider>
     )

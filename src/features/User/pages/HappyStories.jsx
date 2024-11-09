@@ -1,10 +1,10 @@
 import { useHappyStoriesContext } from '@/context';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 function HappyStories() {
 
-    const { happyStory } = useHappyStoriesContext();
+    const { happyStory, GetHappyStories } = useHappyStoriesContext();
     console.log(happyStory);
 
     const formatDate = (dateString) => {
