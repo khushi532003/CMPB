@@ -5,10 +5,22 @@ import { LiaEdit } from 'react-icons/lia';
 import { LuEye } from 'react-icons/lu';
 
 function Table(props) {
-    console.log("props is ", props?.objectData[0]);
+    console.log("props is ", props?.data);
     const { DeleteVideo } = useChurayeHuePalContext();
     const { DeleteQuery } = useAdminContactContext();
     const { DeleteHappyStory } = useHappyStroyContext();
+
+    const formatDate = (dateString) => {
+        if (!dateString) {
+            return "Invalid Date";
+        }
+        const date = new Date(dateString);
+        if (isNaN(date)) {
+            return "Invalid Date";
+        }
+        const options = { day: '2-digit', month: 'numeric', year: 'numeric' };
+        return new Intl.DateTimeFormat('en-US', options).format(date);
+    };
 
     return (
         <div>
@@ -60,10 +72,9 @@ function Table(props) {
                                             {props?.dateTime}
                                         </th>
                                         }
-
                                     </>
                                 }
-                             
+
                                 {props?.identifier === "register" && <>
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
@@ -148,7 +159,8 @@ function Table(props) {
                                                 <p class="text-gray-900  text-sm whitespace-no-wrap">
                                                     {item?.MemberID}
                                                 </p>
-                                            </td></>
+                                            </td>
+                                        </>
                                     }
 
                                     {props?.identifier === "video" && <> <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
@@ -227,7 +239,7 @@ function Table(props) {
                                         </td>
 
                                     </>}
-                                   
+
                                     {props?.identifier === "happyStoryData" && <> <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
                                         <p class="text-gray-900  text-sm whitespace-no-wrap">
                                             {item?.Groom}
@@ -240,7 +252,7 @@ function Table(props) {
                                         </td>
                                         <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
                                             <p class="text-gray-900  text-sm whitespace-no-wrap">
-                                                {item?.createdAt}
+                                                {formatDate(item?.createdAt)}
                                             </p>
                                         </td>
 
@@ -274,17 +286,9 @@ function Table(props) {
 
 
                                     </>}
-                                    {/* <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            <label class="inline-flex items-center cursor-pointer">
-                                                <input type="checkbox" value="" class="sr-only peer" />
-                                                <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-green-500 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-red-600"></div>
-                                            </label>
-                                        </p>
-                                    </td> */}
+
                                     {
                                         props?.identifier === 'members' && <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
-
                                             <span
                                                 class=" bg-[#BB1A04] rounded-full   px-3 py-1 text-sm text-white">
                                                 View Details

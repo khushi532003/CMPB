@@ -7,15 +7,29 @@ import { useProgrammeContext } from '@/AdminContext';
 import { LiaEdit } from 'react-icons/lia';
 import { LuEye } from 'react-icons/lu';
 import { useAuthContext } from '@/context';
+import { FaEye } from 'react-icons/fa';
 
 const Packages = () => {
 
-  const { programmeData, packageData } = useProgrammeContext();
+  const { programmeData, packageData, GetBookedEvent } = useProgrammeContext();
   const {token} = useAuthContext()
   console.log("console", packageData);
 
   const [addProgramme, setAddProgramme] = useState(false)
   const [addAmount, setAddAmount] = useState(false)
+  
+  const formatDate = (dateString) => {
+    if (!dateString) {
+      return "Invalid Date"; 
+    }
+    const date = new Date(dateString);
+    if (isNaN(date)) {
+      return "Invalid Date";
+    }
+    const options = { day: '2-digit', month: 'numeric', year: 'numeric' };
+    return new Intl.DateTimeFormat('en-US', options).format(date);
+  };
+
 
 
 
@@ -73,6 +87,7 @@ const Packages = () => {
                             <LiaEdit />
                           </span>
                          
+                         
                         </td>
                       </tr>
                     </tbody>
@@ -127,7 +142,9 @@ const Packages = () => {
                             <p class="text-gray-900 whitespace-no-wrap">1</p>
                           </td>                      
                           <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
-                          <p class="text-gray-900 whitespace-no-wrap">{programmeData?.createdAt}</p>
+                          <p className="text-gray-900 whitespace-no-wrap">
+                            {formatDate(programmeData?.createdAt)}
+                          </p>
                           </td>                      
                           <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
                           <p class="text-gray-900 whitespace-no-wrap">{programmeData?.venues}</p>
@@ -144,10 +161,14 @@ const Packages = () => {
                           <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
                           <p class="text-gray-900 whitespace-no-wrap">{programmeData?.description}</p>
                           </td>                      
-                        <td class="px-5  py-2  border-gray-200 bg-white text-lg">
+                        <td class="px-5  py-2 flex gap-2  border-gray-200 bg-white text-lg">
                           <span onClick={() => setAddProgramme(true)}
                             className="relative  bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                             <LiaEdit />
+                          </span>
+                          <span onClick={() => GetBookedEvent() } 
+                            className="relative cursor-pointer  bg-green-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
+                            <FaEye />
                           </span>
                          
                         </td>                     

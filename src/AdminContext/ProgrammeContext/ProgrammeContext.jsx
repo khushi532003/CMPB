@@ -22,11 +22,25 @@ const ProgrammeContextProvider = ({children}) =>{
             
         }
     }
+
+
     const GetPackage = async ()=>{
         try {
             const res = await AxiosHandler.get("RegisterPackage/get");
             console.log(res?.data?.data);
             setPackageData(res?.data?.data);
+            
+        } catch (error) {
+            console.log(error);
+            
+        }
+    }
+
+
+    const GetBookedEvent = async (id)=>{
+        try {
+            const res = await AxiosHandler.get(`events/UserWhoBookedEvent/${id}`);
+            console.log(res);
             
         } catch (error) {
             console.log(error);
@@ -94,7 +108,7 @@ const ProgrammeContextProvider = ({children}) =>{
     },[])
 
     return(
-        <ProgrammeContext.Provider value={{ createProgramme, updateProgramme, programmeData, DeleteProgramme, packageData, createPackage }}>
+        <ProgrammeContext.Provider value={{ createProgramme, updateProgramme, GetBookedEvent, programmeData, DeleteProgramme, packageData, createPackage }}>
             {children}
         </ProgrammeContext.Provider>
     )

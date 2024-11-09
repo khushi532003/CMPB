@@ -7,6 +7,7 @@
     src: url(../public/fonts/Outfit-Light.ttf);
 
 }
+
 @font-face {
   font-family: styleScipt;
     src: url(../public/fonts/StyleScript.ttf);
@@ -16,7 +17,8 @@
   font-family: wedding;
   src: url(../public/fonts/Saturday.otf);
 }
-/* #e32e5e home */
+
+/* #e32e5e home */  
 /* #f1436e navbar */
 
 body{
