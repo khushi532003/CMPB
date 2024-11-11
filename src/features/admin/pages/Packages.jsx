@@ -23,7 +23,7 @@ const Packages = () => {
   useEffect(() => {
     GetProgramme()
   }, [])
-  const eventUserData = async (id)=>{
+  const eventUserData = async (id) => {
     navigate(`/programme-booking/${id}`)
   }
 
@@ -32,7 +32,6 @@ const Packages = () => {
     const options = { day: '2-digit', month: 'short', year: 'numeric' };
     return new Intl.DateTimeFormat('en-US', options).format(date);
   };
-
 
   return (
     <div>
@@ -48,12 +47,12 @@ const Packages = () => {
                   setAddAmount(true)
                   setRegId({ regNew: "regNew" })
                 }}
-                  className="px-4 py-1 text-white bg-[#BB1A04] flex gap-1 items-center rounded-sm cursor-pointer"><GoPlus /> Add Registration Amount</div>
+                  className="px-4 py-1 text-white bg-RedTheme flex gap-1 items-center rounded-sm cursor-pointer"><GoPlus /> Add Registration Amount</div>
 
                 <div onClick={() => {
                   setAddProgramme(true)
                   setEventId({ new: "new" })
-                }} className="px-4 py-1 text-white bg-[#BB1A04] flex gap-1 items-center rounded-sm cursor-pointer"><GoPlus /> Add Event</div>
+                }} className="px-4 py-1 text-white bg-RedTheme flex gap-1 items-center rounded-sm cursor-pointer"><GoPlus /> Add Event</div>
               </div>
             </div>
             <div>
@@ -65,17 +64,17 @@ const Packages = () => {
                     <thead>
                       <tr>
                         <th
-                          className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                          className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                           S.No.
                         </th>
 
                         <th
-                          className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                          className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                           Amount
                         </th>
 
                         <th
-                          className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                          className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                           Actions
                         </th>
                       </tr>
@@ -105,7 +104,6 @@ const Packages = () => {
                 </div>
               </div>
 
-
               <h4 className="text-gray-600 font-semibold text-xl"> Events</h4>
               <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
@@ -113,35 +111,35 @@ const Packages = () => {
                     <thead>
                       <tr>
                         <th
-                          className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                          className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                           S.No.
                         </th>
                         <th
-                          className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                          className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                           Date
                         </th>
                         <th
-                          className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                          className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                           Venue
                         </th>
                         <th
-                          className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                          className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                           State
                         </th>
                         <th
-                          className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                          className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                           Event Name
                         </th>
                         <th
-                          className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                          className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                           Amount
                         </th>
                         <th
-                          className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                          className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                           Description
                         </th>
                         <th
-                          className="px-5 py-3 border-b-2 border-gray-200 bg-[#BB1A04] text-left text-xs font-semibold text-white uppercase tracking-wider">
+                          className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                           Actions
                         </th>
                       </tr>
@@ -149,7 +147,7 @@ const Packages = () => {
                     <tbody>
                       {programmeData?.map((item, i) => <tr key={item?._id}>
                         <td className="px-5 py-2  border-b border-gray-200 bg-white text-sm">
-                          <p className="text-gray-900 whitespace-no-wrap">{i+1}</p>
+                          <p className="text-gray-900 whitespace-no-wrap">{i + 1}</p>
                         </td>
                         <td className="px-5 py-2 text-sm border-b border-gray-200 bg-white ">
                           <p className="text-gray-900 whitespace-no-wrap">{formatDate(item?.createdAt)}</p>
@@ -170,7 +168,8 @@ const Packages = () => {
                           <p className="text-gray-900 whitespace-no-wrap">{item?.description}</p>
                         </td>
                         <td class="px-5 flex gap-2 py-2  border-gray-200 bg-white text-sm">
-                          <span onClick={() => { setAddProgramme(true) 
+                          <span onClick={() => {
+                            setAddProgramme(true)
                             setEventId(item)
                           }}
                             className="relative  bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">

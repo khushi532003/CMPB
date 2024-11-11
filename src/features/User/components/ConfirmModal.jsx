@@ -19,7 +19,7 @@
                                 onConfirm(); // Trigger the confirmation action
                                 onClose();   // Close the modal
                             }}
-                            className="px-4 py-2 bg-[#BB1A04] text-white rounded-lg hover:bg-red-600"
+                            className="px-4 py-2 bg-RedTheme text-white rounded-lg hover:bg-red-600"
                         >
                             Confirm
                         </button>

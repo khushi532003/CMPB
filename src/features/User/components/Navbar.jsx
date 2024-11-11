@@ -8,7 +8,7 @@ function Navbar() {
     const [scrolling, setScrolling] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [sideBarToggle, setSidebarToggle] = useState(false);
-    const { token, Logout, deactivateAccount } = useAuthContext();
+    const { token, Logout, deactivateAccount, name } = useAuthContext();
     const navigate = useNavigate();
     const [showConfirm, setShowConfirm] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -44,7 +44,7 @@ function Navbar() {
 
     return (
         <div>
-            <div className="topbar flex justify-between text-sm z-50 items-center bg-[#BB1A04] text-[#f9e4e9] py-2 px-2">
+            <div className="topbar flex justify-between text-sm z-50 items-center bg-RedTheme text-[#f9e4e9] py-2 px-2">
                 <div className="flex gap-2">
                     <p className='border-r-2 border-white pe-2'>+91 9966995565</p>
                     <p>kdw@gmail.com</p>
@@ -62,21 +62,21 @@ function Navbar() {
                     <h4 onClick={() => setMenuOpen(!menuOpen)} className={`${scrolling ? 'text-white' : 'text-gray-800'} cursor-pointer uppercase`}>Menu</h4>
                     {token ? (
                         <li className='list-none' onClick={() => setSidebarToggle(true)}>
-                            <Link className="bg-[#BB1A04] rounded-sm text-white transition duration-500 px-4 py-2">Account</Link>
+                            <Link className="bg-RedTheme rounded-sm text-white transition duration-500 px-4 py-2">Account</Link>
                         </li>
                     ) : (
                         <li className='list-none'>
-                            <Link to="/login" className="bg-[#BB1A04] rounded-sm text-white transition duration-500 px-4 py-2">Login</Link>
+                            <Link to="/login" className="bg-RedTheme rounded-sm text-white transition duration-500 px-4 py-2">Login</Link>
                         </li>
                     )}
                 </div>
 
                 {/* Mobile Menu */}
                 <ul className={`md:hidden absolute top-[4rem] z-50 left-0 w-full bg-gray-800 ${menuOpen ? 'block' : 'hidden'}`}>
-                    <li><Link to="/" onClick={() => handleLinkClick('/')} className="block text-white text-center p-4 rounded-sm hover:bg-[#BB1A04]">Home</Link></li>
-                    <li><Link to="/about" onClick={() => handleLinkClick('/about')} className="block text-white text-center p-4 rounded-sm hover:bg-[#BB1A04]">About us</Link></li>
-                    <li><Link to="/happyStories" onClick={() => handleLinkClick('/happyStories')} className="block text-white hover:bg-[#BB1A04] text-center p-4 rounded-sm">Happy Stories</Link></li>
-                    <li><Link to="/contact" onClick={() => handleLinkClick('/contact')} className="block text-white hover:bg-[#BB1A04] text-center p-4 rounded-sm">Contact Us</Link></li>
+                    <li><Link to="/" onClick={() => handleLinkClick('/')} className="block text-white text-center p-4 rounded-sm hover:bg-RedTheme">Home</Link></li>
+                    <li><Link to="/about" onClick={() => handleLinkClick('/about')} className="block text-white text-center p-4 rounded-sm hover:bg-RedTheme">About us</Link></li>
+                    <li><Link to="/happyStories" onClick={() => handleLinkClick('/happyStories')} className="block text-white hover:bg-RedTheme text-center p-4 rounded-sm">Happy Stories</Link></li>
+                    <li><Link to="/contact" onClick={() => handleLinkClick('/contact')} className="block text-white hover:bg-RedTheme text-center p-4 rounded-sm">Contact Us</Link></li>
                 </ul>
             </div>
 
@@ -89,17 +89,17 @@ function Navbar() {
                         </div>
                     </Link>
                     <ul className={`hidden md:flex space-x-4 ${scrolling ? 'text-white' : 'text-gray-800'}`}>
-                        <li><Link to="/" onClick={() => handleLinkClick('/')} className="hover:bg-[#BB1A04] rounded-sm hover:text-white transition duration-500 px-4 py-2">Home</Link></li>
-                        <li><Link to="/about" onClick={() => handleLinkClick('/about')} className="hover:bg-[#BB1A04] rounded-sm hover:text-white transition duration-500 px-4 py-2">About us</Link></li>
-                        <li><Link to="/happyStories" onClick={() => handleLinkClick('/happyStories')} className="hover:bg-[#BB1A04] rounded-sm hover:text-white transition duration-500 px-4 py-2">Happy Stories</Link></li>
-                        <li><Link to="/contact" onClick={() => handleLinkClick('/contact')} className="hover:bg-[#BB1A04] rounded-sm hover:text-white transition duration-500 px-4 py-2">Contact Us</Link></li>
+                        <li><Link to="/" onClick={() => handleLinkClick('/')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Home</Link></li>
+                        <li><Link to="/about" onClick={() => handleLinkClick('/about')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">About us</Link></li>
+                        <li><Link to="/happyStories" onClick={() => handleLinkClick('/happyStories')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Happy Stories</Link></li>
+                        <li><Link to="/contact" onClick={() => handleLinkClick('/contact')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Contact Us</Link></li>
                         {token ? (
                             <li onClick={() => setSidebarToggle(true)}>
-                                <Link className="bg-[#BB1A04] rounded-sm text-white transition duration-500 px-4 py-2">Account</Link>
+                                <Link className="bg-RedTheme rounded-sm text-white transition duration-500 px-4 py-2">Account</Link>
                             </li>
                         ) : (
                             <li>
-                                <Link to="/login" className="bg-[#BB1A04] rounded-sm text-white transition duration-500 px-4 py-2">Login</Link>
+                                <Link to="/login" className="bg-RedTheme rounded-sm text-white transition duration-500 px-4 py-2">Login</Link>
                             </li>
                         )}
                     </ul>
@@ -109,7 +109,7 @@ function Navbar() {
             {sideBarToggle && (
                 <div className="sidebar bg-white w-64 sm:w-80 p-5 z-50 fixed right-0 top-0 h-[100vh]">
                     <div className="flex justify-between items-center">
-                        <div className="username"><h3 className='text-4xl'>Shreya Mehra</h3></div>
+                        <div className="username"><h3 className='text-4xl'>{name}</h3></div>
                         <div className="close text-2xl cursor-pointer" onClick={() => setSidebarToggle(false)}>
                             <TfiClose />
                         </div>

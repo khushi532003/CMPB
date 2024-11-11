@@ -120,7 +120,7 @@ const AddStory = ({ onClose }) => {
                 </div>
 
                 <div className="w-full mt-6">
-                    <button type='submit' className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600" disabled={loader} >{loader ? <Loader /> : "Add Story"}</button>
+                    <button type='submit' className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-RedTheme rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600" disabled={loader} >{loader ? <Loader /> : "Add Story"}</button>
                 </div>
             </form>
         </div>

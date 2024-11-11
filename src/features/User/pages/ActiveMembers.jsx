@@ -109,7 +109,7 @@ function ActiveMembers() {
                                 </div>
                             </div>
                             <div className="w-full mt-6">
-                                <button className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">Search</button>
+                                <button className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-RedTheme rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">Search</button>
                             </div>
                         </form>
                     </div>
@@ -125,11 +125,11 @@ function ActiveMembers() {
                                     <img className='w-52 h-52 object-cover rounded-full' src={item?.profileImage?.ImageURL} alt="" />
                                 </div>
                                 <div className="profileDetails">
-                                    <div className="memberType absolute right-2 top-2 rounded-sm px-3 py-1 bg-[#BB1A04] text-white">{item?.RegisterPackage ? "Premium" : "Free"}</div>
+                                    <div className="memberType absolute right-2 top-2 rounded-sm px-3 py-1 bg-RedTheme text-white">{item?.RegisterPackage ? "Premium" : "Free"}</div>
                                     <h3 className='text-3xl'> {item?.firstName} {item?.lastName} </h3>
                                     <div className="id py-3"> <strong>MEMBER ID : </strong> {item?.MemberID}</div>
                                     <div className="w-full mt-6">
-                                        <Link to={`/member_profile/${item?._id}`}> <button className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-[#BB1A04] rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">View Details</button></Link>
+                                        <Link to={`/member_profile/${item?._id}`}> <button className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-RedTheme rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">View Details</button></Link>
                                     </div>
                                 </div>
                             </div>

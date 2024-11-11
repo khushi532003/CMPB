@@ -11,18 +11,11 @@ function Home() {
   const { programme, GetProgramme, GetPackage, packageData } = usePackageContext();
   const { videoURLData } = useChurayePalContext();
   const { token } = useAuthContext();
-  console.log(packageData);
-  
-
-
 
   useEffect(() => {
     GetProgramme()
-  }, [])
-  useEffect(() => {
     GetPackage()
   }, [])
-
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
@@ -360,7 +353,7 @@ function Home() {
                       </div>
                     </div>
                     <button id={programme?._id} type='button' onClick={(e) => handlePayment(e)}
-                      className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500"
+                      className="bg-RedTheme text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500"
                     >
                       Book Now
                     </button>
@@ -399,7 +392,7 @@ function Home() {
                         </li>
                       </ul>
                     </div>
-                    <button className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500 ">
+                    <button className="bg-RedTheme text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500 ">
                       Register Now
                     </button>
 

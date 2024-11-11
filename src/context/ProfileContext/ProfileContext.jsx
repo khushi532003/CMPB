@@ -8,7 +8,6 @@ export const ProfileContext = createContext();
 
 function ProfileContextProvider({ children }) {
     const [profile, setProfile] = useState([]);
-    console.log(profile);
     
 
     const GetProfile = async () => {

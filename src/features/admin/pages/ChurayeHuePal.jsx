@@ -23,7 +23,7 @@ function ChurayeHuePal() {
         <div>
           <h3 className="text-gray-600 font-semibold text-3xl"> Churaye Hue Pal</h3>
         </div>
-        <div onClick={() => setAddLink(true)} className="px-4 py-1 text-white bg-[#BB1A04] flex gap-1 items-center rounded-sm cursor-pointer"><GoPlus /> Add Link</div>
+        <div onClick={() => setAddLink(true)} className="px-4 py-1 text-white bg-RedTheme flex gap-1 items-center rounded-sm cursor-pointer"><GoPlus /> Add Link</div>
       </div>
       <Table id={"S.no"} link={"Video Link"} action={"Action"} data={video} identifier={"video"} />
 
