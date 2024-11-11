@@ -41,7 +41,7 @@ function MemberProfile() {
                         <div className="px-5">
                             <h4 className='text-4xl'>Mehak Sharma </h4>
                             <div className="id py-3"> <strong>MEMBER ID : </strong> 85GHSHSNK</div>
-                            {/* <div className="memberType inline-block rounded-full px-6 py-1 bg-[#BB1A04] text-white">Free</div> */}
+                            {/* <div className="memberType inline-block rounded-full px-6 py-1 bg-RedTheme text-white">Free</div> */}
                         </div>
 
                         <div className="information w-[80%]">

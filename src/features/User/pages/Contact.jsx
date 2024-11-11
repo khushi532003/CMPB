@@ -65,7 +65,7 @@ function Contact() {
                             </div>
 
                             <button type="submit"
-                                className="mt-8 flex items-center justify-center text-sm w-full rounded-md px-6 py-3 bg-[#BB1A04] hover:bg-[#BB1A04] text-white">
+                                className="mt-8 flex items-center justify-center text-sm w-full rounded-md px-6 py-3 bg-RedTheme hover:bg-RedTheme text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill='#fff' className="mr-2"
                                     viewBox="0 0 548.244 548.244">
                                     <path fillRule="evenodd"
