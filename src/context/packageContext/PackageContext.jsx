@@ -6,6 +6,7 @@ export const PackageContext = createContext();
 const PackageContextProvider = ({ children }) => {
 
     const [programme, setProgramme] = useState({});
+    const [packageData, setPackageData] = useState({});
 
     const GetProgramme = async () => {
         try {
@@ -17,12 +18,22 @@ const PackageContextProvider = ({ children }) => {
         }
     };
 
+    const GetPackage = async () => {
+        try {
+            const res = await AxiosHandler.get("/RegisterPackage/get");
+            console.log("respos of package", res?.data?.data);
+            setPackageData(res?.data?.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     // useEffect(()=>{
     //     GetProgramme()
     // },[])
 
     return (
-        <PackageContext.Provider value={{ programme, GetProgramme }}>
+        <PackageContext.Provider value={{ programme, GetProgramme, packageData, GetPackage }}>
             {children}
         </PackageContext.Provider>
     )

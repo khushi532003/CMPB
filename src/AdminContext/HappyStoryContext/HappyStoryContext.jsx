@@ -24,8 +24,9 @@ const HappyStoryContextProvider = ({ children }) => {
         setLoader(true)
         try {
             const res = await AxiosHandler.post("/happystories/create", data)
-
+            console.log(res?.data?.data);            
             toast.success("Happy Story Created Successfully");
+            GetHappyStory()
         } catch (error) {
             console.log(error)
             toast.error("Happy Story Created Failed ")
