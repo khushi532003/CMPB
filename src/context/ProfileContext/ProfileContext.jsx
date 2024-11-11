@@ -2,20 +2,16 @@ import { AxiosHandler } from "@/config/Axios.config";
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-
 export const ProfileContext = createContext();
-
 
 function ProfileContextProvider({ children }) {
     const [profile, setProfile] = useState([]);
-    console.log(profile);
-    
+console.log(profile)
 
     const GetProfile = async () => {
         try {
             const res = await AxiosHandler.get("/profile/get")
             setProfile(res.data.profileDetails);
-            // console.log(res);
         } catch (error) {
             console.log(error)
             toast.error(error || "Something went wrong")

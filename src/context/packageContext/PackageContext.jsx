@@ -11,7 +11,6 @@ const PackageContextProvider = ({ children }) => {
     const GetProgramme = async () => {
         try {
             const res = await AxiosHandler.get("/events/get");
-            // console.log("respos of package", res?.data?.data);
             setProgramme(res?.data?.data);
         } catch (error) {
             console.log(error);

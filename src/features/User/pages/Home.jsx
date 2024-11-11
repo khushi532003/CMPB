@@ -36,20 +36,21 @@ function Home() {
 
   const handlePayment = async (e,) => {
     const MemberID = localStorage.getItem("MemberID")
-    console.log(MemberID);
-    console.log(typeof programme?.amount, programme?.amount);
+    // console.log(MemberID);
+    // console.log(typeof programme?.amount, programme?.amount);
 
     try {
       let res
       if (e.target.id === programme?._id) {
         const amount = programme?.amount
-        console.log(amount);
+        // console.log(amount);
 
         res = await AxiosHandler.post(`/payment/events?eventid=${programme?._id}&memberid=${MemberID}`, { amount: `${amount}` })
-        console.log(res);
-      } else if (e.target.id === "") {
-        res = await AxiosHandler.post(`/payment/events?memberid=${id}`, data)
+        // console.log(res);
+      } else if (e.target.id === MemberID) {
+        res = await AxiosHandler.post(`/payment/package?memberid=${MemberID}`, data)
       }
+
       const options = {
         key: import.meta.env.VITE_RAZOR_KEY,
         amount: res?.data?.order?.amount,
@@ -59,7 +60,7 @@ function Home() {
         image: "",
         order_id: res?.data?.order?.id,
         handler: async (response) => {
-          console.log(response);
+          // console.log(response);
 
           const paymentDetails = {
             razorpayOrderID: response?.razorpay_order_id,
@@ -67,11 +68,10 @@ function Home() {
           }
           if (response && programme?._id === e.target.id) {
             const eventRes = await AxiosHandler.post(`/events/bookuser/${programme?._id}`, paymentDetails)
-            console.log("event res",eventRes)
+            console.log("event res", eventRes)
           }
-
-
         },
+
         prefill: {
           name: "CMPB",
           email: "abc2gmail.com",
@@ -86,30 +86,30 @@ function Home() {
       }
 
       if (typeof window !== "undefined" && window.Razorpay) {
-        console.log(options);
+        // console.log(options);
 
         const razpopup = new window.Razorpay(
           options
         )
         razpopup.open()
       } else {
-
         console.log("Razorpay error");
       }
     } catch (error) {
-
-
       console.log(error);
       console.log("123");
-
-
     }
   }
 
   useEffect(() => {
     if (token)
-      loadRazorpayScript()
+      loadRazorpayScript();
   }, [token])
+
+
+  useEffect(() => {
+    GetProgramme();
+  }, [])
 
 
   return (
@@ -375,7 +375,7 @@ function Home() {
 
                     <h2 className="text-5xl py-3 font-semibold text-yellow-500">₹ {packageData?.amount} /-</h2>
                     <p className="py-2 text-center text-sm">Easy registration facility with complete information.Guidance through phone calls, WhatsApp, or personal meetings if required.
-</p>
+                    </p>
 
                     <div className="pointss mb-4">
                       <ul>
@@ -399,7 +399,7 @@ function Home() {
                         </li>
                       </ul>
                     </div>
-                    <button className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500 ">
+                    <button type='button'  className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500 ">
                       Register Now
                     </button>
 
@@ -419,7 +419,7 @@ function Home() {
       {/* Packages section end  */}
 
       {/* Gallery section start  */}
-        <section className="gallery py-5">
+      <section className="gallery py-5">
         <div className="heading flex justify-center flex-col items-center text-center">
           <h2 className="text-6xl sm:text-7xl">Gallery</h2>
           <img src="../images/headingImg.png" alt="" className="w-64" />
@@ -435,6 +435,7 @@ function Home() {
               <img className="mt-3" src="https://images.pexels.com/photos/15698720/pexels-photo-15698720/free-photo-of-newlywed-indian-couple.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
               <img src="https://images.pexels.com/photos/3871582/pexels-photo-3871582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className="mt-3" />
             </div>
+
             <div className="sec">
               <img src="https://images.pexels.com/photos/20254417/pexels-photo-20254417/free-photo-of-indian-wedding.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
               <img className="mt-3" src="https://images.pexels.com/photos/19439647/pexels-photo-19439647/free-photo-of-traditional-wedding-couple-walking-on-pavement.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
@@ -445,7 +446,7 @@ function Home() {
             </div>
           </div>
         </div>
-        </section>
+      </section>
       {/* Gallery section end  */}
 
     </div>
