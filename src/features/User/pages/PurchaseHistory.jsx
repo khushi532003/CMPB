@@ -1,7 +1,11 @@
+import { useAuthContext } from '@/context';
 import React from 'react'
 import { LiaFileInvoiceSolid } from "react-icons/lia";
 
 function PurchaseHistory() {
+    const { packagePaymentData } = useAuthContext();
+    console.log(packagePaymentData);
+    
   return (
       <div>
           <div className="MyInterest py-8 mt-20">
