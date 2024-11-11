@@ -6,19 +6,16 @@ export const ProgrammeContext = createContext();
 
 const ProgrammeContextProvider = ({ children }) => {
 
-    const [programmeData, setProgrammeData] = useState([])
-    const [packageData, setPackageData] = useState([])
-
+    const [programmeData, setProgrammeData] = useState([]);
+    const [packageData, setPackageData] = useState([]);
 
 
     const GetProgramme = async () => {
         try {
             const res = await AxiosHandler.get("events/get-admin");
             setProgrammeData(res?.data?.data);
-
         } catch (error) {
             console.log(error);
-
         }
     }
     const GetPackage = async () => {
@@ -28,6 +25,18 @@ const ProgrammeContextProvider = ({ children }) => {
 
         } catch (error) {
             console.log(error);
+
+        }
+    }
+    const GetBookedEvent = async (id) => {
+        try {
+            const res = await AxiosHandler.get(`events/UserWhoBookedEvent/${id}`);
+            
+            return res?.data?.data?.[0];
+
+        } catch (error) {
+            console.log(error);
+            toast.error("ERROR ", error)
 
         }
     }
@@ -57,6 +66,16 @@ const ProgrammeContextProvider = ({ children }) => {
         }
     }
 
+    const UpdatePackage = async (id, data) => {
+        try {
+            const res = await AxiosHandler.put(`/RegisterPackage/update/${id}`, data);
+            GetPackage();
+            toast.success(res?.data?.message || "Register Package Updated Successfully");
+        } catch (error) {
+            toast.error(error?.message || "Update package failed");
+        }
+    }
+
 
     const updateProgramme = async (id, data) => {
         try {
@@ -82,16 +101,16 @@ const ProgrammeContextProvider = ({ children }) => {
         }
     }
 
-    useEffect(() => {
-        GetProgramme()
-    }, [])
+    // useEffect(() => {
+    //     GetProgramme()
+    // }, [])
 
     useEffect(() => {
         GetPackage()
     }, [])
 
     return (
-        <ProgrammeContext.Provider value={{ createProgramme, updateProgramme, programmeData, DeleteProgramme, packageData, createPackage }}>
+        <ProgrammeContext.Provider value={{ createProgramme, GetProgramme, updateProgramme, programmeData, DeleteProgramme, packageData, createPackage, UpdatePackage, GetBookedEvent }}>
             {children}
         </ProgrammeContext.Provider>
     )

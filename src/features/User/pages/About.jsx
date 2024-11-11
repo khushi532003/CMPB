@@ -18,7 +18,8 @@ function About() {
           <div className="aboutContent flex flex-col justify-center ps-5 sm:ps-0">
             <h2 className='text-7xl ps-10'>About Us</h2>
             <img src="../images/headingImg.png" alt="" className="w-64" />
-            <p className="py-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur facilis aut dolores earum natus consectetur ratione blanditiis nam minus. Quae expedita eligendi blanditiis consectetur velit aliquid omnis placeat facere, itaque fuga dignissimos veritatis ab, cum autem odit tempora nobis illum sequi commodi ratione est laboriosam! Veniam assumenda expedita qui rem, ea cum tenetur iste. Rerum molestias sint quisquam tempora et?</p>
+            <p className="py-4">Chat Mangani Pat Byah is a unique platform that fulfills the dream of a modern married life rooted in Vedic rituals. Initiated by Shri Paras Bhai Guruji, this platform is dedicated to helping today’s young men and women find their ideal life partners. Here, marriage is not merely about forming a bond but about connecting families after a careful understanding of both sides, aligning interests and values. In this country, we cherish traditions blended with a modern outlook, and Shri Paras Bhai Guruji is committed to advancing this approach. After all, <strong>“Shaadi hona jaruri nahi, shaadi hokar chalna jaruri hai.”</strong>
+</p>
           </div>
         </div>
       </section>
@@ -33,16 +34,16 @@ function About() {
 
         <div className="reasons py-5 w-[90%] mx-auto">
           <div className="grid grid-cols-4 gap-4 ">
-            <div className="reason rounded-full w-60 flex justify-center items-center h-60 text-center bg-[#bb1904ad] text-white">
+            <div className="reason rounded-full border-2 px-4 border-yellow-500 w-60 flex justify-center items-center h-60 text-center bg-[#bb1904ad] text-white">
               <p className="">We are a symbol of <strong>Vedic & Modern</strong> Culture</p>
             </div>
-            <div className="reason rounded-full w-60 flex justify-center items-center h-60  text-center bg-[#bb1904ad] text-white">
+            <div className="reason rounded-full border-2 px-4 border-yellow-500 w-60 flex justify-center items-center h-60  text-center bg-[#bb1904ad] text-white">
               <p className="">We Know you, <strong>better than you</strong> </p>
             </div>
-            <div className="reason rounded-full w-60 flex justify-center items-center h-60  text-center bg-[#bb1904ad] text-white">
+            <div className="reason rounded-full border-2 px-4  border-yellow-500 w-60 flex justify-center items-center h-60  text-center bg-[#bb1904ad] text-white">
               <p className="">Having valid experience of <strong>16-17</strong>  years</p>
             </div>
-            <div className="reason rounded-full w-60 flex justify-center items-center h-60 text-center bg-[#bb1904ad] text-white">
+            <div className="reason rounded-full border-2 px-4 border-yellow-500 w-60 flex justify-center items-center h-60 text-center bg-[#bb1904ad] text-white">
               <p className="">Because there is one and only <strong>Paras Bhai</strong> </p>
             </div>
           </div>
