@@ -4,6 +4,7 @@ import RegistrationAmtForm from '../components/RegistrationAmtForm';
 import { GoPlus } from 'react-icons/go';
 import { useProgrammeContext } from '@/AdminContext';
 import { LiaEdit } from 'react-icons/lia';
+import { FaTrash } from 'react-icons/fa';
 import { FaEye } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -15,7 +16,6 @@ const Packages = () => {
   const [regId, setRegId] = useState(null);
   const navigate = useNavigate();
   const location = useLocation()
-
 
   const [addProgramme, setAddProgramme] = useState(false);
   const [addAmount, setAddAmount] = useState(false);
@@ -171,6 +171,11 @@ const Packages = () => {
                             className="relative  bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                             <LiaEdit />
                           </span>
+                          <span onClick={() => eventUserData(item?._id)}
+                            className="relative  bg-green-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
+                            <FaEye />
+                          </span>
+
                         </td>
 
                         <td className="px-1  py-2 border border-gray-200 bg-white text-lg">

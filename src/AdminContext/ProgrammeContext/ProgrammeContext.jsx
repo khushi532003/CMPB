@@ -72,7 +72,7 @@ const ProgrammeContextProvider = ({ children }) => {
             GetPackage();
             toast.success(res?.data?.message || "Register Package Updated Successfully");
         } catch (error) {
-            toast.error(res?.error?.message || "Update package failed");
+            toast.error(error?.message || "Update package failed");
         }
     }
 
@@ -110,7 +110,7 @@ const ProgrammeContextProvider = ({ children }) => {
     }, [])
 
     return (
-        <ProgrammeContext.Provider value={{ createProgramme, GetProgramme, updateProgramme, programmeData, DeleteProgramme, packageData, createPackage, UpdatePackage }}>
+        <ProgrammeContext.Provider value={{ createProgramme, GetProgramme, updateProgramme, programmeData, DeleteProgramme, packageData, createPackage, UpdatePackage, GetBookedEvent }}>
             {children}
         </ProgrammeContext.Provider>
     )
