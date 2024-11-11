@@ -28,11 +28,11 @@ export const AdminLnks = [
                 path: "/premiummembers",
                 icons: GoDotFill,
             },
-            {
-                title: "Program Booking ",
-                path: "/programme-booking",
-                icons: GoDotFill,
-            },
+            // {
+            //     title: "Program Booking ",
+            //     path: "/programme-booking",
+            //     icons: GoDotFill,
+            // },
         ]
     },
 

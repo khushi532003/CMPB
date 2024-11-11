@@ -8,14 +8,19 @@ import { AxiosHandler } from '@/config/Axios.config';
 
 function Home() {
 
-  const { programme, GetProgramme } = usePackageContext();
+  const { programme, GetProgramme, GetPackage, packageData } = usePackageContext();
   const { videoURLData } = useChurayePalContext();
   const { token } = useAuthContext();
+  console.log(packageData);
+  
 
 
 
   useEffect(() => {
     GetProgramme()
+  }, [])
+  useEffect(() => {
+    GetPackage()
   }, [])
 
 
@@ -363,12 +368,12 @@ function Home() {
                 </div>
               </div>}
 
-              <div className="theme ">
+              {packageData &&  <div className="theme ">
                 <div className="flex flex-col items-center w-full">
                   <div className="package h-[600px] border-2 w-full flex flex-col justify-center items-center  border-yellow-400 p-10 rounded-b-full rounded-t-full">
                     <h2 className="text-4xl">Registration  Package </h2>
 
-                    <h2 className="text-5xl py-3 font-semibold text-yellow-500">₹ 20000 /-</h2>
+                    <h2 className="text-5xl py-3 font-semibold text-yellow-500">₹ {packageData?.amount} /-</h2>
                     <p className="py-2 text-center text-sm">Easy registration facility with complete information.Guidance through phone calls, WhatsApp, or personal meetings if required.
 </p>
 
@@ -400,7 +405,7 @@ function Home() {
 
                   </div>
                 </div>
-              </div>
+              </div>}
 
             </div>
           </div>

@@ -10,6 +10,12 @@ function Table(props) {
     const { DeleteQuery } = useAdminContactContext();
     const { DeleteHappyStory } = useHappyStroyContext();
 
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const options = { day: '2-digit', month: 'short', year: 'numeric' };
+        return new Intl.DateTimeFormat('en-US', options).format(date);
+    };
+
 
     return (
         <div>
@@ -149,17 +155,17 @@ function Table(props) {
                         <tbody>
                             { props?.data && props?.data?.map((item, i) => (
                                 <tr key={i}>
-                                    <td className="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                                    <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                         <p className="text-gray-900 whitespace-no-wrap">{i + 1}</p>
                                     </td>
                                     {props?.identifier === "members" &&
-                                        <><td className="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                                        <><td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                             <img className='w-14 h-14 rounded-full object-cover' src={item?.profileImage?.ImageURL} alt="" />
                                         </td>
-                                            <td className="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                                            <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                 <p className="text-gray-900 text-sm capitalize whitespace-no-wrap"> {item?.firstName}</p>
                                             </td>
-                                            <td className="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                                            <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                 <p className="text-gray-900  text-sm whitespace-no-wrap">
                                                     {item?.MemberID}
                                                 </p>
@@ -167,12 +173,12 @@ function Table(props) {
                                         </>
                                     }
 
-                                    {props?.identifier === "video" && <> <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                    {props?.identifier === "video" && <> <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                         <p className="text-gray-900  text-sm whitespace-no-wrap">
                                             {item?.VideoURL}
                                         </p>
                                     </td>
-                                        <td className="px-5 py-2 border-b flex gap-1 border-gray-200 bg-white text-lg">
+                                        <td className="px-5 py-2 border-b flex gap-1 border-gray-200 bg-white text-sm">
                                             <button onClick={() => DeleteVideo(item?._id)}
                                                 className="relative cursor-pointer bg-RedTheme rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                                                 <FaTrash />
@@ -180,27 +186,27 @@ function Table(props) {
 
                                         </td>
                                     </>}
-                                    {props?.identifier === "contact" && <> <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                    {props?.identifier === "contact" && <> <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                         <p className="text-gray-900  text-sm whitespace-no-wrap">
                                             {item?.name}
                                         </p>
                                     </td>
-                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900  text-sm whitespace-no-wrap">
                                                 {item?.email}
                                             </p>
                                         </td>
-                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900  text-sm whitespace-no-wrap">
                                                 {item?.phone}
                                             </p>
                                         </td>
-                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900  text-sm whitespace-no-wrap">
                                                 {item?.message}
                                             </p>
                                         </td>
-                                        <td className="px-5 py-2 border-b flex gap-1 border-gray-200 bg-white text-lg">
+                                        <td className="px-5 py-2 border-b flex gap-1 border-gray-200 bg-white text-sm">
                                             <button onClick={() => DeleteQuery(item?._id)}
                                                 className="relative cursor-pointer bg-RedTheme rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                                                 <FaTrash />
@@ -208,62 +214,62 @@ function Table(props) {
 
                                         </td>
                                     </>}
-                                    {props?.identifier === "bookProgram" && item?.users && item?.users?.map((user, i) => <React.Fragment key={i}> <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                    {props?.identifier === "bookProgram" && item?.users && item?.users?.map((user, i) => <React.Fragment key={i}> <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                         <img src={user?.profileImage?.ImageURL} alt="" />
                                     </td>
-                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900  text-sm whitespace-no-wrap">
                                                 {user?.firstName}
                                             </p>
                                         </td>
-                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900  text-sm whitespace-no-wrap">
                                                 {user?.firstName}
                                             </p>
                                         </td>
-                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900  text-sm whitespace-no-wrap">
                                                 {user?.RegisterPackage}
                                             </p>
                                         </td>
-                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900  text-sm whitespace-no-wrap">
                                                 {item?.amount}
                                             </p>
                                         </td>
-                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900  text-sm whitespace-no-wrap">
                                                 {user?.email}
                                             </p>
                                         </td>
-                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900  text-sm whitespace-no-wrap">
                                                 {user?.phone}
                                             </p>
                                         </td>
-                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900  text-sm whitespace-no-wrap">
                                                 {user?.phone}
                                             </p>
                                         </td>
 
                                     </React.Fragment>)}
-                                    {props?.identifier === "happystory" && <> <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                    {props?.identifier === "happystory" && <> <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                         <p className="text-gray-900  text-sm whitespace-no-wrap">
                                             {item?.Groom}
                                         </p>
                                     </td>
-                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900  text-sm whitespace-no-wrap">
                                                 {item?.Bride}
                                             </p>
                                         </td>
-                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900  text-sm whitespace-no-wrap">
                                                 {item?.Content}
                                             </p>
                                         </td>
-                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
                                                 <label className="inline-flex items-center cursor-pointer">
                                                     <input type="checkbox" value="" className="sr-only peer" />
@@ -271,7 +277,7 @@ function Table(props) {
                                                 </label>
                                             </p>
                                         </td>
-                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <span
                                                 className="relative bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                                                 <LiaEdit />
@@ -284,23 +290,23 @@ function Table(props) {
 
                                     </>}
 
-                                    {props?.identifier === "happyStoryData" && <> <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                    {props?.identifier === "happyStoryData" && <> <td class="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                         <p class="text-gray-900  text-sm whitespace-no-wrap">
                                             {item?.Groom}
                                         </p>
                                     </td>
-                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <p class="text-gray-900  text-sm whitespace-no-wrap">
                                                 {item?.Bride}
                                             </p>
                                         </td>
-                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <p class="text-gray-900  text-sm whitespace-no-wrap">
                                                 {formatDate(item?.createdAt)}
                                             </p>
                                         </td>
 
-                                        <td class="px-5  py-2 border-b border-gray-200 flex gap-2 bg-white text-lg">
+                                        <td class="px-5  py-2 border-b border-gray-200 flex gap-2 bg-white text-sm">
                                             <span type='button'
                                                 className="relative bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                                                 <LiaEdit />
@@ -313,13 +319,13 @@ function Table(props) {
                                     </>}
 
                                     {props?.identifier === "register" && <>
-                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg">
+                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-sm">
                                             <p class="text-gray-900  text-sm whitespace-no-wrap">
                                                 {item?.amount}651
                                             </p>
                                         </td>
 
-                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-lg flex gap-2">
+                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-sm flex gap-2">
                                             <span
                                                 className="relative cursor-pointer bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                                                 <LiaEdit />
@@ -330,7 +336,7 @@ function Table(props) {
 
 
                                     </>}
-                                    {/* <td className="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                                    {/* <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                         <p className="text-gray-900 whitespace-no-wrap">
                                             <label className="inline-flex items-center cursor-pointer">
                                                 <input type="checkbox" value="" className="sr-only peer" />
@@ -339,7 +345,7 @@ function Table(props) {
                                         </p>
                                     </td> */}
                                     {
-                                        props?.identifier === 'members' && <td className="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                                        props?.identifier === 'members' && <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
 
                                             <span
                                                 className=" bg-[#BB1A04] rounded-full   px-3 py-1 text-sm text-white">

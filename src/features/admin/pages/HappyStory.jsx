@@ -7,13 +7,11 @@ import { useHappyStroyContext } from '@/AdminContext';
 
 const HappyStory = () => {
   const [addStory, setAddStory] = useState(false);
-  const { happyStoryData } = useHappyStroyContext();
+  const { happyStoryData, GetHappyStory } = useHappyStroyContext();
 
-
-
-
-
-
+useEffect(()=>{
+  GetHappyStory()
+},[])
 
   return (
     <div>

@@ -27,6 +27,11 @@ const Packages = () => {
     navigate(`/programme-booking/${id}`)
   }
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+    return new Intl.DateTimeFormat('en-US', options).format(date);
+  };
 
 
   return (
@@ -77,15 +82,15 @@ const Packages = () => {
                     </thead>
                     <tbody>
                       <tr>
-                        <td className="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                        <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                           <p className="text-gray-900 whitespace-no-wrap">1</p>
                         </td>
 
-                        <td className="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                        <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                           <p className="text-gray-900 whitespace-no-wrap">₹{packageData?.amount}</p>
                         </td>
 
-                        <td className="px-5  py-2  border-gray-200 bg-white text-lg">
+                        <td className="px-5  py-2  border-gray-200 bg-white text-sm">
                           <span onClick={() => {
                             setAddAmount(true)
                             setRegId(packageData)
@@ -142,29 +147,29 @@ const Packages = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {programmeData?.map((item) => <tr key={item?._id}>
-                        <td className="px-5 py-2 border-b border-gray-200 bg-white text-lg">
-                          <p className="text-gray-900 whitespace-no-wrap">1</p>
+                      {programmeData?.map((item, i) => <tr key={item?._id}>
+                        <td className="px-5 py-2  border-b border-gray-200 bg-white text-sm">
+                          <p className="text-gray-900 whitespace-no-wrap">{i+1}</p>
                         </td>
-                        <td className="px-5 py-2 border-b border-gray-200 bg-white text-lg">
-                          <p className="text-gray-900 whitespace-no-wrap">{item?.createdAt}</p>
+                        <td className="px-5 py-2 text-sm border-b border-gray-200 bg-white ">
+                          <p className="text-gray-900 whitespace-no-wrap">{formatDate(item?.createdAt)}</p>
                         </td>
-                        <td className="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                        <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                           <p className="text-gray-900 whitespace-no-wrap">{item?.venues}</p>
                         </td>
-                        <td className="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                        <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                           <p className="text-gray-900 whitespace-no-wrap">{item?.state}</p>
                         </td>
-                        <td className="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                        <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                           <p className="text-gray-900 whitespace-no-wrap">{item?.eventName}</p>
                         </td>
-                        <td className="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                        <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                           <p className="text-gray-900 whitespace-no-wrap">₹{item?.amount}</p>
                         </td>
-                        <td className="px-5 py-2 border-b border-gray-200 bg-white text-lg">
+                        <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                           <p className="text-gray-900 whitespace-no-wrap">{item?.description}</p>
                         </td>
-                        <td class="px-5 flex gap-2 py-2  border-gray-200 bg-white text-lg">
+                        <td class="px-5 flex gap-2 py-2  border-gray-200 bg-white text-sm">
                           <span onClick={() => { setAddProgramme(true) 
                             setEventId(item)
                           }}
@@ -178,7 +183,7 @@ const Packages = () => {
 
                         </td>
 
-                        <td className="px-1  py-2 border border-gray-200 bg-white text-lg">
+                        <td className="px-1  py-2 border border-gray-200 bg-white text-sm">
                           <span onClick={() => DeleteProgramme(item?._id)}
                             className="relative  bg-RedTheme rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                             <FaTrash />
