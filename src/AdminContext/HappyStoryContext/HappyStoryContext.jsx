@@ -1,5 +1,5 @@
 import { AxiosHandler } from "@/config/Axios.config";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { toast } from "react-toastify";
 
 export const HappyStoryContext = createContext();
@@ -12,10 +12,8 @@ const HappyStoryContextProvider = ({ children }) => {
         try {
             const res = await AxiosHandler.get("/happystories/admin-get")
             sethappyStoryData(res?.data?.data);
-            toast.success("Happy story created successfully")
         } catch (error) {
             console.log(error);
-            toast.error("Happy story failed to fetch")
         }
     }
 
@@ -24,9 +22,9 @@ const HappyStoryContextProvider = ({ children }) => {
         setLoader(true)
         try {
             const res = await AxiosHandler.post("/happystories/create", data)
-            console.log(res?.data?.data);            
+            GetHappyStory();
             toast.success("Happy Story Created Successfully");
-            GetHappyStory()
+            // console.log(res?.data?.data);
         } catch (error) {
             console.log(error)
             toast.error("Happy Story Created Failed ")
@@ -39,10 +37,11 @@ const HappyStoryContextProvider = ({ children }) => {
         try {
             const res = await AxiosHandler.delete(`/happystories/delete/${id}`)
             GetHappyStory();
-            console.log(res);
+            // console.log(res);
             toast.success("Happy Story deleted successfully")
         } catch (error) {
-            console.log("Story delete failed")
+            console.log("Story delete failed");
+            toast.error("Story Deleted");
         }
     }
 
@@ -50,9 +49,11 @@ const HappyStoryContextProvider = ({ children }) => {
         try {
             const res = await AxiosHandler.put(`/happystories/update/${id}`, data)
             GetHappyStory();
+            toast.success("Story update successfully");
             console.log(res?.data);
         } catch (error) {
             console.log(error);
+            toast.error("update story failed");
         }
     }
 

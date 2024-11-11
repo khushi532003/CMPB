@@ -1,14 +1,17 @@
 import { useAdminContactContext, useChurayeHuePalContext, useHappyStroyContext } from '@/AdminContext';
-import React from 'react'
+import React, { useState } from 'react'
 import { FaTrash } from 'react-icons/fa';
 import { LiaEdit } from 'react-icons/lia';
 import { LuEye } from 'react-icons/lu';
+import AddStory from './AddStory';
 
 function Table(props) {
     console.log("props is ", props?.data);
     const { DeleteVideo } = useChurayeHuePalContext();
     const { DeleteQuery } = useAdminContactContext();
     const { DeleteHappyStory } = useHappyStroyContext();
+    const [editStory, setEditStory] = useState(false);
+
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -153,7 +156,7 @@ function Table(props) {
                             </tr>
                         </thead>
                         <tbody>
-                            { props?.data && props?.data?.map((item, i) => (
+                            {props?.data && props?.data?.map((item, i) => (
                                 <tr key={i}>
                                     <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                         <p className="text-gray-900 whitespace-no-wrap">{i + 1}</p>
@@ -307,12 +310,12 @@ function Table(props) {
                                         </td>
 
                                         <td class="px-5  py-2 border-b border-gray-200 flex gap-2 bg-white text-sm">
-                                            <span type='button'
-                                                className="relative bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
+                                            <span type='button' onClick={() => setEditStory(true)}
+                                                className="relative bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white cursor-pointer">
                                                 <LiaEdit />
                                             </span>
                                             <span type='button' onClick={() => DeleteHappyStory(item?._id)}
-                                                className="relative bg-RedTheme rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
+                                                className="relative bg-RedTheme rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white cursor-pointer">
                                                 <FaTrash />
                                             </span>
                                         </td>
@@ -356,6 +359,7 @@ function Table(props) {
                                 </tr>
                             ))}
                         </tbody>
+                        {editStory ? <AddStory onClose={() => setEditStory(false)} /> : ""}
                     </table>
                 </div>
             </div>

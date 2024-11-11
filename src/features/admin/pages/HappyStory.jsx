@@ -6,12 +6,14 @@ import { useHappyStroyContext } from '@/AdminContext';
 
 
 const HappyStory = () => {
-  const [addStory, setAddStory] = useState(false);
   const { happyStoryData, GetHappyStory } = useHappyStroyContext();
+  const [addStory, setAddStory] = useState(false);
 
-useEffect(()=>{
-  GetHappyStory()
-},[])
+
+  useEffect(() => {
+    GetHappyStory();
+  }, [])
+
 
   return (
     <div>
@@ -22,7 +24,7 @@ useEffect(()=>{
               <div>
                 <h3 className="text-gray-600 font-semibold text-3xl">Happy Stories</h3>
               </div>
-              <div onClick={() => setAddStory(true)} className="px-4 py-1 text-white bg-[#BB1A04] flex gap-1 items-center rounded-sm cursor-pointer"><GoPlus /> Add Story</div>
+              <div onClick={() => setAddStory(true) } className="px-4 py-1 text-white bg-[#BB1A04] flex gap-1 items-center rounded-sm cursor-pointer"><GoPlus /> Add Story</div>
             </div>
             <div>
               <Table id={'S.N0.'} memeberName={"Groom name"} partnerName={"Bride  Name"} postTime={"Post Time"} actions={"Actions"} identifier={"happyStoryData"} data={happyStoryData} />

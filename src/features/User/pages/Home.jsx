@@ -12,9 +12,7 @@ function Home() {
   const { programme, GetProgramme, GetPackage, packageData } = usePackageContext();
   const { videoURLData } = useChurayePalContext();
   const { token } = useAuthContext();
-  console.log(packageData);
-
-
+  // console.log(packageData);
 
 
   useEffect(() => {
@@ -23,8 +21,6 @@ function Home() {
   }, [])
   const MemberID = localStorage.getItem("MemberID");
 
-
-  console.log(MemberID);
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
