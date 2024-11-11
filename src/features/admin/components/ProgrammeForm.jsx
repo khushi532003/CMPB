@@ -14,7 +14,7 @@ function ProgrammeForm({ onClose, Event }) {
         state: yup.string().required("State is required"),
         amount: yup.string().required("Amount is required"),
         eventName: yup.string().required("Event Name is required"),
-        description: yup.string().min(10).max(50).required("Description is required")
+        description: yup.string().min(10).max(100).required("Description is required")
     })
 
     const { values, errors, handleBlur, handleChange, handleSubmit, resetForm, touched } = useFormik({

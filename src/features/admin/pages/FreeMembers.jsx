@@ -2,10 +2,11 @@ import React, { useEffect } from 'react'
 import Table from '../components/Table'
 import { useAdminMemberContext } from '@/AdminContext'
 import { useAuthContext } from '@/context';
+import Loader from '@/constant/loader';
 
 function FreeMembers() {
 
-    const { freeMembers, freeMembersData } = useAdminMemberContext()
+    const { freeMembers, freeMembersData, loader } = useAdminMemberContext()
     const { token } = useAuthContext()
 
 
@@ -22,7 +23,8 @@ function FreeMembers() {
                     <h3 className="text-gray-600 font-semibold text-3xl">Free Members</h3>
                 </div>
             </div>
-            <Table id={'S.N0.'} profileImage={"Profile Image"} memeberName={"Member Name"} memberId={"Member ID"} detail={"View Details"} data={freeMembersData} identifier={"members"} />
+
+            {loader ? <Loader/> :  <Table id={'S.N0.'} profileImage={"Profile Image"} memeberName={"Member Name"} memberId={"Member ID"} detail={"View Details"} data={freeMembersData} identifier={"members"} />}
         </div>
     )
 }

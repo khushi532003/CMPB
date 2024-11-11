@@ -5,6 +5,7 @@ import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { useAuthContext, useChurayePalContext, usePackageContext } from '@/context';
 import { AxiosHandler } from '@/config/Axios.config';
+import { toast } from 'react-toastify';
 
 function Home() {
 
@@ -12,17 +13,18 @@ function Home() {
   const { videoURLData } = useChurayePalContext();
   const { token } = useAuthContext();
   console.log(packageData);
-  
+
 
 
 
   useEffect(() => {
     GetProgramme()
-  }, [])
-  useEffect(() => {
     GetPackage()
   }, [])
+  const MemberID = localStorage.getItem("MemberID");
 
+
+  console.log(MemberID);
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
@@ -35,8 +37,7 @@ function Home() {
   }
 
   const handlePayment = async (e,) => {
-    const MemberID = localStorage.getItem("MemberID")
-    // console.log(MemberID);
+
     // console.log(typeof programme?.amount, programme?.amount);
 
     try {
@@ -45,10 +46,17 @@ function Home() {
         const amount = programme?.amount
         // console.log(amount);
 
-        res = await AxiosHandler.post(`/payment/events?eventid=${programme?._id}&memberid=${MemberID}`, { amount: `${amount}` })
+        res = await AxiosHandler.post(`/payment/events?eventid=${programme?._id}&memberid=${MemberID}`, { amount: `${amount}` });
+        // toast.success("Event payment Succesfull");
         // console.log(res);
-      } else if (e.target.id === MemberID) {
-        res = await AxiosHandler.post(`/payment/package?memberid=${MemberID}`, data)
+      } else if (e.target.id === packageData?._id) {
+        console.log("here is");
+        console.log(packageData);
+
+        res = await AxiosHandler.post(`/payment/package?memberid=${MemberID}`, {
+          amount: `${packageData?.amount}`
+        })
+        console.log(res);
       }
 
       const options = {
@@ -60,13 +68,14 @@ function Home() {
         image: "",
         order_id: res?.data?.order?.id,
         handler: async (response) => {
-          // console.log(response);
+          console.log(response);
 
           const paymentDetails = {
             razorpayOrderID: response?.razorpay_order_id,
-            RazorPayPaymentId: response?.razorpay_payment_id
+            RazorPayPaymentID: response?.razorpay_payment_id
           }
-          if (response && programme?._id === e.target.id) {
+
+           if (response && programme?._id === e.target.id) {
             const eventRes = await AxiosHandler.post(`/events/bookuser/${programme?._id}`, paymentDetails)
             console.log("event res", eventRes)
           }
@@ -97,7 +106,7 @@ function Home() {
       }
     } catch (error) {
       console.log(error);
-      console.log("123");
+      toast.error(error?.message || "UserId Already  exist ")
     }
   }
 
@@ -356,7 +365,7 @@ function Home() {
                         <strong>Venue :</strong> {programme?.venues}
                       </div>
                       <div className="state py-2 text-lg">
-                        <strong>Date & Time :</strong> {programme?.availableDates}
+                        <strong>Date  :</strong> {programme?.availableDates}
                       </div>
                     </div>
                     <button id={programme?._id} type='button' onClick={(e) => handlePayment(e)}
@@ -368,7 +377,7 @@ function Home() {
                 </div>
               </div>}
 
-              {packageData &&  <div className="theme ">
+              {packageData && <div className="theme ">
                 <div className="flex flex-col items-center w-full">
                   <div className="package h-[600px] border-2 w-full flex flex-col justify-center items-center  border-yellow-400 p-10 rounded-b-full rounded-t-full">
                     <h2 className="text-4xl">Registration  Package </h2>
@@ -399,7 +408,7 @@ function Home() {
                         </li>
                       </ul>
                     </div>
-                    <button type='button'  className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500 ">
+                    <button type='button' id={packageData?._id} onClick={(e) => handlePayment(e)} className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500 ">
                       Register Now
                     </button>
 
