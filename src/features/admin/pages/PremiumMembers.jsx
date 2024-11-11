@@ -2,12 +2,11 @@ import React, { useEffect } from 'react'
 import Table from '../components/Table'
 import { useAdminMemberContext } from '@/AdminContext'
 import { useAuthContext } from '@/context'
+import Loader from '@/constant/loader'
 
 function PremiumMembers() {
-    const { premiumMembers, premiumMembersData } = useAdminMemberContext()
-    const { token } = useAuthContext()
-
-    
+    const { premiumMembers, premiumMembersData, loader } = useAdminMemberContext()
+    const { token } = useAuthContext();
     
     useEffect(() => {
         if (token)
@@ -20,7 +19,7 @@ function PremiumMembers() {
                     <h3 className="text-gray-600 font-semibold text-3xl">Premium Members</h3>
                 </div>
             </div>
-            <Table id={'S.No'} profileImage={"Profile Image"} memeberName={"Member Name"} memberId={"Member ID"} detail={"View Details"} data={premiumMembersData} identifier={"members"} />
+           {loader ? <Loader/> : <Table id={'S.No'} profileImage={"Profile Image"} memeberName={"Member Name"} memberId={"Member ID"} detail={"View Details"} data={premiumMembersData} identifier={"members"} />}
         </div>
     )
 }

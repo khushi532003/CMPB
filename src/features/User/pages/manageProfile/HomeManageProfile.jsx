@@ -14,6 +14,7 @@ import PartnerExpection from './PartnerExpection';
 import { useProfileContext } from '@/context';
 import Loader from '@/constant/loader';
 import PermanentAddress from './PermanentAddress';
+import { FaCamera } from 'react-icons/fa';
 
 function HomeManageProfile() {
     const { profile, GetProfile } = useProfileContext();
@@ -28,11 +29,19 @@ function HomeManageProfile() {
     return (
         <div>
             <div className="flex flex-col sm:flex-row py-4 gap-3 w-[90%] mx-auto">
-                <div className="filter sm:block w-[30%] border border-gray-400 p-4">
-                    <div className='w-full flex items-center text-center !justify-center'>
-                        <img className='rounded-full w-52 h-52' src={profile?.user?.profileImage?.ImageURL} alt="profile" />
+
+                <div className="filter sm:block w-full sm:w-[30%] border border-gray-400 p-4">
+                    <div className=''>
+                        <div className='w-full relative flex items-center text-center !justify-center'>
+                            <img className='rounded-full w-52 h-52' src="https://thumbs.dreamstime.com/z/vinayagar-images-ai-hd-photo-2023-289916691.jpg" alt="profile" />
+                            <div className='absolute  text-2xl bottom-5 right-24 '>
+                                <FaCamera />
+                            </div>
+                        </div>
                     </div>
-                    <p className='text-center py-4'>{profile?.user?.firstName}</p>
+                    <div>
+                        <p className='text-center py-4'>{profile?.user?.firstName}</p>
+                    </div>
                 </div>
 
                 <div className="members w-full sm:w-[70%] border border-gray-400 p-4">

@@ -12,10 +12,8 @@ const HappyStoriesContextProvider = ({ children }) => {
         try {
             const res = await AxiosHandler.get("/happystories/get")
             setHappyStory(res.data.data);
-            toast.success("Data fetched successfull");
         } catch (error) {
             console.log(error);
-            toast.error("Data fetched Failed");
         }
     }
    

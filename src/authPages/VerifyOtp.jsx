@@ -3,8 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Loader from '@/constant/loader';
 
-
-
 function VerifyOtp() {
     const { loader, VerifyOtp, OTPverify } = useAuthContext();
     const navigate = useNavigate()
@@ -23,9 +21,8 @@ function VerifyOtp() {
     return (
         <div>
             <div className='w-full min-h-screen flex justify-center items-center bg-gradient-to-r from-red-400    bg-center bg-cover bg-no-repeat' style={{ backgroundImage: "url(https://www.shutterstock.com/shutterstock/photos/1881715708/display_1500/stock-vector-blush-pink-watercolor-fluid-painting-vector-design-card-dusty-rose-and-golden-marble-geode-frame-1881715708.jpg" }}>
-
                 <div className='max-w-md   shadow-lg py-5 w-[95%] sm:w-[50%]  bg-white mx-auto border border-yellow-600 px-10 pt-24 rounded-t-full rounded-md p-6'>
-                    <form  >
+                    <form>
                         <h3 className='flex justify-center items-center mb-14 text-gray-500 font-bold text-5xl'>OTP Verification</h3>
 
                         <p className='bg-white py-2 my-3 w-full font-medium text-lg rounded-lg px-3'>{state.email}</p>
@@ -39,7 +36,6 @@ function VerifyOtp() {
                     <div className='mt-4 text-end text-blue-700 hover:underline font-semibold'>
                         <Link to="/login">Back to Login</Link>
                     </div>
-
                 </div>
             </div>
         </div>
