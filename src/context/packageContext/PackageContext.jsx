@@ -25,11 +25,9 @@ const PackageContextProvider = ({ children }) => {
         } catch (error) {
             console.log(error);
         }
+        
     };
 
-    // useEffect(()=>{
-    //     GetProgramme()
-    // },[])
 
     return (
         <PackageContext.Provider value={{ programme, GetProgramme, packageData, GetPackage }}>

@@ -356,7 +356,7 @@ function Home() {
                         <strong>Venue :</strong> {programme?.venues}
                       </div>
                       <div className="state py-2 text-lg">
-                        <strong>Date & Time :</strong> {programme?.availableDates}
+                        <strong>Date  :</strong> {programme?.availableDates}
                       </div>
                     </div>
                     <button id={programme?._id} type='button' onClick={(e) => handlePayment(e)}

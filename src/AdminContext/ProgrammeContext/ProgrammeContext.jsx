@@ -8,17 +8,22 @@ const ProgrammeContextProvider = ({ children }) => {
 
     const [programmeData, setProgrammeData] = useState([]);
     const [packageData, setPackageData] = useState([]);
+    const [loader, setLoader] = useState(false)
 
 
     const GetProgramme = async () => {
+        setLoader(true)
         try {
             const res = await AxiosHandler.get("events/get-admin");
             setProgrammeData(res?.data?.data);
         } catch (error) {
             console.log(error);
+        }finally{
+            setLoader(false)
         }
     }
     const GetPackage = async () => {
+        setLoader(true)
         try {
             const res = await AxiosHandler.get("RegisterPackage/get");
             setPackageData(res?.data?.data);
@@ -26,6 +31,8 @@ const ProgrammeContextProvider = ({ children }) => {
         } catch (error) {
             console.log(error);
 
+        } finally {
+            setLoader(false)
         }
     }
     const GetBookedEvent = async (id) => {
@@ -110,7 +117,7 @@ const ProgrammeContextProvider = ({ children }) => {
     }, [])
 
     return (
-        <ProgrammeContext.Provider value={{ createProgramme, GetProgramme, updateProgramme, programmeData, DeleteProgramme, packageData, createPackage, UpdatePackage, GetBookedEvent }}>
+        <ProgrammeContext.Provider value={{ createProgramme, loader, GetProgramme, updateProgramme, programmeData, DeleteProgramme, packageData, createPackage, UpdatePackage, GetBookedEvent }}>
             {children}
         </ProgrammeContext.Provider>
     )
