@@ -161,21 +161,21 @@ function Home() {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}>
-        <div className="grid grid-cols-1 py-4  sm:grid-cols-3 gap-6 w-full sm:w-[80%] mx-auto">
+        <div className="grid grid-cols-1 py-4  sm:grid-cols-3 gap-2 w-full sm:w-[80%] mx-auto">
           <div className="bg-white relative mx-3 rounded-md shadow p-4  text-center flex justify-center items-center flex-col">
-            <img className="w-14 mb-4 absolute top-[-30px]" src="https://rn53themes.net/themes/matrimo/images/icon/prize.png" alt="" />
-            <h3 className="text-3xl font-semibold mt-5">Genuine profiles</h3>
-            <p className="text-lg py-2">The most trusted wedding matrimony brand</p>
+            <img className="w-24 mb-4 absolute top-[-50px]" src="../images/wcu/1.png" alt="" />
+            <h3 className="text-2xl font-semibold mt-5">Lifetime Experience</h3>
+            <p className="text-sm py-2">Our team is dedicated to providing you with a truly unforgettable experience. Feel the joy of a lasting, meaningful connection with your partner every day.</p>
           </div>
           <div className=" bg-white relative rounded-md mx-3 shadow p-4 text-center flex justify-center items-center flex-col">
-            <img className="w-14 mb-4 absolute top-[-30px]" src="https://rn53themes.net/themes/matrimo/images/icon/trust.png" alt="" />
-            <h3 className="text-3xl font-semibold mt-5">Most trusted</h3>
-            <p className="text-lg py-2">The most trusted wedding matrimony brand</p>
+            <img className="w-24 mb-4 absolute top-[-50px]" src="../images/wcu/2.png" alt="" />
+            <h3 className="text-2xl font-semibold mt-5">Relationships Test</h3>
+            <p className="text-sm py-2">Under the careful guidance of Paras Bhai Guruji, each relationship is thoughtfully assessed, fostering a strong foundation of trust between you and your partner.</p>
           </div>
           <div className=" bg-white relative rounded-md mx-3 shadow p-4 text-center flex justify-center items-center flex-col">
-            <img className="w-14 mb-4 absolute top-[-30px]" src="https://rn53themes.net/themes/matrimo/images/icon/rings.png" alt="" />
-            <h3 className="text-3xl font-semibold mt-5">2000+ weddings</h3>
-            <p className="text-lg py-2">The most trusted wedding matrimony brand</p>
+            <img className="w-28 mb-4 absolute top-[-50px]" src="../images/wcu/3.png" alt="" />
+            <h3 className="text-2xl font-semibold mt-5">Compatibility Check</h3>
+            <p className="text-sm py-2">To ensure a perfect match, we conduct thorough horoscope compatibility checks before pairing. All traditional customs are carefully observed for instant engagement and marriage.</p>
           </div>
         </div>
       </section>
@@ -237,7 +237,7 @@ function Home() {
             <div className="px-2">
               <div className='flex flex-col justify-center h-full'>
                 <h3 className="text-2xl sm:text-3xl font-semibold py-3">Register</h3>
-                <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                <p className="text-sm">Register on our website today to share more about yourself and let us get to know you better. With a few simple steps, you’ll be all setup. </p>
               </div>
             </div>
           </div>
@@ -245,7 +245,8 @@ function Home() {
             <div className="px-2">
               <div className='flex flex-col justify-center h-full'>
                 <h3 className="text-2xl sm:text-3xl font-semibold py-3">Manage Profile</h3>
-                <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                <p className="text-sm">Remember to keep your profile updated, just like you would for your social media, so we can stay in touch with any changes.
+                </p>
               </div>
             </div>
             <div className="relative px-2 flex  justify-center mx-auto">
@@ -271,7 +272,7 @@ function Home() {
             <div className="px-2">
               <div className='flex flex-col justify-center h-full'>
                 <h3 className="text-2xl sm:text-3xl font-semibold py-3">Attend Call</h3>
-                <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                <p className="text-sm">Within 48 hours of registering, our Chat Mangni Pat Byaah team will reach out to you.</p>
               </div>
             </div>
           </div>
@@ -279,7 +280,7 @@ function Home() {
             <div className="px-2">
               <div className='flex flex-col justify-center h-full'>
                 <h3 className="text-2xl sm:text-3xl font-semibold py-3">Purchase Package</h3>
-                <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                <p className="text-sm">Browse through our packages and select the one that suits you best, as you start this exciting new chapter.</p>
               </div>
             </div>
             <div className="relative px-2 flex  justify-center mx-auto">
@@ -305,7 +306,7 @@ function Home() {
             <div className="px-2">
               <div className='flex flex-col justify-center h-full'>
                 <h3 className="text-2xl sm:text-3xl font-semibold py-3">Fix Meeting</h3>
-                <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                <p className="text-sm">We will also arrange a personal meeting with Shri Paras Bhai Guruji, where you’ll have the opportunity to discuss your life goals and aspirations.</p>
               </div>
             </div>
           </div>
@@ -313,7 +314,7 @@ function Home() {
             <div className="px-2">
               <div className='flex flex-col justify-center h-full'>
                 <h3 className="text-2xl sm:text-3xl font-semibold py-3">Get Marry</h3>
-                <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                <p className="text-sm">Chat Mangni Pat Byaah is here to support you in this important journey. It’s our commitment to help you find the right life partner and ensure a joyful, harmonious married life ahead.</p>
               </div>
             </div>
             <div className="relative px-2 flex  justify-center mx-auto">
@@ -335,14 +336,11 @@ function Home() {
         <div className="block sm:flex justify-between gap-3 px-3 items-center">
           <div className="themes w-full sm:w-[60%]">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-14">
-
-
               {programme && <div className="theme">
-                <div className="flex flex-col items-center">
-                  <div className="package  h-[550px] border-2 flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
+                <div className="flex flex-col items-center w-full">
+                  <div className="package  h-[600px] border-2 w-full flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
                     <h2 className="text-4xl">Program Package</h2>
-
-                    <h3 className="text-5xl py-3 font-semibold text-yellow-500">₹{programme?.amount}  /-</h3>
+                    <h2 className="text-5xl py-3 font-semibold text-yellow-500">₹{programme?.amount}  /-</h2>
                     <div className="programme py-2 text-2xl font-semibold">{programme?.eventName}</div>
                     <p className="py-2">{programme?.description}</p>
                     <div className="programmeDetails mb-4">
@@ -365,29 +363,34 @@ function Home() {
                 </div>
               </div>}
 
-
               <div className="theme ">
-                <div className="flex flex-col items-center ">
-                  <div className="package h-[550px] border-2 flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
+                <div className="flex flex-col items-center w-full">
+                  <div className="package h-[600px] border-2 w-full flex flex-col justify-center items-center  border-yellow-400 p-10 rounded-b-full rounded-t-full">
                     <h2 className="text-4xl">Registration  Package </h2>
 
-                    <h3 className="text-5xl py-3 font-semibold text-yellow-500">₹ 20000 /-</h3>
-                    <p className="py-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quas quisquam veniam nam nisi quo? Nihil aspernatur labore nisi quibusdam</p>
+                    <h2 className="text-5xl py-3 font-semibold text-yellow-500">₹ 20000 /-</h2>
+                    <p className="py-2 text-center text-sm">Easy registration facility with complete information.Guidance through phone calls, WhatsApp, or personal meetings if required.
+</p>
 
                     <div className="pointss mb-4">
                       <ul>
-                        <li className="flex gap-2 items-center py-1">
-                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
-                          Free Counselling
+                        <li className="flex gap-2 items-center py-1 text-sm">
+                          <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
+                          Assistance in finding quick and right marriage combinations.
                         </li>
-                        <li className="flex gap-2 items-center py-1">
-                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
-                          Get rid of all your Q&A's
+                        <li className="flex gap-2 items-center py-1 text-sm">
+                          <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
+                          Special Kundli matching service by Shri Paras Bhai Guruji
                         </li>
 
-                        <li className="flex gap-2 items-center py-1">
-                          <img className="w-10 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
-                          Get rid of all your Q&A's
+                        <li className="flex gap-2 items-center py-1 text-sm">
+                          <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
+                          Guidance and consultation in every decision related to marriage
+                        </li>
+                        <li className="flex gap-2 items-center py-1 text-sm">
+                          <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
+                          The harmony of both the families will be taken care of in the marriage.
+
                         </li>
                       </ul>
                     </div>
@@ -411,7 +414,7 @@ function Home() {
       {/* Packages section end  */}
 
       {/* Gallery section start  */}
-      <section className="gallery py-5">
+        <section className="gallery py-5">
         <div className="heading flex justify-center flex-col items-center text-center">
           <h2 className="text-6xl sm:text-7xl">Gallery</h2>
           <img src="../images/headingImg.png" alt="" className="w-64" />
@@ -437,7 +440,7 @@ function Home() {
             </div>
           </div>
         </div>
-      </section>
+        </section>
       {/* Gallery section end  */}
 
     </div>

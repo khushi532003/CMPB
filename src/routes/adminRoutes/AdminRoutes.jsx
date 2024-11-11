@@ -39,7 +39,7 @@ export const AdminRoute= [
         element: <PremiumMembers />
     },
     {
-        path: "/programme-booking",
+        path: "/programme-booking/:id",
         element: <ProgrameBooking />
     },
    

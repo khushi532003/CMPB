@@ -18,8 +18,8 @@ const HappyStoriesContextProvider = ({ children }) => {
             toast.error("Data fetched Failed");
         }
     }
-
-    return (
+   
+    return(
         <HappyStoriesContext.Provider value={{ happyStory, GetHappyStories }}>
             {children}
         </HappyStoriesContext.Provider>

@@ -28,6 +28,18 @@ const ProgrammeContextProvider = ({ children }) => {
 
         }
     }
+    const GetBookedEvent = async (id) => {
+        try {
+            const res = await AxiosHandler.get(`events/UserWhoBookedEvent/${id}`);
+            
+            return res?.data?.data?.[0];
+
+        } catch (error) {
+            console.log(error);
+            toast.error("ERROR ", error)
+
+        }
+    }
 
     const createProgramme = async (data) => {
         try {

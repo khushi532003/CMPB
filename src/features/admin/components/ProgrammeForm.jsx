@@ -101,4 +101,4 @@ function ProgrammeForm({ onClose, Event }) {
     )
 }
 
-export default ProgrammeForm
+export default ProgrammeForm;
