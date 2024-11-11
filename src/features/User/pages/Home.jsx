@@ -3,16 +3,108 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
-import { useChurayePalContext, usePackageContext } from '@/context';
+import { useAuthContext, useChurayePalContext, usePackageContext } from '@/context';
+import { AxiosHandler } from '@/config/Axios.config';
 
 function Home() {
 
   const { programme, GetProgramme } = usePackageContext();
   const { videoURLData } = useChurayePalContext();
+  const { token } = useAuthContext();
+
+
 
   useEffect(() => {
     GetProgramme()
   }, [])
+
+
+  const loadRazorpayScript = () => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script")
+      script.src = "https://checkout.razorpay.com/v1/checkout.js"
+      script.onload = () => resolve(true)
+      script.onerror = () => resolve(false)
+      document.body.appendChild(script)
+    })
+  }
+
+  const handlePayment = async (e,) => {
+    const MemberID = localStorage.getItem("MemberID")
+    console.log(MemberID);
+    console.log(typeof programme?.amount, programme?.amount);
+
+    try {
+      let res
+      if (e.target.id === programme?._id) {
+        const amount = programme?.amount
+        console.log(amount);
+
+        res = await AxiosHandler.post(`/payment/events?eventid=${programme?._id}&memberid=${MemberID}`, { amount: `${amount}` })
+        console.log(res);
+      } else if (e.target.id === "") {
+        res = await AxiosHandler.post(`/payment/events?memberid=${id}`, data)
+      }
+      const options = {
+        key: import.meta.env.VITE_RAZOR_KEY,
+        amount: res?.data?.order?.amount,
+        currency: res?.data?.order?.currency,
+        name: e.target.id === programme?._id ? "CMPB Event" : "Registration Package",
+        description: "",
+        image: "",
+        order_id: res?.data?.order?.id,
+        handler: async (response) => {
+          console.log(response);
+
+          const paymentDetails = {
+            razorpayOrderID: response?.razorpay_order_id,
+            RazorPayPaymentId: response?.razorpay_payment_id
+          }
+          if (response && programme?._id === e.target.id) {
+            const eventRes = await AxiosHandler.post(`/events/bookuser/${programme?._id}`, paymentDetails)
+            console.log("event res",eventRes)
+          }
+
+
+        },
+        prefill: {
+          name: "CMPB",
+          email: "abc2gmail.com",
+          contact: "9858668646",
+        },
+        notes: {
+          address: "oieryl m bfiuaw",
+        },
+        theme: {
+          color: "#fff"
+        },
+      }
+
+      if (typeof window !== "undefined" && window.Razorpay) {
+        console.log(options);
+
+        const razpopup = new window.Razorpay(
+          options
+        )
+        razpopup.open()
+      } else {
+
+        console.log("Razorpay error");
+      }
+    } catch (error) {
+
+
+      console.log(error);
+      console.log("123");
+
+
+    }
+  }
+
+  useEffect(() => {
+    if (token)
+      loadRazorpayScript()
+  }, [token])
 
 
   return (
@@ -264,9 +356,8 @@ function Home() {
                         <strong>Date & Time :</strong> {programme?.availableDates}
                       </div>
                     </div>
-                    <button
+                    <button id={programme?._id} type='button' onClick={(e) => handlePayment(e)}
                       className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500"
-
                     >
                       Book Now
                     </button>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import BasicInfo from './BasicInfo';
 import PresentAddress from './presentAddress';
 import CareerInfo from './CareerInfo';
@@ -16,7 +16,7 @@ import Loader from '@/constant/loader';
 import PermanentAddress from './PermanentAddress';
 
 function HomeManageProfile() {
-    const { profile } = useProfileContext();
+    const { profile, GetProfile } = useProfileContext();
 
 
     useEffect(() => {
