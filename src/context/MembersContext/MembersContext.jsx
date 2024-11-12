@@ -7,8 +7,10 @@ const MemberContextProvider = ({children}) =>{
 
     const [activeUser, setActiveUser] = useState([])
     const [userDetails, setUserDetails] = useState({})
+    const [loader, setLoader] = useState(false)
 
     const GetActiveMembers = async ()=>{
+        setLoader(true)
         try {
             const res = await AxiosHandler.get("/user/getActiveUser")
             setActiveUser(res.data.data);
@@ -16,6 +18,8 @@ const MemberContextProvider = ({children}) =>{
         } catch (error) {
             console.log(error);
             
+        }finally{
+            setLoader(false)
         }
     }
 
@@ -33,7 +37,7 @@ const MemberContextProvider = ({children}) =>{
 
     
     return(
-        <MemberContext.Provider value={{ activeUser, GetActiveUserById, userDetails }}>
+        <MemberContext.Provider value={{ activeUser, loader, GetActiveMembers, GetActiveUserById, userDetails }}>
             {children}
         </MemberContext.Provider>
     )

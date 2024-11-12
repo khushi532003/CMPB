@@ -5,7 +5,7 @@
 
         return (
             <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-500 bg-opacity-50">
-                <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+                <div className= "bg-white p-6 rounded-lg shadow-lg w-96">
                     <h4 className="text-lg font-semibold mb-4">{message}</h4>
                     <div className="flex justify-end space-x-4">
                         <button

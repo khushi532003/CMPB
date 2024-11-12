@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { IoIosArrowDown } from "react-icons/io";
+
 
 function Accordian({ title, children, isOpen, onToggle }) {
    
@@ -11,7 +13,7 @@ function Accordian({ title, children, isOpen, onToggle }) {
               >
                   <span className="font-semibold text-[#BB1A04]">{title}</span>
                   <span className={`transform transition-transform ${isOpen ? 'rotate-180' : ''}`}>
-                      ▼
+                      <IoIosArrowDown />
                   </span>
               </button>
               <div
