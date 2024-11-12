@@ -9,17 +9,20 @@ const HappyStoryContextProvider = ({ children }) => {
     const [loader, setLoader] = useState(false);
 
     const GetHappyStory = async () => {
+        setLoader(true)
         try {
             const res = await AxiosHandler.get("/happystories/admin-get")
             sethappyStoryData(res?.data?.data);
         } catch (error) {
             console.log(error);
+        } finally {
+            setLoader(false);
         }
     }
 
 
     const CreateHappyStory = async (data) => {
-        setLoader(true)
+      
         try {
             const res = await AxiosHandler.post("/happystories/create", data)
             GetHappyStory();
@@ -28,9 +31,7 @@ const HappyStoryContextProvider = ({ children }) => {
         } catch (error) {
             console.log(error)
             toast.error("Happy Story Created Failed ")
-        } finally {
-            setLoader(false);
-        }
+        } 
     }
 
     const DeleteHappyStory = async (id) => {

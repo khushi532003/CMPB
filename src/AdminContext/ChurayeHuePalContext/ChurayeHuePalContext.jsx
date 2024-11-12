@@ -7,8 +7,10 @@ export const ChurayeHuePalContext = createContext();
 const ChurayeHuePalContextProvider = ({ children }) => {
 
     const [video, setVideo] = useState([])
+    const [loader, setLoader] = useState(false)
 
     const GetVideo = async () => {
+        setLoader(true)
         try {
             const res = await AxiosHandler.get("churaye-hua-pal/get");
             console.log("video", res?.data?.data?.[0]?.VideoURL);
@@ -16,7 +18,8 @@ const ChurayeHuePalContextProvider = ({ children }) => {
 
         } catch (error) {
             console.log(error);
-
+        }finally{
+            setLoader(false)
         }
     }
 
@@ -49,7 +52,7 @@ const ChurayeHuePalContextProvider = ({ children }) => {
 
 
     return (
-        <ChurayeHuePalContext.Provider value={{ CreateVideo, video, GetVideo, DeleteVideo }}>
+        <ChurayeHuePalContext.Provider value={{ CreateVideo, loader, video, GetVideo, DeleteVideo }}>
             {children}
         </ChurayeHuePalContext.Provider>
     )

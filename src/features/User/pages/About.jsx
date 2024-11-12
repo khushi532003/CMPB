@@ -33,7 +33,7 @@ function About() {
         </div>
 
         <div className="reasons py-5 w-[90%] mx-auto">
-          <div className="grid grid-cols-4 gap-4 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 ">
             <div className="reason rounded-full border-2 px-4 border-yellow-500 w-60 flex justify-center items-center h-60 text-center bg-[#bb1904ad] text-white">
               <p className="">We are a symbol of <strong>Vedic & Modern</strong> Culture</p>
             </div>

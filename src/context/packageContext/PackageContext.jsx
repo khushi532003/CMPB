@@ -7,6 +7,7 @@ const PackageContextProvider = ({ children }) => {
 
     const [programme, setProgramme] = useState({});
     const [packageData, setPackageData] = useState({});
+    const [eventPurchaseData, setEventPurchaseData] = useState(null);
 
     const GetProgramme = async () => {
         try {
@@ -16,11 +17,19 @@ const PackageContextProvider = ({ children }) => {
             console.log(error);
         }
     };
+    const GetEventPurchaseData = async () => {
+        try {
+            const res = await AxiosHandler.get("events/getBookedEvent");
+            setEventPurchaseData(res?.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     const GetPackage = async () => {
         try {
             const res = await AxiosHandler.get("/RegisterPackage/get");
-            console.log("respos of package", res?.data?.data);
+            // console.log("respos of package", res?.data?.data);
             setPackageData(res?.data?.data);
         } catch (error) {
             console.log(error);
@@ -30,7 +39,7 @@ const PackageContextProvider = ({ children }) => {
 
 
     return (
-        <PackageContext.Provider value={{ programme, GetProgramme, packageData, GetPackage }}>
+        <PackageContext.Provider value={{ programme, eventPurchaseData, GetEventPurchaseData, GetProgramme, packageData, GetPackage }}>
             {children}
         </PackageContext.Provider>
     )
