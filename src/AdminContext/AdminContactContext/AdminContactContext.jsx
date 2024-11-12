@@ -7,8 +7,10 @@ export const AdminContactContext = createContext();
 const AdminContactContextProvider = ({ children }) => {
 
     const [contactQuery, setContactQuery] = useState([])
+    const [loader, setLoader] = useState(false)
 
     const GetContactQueries = async () => {
+        setLoader(true)
         try {
             const res = await AxiosHandler.get("contact/get?page=1&limit=5");
             console.log(res?.data?.data);
@@ -16,6 +18,8 @@ const AdminContactContextProvider = ({ children }) => {
 
         } catch (error) {
             console.log(error);
+        }finally{
+            setLoader(false)
         }
     }
 
@@ -33,7 +37,7 @@ const AdminContactContextProvider = ({ children }) => {
 
 
     return (
-        <AdminContactContext.Provider value={{ contactQuery, DeleteQuery, GetContactQueries }}>
+        <AdminContactContext.Provider value={{ contactQuery, loader, DeleteQuery, GetContactQueries }}>
             {children}
         </AdminContactContext.Provider>
     )

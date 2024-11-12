@@ -13,22 +13,17 @@ function AuthContextProvider({ children }) {
     const [forgetEmail, setForgetEmail] = useState(null);
     const [OTPverify, setOTPVerify] = useState(null);
     const [packagePaymentData, setPackagePaymentData] = useState({})
-    console.log(name);
     const [Registered, setRegistered] = useState(null);
-
-
-
-
+    console.log(packagePaymentData);
+    
 
     // Register new user
     const RegisterUser = async (data) => {
         setLoader(true);
         try {
             const res = await AxiosHandler.post("/auth/signup", data);
-
             setRegistered({ email: res?.data?.email })
             toast.success(res.data.message);
-            console.log(res);
         } catch (error) {
             console.log(error);
             toast.error(error.response?.data?.message || "User Registration Failed");
@@ -67,8 +62,6 @@ function AuthContextProvider({ children }) {
     // Forget password
     const ForgetPassword = async (data) => {
         setLoader(true);
-        console.log(data);
-
         try {
             const response = await AxiosHandler.post("/auth/sendotp", data);
             toast.success(response.data.message);

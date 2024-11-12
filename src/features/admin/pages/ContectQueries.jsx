@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import Table from '../components/Table';
 import { useAdminContactContext } from '@/AdminContext';
+import Loader from '@/constant/loader';
 
 const ContectQueries = () => {
 
-    const { contactQuery, GetContactQueries } = useAdminContactContext();
+    const { contactQuery, GetContactQueries, loader } = useAdminContactContext();
     console.log(contactQuery);
 
     useEffect(() => {
@@ -21,7 +22,7 @@ const ContectQueries = () => {
                                 <h3 className="text-gray-600 font-semibold text-3xl"> Contact Queries </h3>
                             </div>
                         </div>
-                        <Table id={"S.no"} name={"Name"} email={"Email"} phone={"Phone No."} message={"Message"} action={"Action"} identifier={"contact"} data={contactQuery} />
+                        {loader ? <Loader/> : <Table id={"S.no"} name={"Name"} email={"Email"} phone={"Phone No."} message={"Message"} action={"Action"} identifier={"contact"} data={contactQuery} />}
                     </div>
                 </div>
 

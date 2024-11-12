@@ -7,11 +7,12 @@ import { LiaEdit } from 'react-icons/lia';
 import { FaTrash } from 'react-icons/fa';
 import { FaEye } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Loader from '@/constant/loader';
 
 
 const Packages = () => {
 
-  const { programmeData, packageData, DeleteProgramme, GetProgramme } = useProgrammeContext();
+  const { programmeData, packageData, DeleteProgramme, GetProgramme, loader } = useProgrammeContext();
   const [eventId, setEventId] = useState(null);
   const [regId, setRegId] = useState(null);
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ const Packages = () => {
             <div>
               <h4 className="text-gray-600 font-semibold text-xl"> Registration Amount</h4>
 
-              <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+              {loader ? <Loader/> :<div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
                   <table className="min-w-full leading-normal">
                     <thead>
@@ -102,10 +103,10 @@ const Packages = () => {
                     </tbody>
                   </table>
                 </div>
-              </div>
+              </div>}
 
               <h4 className="text-gray-600 font-semibold text-xl"> Events</h4>
-              <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+              {loader ? <Loader/> : <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
                   <table className="min-w-full leading-normal">
                     <thead>
@@ -193,7 +194,7 @@ const Packages = () => {
                     </tbody>
                   </table>
                 </div>
-              </div>
+              </div>}
             </div>
           </div>
         </div>
