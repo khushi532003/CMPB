@@ -116,7 +116,6 @@ function EducationInfo({data}) {
                     <div className='flex justify-end py-4'>
                         <div>
                             <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>Update</button>
-                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>cancel</button>
                         </div>
                     </div>
                 </div>

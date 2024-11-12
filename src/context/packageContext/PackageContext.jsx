@@ -20,7 +20,7 @@ const PackageContextProvider = ({ children }) => {
     const GetPackage = async () => {
         try {
             const res = await AxiosHandler.get("/RegisterPackage/get");
-            console.log("respos of package", res?.data?.data);
+            // console.log("respos of package", res?.data?.data);
             setPackageData(res?.data?.data);
         } catch (error) {
             console.log(error);

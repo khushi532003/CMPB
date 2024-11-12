@@ -13,7 +13,6 @@ function AuthContextProvider({ children }) {
     const [forgetEmail, setForgetEmail] = useState(null);
     const [OTPverify, setOTPVerify] = useState(null);
     const [packagePaymentData, setPackagePaymentData] = useState({})
-    console.log(name);
     const [Registered, setRegistered] = useState(null);
 
 
@@ -53,7 +52,6 @@ function AuthContextProvider({ children }) {
             localStorage.setItem("username", res?.data?.firstName);
             toast.success(res.data.message);
             setPackagePaymentData(res?.data);
-            console.log(res?.data);
         } catch (error) {
             console.log(error);
             toast.error(error.response?.data?.message || "User Login Failed");

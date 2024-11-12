@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 
 
 function Register() {
-    const { RegisterUser, loader, forgetEmail } = useAuthContext();
+    const { RegisterUser, loader, forgetEmail, Registered } = useAuthContext();
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate()
 
@@ -23,19 +23,29 @@ function Register() {
         validationSchema: Registerschema,
         onSubmit: async (value) => {
             await RegisterUser(value)
-            // if (registerd) {
-            //     navigate("/verify_otp")
-            // }
+
             console.log("still here");
 
         }
     })
     useEffect(() => {
         if (forgetEmail) {
+            console.log("here");
+
             navigate('/verify_otp', { state: { email: forgetEmail.email } })
         }
 
+
     }, [forgetEmail])
+    useEffect(() => {
+        if (Registered) {
+            console.log("here 1");
+
+            navigate('/verify_otp', { state: { email: Registered.email } })
+        }
+
+
+    }, [Registered])
 
 
     return (

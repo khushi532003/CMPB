@@ -72,10 +72,12 @@ function Login() {
 
                             <button type='submit' className='w-full p-2 bg-RedTheme hover:bg-red-800 duration-300 text-white rounded-md font-semibold items-center justify-center flex' disabled={loader} >{loader ? <Loader /> : "Login"}</button>
                         </form>
-                        <div className='my-6'>
+
+                        {/* <div className='my-6'>
                             <GoogleLogin onSuccess={handleGoogle} onError={handleGoogle} />
-                        </div>
-                        <p className='text-center font-semibold text-gray-500 mb-4'>Don't have an account ?<Link to="/register" className="font-semibold text-blue-600 hover:underline ml-2 " > Register </Link></p>
+                        </div> */}
+
+                        <p className=' py-4 text-center font-semibold text-gray-500 mb-4'>Don't have an account ?<Link to="/register" className="font-semibold text-blue-600 hover:underline ml-2 " > Register </Link></p>
 
                         <div className='flex items-center justify-center'>
                             <button className='px-4 py-2 bg-RedTheme hover:bg-red-900 duration-300 rounded-md font-semibold  mb-4'><Link to="/" className="font-semibold text-white" > Back to home </Link></button>
