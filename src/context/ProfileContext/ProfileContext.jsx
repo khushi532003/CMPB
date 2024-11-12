@@ -21,7 +21,7 @@ function ProfileContextProvider({ children }) {
     const Create = async (api, data) => {
         try {
             const res = await AxiosHandler.post(api, data)
-            toast.success(res.data.message || "Data Created successfully")
+            toast.success(res?.data?.message || "Data Created successfully")
             GetProfile()
         } catch (error) {
             console.log(error)
@@ -32,7 +32,7 @@ function ProfileContextProvider({ children }) {
     const Update = async (api, data) => {
         try {
             const res = await AxiosHandler.put(api, data)
-            toast.success(res.data.message || "Data Updated Successfully")
+            toast.success(res?.data?.message || "Data Updated Successfully")
             console.log(res)
             GetProfile()
         } catch (error) {

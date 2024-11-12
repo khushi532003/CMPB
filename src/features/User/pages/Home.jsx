@@ -13,7 +13,6 @@ function Home() {
   const { videoURLData } = useChurayePalContext();
   const { token } = useAuthContext();
 
-  console.log(packageData)
   const MemberID = localStorage.getItem("MemberID");
 
   const loadRazorpayScript = () => {
@@ -28,23 +27,17 @@ function Home() {
 
   const handlePayment = async (e,) => {
 
-    // console.log(typeof programme?.amount, programme?.amount);
-
     try {
       let res
       if (e.target.id === programme?._id) {
         const amount = programme?.amount
-        // console.log(amount);
 
         res = await AxiosHandler.post(`/payment/events?eventid=${programme?._id}&memberid=${MemberID}`, { amount: `${amount}` });
-        // toast.success("Event payment Succesfull");
-        // console.log(res);
       } else if (e.target.id === packageData?._id) {
 
         res = await AxiosHandler.post(`/payment/package?memberid=${MemberID}`, {
           amount: `${packageData?.amount}`
         })
-        // console.log(res);
       }
 
       const options = {
@@ -56,20 +49,24 @@ function Home() {
         image: "",
         order_id: res?.data?.order?.id,
         handler: async (response) => {
-          console.log(response);
 
           const paymentDetails = {
             razorpayOrderID: response?.razorpay_order_id,
-            RazorPayPaymentID: response?.razorpay_payment_id
+            RazorPayPaymentID: response?.razorpay_payment_id,
+
+          }
+          const registrationPayment = {
+            PaymentID: response?.razorpay_payment_id,
+            OrderID: response?.razorpay_order_id,
+            amount: packageData?.amount
           }
 
           if (response && programme?._id === e.target.id) {
             const eventRes = await AxiosHandler.post(`/events/bookuser/${programme?._id}`, paymentDetails)
-            console.log("event res", eventRes)
           }
-          else if (response &&  packageData?._id === e.target.id) {
-            const registerRes = await AxiosHandler.put("/user/paymentUpdate", paymentDetails);
-            console.log("Registration res:", registerRes);
+          else if (response && packageData?._id === e.target.id) {
+            const registerRes = await AxiosHandler.put("/user/paymentUpdate", registrationPayment
+            );
           }
         },
 
@@ -79,7 +76,7 @@ function Home() {
           contact: "9858668646",
         },
         notes: {
-          address: "oieryl m bfiuaw",
+          address: "Pitampura , Delhi",
         },
         theme: {
           color: "#fff"
@@ -87,7 +84,6 @@ function Home() {
       }
 
       if (typeof window !== "undefined" && window.Razorpay) {
-        // console.log(options);
         const razpopup = new window.Razorpay(
           options
         )
@@ -95,9 +91,10 @@ function Home() {
       } else {
         console.log("Razorpay error");
       }
+      toast.success(res?.data?.message || "Payment Successfull")
     } catch (error) {
       console.log(error);
-      toast.error(error?.message || "UserId Already  exist ")
+      toast.error(error?.response?.data?.message || "UserId Already  exist ")
     }
   }
 
@@ -188,7 +185,7 @@ function Home() {
       {/* Wedding Theme section start  */}
       <section className="theme py-10 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: "url(https://r2.erweima.ai/imgcompressed/compressed_cdec15e7b3c17fa59a279b02db89d69d.webp)" }}>
         <div className="block sm:flex justify-between gap-3 px-3 items-center">
-         
+
           <div className="themes w-full ">
             <div className=" grid-cols-1 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
               <div className="flex items-center">

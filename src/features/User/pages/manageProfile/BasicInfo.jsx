@@ -20,6 +20,7 @@ function BasicInfo({data}) {
             await Update("/user/update",value)
         }
     })
+    
     return (
         <form onSubmit={handleSubmit} >
             <div className="space-y-12">
