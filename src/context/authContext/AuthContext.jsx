@@ -10,11 +10,14 @@ function AuthContextProvider({ children }) {
     const [token, setToken] = useState(Cookies.get("CMPB_TOKEN"));
     const [role, setRole] = useState(Cookies.get("UserRole"));
     const [name, setName] = useState(Cookies.get("Username"));
+    const [member, setMember] = useState(Cookies.get("Member"));
     const [forgetEmail, setForgetEmail] = useState(null);
     const [OTPverify, setOTPVerify] = useState(null);
     const [packagePaymentData, setPackagePaymentData] = useState({})
     const [Registered, setRegistered] = useState(null);
-    console.log(packagePaymentData);
+    const [userDetails, setUserDetails] = useState({});
+    console.log(userDetails);
+    
     
 
     // Register new user
@@ -40,14 +43,18 @@ function AuthContextProvider({ children }) {
             Cookies.set("CMPB_TOKEN", res.data.token);
             Cookies.set("UserRole", res.data.role);
             Cookies.set("Username", res.data.firstName);
+            Cookies.set("Member", res?.data?.RegisterPackage?.PremiumMember);
             setToken(res.data.token);
             setRole(res.data.role);
             setName(res.data.firstName);
+            setMember(res?.data?.RegisterPackage?.PremiumMember);
+            console.log(res?.data?.RegisterPackage?.PremiumMember);
             localStorage.setItem("MemberID", res?.data?.MemberID);
             localStorage.setItem("token", res?.data?.token);
             localStorage.setItem("username", res?.data?.firstName);
             toast.success(res.data.message);
             setPackagePaymentData(res?.data);
+            setUserDetails(res?.data);
         } catch (error) {
             console.log(error);
             toast.error(error.response?.data?.message || "User Login Failed");
@@ -141,6 +148,7 @@ function AuthContextProvider({ children }) {
         setToken(null);
         setRole(null);
         setName(null);
+        setMember(null);
         toast.success("Logged out successfully!");
         setTimeout(() => {
             window.location.href = "/";
@@ -151,6 +159,8 @@ function AuthContextProvider({ children }) {
         <AuthContext.Provider
             value={{
                 RegisterUser,
+                userDetails,
+                member,
                 loader,
                 packagePaymentData,
                 LoginUser,

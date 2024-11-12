@@ -6,9 +6,9 @@ import { useMembersContext } from '@/context';
 function MemberProfile() {
 
     const [openIndex, setOpenIndex] = useState(null);
-    const { GetActiveUserById, userDetails } = useMembersContext()
+    const { GetActiveUserById, userDetails, GetActiveMembers } = useMembersContext()
     const { id } = useParams()
-    console.log(id);
+    console.log(userDetails);
 
 
     const toggleAccordion = (index) => {
@@ -31,7 +31,12 @@ function MemberProfile() {
             <div className="flex gap-2 w-[90%] mx-auto py-5   ">
                 <div className="profile w-[30%]">
                     <div className="profileImg">
-                        <img className='w-80 h-80 rounded-full' src="https://storage.googleapis.com/dera-naseeb-da/CMPB/User/CMPB-1730456005394-wallpaper.jpg" alt="" />
+                        <img className='w-80 h-80 rounded-full' src={userDetails?.User?.profileImage?.ImageURL ||
+                            (userDetails?.User?.gender === "male"
+                                ? "https://media.istockphoto.com/id/517998264/vector/male-user-icon.jpg?s=170667a&w=0&k=20&c=ZUf0DE14mBsbtgTvNdhDB1uzey9CK2BJlhhMhfFftB8="
+                            : userDetails?.User?.gender === "female"
+                                    ? "https://png.pngitem.com/pimgs/s/618-6183618_transparent-unknown-person-png-transparent-background-female-user.png"
+                                    : "https://example.com/default-image.png") } alt="" />
                     </div>
                 </div>
                 <div className="details w-[70%]">
@@ -39,8 +44,8 @@ function MemberProfile() {
                         <h3 className="text-5xl pt-5">Profile Information</h3>
                         <img src="../images/headingImg.png" alt="" className="w-64 pb-5" />
                         <div className="px-5">
-                            <h4 className='text-4xl'>Mehak Sharma </h4>
-                            <div className="id py-3"> <strong>MEMBER ID : </strong> 85GHSHSNK</div>
+                            <h4 className='text-4xl capitalize'>{userDetails?.User?.firstName} </h4>
+                            <div className="id py-3"> <strong>MEMBER ID : </strong> #{userDetails?.User?.MemberID}</div>
                             {/* <div className="memberType inline-block rounded-full px-6 py-1 bg-RedTheme text-white">Free</div> */}
                         </div>
 
