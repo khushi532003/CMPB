@@ -13,10 +13,7 @@ function Home() {
   const { videoURLData } = useChurayePalContext();
   const { token } = useAuthContext();
 
-  useEffect(() => {
-    GetProgramme()
-    GetPackage()
-  }, [])
+  console.log(packageData)
   const MemberID = localStorage.getItem("MemberID");
 
   const loadRazorpayScript = () => {
@@ -43,13 +40,11 @@ function Home() {
         // toast.success("Event payment Succesfull");
         // console.log(res);
       } else if (e.target.id === packageData?._id) {
-        console.log("here is");
-        console.log(packageData);
 
         res = await AxiosHandler.post(`/payment/package?memberid=${MemberID}`, {
           amount: `${packageData?.amount}`
         })
-        console.log(res);
+        // console.log(res);
       }
 
       const options = {
@@ -68,9 +63,13 @@ function Home() {
             RazorPayPaymentID: response?.razorpay_payment_id
           }
 
-           if (response && programme?._id === e.target.id) {
+          if (response && programme?._id === e.target.id) {
             const eventRes = await AxiosHandler.post(`/events/bookuser/${programme?._id}`, paymentDetails)
             console.log("event res", eventRes)
+          }
+          else if (response &&  packageData?._id === e.target.id) {
+            const registerRes = await AxiosHandler.put("/user/paymentUpdate", paymentDetails);
+            console.log("Registration res:", registerRes);
           }
         },
 
@@ -89,7 +88,6 @@ function Home() {
 
       if (typeof window !== "undefined" && window.Razorpay) {
         // console.log(options);
-
         const razpopup = new window.Razorpay(
           options
         )
@@ -103,16 +101,15 @@ function Home() {
     }
   }
 
+
+
   useEffect(() => {
-    if (token)
+    if (token) {
+      GetProgramme();
+      GetPackage();
       loadRazorpayScript();
+    }
   }, [token])
-
-
-  useEffect(() => {
-    GetProgramme();
-  }, [])
-
 
   return (
     <div>

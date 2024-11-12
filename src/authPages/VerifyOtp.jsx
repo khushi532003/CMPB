@@ -15,16 +15,16 @@ function VerifyOtp() {
     }
 
     useEffect(() => {
-        if (OTPverify) {
+        if (OTPverify && !Registered) {
             navigate('/new_password', { state: { email: state.email } })
         }
-    }, [OTPverify])
+    }, [OTPverify, Registered])
 
     useEffect(() => {
-        if (Registered) {
+        if (Registered && OTPverify) {
             navigate('/login')
         }
-    }, [Registered])
+    }, [Registered, OTPverify])
 
     return (
         <div>
