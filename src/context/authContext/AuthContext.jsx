@@ -12,20 +12,21 @@ function AuthContextProvider({ children }) {
     const [name, setName] = useState(Cookies.get("Username"));
     const [forgetEmail, setForgetEmail] = useState(null);
     const [OTPverify, setOTPVerify] = useState(null);
+    const [packagePaymentData, setPackagePaymentData] = useState({})
     console.log(name);
-    
+    const [Registered, setRegistered] = useState(null);
+
+
+
+
 
     // Register new user
     const RegisterUser = async (data) => {
         setLoader(true);
         try {
             const res = await AxiosHandler.post("/auth/signup", data);
-            Cookies.set("CMPB_TOKEN", res.data.token);
-            Cookies.set("UserRole", res.data.role);
-            Cookies.set("Username", res.data.firstName);  // Corrected cookie name
-            setToken(res.data.token);
-            setRole(res.data.role);
-            setName(res.data.firstName);
+
+            setRegistered({ email: res?.data?.email })
             toast.success(res.data.message);
             console.log(res);
         } catch (error) {
@@ -43,14 +44,15 @@ function AuthContextProvider({ children }) {
             const res = await AxiosHandler.post("/auth/login", data);
             Cookies.set("CMPB_TOKEN", res.data.token);
             Cookies.set("UserRole", res.data.role);
-            Cookies.set("Username", res.data.firstName); 
+            Cookies.set("Username", res.data.firstName);
             setToken(res.data.token);
             setRole(res.data.role);
             setName(res.data.firstName);
             localStorage.setItem("MemberID", res?.data?.MemberID);
             localStorage.setItem("token", res?.data?.token);
-            localStorage.setItem("username", res?.data?.firstName); 
+            localStorage.setItem("username", res?.data?.firstName);
             toast.success(res.data.message);
+            setPackagePaymentData(res?.data);
             console.log(res?.data);
         } catch (error) {
             console.log(error);
@@ -61,10 +63,12 @@ function AuthContextProvider({ children }) {
     };
 
 
-    
+
     // Forget password
     const ForgetPassword = async (data) => {
         setLoader(true);
+        console.log(data);
+
         try {
             const response = await AxiosHandler.post("/auth/sendotp", data);
             toast.success(response.data.message);
@@ -156,6 +160,7 @@ function AuthContextProvider({ children }) {
             value={{
                 RegisterUser,
                 loader,
+                packagePaymentData,
                 LoginUser,
                 token,
                 role,
@@ -168,6 +173,7 @@ function AuthContextProvider({ children }) {
                 deactivateAccount,
                 changePassword,
                 name,
+                Registered
             }}
         >
             {children}

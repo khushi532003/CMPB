@@ -3,14 +3,16 @@ import { RegisterValues } from '@/constant/AuthState';
 import { useAuthContext } from '@/context';
 import { Registerschema } from '@/validation/AuthValidation';
 import { useFormik } from 'formik';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Loader from '@/constant/loader';
+import { useEffect } from 'react';
 
 
 
 function Register() {
-    const { RegisterUser, loader } = useAuthContext();
+    const { RegisterUser, loader, forgetEmail } = useAuthContext();
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate()
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -21,8 +23,20 @@ function Register() {
         validationSchema: Registerschema,
         onSubmit: async (value) => {
             await RegisterUser(value)
+            // if (registerd) {
+            //     navigate("/verify_otp")
+            // }
+            console.log("still here");
+
         }
     })
+    useEffect(() => {
+        if (forgetEmail) {
+            navigate('/verify_otp', { state: { email: forgetEmail.email } })
+        }
+
+    }, [forgetEmail])
+
 
     return (
         <div >
