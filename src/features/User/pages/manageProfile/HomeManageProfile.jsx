@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { useProfileContext } from '@/context';
+import { useAuthContext, useProfileContext } from '@/context';
 import Loader from '@/constant/loader';
 import { AxiosHandler } from '@/config/Axios.config';
 import BasicInfo from './BasicInfo';
@@ -23,8 +23,10 @@ function HomeManageProfile() {
     const { profile, GetProfile, setProfile } = useProfileContext();
     const [imageFile, setImageFile] = useState(null);
     const [isUploading, setIsUploading] = useState(false);
-    // console.log(profile)
 
+
+    console.log(profile)
+    
     useEffect(() => {
         GetProfile();
     }, []);
@@ -40,8 +42,6 @@ function HomeManageProfile() {
 
     const handleUpload = async () => {
         if (!imageFile) return;
-
-        console.log(imageFile);
         const formData = new FormData();
         formData.append('image', imageFile);
 
@@ -50,14 +50,13 @@ function HomeManageProfile() {
             const response = await AxiosHandler.put('/user/profile_image/update', formData, {
                 headers: { 'Content-Type': 'multipart/form-data', },
             });
-
             if (response?.data?.success) {
-                const updatedProfile = { ...profile, user: { ...profile.user, profileImage: response.data.imageUrl } };
+                const updatedProfile = { ...profile, user: { ...profile?.user, profileImage: response?.data.imageUrl } };
                 setProfile(updatedProfile);
-                toast.success("Profile image updated successfully")
-            } else {
-                toast.error("failed to upload image");
             }
+            GetProfile();
+            toast.success("Profile image updated successfully")
+
         } catch (error) {
             console.error('Error uploading image:', error);
             toast.error("failed to upload image");
@@ -65,6 +64,7 @@ function HomeManageProfile() {
             setIsUploading(false);
         }
     };
+
 
 
     return (
