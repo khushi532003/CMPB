@@ -1,10 +1,13 @@
+import Loader from '@/constant/loader';
+import { useAuthContext } from '@/context';
 import { useHappyStoriesContext } from '@/context';
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 function HappyStories() {
 
-    const { happyStory, GetHappyStories } = useHappyStoriesContext();
+    const { happyStory, GetHappyStories, loader } = useHappyStoriesContext();
+    const { token } = useAuthContext();
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -24,15 +27,15 @@ function HappyStories() {
                     <img src="../images/headingImg.png" alt="" className="w-64" />
                 </div>
 
-                <div className="stories py-5 px-5 ">
+                {loader ? <Loader/> : <div className="stories py-5 px-5 ">
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         {happyStory.map((item) => <div key={item?._id} className="relative story w-80 mx-auto py-5 ">
                             {/* <div className="frame absolute">
                                 <img src="https://static.vecteezy.com/system/resources/thumbnails/020/027/842/small_2x/luxury-gold-leaf-frame-border-floral-ornament-for-background-wedding-invitation-thank-you-card-logo-greeting-card-free-png.png" alt="" />
                             </div> */}
 
-                            <div className="storyImg">
-                                <img className='rounded-t-full ' src={item?.story.ImageURL} alt="" />
+                            <div className="storyImg" >
+                                <img className='rounded-t-full object-cover w-[400px] h-[350px]' src={item?.story.ImageURL} alt="" />
 
                             </div>
                             <div className="bg-white p-3">
@@ -49,7 +52,7 @@ function HappyStories() {
                                     <img src="../images/headingImg.png" alt="" className="w-52" />
                                 </div>
                                 <div className="storyDesc text-center">
-                                    <p>{item?.Content} </p>
+                                    <p>{item?.Content.slice(0,60)}... </p>
                                 </div>
                                 <div className="w-full mt-6 text-center">
                                     <Link to={`/story/${item?._id}`}> <button className="px-6  py-2 leading-5 text-white transition-colors duration-200 transform bg-RedTheme rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">Read more...</button></Link>
@@ -58,7 +61,7 @@ function HappyStories() {
                         </div>)}
 
                     </div>
-                </div>
+                </div>}
             </div>
         </div>
     )

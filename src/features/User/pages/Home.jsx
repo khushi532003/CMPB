@@ -188,11 +188,12 @@ function Home() {
       {/* Wedding Theme section start  */}
       <section className="theme py-10 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: "url(https://r2.erweima.ai/imgcompressed/compressed_cdec15e7b3c17fa59a279b02db89d69d.webp)" }}>
         <div className="block sm:flex justify-between gap-3 px-3 items-center">
-          <div className="sm:w-[20%] w-full">
-            <div className="heading"><h2 className="text-6xl sm:text-7xl text-[#BB1A04]">Choose <br /> Wedding <br /> Themes</h2></div>
-          </div>
-          <div className="themes w-full sm:w-[80%]">
-            <div className=" grid-cols-1 grid sm:grid-cols-3 gap-10">
+         
+          <div className="themes w-full ">
+            <div className=" grid-cols-1 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+              <div className="flex items-center">
+                <div className="heading"><h2 className="text-6xl sm:text-7xl text-[#BB1A04]">Choose <br /> Wedding <br /> Themes</h2></div>
+              </div>
               <div className="theme ">
                 <div className="flex flex-col items-center">
                   <div className="w-full">
@@ -337,12 +338,12 @@ function Home() {
 
       {/* Packages section start  */}
       <section className="packages py-5">
-        <div className="block sm:flex justify-between gap-3 px-3 items-center">
-          <div className="themes w-full sm:w-[60%]">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-14">
+        <div className="block md:flex  justify-between gap-3 px-3 items-center">
+          <div className="themes w-full md:w-[60%]">
+            <div className="grid grid-cols-1 sm:grid-cols-2  gap-14">
               {programme && <div className="theme">
                 <div className="flex flex-col items-center w-full">
-                  <div className="package  h-[600px] border-2 w-full flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
+                  <div className="package  lg:h-[600px] border-2 w-full flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
                     <h2 className="text-4xl">Program Package</h2>
                     <h2 className="text-5xl py-3 font-semibold text-yellow-500">₹{programme?.amount}  /-</h2>
                     <div className="programme py-2 text-2xl font-semibold">{programme?.eventName}</div>
@@ -369,7 +370,7 @@ function Home() {
 
               {packageData && <div className="theme ">
                 <div className="flex flex-col items-center w-full">
-                  <div className="package h-[600px] border-2 w-full flex flex-col justify-center items-center  border-yellow-400 p-10 rounded-b-full rounded-t-full">
+                  <div className="package lg:h-[600px] border-2 w-full flex flex-col justify-center items-center  border-yellow-400 p-10 rounded-b-full rounded-t-full">
                     <h2 className="text-4xl">Registration  Package </h2>
 
                     <h2 className="text-5xl py-3 font-semibold text-yellow-500">₹ {packageData?.amount} /-</h2>
@@ -408,7 +409,7 @@ function Home() {
 
             </div>
           </div>
-          <div className="w-full sm:w-[40%] flex justify-center items-center bg-cover bg-center h-[65vh] sm:h-[100vh] " style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
+          <div className="w-full md:w-[40%] flex justify-center items-center bg-cover bg-center h-[65vh] sm:h-[100vh] " style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
             <div className="heading text-center"><h2 className="text-6xl sm:text-7xl text-[#BB1A04]">Pricing <br />Plans</h2>
               <img src="../images/headingImg.png" alt="" className="w-64" />
             </div>
