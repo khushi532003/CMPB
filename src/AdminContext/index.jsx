@@ -11,7 +11,6 @@ export { default as ChurayeHuePalContextProvider } from "./ChurayeHuePalContext/
 export { default as HappyStoryContextProvider } from "./HappyStoryContext/HappyStoryContext";
 export { default as AdminContactContextProvider } from "./AdminContactContext/AdminContactContext";
 
-
 export const useAdminMemberContext = () => useContext(AdminMembersContext);
 export const useProgrammeContext = () => useContext(ProgrammeContext);
 export const useChurayeHuePalContext = () => useContext(ChurayeHuePalContext);

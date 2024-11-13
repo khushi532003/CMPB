@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function ActiveMembers() {
     const { activeUser, GetActiveMembers, loader } = useMembersContext();
     const [filteredUsers, setFilteredUsers] = useState(activeUser);
-    const { member } = useAuthContext();
+    const { member, token } = useAuthContext();
     console.log(member);
     
     
@@ -26,9 +26,7 @@ function ActiveMembers() {
     const [state, setState] = useState('');
     const [city, setCity] = useState('');
 
-    useEffect(() => {
-        GetActiveMembers();
-    }, []);
+   
 
     const applyFilter = () => {
         let filtered = activeUser;
@@ -72,6 +70,11 @@ function ActiveMembers() {
 
         setFilteredUsers(filtered);
     };
+    
+    useEffect(() => {
+        if(token)
+        GetActiveMembers();
+    }, [token]);
 
     return (
         <div>
@@ -224,43 +227,58 @@ function ActiveMembers() {
                             <img src="../images/headingImg.png" alt="" className="w-64" />
                         </div>
 
-                        {loader ? <Loader /> : filteredUsers ? filteredUsers.map((item) => (
-                            <div className="member relative border my-2 border-yellow-600 rounded-md" key={item._id}>
-                                <div className="block sm:flex items-center gap-6 p-3">
-                                    <div className="profileImg pb-5 sm:pb-0">
-                                        <img
-                                            className='w-52 h-52 object-cover rounded-full'
-                                            src={
-                                                item?.profileImage?.ImageURL ||
-                                                (item?.gender === "male"
-                                                    ? "https://media.istockphoto.com/id/517998264/vector/male-user-icon.jpg?s=170667a&w=0&k=20&c=ZUf0DE14mBsbtgTvNdhDB1uzey9CK2BJlhhMhfFftB8="
-                                                    : item?.gender === "female"
-                                                        ? "https://png.pngitem.com/pimgs/s/618-6183618_transparent-unknown-person-png-transparent-background-female-user.png"
-                                                        : "https://example.com/default-image.png")
-                                            }
-                                            alt="Profile"
-                                        />
-                                    </div>
-                                    <div className="profileDetails">
-                                        <div className="memberType absolute right-2 top-2 rounded-sm px-3 py-1 bg-RedTheme text-white">
-                                            {item?.RegisterPackage ? "Premium" : "Free"}
+                        {loader ? (
+                            <Loader />
+                        ) : (
+                            (filteredUsers?.length > 0 ? filteredUsers : activeUser)?.map((item) => (
+                                <div className="member relative border my-2 border-yellow-600 rounded-md" key={item._id}>
+                                    <div className="block sm:flex items-center gap-6 p-3">
+                                        <div className="profileImg pb-5 sm:pb-0">
+                                            <img
+                                                className="w-52 h-52 object-cover rounded-full"
+                                                src={
+                                                    item?.profileImage?.ImageURL ||
+                                                    (item?.gender === "male"
+                                                        ? "https://media.istockphoto.com/id/517998264/vector/male-user-icon.jpg?s=170667a&w=0&k=20&c=ZUf0DE14mBsbtgTvNdhDB1uzey9CK2BJlhhMhfFftB8="
+                                                        : item?.gender === "female"
+                                                            ? "https://png.pngitem.com/pimgs/s/618-6183618_transparent-unknown-person-png-transparent-background-female-user.png"
+                                                            : "https://example.com/default-image.png")
+                                                }
+                                                alt="Profile"
+                                            />
                                         </div>
-                                        <h3 className='text-3xl capitalize'> {item?.firstName} {item?.lastName} </h3>
-                                        <div className="id py-3"> <strong>MEMBER ID : </strong> {item?.MemberID}</div>
-                                        <div className="w-full mt-6">
-                                           {member === "true" ? <Link to={`/member_profile/${item?._id}`}>
-                                                <button className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-RedTheme rounded-md hover:bg-[#bb0404]">
-                                                    View Details
-                                                </button>
-                                            </Link> :
-                                            <button disabled className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-RedTheme rounded-md hover:bg-[#bb0404]">
-                                                View Details
-                                            </button>}
+                                        <div className="profileDetails">
+                                            <div className="memberType absolute right-2 top-2 rounded-sm px-3 py-1 bg-RedTheme text-white">
+                                                {item?.RegisterPackage ? "Premium" : "Free"}
+                                            </div>
+                                            <h3 className="text-3xl capitalize">
+                                                {item?.firstName} {item?.lastName}
+                                            </h3>
+                                            <div className="id py-3">
+                                                <strong>MEMBER ID : </strong> {item?.MemberID}
+                                            </div>
+                                            <div className="w-full mt-6">
+                                                {member === "true" ? (
+                                                    <Link to={`/member_profile/${item?._id}`}>
+                                                        <button className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-RedTheme rounded-md hover:bg-[#bb0404]">
+                                                            View Details
+                                                        </button>
+                                                    </Link>
+                                                ) : (
+                                                    <button
+                                                        disabled
+                                                        className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-RedTheme rounded-md hover:bg-[#bb0404]"
+                                                    >
+                                                        View Details
+                                                    </button>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        )) : <h4 className='text-black text-3xl font-semibold'>No Data Found</h4>}
+                            )) || <h4 className="text-black text-3xl font-semibold">No Data Found</h4>
+                        )}
+
                     </div>
                 </div>
             </div>
