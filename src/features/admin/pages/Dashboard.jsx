@@ -28,7 +28,7 @@ const Dashboard = () => {
                         <ul className="space-y-2 font-medium">
                             {AdminLnks.map((item, index) => (
                                 <li key={index} >
-                                    <Link to={item?.path !== "/logout" && item?.path} onClick={()=>handlePath(item.path)} className={`flex items-center p-2 text-gray-900 rounded-lg  hover:bg-blue-500  hover:text-white  group ${location.pathname === item.path && "bg-blue-500 text-white"} `}>
+                                    <Link to={item?.path !== "/logout" && item?.path} onClick={()=>handlePath(item.path)} className={`flex items-center p-2 text-gray-900 rounded-lg  hover:bg-red-700  hover:text-white  group ${location.pathname === item.path && "bg-RedTheme text-white"} `}>
                                         {<item.icons />}
                                         <span className="ms-3">{item.title}</span>
                                     </Link>

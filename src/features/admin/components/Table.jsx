@@ -4,6 +4,7 @@ import { FaTrash } from 'react-icons/fa';
 import { LiaEdit } from 'react-icons/lia';
 import { LuEye } from 'react-icons/lu';
 import AddStory from './AddStory';
+import { Link } from 'react-router-dom';
 
 function Table(props) {
     console.log("props is ", props?.data);
@@ -163,7 +164,11 @@ function Table(props) {
                                     </td>
                                     {props?.identifier === "members" &&
                                         <><td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
-                                            <img className='w-14 h-14 rounded-full object-cover' src={item?.profileImage?.ImageURL} alt="" />
+                                            <img className='w-14 h-14 rounded-full object-cover' src={item?.profileImage?.ImageURL || item?.gender === "male"
+                                                ? "https://media.istockphoto.com/id/517998264/vector/male-user-icon.jpg?s=170667a&w=0&k=20&c=ZUf0DE14mBsbtgTvNdhDB1uzey9CK2BJlhhMhfFftB8="
+                                                : item?.gender === "female"
+                                                    ? "https://png.pngitem.com/pimgs/s/618-6183618_transparent-unknown-person-png-transparent-background-female-user.png"
+                                                    : "https://example.com/default-image.png"} alt="" />
                                         </td>
                                             <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                 <p className="text-gray-900 text-sm capitalize whitespace-no-wrap"> {item?.firstName}</p>
@@ -310,7 +315,7 @@ function Table(props) {
                                         </td>
 
                                         <td class="px-5  py-2 border-b border-gray-200 flex gap-2 bg-white text-sm">
-                                            <span type='button' 
+                                            <span type='button'
                                                 className="relative bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                                                 <LiaEdit />
                                             </span>
@@ -339,22 +344,14 @@ function Table(props) {
 
 
                                     </>}
-                                    {/* <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
-                                        <p className="text-gray-900 whitespace-no-wrap">
-                                            <label className="inline-flex items-center cursor-pointer">
-                                                <input type="checkbox" value="" className="sr-only peer" />
-                                                <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-green-500 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-red-600"></div>
-                                            </label>
-                                        </p>
-                                    </td> */}
-                                    {
-                                        props?.identifier === 'members' && <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
 
+                                    {
+                                        props?.identifier === 'members' && <Link to={`/view-details/${item?._id}`}> <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                             <span
                                                 className=" bg-RedTheme rounded-full   px-3 py-1 text-sm text-white">
                                                 View Details
                                             </span>
-                                        </td>
+                                        </td></Link>
                                     }
                                 </tr>
                             ))}

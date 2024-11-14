@@ -8,6 +8,7 @@ const MemberContextProvider = ({children}) =>{
     const [activeUser, setActiveUser] = useState([])
     const [userDetails, setUserDetails] = useState({})
     const [loader, setLoader] = useState(false)
+    
 
     const GetActiveMembers = async ()=>{
         setLoader(true)
