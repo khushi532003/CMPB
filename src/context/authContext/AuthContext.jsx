@@ -16,7 +16,7 @@ function AuthContextProvider({ children }) {
     const [packagePaymentData, setPackagePaymentData] = useState({})
     const [Registered, setRegistered] = useState(null);
     const [userDetails, setUserDetails] = useState({});
-    console.log(userDetails);
+    // console.log(userDetails);
     
     
 
@@ -50,11 +50,10 @@ function AuthContextProvider({ children }) {
             setMember(res?.data?.RegisterPackage?.PremiumMember);
             console.log(res?.data?.RegisterPackage?.PremiumMember);
             localStorage.setItem("MemberID", res?.data?.MemberID);
-            localStorage.setItem("token", res?.data?.token);
-            localStorage.setItem("username", res?.data?.firstName);
             toast.success(res.data.message);
             setPackagePaymentData(res?.data);
             setUserDetails(res?.data);
+            window.location.href = "/"
         } catch (error) {
             console.log(error);
             toast.error(error.response?.data?.message || "User Login Failed");

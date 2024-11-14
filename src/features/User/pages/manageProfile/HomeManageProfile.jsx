@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useAuthContext, useProfileContext } from '@/context';
 import Loader from '@/constant/loader';
@@ -23,15 +22,11 @@ function HomeManageProfile() {
     const { profile, GetProfile, setProfile } = useProfileContext();
     const [imageFile, setImageFile] = useState(null);
     const [isUploading, setIsUploading] = useState(false);
+    const { token } = useAuthContext();
+
+console.log(profile);
 
 
-    console.log(profile)
-    
-    useEffect(() => {
-        GetProfile();
-    }, []);
-
-    if (profile?.length < 1) return <Loader />;
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
@@ -66,6 +61,15 @@ function HomeManageProfile() {
     };
 
 
+    useEffect(() => {
+        if (token) {
+            GetProfile();
+        }
+    }, [token]);
+
+
+    if (profile?.length < 1) return <Loader />;
+
 
     return (
         <div>
@@ -92,14 +96,14 @@ function HomeManageProfile() {
                         </div>
                     </div>
                     <div>
-                        <p className="text-center py-4">{profile?.user?.firstName}</p>
+                        <p className="text-center font-bold text-gray-700 py-4">{`${profile?.user?.firstName} ${profile?.user?.lastName}`}</p>
                     </div>
                     <button
                         onClick={handleUpload}
                         disabled={isUploading}
                         className="w-full bg-RedTheme text-white py-2 rounded mt-4"
                     >
-                        {isUploading ? 'Uploading...' : 'Update Profile Image'}
+                        {isUploading ? <Loader /> : 'Update Profile Image'}
                     </button>
                 </div>
 
