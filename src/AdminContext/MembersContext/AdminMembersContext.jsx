@@ -31,7 +31,7 @@ const AdminMembersContextProvider = ({ children }) => {
     const premiumMembers = async () => {
         setLoader(true)
         try {
-            const res = await AxiosHandler.get(`/user/getAllUserAdmin?page=${1}&limit=${5}&registered=${true}`)
+            const res = await AxiosHandler.get(`/user/getAllUserAdmin?page=${1}&limit=${50}&registered=${true}`)
             setPremiumMembersData(res?.data?.data);
             setCountPremiumMember(res?.data?.data.length);
 

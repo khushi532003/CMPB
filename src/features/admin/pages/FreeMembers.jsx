@@ -27,6 +27,10 @@ function FreeMembers() {
             </div>
 
             {loader ? <Loader/> :  <Table id={'S.N0.'} profileImage={"Profile Image"} memeberName={"Member Name"} memberId={"Member ID"} detail={"View Details"} data={freeMembersData} identifier={"members"} />}
+            <div className="pagination py-4 flex justify-center items-center gap-3">
+                <button className="prev bg-RedTheme text-white px-4 py-1 rounded">Prev</button>
+                <button className="prev bg-RedTheme text-white px-4 py-1 rounded">Next</button>
+            </div>
         </div>
     )
 }
