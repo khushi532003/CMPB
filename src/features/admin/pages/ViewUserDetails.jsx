@@ -29,7 +29,7 @@ function ViewUserDetails() {
                       <img className='w-80 h-80 rounded-full' src={userDetails?.profileDetails?.User?.profileImage?.ImageURL ||
                           (userDetails?.profileDetails?.User?.gender === "male"
                               ? "https://media.istockphoto.com/id/517998264/vector/male-user-icon.jpg?s=170667a&w=0&k=20&c=ZUf0DE14mBsbtgTvNdhDB1uzey9CK2BJlhhMhfFftB8="
-                              : userDetails?.User?.gender === "female"
+                          : userDetails?.profileDetails?.User?.gender === "female"
                                   ? "https://png.pngitem.com/pimgs/s/618-6183618_transparent-unknown-person-png-transparent-background-female-user.png"
                                   : "https://example.com/default-image.png")} alt="" />
                   </div>
@@ -101,14 +101,14 @@ function ViewUserDetails() {
                           <Accordian title="Education" isOpen={openIndex === 4}
                               onToggle={() => toggleAccordion(4)} >
                               <div className="text-sm">
-                                  {userDetails?.educationDetails && <ul>
+                                  {userDetails?.profileDetails && <ul>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Degree : </strong> {userDetails?.educationDetails.Degree}</li>
-                                          <li><strong>Institution : </strong> {userDetails?.educationDetails.insitution}</li>
+                                          <li><strong>Degree : </strong> {userDetails?.profileDetails?.educationDetails?.Degree }</li>
+                                          <li><strong>Institution : </strong> {userDetails?.profileDetails?.educationDetails?.insitution}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Start date : </strong> {userDetails?.educationDetails.start}</li>
-                                          <li><strong>End date : </strong> {userDetails?.educationDetails.end}</li>
+                                          <li><strong>Start date : </strong> {userDetails?.profileDetails?.educationDetails?.start}</li>
+                                          <li><strong>End date : </strong> {userDetails?.profileDetails?.educationDetails?.end}</li>
                                       </div>
                                   </ul>}
                               </div>
@@ -116,17 +116,17 @@ function ViewUserDetails() {
                           <Accordian title="Physical Attribute" isOpen={openIndex === 5}
                               onToggle={() => toggleAccordion(5)} >
                               <div className="text-sm">
-                                  {userDetails?.physicalattributeDetails && <ul>
+                                  {userDetails?.profileDetails && <ul>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Height : </strong> {userDetails?.physicalattributeDetails.Height}</li>
-                                          <li><strong>Weight : </strong> {userDetails?.physicalattributeDetails.weight}</li>
+                                          <li><strong>Height : </strong> {userDetails?.profileDetails?.physicalattributeDetails?.Height}</li>
+                                          <li><strong>Weight : </strong> {userDetails?.profileDetails?.physicalattributeDetails?.weight}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Skin Complexion : </strong> {userDetails?.physicalattributeDetails.skinComplexion}</li>
-                                          <li><strong>Blood Group : </strong> {userDetails?.physicalattributeDetails.BloodGroup}</li>
+                                          <li><strong>Skin Complexion : </strong> {userDetails?.profileDetails?.physicalattributeDetails?.skinComplexion}</li>
+                                          <li><strong>Blood Group : </strong> {userDetails?.profileDetails?.physicalattributeDetails?.BloodGroup}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Disability : </strong> {userDetails?.physicalattributeDetails.Disablity}</li>
+                                          <li><strong>Disability : </strong> {userDetails?.profileDetails?.physicalattributeDetails?.Disablity}</li>
                                       </div>
                                   </ul>}
                               </div>
@@ -134,10 +134,10 @@ function ViewUserDetails() {
                           <Accordian title="Languages" isOpen={openIndex === 6}
                               onToggle={() => toggleAccordion(6)} >
                               <div className="text-sm">
-                                  {userDetails?.languageDetails && <ul>
+                                  {userDetails?.profileDetails && <ul>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Mother Tounge : </strong> {userDetails?.languageDetails.motherTounge}</li>
-                                          <li><strong>Known Language : </strong> {userDetails?.languageDetails.knownLanguage}</li>
+                                          <li><strong>Mother Tounge : </strong> {userDetails?.profileDetails?.languageDetails?.motherTounge}</li>
+                                          <li><strong>Known Language : </strong> {userDetails?.profileDetails?.languageDetails?.knownLanguage}</li>
                                       </div>
                                   </ul>}
                               </div>
@@ -145,26 +145,26 @@ function ViewUserDetails() {
                           <Accordian title="Hobbies & Interest" isOpen={openIndex === 7}
                               onToggle={() => toggleAccordion(7)} >
                               <div className="text-sm">
-                                  {userDetails?.hoobiesandintrestDetails && <ul>
+                                  {userDetails?.profileDetails && <ul>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Hobbies : </strong> {userDetails?.hoobiesandintrestDetails.Hobbies}</li>
-                                          <li><strong>Interest : </strong> {userDetails?.hoobiesandintrestDetails.Intrest}</li>
+                                          <li><strong>Hobbies : </strong> {userDetails?.profileDetails?.hoobiesandintrestDetails?.Hobbies}</li>
+                                          <li><strong>Interest : </strong> {userDetails?.profileDetails?.hoobiesandintrestDetails?.Intrest}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Music : </strong> {userDetails?.hoobiesandintrestDetails.Music}</li>
-                                          <li><strong>Books : </strong> {userDetails?.hoobiesandintrestDetails.Books}</li>
+                                          <li><strong>Music : </strong> {userDetails?.profileDetails?.hoobiesandintrestDetails?.Music}</li>
+                                          <li><strong>Books : </strong> {userDetails?.profileDetails?.hoobiesandintrestDetails?.Books}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Movies : </strong> {userDetails?.hoobiesandintrestDetails.Movies}</li>
-                                          <li><strong>TV Show : </strong> {userDetails?.hoobiesandintrestDetails.tvShow}</li>
+                                          <li><strong>Movies : </strong> {userDetails?.profileDetails?.hoobiesandintrestDetails?.Movies}</li>
+                                          <li><strong>TV Show : </strong> {userDetails?.profileDetails?.hoobiesandintrestDetails?.tvShow}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Fitness Activities : </strong> {userDetails?.hoobiesandintrestDetails.fitnessActivities}</li>
-                                          <li><strong>Sports : </strong> {userDetails?.hoobiesandintrestDetails.Sports}</li>
+                                          <li><strong>Fitness Activities : </strong> {userDetails?.profileDetails?.hoobiesandintrestDetails?.fitnessActivities}</li>
+                                          <li><strong>Sports : </strong> {userDetails?.profileDetails?.hoobiesandintrestDetails?.Sports}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Cuisines : </strong> {userDetails?.hoobiesandintrestDetails.cuisines}</li>
-                                          <li><strong>Dress Style : </strong> {userDetails?.hoobiesandintrestDetails.dressStyle}</li>
+                                          <li><strong>Cuisines : </strong> {userDetails?.profileDetails?.hoobiesandintrestDetails?.cuisines}</li>
+                                          <li><strong>Dress Style : </strong> {userDetails?.profileDetails?.hoobiesandintrestDetails?.dressStyle}</li>
                                       </div>
                                   </ul>}
                               </div>
@@ -172,10 +172,10 @@ function ViewUserDetails() {
                           <Accordian title="Personal Attitude" isOpen={openIndex === 8}
                               onToggle={() => toggleAccordion(8)} >
                               <div className="text-sm">
-                                  {userDetails?.personalattitudeDetails && <ul>
+                                  {userDetails?.profileDetails && <ul>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Affection : </strong> {userDetails?.personalattitudeDetails.Affection}</li>
-                                          <li><strong>Religion Service : </strong> {userDetails?.personalattitudeDetails.religionService}</li>
+                                          <li><strong>Affection : </strong> {userDetails?.profileDetails?.personalattitudeDetails?.Affection}</li>
+                                          <li><strong>Religion Service : </strong> {userDetails?.profileDetails?.personalattitudeDetails?.religionService}</li>
                                       </div>
                                   </ul>}
                               </div>
@@ -183,14 +183,14 @@ function ViewUserDetails() {
                           <Accordian title="Residancy Information" isOpen={openIndex === 9}
                               onToggle={() => toggleAccordion(9)} >
                               <div className="text-sm">
-                                  {userDetails?.residencyinfoDetails && <ul>
+                                  {userDetails?.profileDetails && <ul>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Birth County : </strong> {userDetails?.residencyinfoDetails.birthCounty}</li>
-                                          <li><strong>Residency County : </strong> {userDetails?.residencyinfoDetails.residencyCounty}</li>
+                                          <li><strong>Birth County : </strong> {userDetails?.profileDetails?.residencyinfoDetails?.birthCounty}</li>
+                                          <li><strong>Residency County : </strong> {userDetails?.profileDetails?.residencyinfoDetails?.residencyCounty}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>GrownUp Country : </strong> {userDetails?.residencyinfoDetails.grownUpCountry}</li>
-                                          <li><strong>Immigration Status : </strong> {userDetails?.residencyinfoDetails.ImmigrationStatus}</li>
+                                          <li><strong>GrownUp Country : </strong> {userDetails?.profileDetails?.residencyinfoDetails?.grownUpCountry}</li>
+                                          <li><strong>Immigration Status : </strong> {userDetails?.profileDetails?.residencyinfoDetails?.ImmigrationStatus}</li>
                                       </div>
                                   </ul>}
                               </div>
@@ -198,19 +198,19 @@ function ViewUserDetails() {
                           <Accordian title="Background Info" isOpen={openIndex === 10}
                               onToggle={() => toggleAccordion(10)} >
                               <div className="text-sm">
-                                  {userDetails?.backgroundDetails && <ul>
+                                  {userDetails?.profileDetails && <ul>
                                       <div className="flex justify-between gap-10 py-3">
 
-                                          <li><strong>Caste : </strong> {userDetails?.backgroundDetails.Caste}</li>
-                                          <li><strong>Sub Cast : </strong> {userDetails?.backgroundDetails.SubCast}</li>
+                                          <li><strong>Caste : </strong> {userDetails?.profileDetails?.backgroundDetails?.Caste}</li>
+                                          <li><strong>Sub Cast : </strong> {userDetails?.profileDetails?.backgroundDetails?.SubCast}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
 
-                                          <li><strong>Self Worth : </strong> {userDetails?.backgroundDetails.SelfWorth}</li>
-                                          <li><strong>Family Worth : </strong> {userDetails?.backgroundDetails.FamilyWorth}</li>
+                                          <li><strong>Self Worth : </strong> {userDetails?.profileDetails?.backgroundDetails?.SelfWorth}</li>
+                                          <li><strong>Family Worth : </strong> {userDetails?.profileDetails?.backgroundDetails?.FamilyWorth}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Religion : </strong> {userDetails?.backgroundDetails.Religion}</li>
+                                          <li><strong>Religion : </strong> {userDetails?.profileDetails?.backgroundDetails?.Religion}</li>
                                       </div>
                                   </ul>}
                               </div>
@@ -218,49 +218,50 @@ function ViewUserDetails() {
                           <Accordian title="Partner Expection" isOpen={openIndex === 11}
                               onToggle={() => toggleAccordion(11)} >
                               <div className="text-sm">
-                                  {userDetails?.partnerexpectationDetails && <ul>
+                                  {userDetails?.profileDetails && <ul>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>General Requirement : </strong> {userDetails?.partnerexpectationDetails.GernalRequirement}</li>
-                                          <li><strong>Residence Country : </strong> {userDetails?.partnerexpectationDetails.ResidenceCountry}</li>
+                                          <li><strong>General Requirement : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.GernalRequirement}</li>
+                                          <li><strong>Residence Country : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.ResidenceCountry}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Height : </strong> {userDetails?.partnerexpectationDetails.Height}</li>
-                                          <li><strong>Weight : </strong> {userDetails?.partnerexpectationDetails.weight}</li>
+                                          <li><strong>Height : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.Height}</li>
+                                          <li><strong>Weight : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.weight}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Marital Status : </strong> {userDetails?.partnerexpectationDetails.MaritalStatus}</li>
-                                          <li><strong>Children : </strong> {userDetails?.partnerexpectationDetails.Children}</li>
+                                          <li><strong>Marital Status : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.MaritalStatus}</li>
+                                          <li><strong>Children : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.Children}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Religion : </strong> {userDetails?.partnerexpectationDetails.Religion}</li>
-                                          <li><strong>Caste : </strong> {userDetails?.partnerexpectationDetails.Caste}</li>
+                                          <li><strong>Religion : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.Religion}</li>
+                                          <li><strong>Caste : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.Caste}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Sub Caste : </strong> {userDetails?.partnerexpectationDetails.SubCaste}</li>
-                                          <li><strong>Language : </strong> {userDetails?.partnerexpectationDetails.Language}</li>
+                                          <li><strong>Sub Caste : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.SubCaste}</li>
+                                          <li><strong>Language : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.Language}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Education : </strong> {userDetails?.partnerexpectationDetails.Education}</li>
-                                          <li><strong>Profession : </strong> {userDetails?.partnerexpectationDetails.Profession}</li>
+                                          <li><strong>Education : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.Education}</li>
+                                          <li><strong>Profession : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.Profession}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Smoking Acceptable : </strong> {userDetails?.partnerexpectationDetails.SmokingAcceptable}</li>
-                                          <li><strong>Drink Acceptable : </strong> {userDetails?.partnerexpectationDetails.DrinkAcceptable}</li>
+                                          <li><strong>Smoking Acceptable : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.SmokingAcceptable}</li>
+                                          <li><strong>Drink Acceptable : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.DrinkAcceptable}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Diet Acceptable : </strong> {userDetails?.partnerexpectationDetails.DietAcceptable}</li>
-                                          <li><strong>Manglik : </strong> {userDetails?.partnerexpectationDetails.Manglik}</li>
+                                          <li><strong>Diet Acceptable : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.DietAcceptable}</li>
+                                          <li><strong>Manglik : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.Manglik}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Personal Value : </strong> {userDetails?.partnerexpectationDetails.personalValue}</li>
-                                          <li><strong>Family Value : </strong> {userDetails?.partnerexpectationDetails.FamilyValue}</li>
+                                          <li><strong>Personal Value : </strong> {userDetails?.partnerexpectationDetails?.personalValue}</li>
+                                          <li><strong>Family Value : </strong> {userDetails?.partnerexpectationDetails?.FamilyValue}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Preferred Country : </strong> {userDetails?.partnerexpectationDetails.PreferredCountry}</li>
-                                          <li><strong>Preferred State : </strong> {userDetails?.partnerexpectationDetails.PreferredState}</li>
+                                          <li><strong>Preferred Country : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.PreferredCountry}</li>
+                                          <li><strong>Preferred State : </strong> {userDetails?.profileDetails?.partnerexpectationDetails?.PreferredState}</li>
                                       </div>
                                       <div className="flex justify-between gap-10 py-3">
-                                          <li><strong>Complexion : </strong> {userDetails?.partnerexpectationDetails.Complexion}</li>
+                                          <li><strong>Complexion : </strong> {userDetails?.profileDetails
+                                          ?.partnerexpectationDetails?.Complexion}</li>
                                       </div>
                                   </ul>}
                               </div>

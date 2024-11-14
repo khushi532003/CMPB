@@ -1,12 +1,11 @@
-import { useAuthContext, usePackageContext } from '@/context';
+import {  usePackageContext, useProfileContext } from '@/context';
 import React, { useEffect } from 'react'
-import { LiaFileInvoiceSolid } from "react-icons/lia";
 
 function PurchaseHistory() {
-    const { packagePaymentData } = useAuthContext();
-    const { GetEventPurchaseData, eventPurchaseData } = usePackageContext()
-
-    console.log(eventPurchaseData);
+    const { packagePurchaseData } = useProfileContext()
+    const { GetEventPurchaseData, eventPurchaseData } = usePackageContext();
+    console.log(packagePurchaseData);
+    
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -116,14 +115,7 @@ useEffect(()=>{
                                                     className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                                                     Member ID
                                                 </th>
-                                                <th
-                                                    className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
-                                                    Order ID
-                                                </th>
-                                                <th
-                                                    className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
-                                                    Payment ID
-                                                </th>
+                                               
 
                                                 <th
                                                     className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
@@ -136,35 +128,28 @@ useEffect(()=>{
 
                                             </tr>
                                         </thead>
-                                        {packagePaymentData && <tbody >
+                                        {packagePurchaseData && <tbody >
                                             <tr>
                                                 <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                     <p className="text-gray-900 whitespace-no-wrap">
-                                                        {packagePaymentData?.RegisterPackage?.PremiumMember === "true" ? "Premium" : "Free"}
+                                                        {packagePurchaseData?.PremiumMember === "true" ? "Premium" : "Free"}
                                                     </p>
                                                 </td>
                                                 <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
-                                                    <p className="text-gray-900 whitespace-no-wrap">{packagePaymentData?.MemberID}</p>
+                                                    <p className="text-gray-900 whitespace-no-wrap">{packagePurchaseData?.OrderID}</p>
                                                 </td>
 
                                                 <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
-                                                    <p className="text-gray-900 whitespace-no-wrap"> {packagePaymentData?.RegisterPackage?.OrderID}</p>
-                                                </td>
-                                                <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                     <p className="text-gray-900 whitespace-no-wrap">
-                                                        {packagePaymentData?.RegisterPackage?.PaymentID}
+                                                        ₹{packagePurchaseData?.amount}
                                                     </p>
                                                 </td>
                                                 <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                     <p className="text-gray-900 whitespace-no-wrap">
-                                                        {packagePaymentData?.RegisterPackage?.amount}
+                                                        {formatDate(packagePurchaseData?.createdAt)}
                                                     </p>
                                                 </td>
-                                                <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
-                                                    <p className="text-white text-center whitespace-no-wrap ">
-                                                        {packagePaymentData?.RegisterPackage?.createdAt}
-                                                    </p>
-                                                </td>
+                                              
                                             </tr>
                                         </tbody>}
                                     </table>

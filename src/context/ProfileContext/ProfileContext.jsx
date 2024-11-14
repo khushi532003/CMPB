@@ -7,6 +7,9 @@ export const ProfileContext = createContext();
 function ProfileContextProvider({ children }) {
     const [profile, setProfile] = useState([]);
     const [loader, setLoader] = useState(false);
+    const [packagePurchaseData, setPackagePurchaseData] = useState(null);
+    
+    console.log(packagePurchaseData);
 
 
     const GetProfile = async () => {
@@ -14,6 +17,7 @@ function ProfileContextProvider({ children }) {
         try {
             const res = await AxiosHandler.get("/profile/get")
             setProfile(res?.data?.profileDetails);
+            setPackagePurchaseData(res?.data?.profileDetails?.user?.RegisterPackage);
         } catch (error) {
             console.log(error)
             toast.error(error?.response?.data?.message || "Something went wrong");
@@ -57,7 +61,7 @@ function ProfileContextProvider({ children }) {
 
 
     return (
-        <ProfileContext.Provider value={{ profile, setProfile, Create, Update, GetProfile, loader }} >
+        <ProfileContext.Provider value={{ profile, packagePurchaseData, setProfile, Create, Update, GetProfile, loader }} >
             {children}
         </ProfileContext.Provider>
     )

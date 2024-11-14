@@ -11,7 +11,7 @@ function Home() {
 
   const { programme, GetProgramme, GetPackage, packageData } = usePackageContext();
   const { videoURLData } = useChurayePalContext();
-  const { token } = useAuthContext();
+  const { token, member } = useAuthContext();
 
   const MemberID = localStorage.getItem("MemberID");
 
@@ -102,11 +102,15 @@ function Home() {
 
   useEffect(() => {
     if (token) {
-      GetProgramme();
-      GetPackage();
       loadRazorpayScript();
     }
   }, [token])
+
+  useEffect(()=>{
+    GetProgramme();
+    GetPackage();
+  })
+
 
   return (
     <div>
@@ -349,9 +353,9 @@ function Home() {
                       <div className="state py-2 text-lg">
                         <strong>Location :</strong>{programme?.state}
                       </div>
-                      <div className="state py-2 text-lg">
+                      {member === "true" ? <div className="state py-2 text-lg">
                         <strong>Venue :</strong> {programme?.venues}
-                      </div>
+                      </div> : ""}
                       <div className="state py-2 text-lg">
                         <strong>Date  :</strong> {programme?.availableDates}
                       </div>
