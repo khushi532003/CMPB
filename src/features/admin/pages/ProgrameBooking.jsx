@@ -5,11 +5,9 @@ import { useParams } from 'react-router-dom';
 
 function ProgrameBooking() {
 
-  const { GetBookedEvent } = useProgrammeContext()
-
+  const { GetBookedEvent } = useProgrammeContext()  
   const [eventUserData, setEventUserData] = useState(null)
   const { id } = useParams();
-
 
   useEffect(() => {
     if (id) {
@@ -17,8 +15,10 @@ function ProgrameBooking() {
     }
   }, [id])
 
+const BookedEvents = eventUserData?.users?.length
+  console.log(BookedEvents);
 
-  console.log(eventUserData);
+
   return (
     <div>
       <div className=" flex items-center justify-between pb-6">
@@ -106,4 +106,4 @@ function ProgrameBooking() {
   )
 }
 
-export default ProgrameBooking
+export default ProgrameBooking;

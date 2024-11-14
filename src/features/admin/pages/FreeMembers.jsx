@@ -8,6 +8,8 @@ function FreeMembers() {
 
     const { freeMembers, freeMembersData, loader } = useAdminMemberContext()
     const { token } = useAuthContext()
+    console.log(freeMembersData);
+    
 
 
     useEffect(() => {

@@ -4,16 +4,16 @@ import { useFormik } from 'formik';
 import React from 'react';
 
 
-function PhysicalAttribute({data}) {
+function PhysicalAttribute({ data }) {
     const { Create, Update } = useProfileContext();
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: {
-            BloodGroup: data?.BloodGroup ? data.BloodGroup : "",
-            Disablity: data?.Disablity ? data.Disablity : "",
-            Height: data?.Height ? data.Height : "",
-            skinComplexion: data?.skinComplexion ? data.skinComplexion : "",
-            weight: data?.weight ? data.weight : "",
+            BloodGroup: data?.BloodGroup ? data?.BloodGroup : "",
+            Disablity: data?.Disablity ? data?.Disablity : "",
+            Height: data?.Height ? data?.Height : "",
+            skinComplexion: data?.skinComplexion ? data?.skinComplexion : "",
+            weight: data?.weight ? data?.weight : "",
 
         },
         enableReinitialize: true,
