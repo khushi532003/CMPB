@@ -1,11 +1,14 @@
+import Loader from '@/constant/loader';
 import { useProfileContext } from '@/context';
 import { AstronomicInfoSchema } from '@/validation/ProfileValidation';
 import { useFormik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 
 
 function AstronomicInfo({ data }) {
     const { Create, Update } = useProfileContext();
+    const [loader, setLoader] = useState(false);
+
 
     const { values, errors, touched, handleSubmit, handleChange, handleBlur } = useFormik({
         initialValues: {
@@ -17,10 +20,18 @@ function AstronomicInfo({ data }) {
         enableReinitialize: true,
         validationSchema: AstronomicInfoSchema,
         onSubmit: async (value) => {
-            if (!data) {
-                await Create("/profile/astronomic/create", value);
-            } else {
-                await Update("/profile/astronomic/update", value)
+            setLoader(true);
+            try {
+                if (!data) {
+                    await Create("/profile/astronomic/create", value);
+                } else {
+                    await Update("/profile/astronomic/update", value)
+                }
+            } catch (error) {
+                console.log(error);
+            }
+            finally {
+                setLoader(false);
             }
         }
     })
@@ -113,7 +124,7 @@ function AstronomicInfo({ data }) {
 
                     <div className='flex justify-end py-4'>
                         <div>
-                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>Update</button>
+                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>{loader ? <Loader /> : "Update"}</button>
                         </div>
                     </div>
 

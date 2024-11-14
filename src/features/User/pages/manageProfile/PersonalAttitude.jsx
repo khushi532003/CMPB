@@ -1,11 +1,14 @@
+import Loader from '@/constant/loader';
 import { useProfileContext } from '@/context';
 import { PersonalAttitudeSchema } from '@/validation/ProfileValidation';
 import { useFormik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 
 
 function PersonalAttitude({ data }) {
     const { Create, Update } = useProfileContext();
+    const [loader, setLoader] = useState(false);
+
 
     const { values, errors, touched, handleSubmit, handleChange, handleBlur } = useFormik({
         initialValues: {
@@ -15,10 +18,18 @@ function PersonalAttitude({ data }) {
         enableReinitialize: true,
         validationSchema: PersonalAttitudeSchema,
         onSubmit: async (value) => {
-            if (!data) {
-                await Create("/profile/personalattitude/create", value);
-            } else {
-                await Update("/profile/personalattitude/update", value)
+            setLoader(true);
+            try {
+                if (!data) {
+                    await Create("/profile/personalattitude/create", value);
+                } else {
+                    await Update("/profile/personalattitude/update", value)
+                }
+            } catch (error) {
+                console.log(error);
+            }
+            finally {
+                setLoader(false);
             }
         }
     })
@@ -75,7 +86,7 @@ function PersonalAttitude({ data }) {
                     </div>
                     <div className='flex justify-end py-4'>
                         <div>
-                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>Update</button>
+                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>{loader ? <Loader /> : "Update"}</button>
                         </div>
                     </div>
                 </div>

@@ -1,12 +1,14 @@
+import Loader from '@/constant/loader';
 import { useProfileContext } from '@/context';
 import { CareerInfoSchema } from '@/validation/ProfileValidation';
 import { useFormik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 
 
 function CareerInfo({ data }) {
 
     const { Create, Update } = useProfileContext();
+    const [loader, setLoader] = useState(false);
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: {
@@ -14,15 +16,21 @@ function CareerInfo({ data }) {
             company: data?.company ? data.company : "",
             start: data?.start ? data.start : "",
             end: data?.end ? data.end : ""
-        }, 
+        },
         enableReinitialize: true,
         validationSchema: CareerInfoSchema,
         onSubmit: async (value) => {
-            if (!data) {
-                await Create("/profile/carrer/create", value);
-            } else {
-                await Update("/profile/carrer/update", value)
+            setLoader(true);
+            try {
+                if (!data) {
+                    await Create("/profile/carrer/create", value);
+                } else {
+                    await Update("/profile/carrer/update", value)
+                }
+            } catch (error) {
+                console.log(error)
             }
+            setLoader(false);
         }
     })
 
@@ -87,7 +95,7 @@ function CareerInfo({ data }) {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     autoComplete="email"
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.start && touched.start && <span className='text-red-500' >{errors.start}</span>}
                             </div>
@@ -113,7 +121,7 @@ function CareerInfo({ data }) {
                     </div>
                     <div className='flex justify-end py-4'>
                         <div>
-                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>Update</button>
+                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>{loader ? <Loader /> : "Update"}</button>
                         </div>
                     </div>
 
