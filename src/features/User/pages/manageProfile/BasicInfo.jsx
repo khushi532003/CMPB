@@ -1,26 +1,37 @@
+import Loader from '@/constant/loader';
 import { useProfileContext } from '@/context';
 import { BasicDetailsSchema } from '@/validation/ProfileValidation';
 import { useFormik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 
 
-function BasicInfo({data}) {
-    const { Update } = useProfileContext()
+function BasicInfo({ data }) {
+    const { Update } = useProfileContext();
+    const [loader, setLoader] = useState(false);
 
-    const {values,errors,touched,handleBlur,handleChange,handleSubmit} = useFormik({
-        initialValues: { 
-            firstName: data?.firstName ? data?.firstName : "" ,
-            lastName: data?.lastName ? data?.lastName : "" , 
-            gender: data?.gender ? data?.gender : "", 
+    const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
+        initialValues: {
+            firstName: data?.firstName ? data?.firstName : "",
+            lastName: data?.lastName ? data?.lastName : "",
+            gender: data?.gender ? data?.gender : "",
             DOB: data?.DOB ? data?.DOB : ""
         },
-        enableReinitialize:true,
+        enableReinitialize: true,
         validationSchema: BasicDetailsSchema,
-        onSubmit:async (value)=>{
-            await Update("/user/update",value)
+        onSubmit: async (value) => {
+            setLoader(true);
+            try {
+                await Update("/user/update", value)
+
+            } catch (error) {
+                console.log(error)
+            }
+            finally {
+                setLoader(false);
+            }
         }
     })
-    
+
 
     return (
         <form onSubmit={handleSubmit} >
@@ -112,7 +123,7 @@ function BasicInfo({data}) {
                     </div>
                     <div className='flex justify-end py-4'>
                         <div>
-                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>Update</button>
+                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>{loader?<Loader/>:"Update"}</button>
                         </div>
                     </div>
                 </div>

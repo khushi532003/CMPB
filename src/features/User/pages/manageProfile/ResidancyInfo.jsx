@@ -1,26 +1,37 @@
+import Loader from '@/constant/loader';
 import { useProfileContext } from '@/context';
 import { ResidancyInfoSchema } from '@/validation/ProfileValidation';
 import { useFormik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 
 
 function ResidancyInfo({ data }) {
-    const { Create, Update } = useProfileContext()
+    const { Create, Update } = useProfileContext();
+    const [loader, setLoader] = useState(false);
+
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: {
-            ImmigrationStatus: data?.ImmigrationStatus ? data.ImmigrationStatus : "" ,
+            ImmigrationStatus: data?.ImmigrationStatus ? data.ImmigrationStatus : "",
             birthCounty: data?.birthCounty ? data.birthCounty : "",
             residencyCounty: data?.residencyCounty ? data.residencyCounty : "",
             grownUpCountry: data?.grownUpCountry ? data.grownUpCountry : ""
         },
         enableReinitialize: true,
         validationSchema: ResidancyInfoSchema,
-        onSubmit:async (value)=>{
-            if(!data){
-                await Create("/profile/residencyinfo/create",value);
-            }else{
-                await Update("/profile/residencyinfo/update",value)
+        onSubmit: async (value) => {
+            setLoader(true);
+            try {
+                if (!data) {
+                    await Create("/profile/residencyinfo/create", value);
+                } else {
+                    await Update("/profile/residencyinfo/update", value)
+                }
+            } catch (error) {
+                console.log(error);
+            }
+            finally {
+                setLoader(false);
             }
         }
     })
@@ -30,7 +41,7 @@ function ResidancyInfo({ data }) {
         <form onSubmit={handleSubmit}>
             <div className="space-y-12">
 
-                <div  className="border-b border-gray-900/10 pb-12">
+                <div className="border-b border-gray-900/10 pb-12">
                     <h4 className="text-base  font-semibold leading-7 text-gray-900">Residancy Information</h4>
 
                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -116,7 +127,7 @@ function ResidancyInfo({ data }) {
                     </div>
                     <div className='flex justify-end py-4'>
                         <div>
-                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>Update</button>
+                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>{loader ? <Loader /> : "Update"}</button>
                         </div>
                     </div>
                 </div>
