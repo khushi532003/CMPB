@@ -7,7 +7,6 @@ import AddStory from './AddStory';
 import { Link } from 'react-router-dom';
 
 function Table(props) {
-    console.log("props is ", props?.data);
     const { DeleteVideo } = useChurayeHuePalContext();
     const { DeleteQuery } = useAdminContactContext();
     const { DeleteHappyStory } = useHappyStroyContext();
@@ -115,11 +114,11 @@ function Table(props) {
                                 }
                                 {props?.identifier === "happyStoryData" && <>
                                     <th
-                                        class="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                        className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                                         {props?.memeberName}
                                     </th>
                                     <th
-                                        class="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                        className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                                         {props?.partnerName}
                                     </th>
                                     <th
@@ -298,23 +297,23 @@ function Table(props) {
 
                                     </>}
 
-                                    {props?.identifier === "happyStoryData" && <> <td class="px-5  py-2 border-b border-gray-200 bg-white text-sm">
-                                        <p class="text-gray-900  text-sm whitespace-no-wrap">
+                                    {props?.identifier === "happyStoryData" && <> <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
+                                        <p className="text-gray-900  text-sm whitespace-no-wrap">
                                             {item?.Groom}
                                         </p>
                                     </td>
-                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-sm">
-                                            <p class="text-gray-900  text-sm whitespace-no-wrap">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
+                                            <p className="text-gray-900  text-sm whitespace-no-wrap">
                                                 {item?.Bride}
                                             </p>
                                         </td>
-                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-sm">
-                                            <p class="text-gray-900  text-sm whitespace-no-wrap">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
+                                            <p className="text-gray-900  text-sm whitespace-no-wrap">
                                                 {formatDate(item?.createdAt)}
                                             </p>
                                         </td>
 
-                                        <td class="px-5  py-2 border-b border-gray-200 flex gap-2 bg-white text-sm">
+                                        <td className="px-5  py-2 border-b border-gray-200 flex gap-2 bg-white text-sm">
                                             <span type='button'
                                                 className="relative bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                                                 <LiaEdit />
@@ -327,21 +326,19 @@ function Table(props) {
                                     </>}
 
                                     {props?.identifier === "register" && <>
-                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-sm">
-                                            <p class="text-gray-900  text-sm whitespace-no-wrap">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm">
+                                            <p className="text-gray-900  text-sm whitespace-no-wrap">
                                                 {item?.amount}651
                                             </p>
                                         </td>
 
-                                        <td class="px-5  py-2 border-b border-gray-200 bg-white text-sm flex gap-2">
+                                        <td className="px-5  py-2 border-b border-gray-200 bg-white text-sm flex gap-2">
                                             <span
                                                 className="relative cursor-pointer bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                                                 <LiaEdit />
                                             </span>
 
                                         </td>
-
-
 
                                     </>}
 

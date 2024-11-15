@@ -16,11 +16,8 @@ function AuthContextProvider({ children }) {
     const [packagePaymentData, setPackagePaymentData] = useState({})
     const [Registered, setRegistered] = useState(null);
     const [userDetails, setUserDetails] = useState({});
-    // console.log(userDetails);
-    console.log(packagePaymentData);
-    
-    
-    
+
+
 
     // Register new user
     const RegisterUser = async (data) => {
@@ -56,7 +53,7 @@ function AuthContextProvider({ children }) {
             toast.success(res.data.message);
             console.log(res?.data);
             setUserDetails(res?.data);
-            // window.location.href = "/"
+            window.location.href = "/"
         } catch (error) {
             console.log(error);
             toast.error(error.response?.data?.message || "User Login Failed");
@@ -146,7 +143,7 @@ function AuthContextProvider({ children }) {
     const Logout = () => {
         Cookies.remove("CMPB_TOKEN");
         Cookies.remove("UserRole");
-        Cookies.remove("Username"); // Remove the username cookie
+        Cookies.remove("Username");
         setToken(null);
         setRole(null);
         setName(null);
