@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react';
+import { FaYoutube } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
+import { RiInstagramFill } from "react-icons/ri";
+import { FaXTwitter } from "react-icons/fa6";
+import { IoMdCall, IoMdMail } from 'react-icons/io';
 
 function ScrollTop() {
     const { pathname } = useLocation();
@@ -57,32 +61,27 @@ function Footer() {
                                         </li>
                                     </nav>
                                 </div>
-                                <div className="w-full px-4 lg:w-1/4 md:w-1/2">
-                                    <h4 className="mb-3 text-sm tracking-widest text-gray-900 uppercase font-semibold">About</h4>
+                                <div className="w-full px-4 lg:w-2/4 md:w-1/2">
+                                    <h4 className="mb-3 text-sm tracking-widest text-gray-900 uppercase font-semibold">contact us</h4>
                                     <nav className="mb-10 list-none">
                                         <li className="mt-3">
-                                            <Link className="text-gray-500 cursor-pointer hover:text-gray-900">Terms &amp; Privacy</Link>
+                                            <Link to="tel:9870101514" className="text-gray-500 flex gap-2 items-center cursor-pointer hover:text-gray-900"><IoMdCall /> + 91 9870101514</Link>
                                         </li>
                                         <li className="mt-3">
-                                            <Link className="text-gray-500 cursor-pointer hover:text-gray-900">Pricing</Link>
+                                            <Link to="mailto:chatmangnipatbyahteam@gmail.com" className="text-gray-500 cursor-pointer flex gap-2 items-center hover:text-gray-900"><IoMdMail />chatmangnipatbyahteam@gmail.com</Link>
                                         </li>
-                                        <li className="mt-3">
-                                            <Link className="text-gray-500 cursor-pointer hover:text-gray-900">FAQ</Link>
-                                        </li>
+                                      
                                     </nav>
                                 </div>
                                 <div className="w-full px-4 lg:w-1/4 md:w-1/2">
-                                    <h4 className="mb-3 text-sm tracking-widest text-gray-900 uppercase font-semibold">Contact</h4>
+                                    <h4 className="mb-3 text-sm tracking-widest text-gray-900 uppercase font-semibold">Connect with us</h4>
                                     <nav className="mb-10 list-none">
-                                        <li className="mt-3">
-                                            <Link className="text-gray-500 cursor-pointer hover:text-gray-900">Send a Message</Link>
+                                        <li className="mt-3 flex gap-5 ">
+                                            <Link to="https://youtube.com/@chatmangnipatbyah-o6c?si=lwPo2X8sVRYMQP6Z" target='_blank' className="text-RedTheme cursor-pointer text-2xl"><FaYoutube /> </Link>
+                                            <Link to="https://www.instagram.com/chat.mangnipatbyah?igsh=YzljYTk1ODg3Zg==" target='_blank' className="text-RedTheme cursor-pointer text-2xl"><RiInstagramFill /> </Link>
+                                            <Link to="https://x.com/PatByah6733" target='_blank' className="text-RedTheme cursor-pointer text-2xl"><FaXTwitter /></Link>
                                         </li>
-                                        <li className="mt-3">
-                                            <Link className="text-gray-500 cursor-pointer hover:text-gray-900">Request a Quote</Link>
-                                        </li>
-                                        <li className="mt-3">
-                                            <Link className="text-gray-500 cursor-pointer hover:text-gray-900">+123-456-7890</Link>
-                                        </li>
+                                       
                                     </nav>
                                 </div>
                             </div>

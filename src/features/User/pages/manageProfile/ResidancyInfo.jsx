@@ -59,7 +59,7 @@ function ResidancyInfo({ data }) {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     autoComplete="given-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.birthCounty && touched.birthCounty && <span className='text-red-500' >{errors.birthCounty}</span>}
                             </div>
@@ -78,7 +78,7 @@ function ResidancyInfo({ data }) {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     autoComplete="family-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.residencyCounty && touched.residencyCounty && <span className='text-red-500' >{errors.residencyCounty}</span>}
                             </div>
@@ -100,7 +100,7 @@ function ResidancyInfo({ data }) {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     autoComplete="given-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.grownUpCountry && touched.grownUpCountry && <span className='text-red-500' >{errors.grownUpCountry}</span>}
                             </div>
@@ -119,7 +119,7 @@ function ResidancyInfo({ data }) {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     autoComplete="family-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.ImmigrationStatus && touched.ImmigrationStatus && <span className='text-red-500' >{errors.ImmigrationStatus}</span>}
                             </div>

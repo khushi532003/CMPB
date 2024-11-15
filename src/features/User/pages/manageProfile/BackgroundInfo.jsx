@@ -59,7 +59,7 @@ function BackgroundInfo({ data }) {
                                     onChange={handleChange}
                                     placeholder="religion"
                                     autoComplete="country-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
                                     <option value={""}>select</option>
                                     <option>Hindu</option>
@@ -88,7 +88,7 @@ function BackgroundInfo({ data }) {
                                     placeholder='cast'
                                     type="text"
                                     autoComplete="family-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.Caste && touched.Caste && <p className='text-red-500 text-sm'>{errors.Caste}</p>}
                             </div>
@@ -107,7 +107,7 @@ function BackgroundInfo({ data }) {
                                     placeholder='sub-cast'
                                     type="text"
                                     autoComplete="family-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.SubCast && touched.SubCast && <p className='text-red-500 text-sm'>{errors.SubCast}</p>}
                             </div>
@@ -126,7 +126,7 @@ function BackgroundInfo({ data }) {
                                     placeholder='self worth'
                                     type="number"
                                     autoComplete="family-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.SelfWorth && touched.SelfWorth && <p className='text-red-500 text-sm'>{errors.SelfWorth}</p>}
                             </div>
@@ -146,7 +146,7 @@ function BackgroundInfo({ data }) {
                                     placeholder='FamilyWorth'
                                     type="number"
                                     autoComplete="given-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.FamilyWorth && touched.FamilyWorth && <p className='text-red-500 text-sm'>{errors.FamilyWorth}</p>}
                             </div>

@@ -6,12 +6,13 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import { useAuthContext, useChurayePalContext, usePackageContext } from '@/context';
 import { AxiosHandler } from '@/config/Axios.config';
 import { toast } from 'react-toastify';
+import Loader from '@/constant/loader';
 
 function Home() {
 
   const { programme, GetProgramme, GetPackage, packageData } = usePackageContext();
   const { videoURLData } = useChurayePalContext();
-  const { token, member } = useAuthContext();
+  const { token, member, loader } = useAuthContext();
 
   const MemberID = localStorage.getItem("MemberID");
 
@@ -143,7 +144,7 @@ function Home() {
 
           {videoURLData?.map((item, i) => <SwiperSlide key={i} >
             <div className="pal py-10 relative">
-              <iframe width="100%" className='sm:rounded-full' height="350" src={item?.VideoURL} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+              <iframe width="100%" className='sm:rounded-full' height="350" src={loader ? <Loader/> : item?.VideoURL} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
               <div className="petal hidden sm:block absolute top-4 left-0">
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/036/296/405/small_2x/ai-generated-green-floral-watercolor-illustration-for-wedding-invitation-botanical-frame-png.png" alt="" />
               </div>
@@ -345,7 +346,7 @@ function Home() {
               {programme && <div className="theme">
                 <div className="flex flex-col items-center w-full">
                   <div className="package  lg:h-[600px] border-2 w-full flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
-                    <h2 className="text-4xl">Program Package</h2>
+                    <h2 className="text-4xl">Programme Package</h2>
                     <h2 className="text-5xl py-3 font-semibold text-yellow-500">₹{programme?.amount}  /-</h2>
                     <div className="programme py-2 text-2xl font-semibold">{programme?.eventName}</div>
                     <p className="py-2">{programme?.description}</p>
