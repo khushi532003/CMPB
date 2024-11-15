@@ -8,7 +8,6 @@ function MemberProfile() {
     const [openIndex, setOpenIndex] = useState(null);
     const { GetActiveUserById, userDetails, GetActiveMembers } = useMembersContext()
     const { id } = useParams()
-    console.log(userDetails);
 
 
     const toggleAccordion = (index) => {
@@ -26,6 +25,7 @@ function MemberProfile() {
             GetActiveUserById(id)
         }
     }, [id])
+
     return (
         <div>
             <div className="flex gap-2 w-[90%] mx-auto py-5   ">

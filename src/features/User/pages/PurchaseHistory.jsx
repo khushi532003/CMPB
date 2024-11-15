@@ -1,21 +1,21 @@
-import {  usePackageContext, useProfileContext } from '@/context';
+import { usePackageContext, useProfileContext } from '@/context';
 import React, { useEffect } from 'react'
 
 function PurchaseHistory() {
     const { packagePurchaseData } = useProfileContext()
     const { GetEventPurchaseData, eventPurchaseData } = usePackageContext();
-    console.log(packagePurchaseData);
-    
+
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const options = { day: '2-digit', month: 'short', year: 'numeric' };
         return new Intl.DateTimeFormat('en-US', options).format(date);
     };
-    
-useEffect(()=>{
-    GetEventPurchaseData()
-},[])
+
+    useEffect(() => {
+        GetEventPurchaseData();
+    }, [])
+
     return (
         <div>
             <div className="MyInterest ">
@@ -30,7 +30,7 @@ useEffect(()=>{
                                     {eventPurchaseData && eventPurchaseData?.userEvents.map((item) => <table className="min-w-full leading-normal">
                                         <thead>
                                             <tr>
-                                              
+
                                                 <th
                                                     className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                                                     Purchased At
@@ -59,9 +59,9 @@ useEffect(()=>{
 
                                             </tr>
                                         </thead>
-                                         <tbody >
+                                        <tbody >
                                             <tr>
-                                              
+
                                                 <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                     <p className="text-gray-900 whitespace-no-wrap">{formatDate(item?.ClientDetails[0]?.createdAt)}</p>
                                                 </td>
@@ -89,13 +89,9 @@ useEffect(()=>{
                                                         {item?.venues}
                                                     </p>
                                                 </td>
-
                                             </tr>
-
-
                                         </tbody>
                                     </table>)}
-
                                 </div>
                             </div>
                         </div>
@@ -115,7 +111,7 @@ useEffect(()=>{
                                                     className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                                                     Member ID
                                                 </th>
-                                               
+
 
                                                 <th
                                                     className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
@@ -128,7 +124,7 @@ useEffect(()=>{
 
                                             </tr>
                                         </thead>
-                                         <tbody >
+                                        <tbody >
                                             <tr>
                                                 <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                     <p className="text-gray-900 whitespace-no-wrap">
@@ -149,7 +145,7 @@ useEffect(()=>{
                                                         {formatDate(packagePurchaseData?.createdAt)}
                                                     </p>
                                                 </td>
-                                              
+
                                             </tr>
                                         </tbody>
                                     </table> : <h4 className='text-2xl '> You haven't purchased the package yet.</h4>}

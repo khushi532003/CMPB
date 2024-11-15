@@ -6,7 +6,6 @@ import Loader from '@/constant/loader';
 const ContectQueries = () => {
 
     const { contactQuery, GetContactQueries, loader } = useAdminContactContext();
-    console.log(contactQuery);
 
     useEffect(() => {
         GetContactQueries()

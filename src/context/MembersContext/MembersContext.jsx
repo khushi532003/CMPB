@@ -1,5 +1,5 @@
 import { AxiosHandler } from "@/config/Axios.config";
-import { createContext, useEffect, useState } from "react";
+import { createContext,  useState } from "react";
 
 export const MemberContext = createContext();
 
@@ -14,11 +14,9 @@ const MemberContextProvider = ({children}) =>{
         setLoader(true)
         try {
             const res = await AxiosHandler.get("/user/getActiveUser")
-            setActiveUser(res.data.data);
-            
+            setActiveUser(res?.data?.data);
         } catch (error) {
             console.log(error);
-            
         }finally{
             setLoader(false)
         }
@@ -27,12 +25,9 @@ const MemberContextProvider = ({children}) =>{
     const GetActiveUserById = async (id)=>{
         try {
             const res = await AxiosHandler.get(`/user/getUser/${id}`)
-            console.log(res?.data?.profileDetails);
-            setUserDetails(res?.data?.profileDetails);
-            
+            setUserDetails(res?.data?.profileDetails); 
         } catch (error) {
             console.log(error);
-            
         }
     }
 

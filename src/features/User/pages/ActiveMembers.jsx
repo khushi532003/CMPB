@@ -7,11 +7,8 @@ function ActiveMembers() {
     const { activeUser, GetActiveMembers, loader } = useMembersContext();
     const [filteredUsers, setFilteredUsers] = useState(activeUser);
     const { member, token } = useAuthContext();
-    console.log(member);
     
     
-    console.log(activeUser);
-
 
     const [ageFrom, setAgeFrom] = useState('');
     const [ageTo, setAgeTo] = useState('');
