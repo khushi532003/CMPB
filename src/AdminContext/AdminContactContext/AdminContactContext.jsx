@@ -1,24 +1,22 @@
 import { AxiosHandler } from "@/config/Axios.config";
-import { createContext, useEffect, useState } from "react";
+import { createContext,  useState } from "react";
 import { toast } from "react-toastify";
 
 export const AdminContactContext = createContext();
 
 const AdminContactContextProvider = ({ children }) => {
 
-    const [contactQuery, setContactQuery] = useState([])
-    const [loader, setLoader] = useState(false)
+    const [contactQuery, setContactQuery] = useState([]);
+    const [loader, setLoader] = useState(false);
 
     const GetContactQueries = async () => {
         setLoader(true)
         try {
             const res = await AxiosHandler.get("contact/get?page=1&limit=5");
-            console.log(res?.data?.data);
             setContactQuery(res?.data?.data);
-
         } catch (error) {
             console.log(error);
-        }finally{
+        } finally {
             setLoader(false)
         }
     }

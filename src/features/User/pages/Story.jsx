@@ -14,7 +14,7 @@ function Story() {
         const options = { day: '2-digit', month: 'short', year: 'numeric' };
         return new Intl.DateTimeFormat('en-US', options).format(date);
     };
- 
+
 
     useEffect(() => {
         const filterBlog = happyStory.find((item) => item._id === id);

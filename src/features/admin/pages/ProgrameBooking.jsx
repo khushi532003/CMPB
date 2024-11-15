@@ -16,7 +16,6 @@ function ProgrameBooking() {
   }, [id])
 
 const BookedEvents = eventUserData?.users?.length
-  console.log(BookedEvents);
 
 
   return (

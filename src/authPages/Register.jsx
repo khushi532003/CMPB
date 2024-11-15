@@ -30,21 +30,13 @@ function Register() {
     })
     useEffect(() => {
         if (forgetEmail) {
-            console.log("here");
-
             navigate('/verify_otp', { state: { email: forgetEmail.email } })
         }
-
-
     }, [forgetEmail])
     useEffect(() => {
         if (Registered) {
-            console.log("here 1");
-
             navigate('/verify_otp', { state: { email: Registered.email } })
         }
-
-
     }, [Registered])
 
 
