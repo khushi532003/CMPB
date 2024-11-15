@@ -63,7 +63,7 @@ function HobbiesInterest({ data }) {
                                     type="text"
                                     placeholder='hobbies'
                                     autoComplete="given-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.Hobbies && touched.Hobbies && <p className='text-red-500 text-sm'>{errors.Hobbies}</p>}
                             </div>
@@ -83,7 +83,7 @@ function HobbiesInterest({ data }) {
                                     type="text"
                                     placeholder='interest'
                                     autoComplete="family-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.Intrest && touched.Intrest && <p className='text-red-500 text-sm'>{errors.Intrest}</p>}
                             </div>
@@ -105,7 +105,7 @@ function HobbiesInterest({ data }) {
                                     type="text"
                                     placeholder='music'
                                     autoComplete="given-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.Music && touched.Music && <p className='text-red-500 text-sm'>{errors.Music}</p>}
                             </div>
@@ -125,7 +125,7 @@ function HobbiesInterest({ data }) {
                                     type="text"
                                     placeholder='books'
                                     autoComplete="family-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.Books && touched.Books && <p className='text-red-500 text-sm'>{errors.Books}</p>}
                             </div>
@@ -146,7 +146,7 @@ function HobbiesInterest({ data }) {
                                     type="text"
                                     placeholder='movies'
                                     autoComplete="given-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.Movies && touched.Movies && <p className='text-red-500 text-sm'>{errors.Movies}</p>}
                             </div>
@@ -166,7 +166,7 @@ function HobbiesInterest({ data }) {
                                     type="text"
                                     placeholder='tv-show'
                                     autoComplete="family-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.tvShow && touched.tvShow && <p className='text-red-500 text-sm'>{errors.tvShow}</p>}
                             </div>
@@ -187,7 +187,7 @@ function HobbiesInterest({ data }) {
                                     type="text"
                                     placeholder='fitness Activities'
                                     autoComplete="given-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.fitnessActivities && touched.fitnessActivities && <p className='text-red-500 text-sm'>{errors.fitnessActivities}</p>}
                             </div>
@@ -207,7 +207,7 @@ function HobbiesInterest({ data }) {
                                     type="text"
                                     placeholder='sports'
                                     autoComplete="family-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.Sports && touched.Sports && <p className='text-red-500 text-sm'>{errors.Sports}</p>}
                             </div>
@@ -228,7 +228,7 @@ function HobbiesInterest({ data }) {
                                     type="text"
                                     placeholder='cuisines'
                                     autoComplete="given-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.cuisines && touched.cuisines && <p className='text-red-500 text-sm'>{errors.cuisines}</p>}
                             </div>
@@ -248,7 +248,7 @@ function HobbiesInterest({ data }) {
                                     type="text"
                                     placeholder='dress-style'
                                     autoComplete="family-name"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.dressStyle && touched.dressStyle && <p className='text-red-500 text-sm'>{errors.dressStyle}</p>}
                             </div>

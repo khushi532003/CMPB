@@ -27,7 +27,7 @@ useEffect(()=>{
                         <div>
                             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                                 <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                                    <table className="min-w-full leading-normal">
+                                    {eventPurchaseData && eventPurchaseData?.userEvents.map((item) => <table className="min-w-full leading-normal">
                                         <thead>
                                             <tr>
                                               
@@ -59,7 +59,7 @@ useEffect(()=>{
 
                                             </tr>
                                         </thead>
-                                        {eventPurchaseData && eventPurchaseData?.userEvents.map((item)=> <tbody >
+                                         <tbody >
                                             <tr>
                                               
                                                 <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
@@ -93,8 +93,8 @@ useEffect(()=>{
                                             </tr>
 
 
-                                        </tbody>) }
-                                    </table>
+                                        </tbody>
+                                    </table>)}
 
                                 </div>
                             </div>
@@ -104,7 +104,7 @@ useEffect(()=>{
                         <div>
                             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                                 <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                                    <table className="min-w-full leading-normal">
+                                    {packagePurchaseData ? <table className="min-w-full leading-normal">
                                         <thead>
                                             <tr>
                                                 <th
@@ -128,7 +128,7 @@ useEffect(()=>{
 
                                             </tr>
                                         </thead>
-                                        {packagePurchaseData && <tbody >
+                                         <tbody >
                                             <tr>
                                                 <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                     <p className="text-gray-900 whitespace-no-wrap">
@@ -151,8 +151,8 @@ useEffect(()=>{
                                                 </td>
                                               
                                             </tr>
-                                        </tbody>}
-                                    </table>
+                                        </tbody>
+                                    </table> : <h4 className='text-2xl '> You haven't purchased the package yet.</h4>}
                                 </div>
                             </div>
                         </div>

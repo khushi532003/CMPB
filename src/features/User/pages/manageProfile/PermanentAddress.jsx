@@ -56,7 +56,7 @@ function PermanentAddress({ data }) {
                                     onBlur={handleBlur}
                                     onChange={handleChange}
                                     autoComplete="country-name"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
                                     <option disabled>select</option>
                                     <option>India</option>
@@ -82,7 +82,7 @@ function PermanentAddress({ data }) {
                                     type="text"
                                     placeholder="city"
                                     autoComplete="address-level2"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.City && touched.City && <p className="text-red-500 text-sm">{errors.City}</p>}
                             </div>
@@ -102,7 +102,7 @@ function PermanentAddress({ data }) {
                                     placeholder="state"
                                     type="text"
                                     autoComplete="address-level1"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.State && touched.State && <p className="text-red-500 text-sm">{errors.State}</p>}
                             </div>
@@ -122,7 +122,7 @@ function PermanentAddress({ data }) {
                                     placeholder="pin code"
                                     type="text"
                                     autoComplete="pin-code"
-                                    className="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.Pincode && touched.Pincode && <p className="text-red-500 text-sm">{errors.Pincode}</p>}
                             </div>
