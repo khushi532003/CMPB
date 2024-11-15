@@ -8,7 +8,6 @@ function FreeMembers() {
 
     const { freeMembers, freeMembersData, loader, setPage, page, disable } = useAdminMemberContext();
     const { token } = useAuthContext()
-    console.log(freeMembersData);
 
 
 

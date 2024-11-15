@@ -10,29 +10,25 @@ const ChurayeHuePalContextProvider = ({ children }) => {
     const [loader, setLoader] = useState(false)
 
     const GetVideo = async () => {
-        setLoader(true)
+        setLoader(true);
         try {
             const res = await AxiosHandler.get("churaye-hua-pal/get");
-            console.log("video", res?.data?.data?.[0]?.VideoURL);
             setVideo(res?.data?.data);
-
         } catch (error) {
             console.log(error);
         }finally{
-            setLoader(false)
+            setLoader(false);
         }
     }
 
     const CreateVideo = async (data) => {
         try {
             const res = await AxiosHandler.post("churaye-hua-pal/create", data);
-            console.log(res);
             toast.success("Video Link created successfully")
-            GetVideo()
-
+            GetVideo();
         } catch (error) {
             console.log(error);
-            toast.error("Video Link not created ")
+            toast.error("Video Link not created");
         }
     }
 
@@ -40,12 +36,11 @@ const ChurayeHuePalContextProvider = ({ children }) => {
         
         try {
             const res = await AxiosHandler.delete(`churaye-hua-pal/delete/${id}`);
-            console.log(res);
-            toast.success("Video deleted successfully")
+            toast.success("Video deleted successfully");
             GetVideo();
         } catch (error) {
             console.log(error);
-            toast.error("Video not deleted")   
+            toast.error("Video not deleted");   
         }
     }
 
