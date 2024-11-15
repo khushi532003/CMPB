@@ -9,7 +9,6 @@ function ProfileContextProvider({ children }) {
     const [loader, setLoader] = useState(false);
     const [packagePurchaseData, setPackagePurchaseData] = useState(null);
     
-    console.log(packagePurchaseData);
 
 
     const GetProfile = async () => {

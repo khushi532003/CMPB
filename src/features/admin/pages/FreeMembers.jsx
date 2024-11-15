@@ -6,17 +6,18 @@ import Loader from '@/constant/loader';
 
 function FreeMembers() {
 
-    const { freeMembers, freeMembersData, loader } = useAdminMemberContext()
+    const { freeMembers, freeMembersData, loader, setPage, page, disable } = useAdminMemberContext();
     const { token } = useAuthContext()
     console.log(freeMembersData);
-    
+
 
 
     useEffect(() => {
         if (token)
-            freeMembers()
-    }, [token])
+            freeMembers(page);
+    }, [token, page])
 
+    if (disable) return <Loader />;
 
     return (
         <div>
@@ -26,11 +27,20 @@ function FreeMembers() {
                 </div>
             </div>
 
-            {loader ? <Loader/> :  <Table id={'S.N0.'} profileImage={"Profile Image"} memeberName={"Member Name"} memberId={"Member ID"} detail={"View Details"} data={freeMembersData} identifier={"members"} />}
+            {loader ? (<Loader />) : (<Table id={'S.N0.'} profileImage={"Profile Image"} memeberName={"Member Name"} memberId={"Member ID"} detail={"View Details"} data={freeMembersData} identifier={"members"} />)}
+
             <div className="pagination py-4 flex justify-center items-center gap-3">
-                <button className="prev bg-RedTheme text-white px-4 py-1 rounded">Prev</button>
-                <button className="prev bg-RedTheme text-white px-4 py-1 rounded">Next</button>
+                <button
+                    className="prev bg-RedTheme text-white px-4 py-1 rounded"
+                    disabled={disable || page === 1}
+                    onClick={() => setPage((prev) => Math.max(prev - 1, 1))} > Prev </button>
+                <span className='list-none text-blue-600 text-md font-bold'>{page}</span>
+                <button
+                    className="next bg-RedTheme text-white px-4 py-1 rounded"
+                    disabled={disable || freeMembersData?.length < 5}
+                    onClick={() => setPage((prev) => prev + 1)}>Next </button>
             </div>
+
         </div>
     )
 }

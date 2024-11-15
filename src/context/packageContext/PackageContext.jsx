@@ -1,5 +1,5 @@
 import { AxiosHandler } from "@/config/Axios.config";
-import { createContext,  useState } from "react";
+import { createContext, useState } from "react";
 
 export const PackageContext = createContext();
 
@@ -34,7 +34,7 @@ const PackageContextProvider = ({ children }) => {
         } catch (error) {
             console.log(error);
         }
-        
+
     };
 
 
