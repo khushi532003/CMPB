@@ -76,7 +76,7 @@ function HomeManageProfile() {
                 <div className="filter sm:block w-full sm:w-[30%] border border-red-100 p-4">
                     <div className="relative flex items-center justify-center text-center">
                         <img
-                            className="rounded-full w-52 h-52"
+                            className="rounded-full object-cover w-52 h-52"
                             src={profile?.user?.profileImage?.ImageURL || "https://thumbs.dreamstime.com/z/vinayagar-images-ai-hd-photo-2023-289916691.jpg"}
                             alt="profile"
                         />

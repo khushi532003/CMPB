@@ -5,9 +5,9 @@ export const MemberContext = createContext();
 
 const MemberContextProvider = ({children}) =>{
 
-    const [activeUser, setActiveUser] = useState([])
-    const [userDetails, setUserDetails] = useState({})
-    const [loader, setLoader] = useState(false)
+    const [activeUser, setActiveUser] = useState([]);
+    const [userDetails, setUserDetails] = useState({});
+    const [loader, setLoader] = useState(false);
     
 
     const GetActiveMembers = async ()=>{

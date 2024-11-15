@@ -66,7 +66,7 @@ function PartnerExpection({ data }) {
                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <div className="sm:col-span-3">
                             <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
-                                Gernal Requirement
+                                General Requirement
                             </label>
                             <div className="mt-2">
                                 <input
@@ -77,7 +77,8 @@ function PartnerExpection({ data }) {
                                     onChange={handleChange}
                                     type="text"
                                     autoComplete="given-name"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder='General Requirement'
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.GernalRequirement && touched.GernalRequirement && <p className='text-red-500 text-sm'>{errors.GernalRequirement}</p>}
                             </div>
@@ -96,7 +97,8 @@ function PartnerExpection({ data }) {
                                     onChange={handleChange}
                                     type="text"
                                     autoComplete="family-name"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder='Residence Country'
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.ResidenceCountry && touched.ResidenceCountry && <p className='text-red-500 text-sm'>{errors.ResidenceCountry}</p>}
                             </div>
@@ -115,7 +117,8 @@ function PartnerExpection({ data }) {
                                     onChange={handleChange}
                                     type="number"
                                     autoComplete="email"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder='Height'
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.Height && touched.Height && <p className='text-red-500 text-sm'>{errors.Height}</p>}
                             </div>
@@ -134,7 +137,8 @@ function PartnerExpection({ data }) {
                                     onChange={handleChange}
                                     type="number"
                                     autoComplete="email"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder='Weight'
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.weight && touched.weight && <p className='text-red-500 text-sm'>{errors.weight}</p>}
                             </div>
@@ -152,7 +156,8 @@ function PartnerExpection({ data }) {
                                     onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder='Marital Status'
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.MaritalStatus && touched.MaritalStatus && <p className='text-red-500 text-sm'>{errors.MaritalStatus}</p>}
                             </div>
@@ -170,7 +175,7 @@ function PartnerExpection({ data }) {
                                     onBlur={handleBlur}
                                     onChange={handleChange}
                                     autoComplete="country-name"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
                                     <option value={""}>Select</option>
                                     <option value={true}>Yes</option>
@@ -192,7 +197,8 @@ function PartnerExpection({ data }) {
                                     onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder='Religion'
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.Religion && touched.Religion && <p className='text-red-500 text-sm'>{errors.Religion}</p>}
                             </div>
@@ -210,7 +216,8 @@ function PartnerExpection({ data }) {
                                     onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder='Caste'
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.Caste && touched.Caste && <p className='text-red-500 text-sm'>{errors.Caste}</p>}
                             </div>
@@ -228,7 +235,8 @@ function PartnerExpection({ data }) {
                                     onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder='Sub Caste'
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.SubCaste && touched.SubCaste && <p className='text-red-500 text-sm'>{errors.SubCaste}</p>}
                             </div>
@@ -246,7 +254,8 @@ function PartnerExpection({ data }) {
                                     onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder='Language'
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.Language && touched.Language && <p className='text-red-500 text-sm'>{errors.Language}</p>}
                             </div>
@@ -264,7 +273,8 @@ function PartnerExpection({ data }) {
                                     onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder='Education'
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.Education && touched.Education && <p className='text-red-500 text-sm'>{errors.Education}</p>}
                             </div>
@@ -282,7 +292,8 @@ function PartnerExpection({ data }) {
                                     onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder='Profession'
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.Profession && touched.Profession && <p className='text-red-500 text-sm'>{errors.Profession}</p>}
                             </div>
@@ -300,7 +311,7 @@ function PartnerExpection({ data }) {
                                     onBlur={handleBlur}
                                     onChange={handleChange}
                                     autoComplete="country-name"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
                                     <option value={""}>Select</option>
                                     <option value={true}>Yes</option>
@@ -327,7 +338,7 @@ function PartnerExpection({ data }) {
                                         });
                                     }}
                                     autoComplete="country-name"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
                                     <option value={""}>Select</option>
                                     <option value={true}>Yes</option>
@@ -350,7 +361,7 @@ function PartnerExpection({ data }) {
                                     onBlur={handleBlur}
                                     onChange={handleChange}
                                     autoComplete="country-name"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
                                     <option value={""}>Select</option>
                                     <option value={true}>Yes</option>
@@ -371,7 +382,7 @@ function PartnerExpection({ data }) {
                                     onBlur={handleBlur}
                                     onChange={handleChange}
                                     autoComplete="country-name"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
                                     <option value={""}>Select</option>
                                     <option value={true}>Yes</option>
@@ -382,7 +393,7 @@ function PartnerExpection({ data }) {
                         </div>
                         <div className="sm:col-span-3">
                             <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
-                                personal Value
+                                Personal Value
                             </label>
                             <div className="mt-2">
                                 <input
@@ -393,7 +404,8 @@ function PartnerExpection({ data }) {
                                     onChange={handleChange}
                                     type="number"
                                     autoComplete="email"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder='Personal Value'
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.personalValue && touched.personalValue && <p className='text-red-500 text-sm'>{errors.personalValue}</p>}
                             </div>
@@ -411,7 +423,8 @@ function PartnerExpection({ data }) {
                                     onChange={handleChange}
                                     type="number"
                                     autoComplete="email"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder='Family Value'
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.FamilyValue && touched.FamilyValue && <p className='text-red-500 text-sm'>{errors.FamilyValue}</p>}
                             </div>
@@ -429,7 +442,8 @@ function PartnerExpection({ data }) {
                                     onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder='Preferred Country'
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.PreferredCountry && touched.PreferredCountry && <p className='text-red-500 text-sm'>{errors.PreferredCountry}</p>}
                             </div>
@@ -447,7 +461,8 @@ function PartnerExpection({ data }) {
                                     onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder='Preferred State'
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.PreferredState && touched.PreferredState && <p className='text-red-500 text-sm'>{errors.PreferredState}</p>}
                             </div>
@@ -465,7 +480,8 @@ function PartnerExpection({ data }) {
                                     onChange={handleChange}
                                     type="text"
                                     autoComplete="email"
-                                    className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder='Complexion'
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.Complexion && touched.Complexion && <p className='text-red-500 text-sm'>{errors.Complexion}</p>}
                             </div>
