@@ -48,10 +48,8 @@ function AuthContextProvider({ children }) {
             setRole(res.data.role);
             setName(res.data.firstName);
             setMember(res?.data?.RegisterPackage?.PremiumMember);
-            console.log(res?.data?.RegisterPackage?.PremiumMember);
             localStorage.setItem("MemberID", res?.data?.MemberID);
             toast.success(res.data.message);
-            console.log(res?.data);
             setUserDetails(res?.data);
             window.location.href = "/"
         } catch (error) {
@@ -69,7 +67,7 @@ function AuthContextProvider({ children }) {
         setLoader(true);
         try {
             const response = await AxiosHandler.post("/auth/sendotp", data);
-            toast.success(response.data.message);
+            toast.success(response?.data?.message);
             setForgetEmail(data);
         } catch (error) {
             toast.error(error.response?.data?.message || "Forgot password failed");

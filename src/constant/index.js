@@ -1,7 +1,7 @@
 import { RxDashboard } from "react-icons/rx";
-import { IoNotificationsOutline, IoHappyOutline } from "react-icons/io5";
-import { GoPeople, GoHeart, GoDotFill } from "react-icons/go";
-import { MdEventAvailable, MdOutlinePhone } from "react-icons/md";
+import { IoHappyOutline } from "react-icons/io5";
+import { GoPeople, GoDotFill } from "react-icons/go";
+import { MdOutlinePhone } from "react-icons/md";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
 import { GiThirdEye } from "react-icons/gi";
@@ -28,11 +28,6 @@ export const AdminLnks = [
                 path: "/premiummembers",
                 icons: GoDotFill,
             },
-            // {
-            //     title: "Program Booking ",
-            //     path: "/programme-booking",
-            //     icons: GoDotFill,
-            // },
         ]
     },
 
@@ -56,7 +51,7 @@ export const AdminLnks = [
         path: "/packages",
         icons: FaRegMoneyBillAlt
     },
-   
+
     {
         title: "Logout",
         path: "/logout",

@@ -32,10 +32,8 @@ function Home() {
       let res
       if (e.target.id === programme?._id) {
         const amount = programme?.amount
-
         res = await AxiosHandler.post(`/payment/events?eventid=${programme?._id}&memberid=${MemberID}`, { amount: `${amount}` });
       } else if (e.target.id === packageData?._id) {
-
         res = await AxiosHandler.post(`/payment/package?memberid=${MemberID}`, {
           amount: `${packageData?.amount}`
         })
@@ -51,6 +49,7 @@ function Home() {
         order_id: res?.data?.order?.id,
         handler: async (response) => {
 
+
           const paymentDetails = {
             razorpayOrderID: response?.razorpay_order_id,
             RazorPayPaymentID: response?.razorpay_payment_id,
@@ -63,11 +62,14 @@ function Home() {
           }
 
           if (response && programme?._id === e.target.id) {
-            const eventRes = await AxiosHandler.post(`/events/bookuser/${programme?._id}`, paymentDetails)
+            const eventRes = await AxiosHandler.post(`/events/bookuser/${programme?._id}`, paymentDetails);
+            toast.success(eventRes?.data?.message || "Event Booked Successfull")
           }
           else if (response && packageData?._id === e.target.id) {
             const registerRes = await AxiosHandler.put("/user/paymentUpdate", registrationPayment
             );
+            console.log(registerRes)
+            toast.success(registerRes?.data?.message || "Regiteration Successfull")
           }
         },
 
@@ -92,7 +94,6 @@ function Home() {
       } else {
         console.log("Razorpay error");
       }
-      toast.success(res?.data?.message || "Payment Successfull")
     } catch (error) {
       console.log(error);
       toast.error(error?.response?.data?.message || "UserId Already  exist ")
@@ -107,10 +108,10 @@ function Home() {
     }
   }, [token])
 
-  useEffect(()=>{
+  useEffect(() => {
     GetProgramme();
     GetPackage();
-  })
+  }, [])
 
 
   return (
@@ -144,7 +145,7 @@ function Home() {
 
           {videoURLData?.map((item, i) => <SwiperSlide key={i} >
             <div className="pal py-10 relative">
-              <iframe width="100%" className='sm:rounded-full' height="350" src={loader ? <Loader/> : item?.VideoURL} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+              <iframe width="100%" className='sm:rounded-full' height="350" src={loader ? <Loader /> : item?.VideoURL} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
               <div className="petal hidden sm:block absolute top-4 left-0">
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/036/296/405/small_2x/ai-generated-green-floral-watercolor-illustration-for-wedding-invitation-botanical-frame-png.png" alt="" />
               </div>

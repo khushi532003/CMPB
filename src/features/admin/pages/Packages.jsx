@@ -168,7 +168,7 @@ const Packages = () => {
                         <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                           <p className="text-gray-900 whitespace-no-wrap">{item?.description}</p>
                         </td>
-                        <td class="px-5 flex gap-2 py-2  border-gray-200 bg-white text-sm">
+                        <td className="px-5 flex gap-2 py-2  border-gray-200 bg-white text-sm">
                           <span onClick={() => {
                             setAddProgramme(true)
                             setEventId(item)
