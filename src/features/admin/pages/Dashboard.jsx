@@ -8,9 +8,9 @@ import LogoutModal from '../components/LogoutModal';
 
 const Dashboard = () => {
     const location = useLocation();
-    const [subMenu,setSubMenu] = useState(false);
+    const [subMenu, setSubMenu] = useState(false);
     const [notificationOpen, setNotificationOpen] = useState(false);
-    const [logoutOpen,setLogoutOpen] = useState(false);
+    const [logoutOpen, setLogoutOpen] = useState(false);
 
     const handlePath = (path) => {
         if (!path) setSubMenu(!subMenu);
@@ -28,7 +28,7 @@ const Dashboard = () => {
                         <ul className="space-y-2 font-medium">
                             {AdminLnks.map((item, index) => (
                                 <li key={index} >
-                                    <Link to={item?.path !== "/logout" && item?.path} onClick={()=>handlePath(item.path)} className={`flex items-center p-2 text-gray-900 rounded-lg  hover:bg-red-700  hover:text-white  group ${location.pathname === item.path && "bg-RedTheme text-white"} `}>
+                                    <Link to={item?.path !== "/logout" && item?.path} onClick={() => handlePath(item.path)} className={`flex items-center p-2 text-gray-900 rounded-lg  hover:bg-red-700  hover:text-white  group ${location.pathname === item.path && "bg-RedTheme text-white"} `}>
                                         {<item.icons />}
                                         <span className="ms-3">{item.title}</span>
                                     </Link>
@@ -51,7 +51,7 @@ const Dashboard = () => {
 
             </section>
 
-            {notificationOpen && <Notification notificationOpen={notificationOpen}   setNotificationOpen={() => setNotificationOpen(!notificationOpen)} />}
+            {notificationOpen && <Notification notificationOpen={notificationOpen} setNotificationOpen={() => setNotificationOpen(!notificationOpen)} />}
             {logoutOpen && <LogoutModal setLogoutOpen={() => setLogoutOpen(!logoutOpen)} />}
         </div>
     )

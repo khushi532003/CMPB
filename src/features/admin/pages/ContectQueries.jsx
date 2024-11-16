@@ -21,10 +21,9 @@ const ContectQueries = () => {
                                 <h3 className="text-gray-600 font-semibold text-3xl"> Contact Queries </h3>
                             </div>
                         </div>
-                        {loader ? <Loader/> : <Table id={"S.no"} name={"Name"} email={"Email"} phone={"Phone No."} message={"Message"} action={"Action"} identifier={"contact"} data={contactQuery} />}
+                        {loader ? <Loader /> : <Table id={"S.no"} name={"Name"} email={"Email"} phone={"Phone No."} message={"Message"} action={"Action"} identifier={"contact"} data={contactQuery} />}
                     </div>
                 </div>
-
             </div>
         </div>
     )

@@ -21,6 +21,7 @@ const ChurayePalContextProvider = ({children}) =>{
     useEffect(()=>{
         GetVideo()
     }, [])
+    
     return(
         <ChurayePalContext.Provider value={{ videoURLData }}>
             {children}

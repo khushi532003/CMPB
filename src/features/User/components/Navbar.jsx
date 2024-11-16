@@ -24,7 +24,7 @@ function Navbar() {
     };
 
 
-    
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -122,17 +122,20 @@ function Navbar() {
                             <li onClick={() => { setSidebarToggle(false); handleLinkClick('/members'); }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
                                 <span>Active Members</span>
                             </li>
-                          
+
                             <li onClick={() => { setSidebarToggle(false); handleLinkClick('/purchaseHistory'); }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
                                 <span>Your Packages</span>
                             </li>
                             <li onClick={() => { setSidebarToggle(false); handleLinkClick('/changePassword'); }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
                                 <span>Change Password</span>
                             </li>
-                            <li onClick={() => {
-                                setSidebarToggle(false); handleDeactivateClick();}}className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
+
+                            {/* <li onClick={() => {
+                                setSidebarToggle(false); handleDeactivateClick();
+                            }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
                                 <span>Deactivate Account</span>
-                            </li>
+                            </li> */}
+
                             <li onClick={() => { setSidebarToggle(false); Logout(); }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
                                 Log Out
                             </li>

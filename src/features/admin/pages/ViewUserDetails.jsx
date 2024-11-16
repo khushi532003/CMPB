@@ -9,7 +9,6 @@ function ViewUserDetails() {
     const [openIndex, setOpenIndex] = useState(null);
     const { GetActiveUserById, userDetails } = useAdminMemberContext()
     const { id } = useParams()
-    console.log(userDetails);
 
 
     const toggleAccordion = (index) => {
@@ -18,7 +17,7 @@ function ViewUserDetails() {
 
     useEffect(() => {
         if (id) {
-            GetActiveUserById(id)
+            GetActiveUserById(id);
         }
     }, [id])
   return (
