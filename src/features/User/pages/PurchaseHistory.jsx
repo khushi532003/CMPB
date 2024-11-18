@@ -49,11 +49,11 @@ function PurchaseHistory() {
                                                     Event Name
                                                 </th>
                                                 <th
-                                                    className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                                    className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-xs font-semibold text-white uppercase tracking-wider text-center">
                                                     State
                                                 </th>
                                                 <th
-                                                    className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                                    className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-xs font-semibold text-white uppercase tracking-wider text-center">
                                                     Venue
                                                 </th>
 

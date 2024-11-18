@@ -8,22 +8,22 @@ function Navbar() {
     const [scrolling, setScrolling] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [sideBarToggle, setSidebarToggle] = useState(false);
-    const { token, Logout, deactivateAccount, name } = useAuthContext();
+    const { token, Logout, deactivateAccount, name, userProfileImage } = useAuthContext();
     const navigate = useNavigate();
     const [showConfirm, setShowConfirm] = useState(false);
     const [loading, setLoading] = useState(false);
 
     // Handle click to show confirmation
-    const handleDeactivateClick = () => {
-        setShowConfirm(true); // Show the confirmation modal
-    };
+    // const handleDeactivateClick = () => {
+    //     setShowConfirm(true); // Show the confirmation modal
+    // };
 
     // Handle cancel (close the modal without doing anything)
     const handleCancel = () => {
         setShowConfirm(false);
     };
 
-
+    console.log(userProfileImage);
 
 
     useEffect(() => {
