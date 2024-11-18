@@ -24,13 +24,12 @@ function PurchaseHistory() {
                     <div className="bg-white p-8 rounded-md w-full">
                         <h3 className="text-gray-600 font-semibold text-3xl">Event History</h3>
 
-                        <div>
+                        <div className='pb-8'>
                             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-                                <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                                <div className="inline-block min-w-full shadow-lg rounded-lg overflow-hidden border border-red-200">
                                     {eventPurchaseData && eventPurchaseData?.userEvents.map((item) => <table className="min-w-full leading-normal">
                                         <thead>
                                             <tr>
-
                                                 <th
                                                     className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                                                     Purchased At
@@ -97,9 +96,9 @@ function PurchaseHistory() {
                         </div>
                         <h3 className="text-gray-600 font-semibold text-3xl">Packages History</h3>
 
-                        <div>
+                        <div className='pb-4'>
                             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-                                <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                                <div className="inline-block min-w-full shadow-lg border border-red-200 rounded-lg overflow-hidden">
                                     {packagePurchaseData ? <table className="min-w-full leading-normal">
                                         <thead>
                                             <tr>
@@ -148,7 +147,7 @@ function PurchaseHistory() {
 
                                             </tr>
                                         </tbody>
-                                    </table> : <h4 className='text-2xl '> You haven't purchased the package yet.</h4>}
+                                    </table> : <h4 className='text-2xl p-4'> You haven't purchased the package yet.</h4>}
                                 </div>
                             </div>
                         </div>

@@ -8,29 +8,21 @@ function Navbar() {
     const [scrolling, setScrolling] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [sideBarToggle, setSidebarToggle] = useState(false);
-    const { token, Logout, deactivateAccount, name, userProfileImage } = useAuthContext();
+    const { token, Logout, deactivateAccount, name } = useAuthContext();
     const navigate = useNavigate();
     const [showConfirm, setShowConfirm] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const [ProfileImage, setProfileImage] = useState(localStorage.getItem("ProfileImage"));
 
-    // Handle click to show confirmation
-    // const handleDeactivateClick = () => {
-    //     setShowConfirm(true); // Show the confirmation modal
-    // };
 
-    // Handle cancel (close the modal without doing anything)
     const handleCancel = () => {
         setShowConfirm(false);
     };
-
-    console.log(userProfileImage);
 
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolling(window.scrollY > 0);
         };
-
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
@@ -62,7 +54,8 @@ function Navbar() {
                     <h4 onClick={() => setMenuOpen(!menuOpen)} className={`${scrolling ? 'text-white' : 'text-gray-800'} cursor-pointer uppercase`}>Menu</h4>
                     {token ? (
                         <li className='list-none' onClick={() => setSidebarToggle(true)}>
-                            <Link className="bg-RedTheme rounded-sm text-white transition duration-500 px-4 py-2">Account</Link>
+                            <img src={ProfileImage} alt="profile" className='w-7 h-7 rounded-full' />
+                            <span className='text-sm text-white'>{name}</span>
                         </li>
                     ) : (
                         <li className='list-none'>
@@ -94,8 +87,9 @@ function Navbar() {
                         <li><Link to="/happyStories" onClick={() => handleLinkClick('/happyStories')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Happy Stories</Link></li>
                         <li><Link to="/contact" onClick={() => handleLinkClick('/contact')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Contact Us</Link></li>
                         {token ? (
-                            <li onClick={() => setSidebarToggle(true)}>
-                                <Link className="bg-RedTheme rounded-sm text-white transition duration-500 px-4 py-2">Account</Link>
+                            <li onClick={() => setSidebarToggle(true)} className='text-center cursor-pointer'>
+                                <img src={ProfileImage} alt="profile" className='w-7 h-7 rounded-full' />
+                                <span className='text-sm font-medium text-center'>{name}</span>
                             </li>
                         ) : (
                             <li>
@@ -109,7 +103,10 @@ function Navbar() {
             {sideBarToggle && (
                 <div className="sidebar bg-white w-64 sm:w-80 p-5 z-50 fixed right-0 top-0 h-[100vh]">
                     <div className="flex justify-between items-center">
-                        <div className="username"><h3 className='text-4xl'>{name}</h3></div>
+                        <div className="username">
+                            <img src={ProfileImage} alt="profile" className='w-10 h-10 rounded-full' />
+                            <span className='text-2xl font-medium text-RedTheme'>{name}</span>
+                        </div>
                         <div className="close text-2xl cursor-pointer" onClick={() => setSidebarToggle(false)}>
                             <TfiClose />
                         </div>
@@ -130,11 +127,6 @@ function Navbar() {
                                 <span>Change Password</span>
                             </li>
 
-                            {/* <li onClick={() => {
-                                setSidebarToggle(false); handleDeactivateClick();
-                            }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
-                                <span>Deactivate Account</span>
-                            </li> */}
 
                             <li onClick={() => { setSidebarToggle(false); Logout(); }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
                                 Log Out
