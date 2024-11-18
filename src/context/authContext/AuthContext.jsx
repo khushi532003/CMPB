@@ -1,5 +1,5 @@
 import { AxiosHandler } from "@/config/Axios.config";
-import { createContext, useState } from "react";
+import { createContext, useMemo, useState } from "react";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 
@@ -15,7 +15,7 @@ function AuthContextProvider({ children }) {
     const [OTPverify, setOTPVerify] = useState(null);
     const [packagePaymentData, setPackagePaymentData] = useState({})
     const [Registered, setRegistered] = useState(null);
-    const [userDetails, setUserDetails] = useState({});
+
 
 
 
@@ -49,8 +49,8 @@ function AuthContextProvider({ children }) {
             setName(res.data.firstName);
             setMember(res?.data?.RegisterPackage?.PremiumMember);
             localStorage.setItem("MemberID", res?.data?.MemberID);
+            localStorage.setItem("ProfileImage", res?.data?.profileImage?.ImageURL);
             toast.success(res.data.message);
-            setUserDetails(res?.data);
             window.location.href = "/"
         } catch (error) {
             console.log(error);
@@ -59,7 +59,6 @@ function AuthContextProvider({ children }) {
             setLoader(false);
         }
     };
-
 
 
     // Forget password
@@ -156,7 +155,6 @@ function AuthContextProvider({ children }) {
         <AuthContext.Provider
             value={{
                 RegisterUser,
-                userDetails,
                 member,
                 loader,
                 packagePaymentData,

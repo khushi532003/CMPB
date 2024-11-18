@@ -22,16 +22,17 @@ const HappyStoryContextProvider = ({ children }) => {
 
 
     const CreateHappyStory = async (data) => {
-      
+
         try {
             const res = await AxiosHandler.post("/happystories/create", data)
             GetHappyStory();
             toast.success("Happy Story Created Successfully");
+            window.location.href = "/happy_stories";
             // console.log(res?.data?.data);
         } catch (error) {
             console.log(error)
             toast.error("Happy Story Created Failed ")
-        } 
+        }
     }
 
     const DeleteHappyStory = async (id) => {

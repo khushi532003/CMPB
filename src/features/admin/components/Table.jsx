@@ -317,10 +317,7 @@ function Table(props) {
                                             </td>
 
                                             <td className="px-5  py-2 border-b border-gray-200 flex gap-2 bg-white text-sm">
-                                                <span type='button'
-                                                    className="relative bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
-                                                    <LiaEdit />
-                                                </span>
+                                               
                                                 <span type='button' onClick={() => DeleteHappyStory(item?._id)}
                                                     className="relative bg-RedTheme rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white cursor-pointer">
                                                     <FaTrash />
