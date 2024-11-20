@@ -22,13 +22,11 @@ const HappyStoryContextProvider = ({ children }) => {
 
 
     const CreateHappyStory = async (data) => {
-
         try {
             const res = await AxiosHandler.post("/happystories/create", data)
             GetHappyStory();
             toast.success("Happy Story Created Successfully");
             window.location.href = "/happy_stories";
-            // console.log(res?.data?.data);
         } catch (error) {
             console.log(error)
             toast.error("Happy Story Created Failed ")
@@ -39,7 +37,6 @@ const HappyStoryContextProvider = ({ children }) => {
         try {
             const res = await AxiosHandler.delete(`/happystories/delete/${id}`)
             GetHappyStory();
-            // console.log(res);
             toast.success("Happy Story deleted successfully")
         } catch (error) {
             console.log("Story delete failed");
@@ -52,7 +49,6 @@ const HappyStoryContextProvider = ({ children }) => {
             const res = await AxiosHandler.put(`/happystories/update/${id}`, data)
             GetHappyStory();
             toast.success("Story update successfully");
-            console.log(res?.data);
         } catch (error) {
             console.log(error);
             toast.error("update story failed");

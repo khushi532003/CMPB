@@ -5,7 +5,7 @@ import { IoCloseCircleOutline } from 'react-icons/io5';
 import { TfiClose } from 'react-icons/tfi';
 
 const AddStory = ({ onClose }) => {
-    const { CreateHappyStory, loader, UpdateHappyStory } = useHappyStroyContext();
+    const { CreateHappyStory, loader } = useHappyStroyContext();
     const [image, setImage] = useState(null);
     const [error, setErrors] = useState({});
     const fileInputRef = useRef(null);
@@ -127,4 +127,4 @@ const AddStory = ({ onClose }) => {
     )
 }
 
-export default AddStory
+export default AddStory;

@@ -8,7 +8,7 @@ const ContectQueries = () => {
     const { contactQuery, GetContactQueries, loader } = useAdminContactContext();
 
     useEffect(() => {
-        GetContactQueries()
+        GetContactQueries();
     }, [])
 
     return (
@@ -29,4 +29,4 @@ const ContectQueries = () => {
     )
 }
 
-export default ContectQueries
+export default ContectQueries;

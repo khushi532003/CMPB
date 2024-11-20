@@ -110,8 +110,6 @@ function PurchaseHistory() {
                                                     className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                                                     Member ID
                                                 </th>
-
-
                                                 <th
                                                     className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                                                     Amount Paid
@@ -120,7 +118,6 @@ function PurchaseHistory() {
                                                     className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                                                     Purchase Time
                                                 </th>
-
                                             </tr>
                                         </thead>
                                         <tbody >

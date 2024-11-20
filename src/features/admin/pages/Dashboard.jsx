@@ -40,7 +40,6 @@ const Dashboard = () => {
                                     ))}
                                 </li>
                             ))}
-
                         </ul>
                     </div>
                 </aside>
@@ -57,4 +56,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default Dashboard;
