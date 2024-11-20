@@ -3,26 +3,23 @@ import { createContext, useEffect, useState } from "react";
 
 export const ChurayePalContext = createContext();
 
-const ChurayePalContextProvider = ({children}) =>{
+const ChurayePalContextProvider = ({ children }) => {
     const [videoURLData, setVideoURLData] = useState([])
 
     const GetVideo = async () => {
         try {
             const res = await AxiosHandler.get("/churaye-hua-pal/get");
-            // console.log("video", res?.data?.data);
             setVideoURLData(res?.data?.data);
-
         } catch (error) {
             console.log(error);
-
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         GetVideo()
     }, [])
-    
-    return(
+
+    return (
         <ChurayePalContext.Provider value={{ videoURLData }}>
             {children}
         </ChurayePalContext.Provider>

@@ -7,9 +7,9 @@ const UserLayout = () => {
 
   return (
     <div>
-        <Navbar/>
-        <Outlet/>
-        <Footer/>
+      <Navbar />
+      <Outlet />
+      <Footer />
     </div>
   )
 }

@@ -19,7 +19,6 @@ function MemberProfile() {
     }, [])
 
 
-
     useEffect(() => {
         if (id) {
             GetActiveUserById(id)
@@ -34,9 +33,9 @@ function MemberProfile() {
                         <img className='w-80 h-80 rounded-full' src={userDetails?.User?.profileImage?.ImageURL ||
                             (userDetails?.User?.gender === "male"
                                 ? "https://media.istockphoto.com/id/517998264/vector/male-user-icon.jpg?s=170667a&w=0&k=20&c=ZUf0DE14mBsbtgTvNdhDB1uzey9CK2BJlhhMhfFftB8="
-                            : userDetails?.User?.gender === "female"
+                                : userDetails?.User?.gender === "female"
                                     ? "https://png.pngitem.com/pimgs/s/618-6183618_transparent-unknown-person-png-transparent-background-female-user.png"
-                                    : "https://example.com/default-image.png") } alt="" />
+                                    : "https://example.com/default-image.png")} alt="" />
                     </div>
                 </div>
                 <div className="details w-[70%]">
@@ -200,12 +199,12 @@ function MemberProfile() {
                                 <div className="text-sm">
                                     {userDetails?.backgroundDetails && <ul>
                                         <div className="flex justify-between gap-10 py-3">
-                                        
+
                                             <li><strong>Caste : </strong> {userDetails?.backgroundDetails.Caste}</li>
                                             <li><strong>Sub Cast : </strong> {userDetails?.backgroundDetails.SubCast}</li>
                                         </div>
                                         <div className="flex justify-between gap-10 py-3">
-                                     
+
                                             <li><strong>Self Worth : </strong> {userDetails?.backgroundDetails.SelfWorth}</li>
                                             <li><strong>Family Worth : </strong> {userDetails?.backgroundDetails.FamilyWorth}</li>
                                         </div>
@@ -218,7 +217,7 @@ function MemberProfile() {
                             <Accordian title="Partner Expection" isOpen={openIndex === 11}
                                 onToggle={() => toggleAccordion(11)} >
                                 <div className="text-sm">
-                                    {userDetails?.partnerexpectationDetails &&  <ul>
+                                    {userDetails?.partnerexpectationDetails && <ul>
                                         <div className="flex justify-between gap-10 py-3">
                                             <li><strong>General Requirement : </strong> {userDetails?.partnerexpectationDetails.GernalRequirement}</li>
                                             <li><strong>Residence Country : </strong> {userDetails?.partnerexpectationDetails.ResidenceCountry}</li>

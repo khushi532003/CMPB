@@ -9,10 +9,10 @@ import Packages from "@/features/admin/pages/Packages";
 import ViewUserDetails from "@/features/admin/pages/ViewUserDetails";
 
 
-export const AdminRoute= [
+export const AdminRoute = [
     {
         path: "/",
-        element: <Home/>
+        element: <Home />
     },
     {
         path: "/happy_stories",
@@ -26,7 +26,6 @@ export const AdminRoute= [
         path: "/packages",
         element: <Packages />
     },
-    
     {
         path: "/churaye_hue_pal",
         element: <ChurayeHuePal />
@@ -47,5 +46,5 @@ export const AdminRoute= [
         path: "/view-details/:id",
         element: <ViewUserDetails />
     },
-   
+
 ]

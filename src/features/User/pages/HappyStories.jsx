@@ -27,7 +27,7 @@ function HappyStories() {
                     <img src="../images/headingImg.png" alt="" className="w-64" />
                 </div>
 
-                {loader ? <Loader/> : <div className="stories py-5 px-5 ">
+                {loader ? <Loader /> : <div className="stories py-5 px-5 ">
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         {happyStory.map((item) => <div key={item?._id} className="relative story w-80 mx-auto py-5 ">
                             {/* <div className="frame absolute">
@@ -52,7 +52,7 @@ function HappyStories() {
                                     <img src="../images/headingImg.png" alt="" className="w-52" />
                                 </div>
                                 <div className="storyDesc text-center">
-                                    <p>{item?.Content.slice(0,60)}... </p>
+                                    <p>{item?.Content.slice(0, 60)}... </p>
                                 </div>
                                 <div className="w-full mt-6 text-center">
                                     <Link to={`/story/${item?._id}`}> <button className="px-6  py-2 leading-5 text-white transition-colors duration-200 transform bg-RedTheme rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">Read more...</button></Link>

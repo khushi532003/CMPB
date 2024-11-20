@@ -12,7 +12,7 @@ export const UserPrivateRoutes = [
     {
         path: "/purchaseHistory",
         element: <PurchaseHistory />
-    },   
+    },
     {
         path: "/changePassword",
         element: <ChangePassword />

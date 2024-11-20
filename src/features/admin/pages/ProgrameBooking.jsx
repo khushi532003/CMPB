@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import Table from '../components/Table'
 import { useProgrammeContext } from '@/AdminContext'
 import { useParams } from 'react-router-dom';
 
 function ProgrameBooking() {
 
-  const { GetBookedEvent } = useProgrammeContext()  
+  const { GetBookedEvent } = useProgrammeContext()
   const [eventUserData, setEventUserData] = useState(null)
   const { id } = useParams();
 
@@ -15,7 +14,7 @@ function ProgrameBooking() {
     }
   }, [id])
 
-const BookedEvents = eventUserData?.users?.length
+  const BookedEvents = eventUserData?.users?.length
 
 
   return (
@@ -24,7 +23,7 @@ const BookedEvents = eventUserData?.users?.length
         <div>
           <h3 className="text-gray-600 font-semibold text-3xl">Programme Booked</h3>
         </div>
-      </div>     
+      </div>
 
       <div className="flex  justify-center gap-16">
         <h4 className='text-xl py-2'><span className="text-2xl font-semibold">Event Name :</span> {eventUserData?.eventName} </h4>
@@ -56,7 +55,7 @@ const BookedEvents = eventUserData?.users?.length
                   class="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                   Membership
                 </th>
-                
+
                 <th
                   class="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                   Email ID
@@ -72,7 +71,7 @@ const BookedEvents = eventUserData?.users?.length
               </tr>
             </thead>
             <tbody>
-              {eventUserData?.users?.map((item, i)=> <tr  key={i}>
+              {eventUserData?.users?.map((item, i) => <tr key={i}>
                 <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
                   <p class="text-gray-900 whitespace-no-wrap">{i + 1}</p>
                 </td>
@@ -86,17 +85,17 @@ const BookedEvents = eventUserData?.users?.length
                   <p class="text-gray-900 whitespace-no-wrap"></p>
                 </td>
                 <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
-                  <p class="text-gray-900 whitespace-no-wrap">{item?.RegisterPackage === "true" ? "Yes" : "No" }</p>
+                  <p class="text-gray-900 whitespace-no-wrap">{item?.RegisterPackage === "true" ? "Yes" : "No"}</p>
                 </td>
-              
+
                 <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
                   <p class="text-gray-900 whitespace-no-wrap">{item?.email}</p>
                 </td>
                 <td class="px-5 py-2 border-b border-gray-200 bg-white text-lg">
                   <p class="text-gray-900 whitespace-no-wrap">{item?.phone}</p>
                 </td>
-              
-              </tr>) }
+
+              </tr>)}
             </tbody>
           </table>
         </div>

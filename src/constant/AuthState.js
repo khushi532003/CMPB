@@ -6,12 +6,12 @@ export const RegisterValues = {
     phone: "",
     gender: "",
     password: "",
-    confirmPassword:"",
-    DOB:""
+    confirmPassword: "",
+    DOB: ""
 }
 
 
 export const LoginValues = {
-    email:"",
-    password:""
+    email: "",
+    password: ""
 }
