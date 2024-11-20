@@ -1,13 +1,12 @@
 import { AxiosHandler } from "@/config/Axios.config";
-import { createContext, useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import { createContext, useState } from "react";
 
 export const HappyStoriesContext = createContext();
 
 const HappyStoriesContextProvider = ({ children }) => {
 
-    const [happyStory, setHappyStory] = useState([])
-    const [loader, setLoader] = useState(false)
+    const [happyStory, setHappyStory] = useState([]);
+    const [loader, setLoader] = useState(false);
 
     const GetHappyStories = async () => {
         setLoader(true)
@@ -16,12 +15,12 @@ const HappyStoriesContextProvider = ({ children }) => {
             setHappyStory(res.data.data);
         } catch (error) {
             console.log(error);
-        }finally{
+        } finally {
             setLoader(false)
         }
     }
-   
-    return(
+
+    return (
         <HappyStoriesContext.Provider value={{ happyStory, GetHappyStories, loader }}>
             {children}
         </HappyStoriesContext.Provider>

@@ -28,7 +28,7 @@ const HappyStory = () => {
               <div onClick={() => setAddStory(true)} className="px-4 py-1 text-white bg-RedTheme flex gap-1 items-center rounded-sm cursor-pointer"><GoPlus /> Add Story</div>
             </div>
             <div>
-              {loader ? <Loader/> : <Table id={'S.N0.'} memeberName={"Groom name"} partnerName={"Bride  Name"} postTime={"Post Time"} actions={"Actions"} identifier={"happyStoryData"} data={happyStoryData} />}
+              {loader ? <Loader /> : <Table id={'S.N0.'} memeberName={"Groom name"} partnerName={"Bride  Name"} postTime={"Post Time"} actions={"Actions"} identifier={"happyStoryData"} data={happyStoryData} />}
             </div>
           </div>
         </div>

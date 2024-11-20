@@ -1,5 +1,5 @@
 import { AxiosHandler } from "@/config/Axios.config";
-import { createContext,  useState } from "react";
+import { createContext, useState } from "react";
 import { toast } from "react-toastify";
 
 export const AdminContactContext = createContext();
@@ -17,7 +17,7 @@ const AdminContactContextProvider = ({ children }) => {
         } catch (error) {
             console.log(error);
         } finally {
-            setLoader(false)
+            setLoader(false);
         }
     }
 

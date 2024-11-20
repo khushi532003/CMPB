@@ -7,8 +7,8 @@ function ActiveMembers() {
     const { activeUser, GetActiveMembers, loader } = useMembersContext();
     const [filteredUsers, setFilteredUsers] = useState(activeUser);
     const { member, token } = useAuthContext();
-    
-    
+
+
 
     const [ageFrom, setAgeFrom] = useState('');
     const [ageTo, setAgeTo] = useState('');
@@ -23,7 +23,7 @@ function ActiveMembers() {
     const [state, setState] = useState('');
     const [city, setCity] = useState('');
 
-   
+
 
     const applyFilter = () => {
         let filtered = activeUser;
@@ -67,10 +67,10 @@ function ActiveMembers() {
 
         setFilteredUsers(filtered);
     };
-    
+
     useEffect(() => {
-        if(token)
-        GetActiveMembers();
+        if (token)
+            GetActiveMembers();
     }, [token]);
 
     return (

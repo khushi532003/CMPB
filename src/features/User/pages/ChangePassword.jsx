@@ -26,6 +26,7 @@ function ChangePassword() {
             resetForm()
         },
     });
+
     return (
         <div style={{ backgroundImage: "url(https://www.shutterstock.com/shutterstock/photos/1881715708/display_1500/stock-vector-blush-pink-watercolor-fluid-painting-vector-design-card-dusty-rose-and-golden-marble-geode-frame-1881715708.jpg" }}>
             <div className='py-10'>

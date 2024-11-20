@@ -11,6 +11,7 @@ import { useAuthContext } from '@/context'
 
 const RootRouting = () => {
     const { role, token } = useAuthContext();
+
     return (
         <Routes>
             {role === "admin" && token && <Route element={<Dashboard />} >
@@ -23,9 +24,8 @@ const RootRouting = () => {
             </Route>}
 
             {role !== "admin" && token ? <Route element={<UserLayout />} >
-                {UserPrivateRoutes.map((item, index) => 
-                <Route key={index} path={item.path} element={item.element} />)}
-
+                {UserPrivateRoutes.map((item, index) =>
+                    <Route key={index} path={item.path} element={item.element} />)}
             </Route> : (UserPrivateRoutes.map((item, index) => <Route key={index} path={item.path} element={<Navigate to="/login" />} />))}
 
             {!token ? AuthRoutes.map((item, index) => <Route key={index} path={item.path} element={item.element} />) : AuthRoutes.map((item, index) => <Route key={index} path={item.path} element={<Navigate to="/" />} />)}
@@ -36,4 +36,4 @@ const RootRouting = () => {
     )
 }
 
-export default RootRouting
+export default RootRouting;

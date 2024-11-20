@@ -1,5 +1,5 @@
 import { AxiosHandler } from "@/config/Axios.config";
-import { createContext, useState } from "react";
+import { createContext, useMemo, useState } from "react";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 
@@ -15,7 +15,7 @@ function AuthContextProvider({ children }) {
     const [OTPverify, setOTPVerify] = useState(null);
     const [packagePaymentData, setPackagePaymentData] = useState({})
     const [Registered, setRegistered] = useState(null);
-    const [userDetails, setUserDetails] = useState({});
+
 
 
 
@@ -48,11 +48,9 @@ function AuthContextProvider({ children }) {
             setRole(res.data.role);
             setName(res.data.firstName);
             setMember(res?.data?.RegisterPackage?.PremiumMember);
-            console.log(res?.data?.RegisterPackage?.PremiumMember);
             localStorage.setItem("MemberID", res?.data?.MemberID);
+            localStorage.setItem("ProfileImage", res?.data?.profileImage?.ImageURL);
             toast.success(res.data.message);
-            console.log(res?.data);
-            setUserDetails(res?.data);
             window.location.href = "/"
         } catch (error) {
             console.log(error);
@@ -63,13 +61,12 @@ function AuthContextProvider({ children }) {
     };
 
 
-
     // Forget password
     const ForgetPassword = async (data) => {
         setLoader(true);
         try {
             const response = await AxiosHandler.post("/auth/sendotp", data);
-            toast.success(response.data.message);
+            toast.success(response?.data?.message);
             setForgetEmail(data);
         } catch (error) {
             toast.error(error.response?.data?.message || "Forgot password failed");
@@ -158,7 +155,6 @@ function AuthContextProvider({ children }) {
         <AuthContext.Provider
             value={{
                 RegisterUser,
-                userDetails,
                 member,
                 loader,
                 packagePaymentData,

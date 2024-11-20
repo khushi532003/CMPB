@@ -67,4 +67,4 @@ function RegistrationAmtForm({ onClose, RegEvent }) {
     )
 }
 
-export default RegistrationAmtForm
+export default RegistrationAmtForm;

@@ -10,7 +10,6 @@ function FreeMembers() {
     const { token } = useAuthContext()
 
 
-
     useEffect(() => {
         if (token)
             freeMembers(page);
@@ -39,7 +38,6 @@ function FreeMembers() {
                     disabled={disable || freeMembersData?.length < 5}
                     onClick={() => setPage((prev) => prev + 1)}>Next </button>
             </div>
-
         </div>
     )
 }

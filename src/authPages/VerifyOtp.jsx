@@ -5,10 +5,9 @@ import Loader from '@/constant/loader';
 
 function VerifyOtp() {
     const { loader, VerifyOtp, OTPverify, Registered } = useAuthContext();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [OTP, setOTP] = useState(null);
-    const { state } = useLocation()
-    console.log("state", state);
+    const { state } = useLocation();
 
     const verifyOTP = async () => {
         await VerifyOtp(OTP, state.email)

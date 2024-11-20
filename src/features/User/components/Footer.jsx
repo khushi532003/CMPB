@@ -12,7 +12,7 @@ function ScrollTop() {
         window.scrollTo(0, 0);
     }, [pathname]);
 
-    return null;  
+    return null;
 }
 
 function Footer() {
@@ -70,7 +70,7 @@ function Footer() {
                                         <li className="mt-3">
                                             <Link to="mailto:chatmangnipatbyahteam@gmail.com" className="text-gray-500 cursor-pointer flex gap-2 items-center hover:text-gray-900"><IoMdMail />chatmangnipatbyahteam@gmail.com</Link>
                                         </li>
-                                      
+
                                     </nav>
                                 </div>
                                 <div className="w-full px-4 lg:w-1/4 md:w-1/2">
@@ -81,7 +81,7 @@ function Footer() {
                                             <Link to="https://www.instagram.com/chat.mangnipatbyah?igsh=YzljYTk1ODg3Zg==" target='_blank' className="text-RedTheme cursor-pointer text-2xl"><RiInstagramFill /> </Link>
                                             <Link to="https://x.com/PatByah6733" target='_blank' className="text-RedTheme cursor-pointer text-2xl"><FaXTwitter /></Link>
                                         </li>
-                                       
+
                                     </nav>
                                 </div>
                             </div>
