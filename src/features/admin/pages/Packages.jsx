@@ -154,7 +154,7 @@ const Packages = () => {
                             <p className="text-gray-900 whitespace-no-wrap">{i + 1}</p>
                           </td>
                           <td className="px-5 py-2 text-sm border-b border-gray-200 bg-white ">
-                            <p className="text-gray-900 whitespace-no-wrap">{formatDate(item?.createdAt)}</p>
+                            <p className="text-gray-900 whitespace-no-wrap">{formatDate(item?.availableDates)}</p>
                           </td>
                           <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                             <p className="text-gray-900 whitespace-no-wrap">{item?.venues}</p>
