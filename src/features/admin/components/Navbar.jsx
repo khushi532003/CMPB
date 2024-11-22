@@ -11,10 +11,10 @@ const NavBar = () => {
             </div>
             <div className='flex gap-4 items-center' >
                 <div className='flex items-center gap-3'  >
-                    <div className='h-10 w-10 border border-black rounded-full ' >
+                    <div className='h-8 w-8 rounded-full ' >
                         <img src='../images/avatar.png' />
                     </div>
-                    <span>Hi Admin</span>
+                    <span className='text-RedTheme font-medium'>Hi Admin</span>
                 </div>
             </div>
         </nav>

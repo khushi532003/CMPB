@@ -170,7 +170,7 @@ function Home() {
       }}>
         <div className="grid grid-cols-1 py-4  sm:grid-cols-3 gap-2 w-full sm:w-[80%] mx-auto">
           <div className="bg-white relative mx-3 rounded-md shadow p-4  text-center flex justify-center items-center flex-col">
-            <img className="w-24 mb-4 absolute top-[-50px]" src="../images/wcu/1.png" alt="" />
+            <img className="w-20 mb-4 absolute top-[-50px]" src="../images/wcu/Lifetime.png" alt="" />
             <h3 className="text-2xl font-semibold mt-5">Lifetime Experience</h3>
             <p className="text-sm py-2">Our team is dedicated to providing you with a truly unforgettable experience. Feel the joy of a lasting, meaningful connection with your partner every day.</p>
           </div>
@@ -180,7 +180,7 @@ function Home() {
             <p className="text-sm py-2">Under the careful guidance of Paras Bhai Guruji, each relationship is thoughtfully assessed, fostering a strong foundation of trust between you and your partner.</p>
           </div>
           <div className=" bg-white relative rounded-md mx-3 shadow p-4 text-center flex justify-center items-center flex-col">
-            <img className="w-28 mb-4 absolute top-[-50px]" src="../images/wcu/3.png" alt="" />
+            <img className="w-20 mb-4 absolute top-[-50px]" src="../images/wcu/CompabilityIcon.png" alt="" />
             <h3 className="text-2xl font-semibold mt-5">Compatibility Check</h3>
             <p className="text-sm py-2">To ensure a perfect match, we conduct thorough horoscope compatibility checks before pairing. All traditional customs are carefully observed for instant engagement and marriage.</p>
           </div>

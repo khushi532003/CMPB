@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { TfiClose } from "react-icons/tfi";
 import { useAuthContext } from '@/context';
 import ConfirmModal from './ConfirmModal';
@@ -13,11 +13,9 @@ function Navbar() {
     const [showConfirm, setShowConfirm] = useState(false);
     const [ProfileImage, setProfileImage] = useState(localStorage.getItem("ProfileImage"));
 
-
     const handleCancel = () => {
         setShowConfirm(false);
     };
-
 
     useEffect(() => {
         const handleScroll = () => {
@@ -81,7 +79,7 @@ function Navbar() {
                             <img src="../images/logo.png" alt="logo" className={`transition-all duration-500 ${scrolling ? 'h-14' : 'h-20'}`} />
                         </div>
                     </Link>
-                    <ul className={`hidden md:flex space-x-4 ${scrolling ? 'text-white' : 'text-gray-800'}`}>
+                    <ul className={`hidden md:flex items-center space-x-4 ${scrolling ? 'text-white' : 'text-gray-800'}`}>
                         <li><Link to="/" onClick={() => handleLinkClick('/')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Home</Link></li>
                         <li><Link to="/about" onClick={() => handleLinkClick('/about')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">About us</Link></li>
                         <li><Link to="/happyStories" onClick={() => handleLinkClick('/happyStories')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Happy Stories</Link></li>
@@ -103,7 +101,7 @@ function Navbar() {
             {sideBarToggle && (
                 <div className="sidebar bg-white w-64 sm:w-80 p-5 z-50 fixed right-0 top-0 h-[100vh]">
                     <div className="flex justify-between items-center">
-                        <div className="username">
+                        <div className="username flex items-center gap-3">
                             <img src={ProfileImage} alt="profile" className='w-10 h-10 rounded-full' />
                             <span className='text-2xl font-medium text-RedTheme'>{name}</span>
                         </div>
@@ -126,8 +124,6 @@ function Navbar() {
                             <li onClick={() => { setSidebarToggle(false); handleLinkClick('/changePassword'); }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
                                 <span>Change Password</span>
                             </li>
-
-
                             <li onClick={() => { setSidebarToggle(false); Logout(); }} className='cursor-pointer text-lg border-b border-[#BB1A04] ps-5 py-3'>
                                 Log Out
                             </li>
