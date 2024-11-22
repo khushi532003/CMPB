@@ -14,7 +14,7 @@ const ProgrammeContextProvider = ({ children }) => {
     const GetProgramme = async () => {
         setLoader(true)
         try {
-            const res = await AxiosHandler.get("events/get-admin");
+            const res = await AxiosHandler.get(`events/get-admin?page=${1}&limit=${5}`);
             setProgrammeData(res?.data?.data);
         } catch (error) {
             console.log(error);
