@@ -13,6 +13,7 @@ const AdminMembersContextProvider = ({ children }) => {
     const [userDetails, setUserDetails] = useState({});
     const [page, setPage] = useState(1);
     const [disable, setDisable] = useState(false);
+    const [totalEventUser, setTotalEventuser] = useState([]);
 
 
     const TotalMembers = countFreeMember + countPremiumMember;
@@ -59,8 +60,20 @@ const AdminMembersContextProvider = ({ children }) => {
         }
     }
 
+    const TotalEventBookedUser = async () => {
+        setLoader(true);
+        try {
+            const res = await AxiosHandler.get("dashboard/totalEventUser")
+            setTotalEventuser(res?.data?.Users);
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoader(false);
+        }
+    }
+
     return (
-        <AdminMembersContext.Provider value={{ freeMembersData, userDetails, GetActiveUserById, TotalMembers, countPremiumMember, countFreeMember, loader, freeMembers, premiumMembersData, premiumMembers, setPage, page, setDisable, disable }}>
+        <AdminMembersContext.Provider value={{ freeMembersData, userDetails, GetActiveUserById, TotalMembers, countPremiumMember, countFreeMember, loader, freeMembers, premiumMembersData, premiumMembers, setPage, page, setDisable, disable, totalEventUser, TotalEventBookedUser }}>
             {children}
         </AdminMembersContext.Provider>
     )

@@ -4,13 +4,15 @@ import { useAdminMemberContext } from '@/AdminContext';
 import { useAuthContext } from '@/context';
 
 const Home = () => {
-    const { countFreeMember, countPremiumMember, freeMembers, premiumMembers, TotalMembers } = useAdminMemberContext()
+    const { countFreeMember, countPremiumMember, freeMembers, premiumMembers, TotalMembers, totalEventUser, TotalEventBookedUser } = useAdminMemberContext()
     const { token } = useAuthContext()
+
 
     useEffect(() => {
         if (token) {
             freeMembers();
             premiumMembers();
+            TotalEventBookedUser();
         }
     }, [token])
 
@@ -20,7 +22,7 @@ const Home = () => {
                 <ListCards title={"Total Members"} member={TotalMembers} className={"bg-total_user text-white"} />
                 <ListCards title={"Premium Members"} member={countPremiumMember} className={"bg-total_user1 text-white"} />
                 <ListCards title={"Free Members"} member={countFreeMember} className={"bg-total_user2 text-white"} />
-                <ListCards title={"Programs Bookings"} member={20} className={"bg-total_user3 text-white"} />
+                <ListCards title={"Programs Bookings"} member={totalEventUser} className={"bg-total_user3 text-white"} />
             </div>
         </div>
     )
