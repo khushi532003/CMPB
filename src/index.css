@@ -10,9 +10,10 @@
 
 @font-face {
   font-family: styleScipt;
-    src: url(../public/fonts/gabriola\ Font\ Download.ttf);
+    src: url(../public/fonts/gabriola.ttf);
 
 }
+
 @font-face {
   font-family: wedding;
   src: url(../public/fonts/Saturday.otf);

@@ -170,7 +170,7 @@ function Home() {
       }}>
         <div className="grid grid-cols-1 py-4  sm:grid-cols-3 gap-2 w-full sm:w-[80%] mx-auto">
           <div className="bg-white relative mx-3 rounded-md shadow p-4  text-center flex justify-center items-center flex-col">
-            <img className="w-24 mb-4 absolute top-[-50px]" src="../images/wcu/1.png" alt="" />
+            <img className="w-24 mb-4 absolute top-[-50px]" src="../images/wcu/Lifetime.png" alt="" />
             <h3 className="text-2xl font-semibold mt-5">Lifetime Experience</h3>
             <p className="text-sm py-2">Our team is dedicated to providing you with a truly unforgettable experience. Feel the joy of a lasting, meaningful connection with your partner every day.</p>
           </div>
