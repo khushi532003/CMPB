@@ -5,7 +5,7 @@ function About() {
     <div>
       {/* Banner section start  */}
       <section className="mainBanner">
-        <img src="../images/banner.jpg" alt="Chat Mangni Pat Byah" className='w-full object-cover' />
+        <img src="../images/aboutBanner.jpg" alt="Chat Mangni Pat Byah" className='w-full object-cover' />
       </section>
       {/* Banner section end  */}
 
@@ -51,7 +51,7 @@ function About() {
       </section>
       {/* Why choose us section end  */}
 
-      {/* Service section start  */}
+      {/* Service section start */}
       <section className="services py-5">
         <div className="heading flex justify-center flex-col items-center text-center">
           <h2 className="text-6xl sm:text-7xl">Services Includes</h2>

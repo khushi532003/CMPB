@@ -9,16 +9,22 @@ const ProgrammeContextProvider = ({ children }) => {
     const [programmeData, setProgrammeData] = useState([]);
     const [packageData, setPackageData] = useState([]);
     const [loader, setLoader] = useState(false);
+    const [disable, setDisable] = useState(false);
+    const [page, setPage] = useState(1);
+    const [eventClints, setEventClints] = useState();
 
     const GetProgramme = async () => {
-        setLoader(true)
+        setLoader(true);
+        setDisable(true);
         try {
-            const res = await AxiosHandler.get(`events/get-admin?page=${1}&limit=${5}`);
+            const res = await AxiosHandler.get(`events/get-admin?page=${page}&limit=${5}`);
             setProgrammeData(res?.data?.data);
+            setEventClints(res?.data?.data?.[0]?.ClientDetails)
         } catch (error) {
             console.log(error);
         } finally {
-            setLoader(false)
+            setLoader(false);
+            setDisable(false);
         }
     }
 
@@ -103,7 +109,7 @@ const ProgrammeContextProvider = ({ children }) => {
     }, [])
 
     return (
-        <ProgrammeContext.Provider value={{ createProgramme, loader, GetProgramme, updateProgramme, programmeData, DeleteProgramme, packageData, createPackage, UpdatePackage, GetBookedEvent }}>
+        <ProgrammeContext.Provider value={{ createProgramme, loader, GetProgramme, updateProgramme, programmeData, DeleteProgramme, packageData, createPackage, UpdatePackage, GetBookedEvent, disable, setDisable, page, setPage, eventClints, setEventClints }}>
             {children}
         </ProgrammeContext.Provider>
     )
