@@ -9,7 +9,6 @@ function ViewUserDetails() {
     const { GetActiveUserById, userDetails } = useAdminMemberContext()
     const { id } = useParams()
 
-
     const toggleAccordion = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };
@@ -22,7 +21,7 @@ function ViewUserDetails() {
 
     return (
         <div>
-            <div className="flex gap-2 w-[90%] mx-auto py-5   ">
+            <div className="flex gap-2 w-[90%] mx-auto py-5">
                 <div className="profile w-[30%]">
                     <div className="profileImg">
                         <img className='w-80 h-80 rounded-full' src={userDetails?.profileDetails?.User?.profileImage?.ImageURL ||
@@ -265,7 +264,6 @@ function ViewUserDetails() {
                                     </ul>}
                                 </div>
                             </Accordian>
-
                         </div>
                     </div>
                 </div>
@@ -274,4 +272,4 @@ function ViewUserDetails() {
     )
 }
 
-export default ViewUserDetails
+export default ViewUserDetails;

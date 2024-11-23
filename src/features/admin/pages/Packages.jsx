@@ -4,15 +4,13 @@ import RegistrationAmtForm from '../components/RegistrationAmtForm';
 import { GoPlus } from 'react-icons/go';
 import { useProgrammeContext } from '@/AdminContext';
 import { LiaEdit } from 'react-icons/lia';
-import { FaTrash } from 'react-icons/fa';
 import { FaEye } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loader from '@/constant/loader';
 
-
 const Packages = () => {
 
-  const { programmeData, packageData, DeleteProgramme, GetProgramme, loader } = useProgrammeContext();
+  const { programmeData, packageData, GetProgramme, loader } = useProgrammeContext();
   const [eventId, setEventId] = useState(null);
   const [regId, setRegId] = useState(null);
   const navigate = useNavigate();
@@ -25,11 +23,12 @@ const Packages = () => {
   useEffect(() => {
     GetProgramme()
   }, [])
-  const eventUserData = async (id) => {
-    navigate(`/programme-booking/${id}`)
+
+  const eventUserData = async (id, data) => {
+    navigate(`/programme-booking/${id}`, {state: {data}})
   }
 
-  const formatDate = (dateString) => {
+  const formatDate = (dateString ) => {
     const date = new Date(dateString);
     const options = { day: '2-digit', month: 'short', year: 'numeric' };
     return new Intl.DateTimeFormat('en-US', options).format(date);
@@ -45,6 +44,7 @@ const Packages = () => {
                 <h3 className="text-gray-600 font-semibold text-3xl"> Add Packages Amount</h3>
               </div>
               <div className="flex gap-2">
+                
                 <div onClick={() => {
                   setAddAmount(true)
                   setRegId({ regNew: "regNew" })
@@ -69,12 +69,10 @@ const Packages = () => {
                           className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                           S.No.
                         </th>
-
                         <th
                           className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                           Amount
                         </th>
-
                         <th
                           className="px-5 py-3 border-b-2 border-gray-200 bg-RedTheme text-left text-xs font-semibold text-white uppercase tracking-wider">
                           Actions
@@ -82,7 +80,6 @@ const Packages = () => {
                       </tr>
                     </thead>
                     <tbody>
-
                       <tr>
                         <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                           <p className="text-gray-900 whitespace-no-wrap">1</p>
@@ -179,20 +176,11 @@ const Packages = () => {
                               className="relative  bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                               <LiaEdit />
                             </span>
-                            <span onClick={() => eventUserData(item?._id)}
+                            <span onClick={() => eventUserData(item?.id, item)}
                               className="relative  bg-green-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                               <FaEye />
                             </span>
-
-                          </td>
-
-                          {/* <td className="px-1  py-2 border border-gray-200 bg-white text-sm">
-                            <span onClick={() => DeleteProgramme(item?._id)}
-                              className="relative  bg-RedTheme rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
-                              <FaTrash />
-                            </span>
-                          </td> */}
-
+                          </td>                         
                         </tr>
                       )}
                     </tbody>
@@ -209,4 +197,4 @@ const Packages = () => {
   )
 }
 
-export default Packages
+export default Packages;
