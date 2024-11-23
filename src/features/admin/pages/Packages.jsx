@@ -5,7 +5,7 @@ import { GoPlus } from 'react-icons/go';
 import { useProgrammeContext } from '@/AdminContext';
 import { LiaEdit } from 'react-icons/lia';
 import { FaEye } from 'react-icons/fa';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Loader from '@/constant/loader';
 import { useAuthContext } from '@/context';
 
@@ -15,6 +15,7 @@ const Packages = () => {
   const [eventId, setEventId] = useState(null);
   const [regId, setRegId] = useState(null);
   const { token } = useAuthContext();
+  const { id } = useParams()
   const navigate = useNavigate();
   const location = useLocation()
 
