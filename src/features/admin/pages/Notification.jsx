@@ -3,10 +3,7 @@ import { RxCross2 } from "react-icons/rx";
 
 const Notification = ({ setNotificationOpen }) => {
     return (
-
-
         <div className="w-full h-full bg-gray-800 z-50 bg-opacity-90 top-0 overflow-y-auto overflow-x-hidden fixed sticky-0" onClick={setNotificationOpen} id="chec-div">
-
             <div className="w-full  absolute z-10 right-0 h-full overflow-x-hidden transform translate-x-0 transition ease-in-out duration-700" id="notification">
                 <div onClick={(e) => { e.stopPropagation() }} className={`2xl:w-4/12 bg-gray-50 h-screen overflow-y-auto p-8 absolute right-0`}>
                     <div className="flex items-center justify-between">
@@ -23,7 +20,7 @@ const Notification = ({ setNotificationOpen }) => {
                             </svg>
                         </div>
                         <div className="pl-3">
-                            <p className="focus:outline-none text-sm leading-none"><span className="text-indigo-700">James Doe</span> favourited an <span className="text-indigo-700">item</span></p>
+                            <p className="focus:outline-none text-sm leading-none"><span className="text-RedTheme">James Doe</span> favourited an <span className="text-RedTheme">item</span></p>
                             <p className="focus:outline-none text-xs leading-3 pt-1 text-gray-500">2 hours ago</p>
                         </div>
                     </div>
@@ -40,11 +37,10 @@ const Notification = ({ setNotificationOpen }) => {
                             </svg>
                         </div>
                         <div className="pl-3">
-                            <p className="focus:outline-none text-sm leading-none">Shipmet delayed for order<span className="text-indigo-700"> #25551</span></p>
+                            <p className="focus:outline-none text-sm leading-none">Shipmet delayed for order<span className="text-RedTheme"> #25551</span></p>
                             <p className="focus:outline-none text-xs leading-3 pt-1 text-gray-500">2 hours ago</p>
                         </div>
                     </div>
-
 
                 </div>
             </div>
@@ -53,4 +49,4 @@ const Notification = ({ setNotificationOpen }) => {
     )
 }
 
-export default Notification
+export default Notification;
