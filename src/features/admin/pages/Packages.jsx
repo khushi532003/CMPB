@@ -101,7 +101,7 @@ const Packages = () => {
                             setAddAmount(true)
                             setRegId(packageData)
                           }}
-                            className="relative  bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
+                            className="relative cursor-pointer bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                             <LiaEdit />
                           </span>
                         </td>
@@ -180,11 +180,11 @@ const Packages = () => {
                               setAddProgramme(true)
                               setEventId(item)
                             }}
-                              className="relative  bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
+                              className="relative cursor-pointer bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                               <LiaEdit />
                             </span>
                             <span onClick={() => eventUserData(item?._id, item)}
-                              className="relative  bg-green-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
+                              className="relative cursor-pointer bg-green-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                               <FaEye />
                             </span>
                           </td>
