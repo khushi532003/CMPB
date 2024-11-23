@@ -7,28 +7,34 @@ import { LiaEdit } from 'react-icons/lia';
 import { FaEye } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loader from '@/constant/loader';
+import { useAuthContext } from '@/context';
 
 const Packages = () => {
 
-  const { programmeData, packageData, GetProgramme, loader } = useProgrammeContext();
+  const { programmeData, packageData, GetProgramme, loader, page, setPage, disable } = useProgrammeContext();
   const [eventId, setEventId] = useState(null);
   const [regId, setRegId] = useState(null);
+  const { token } = useAuthContext();
   const navigate = useNavigate();
   const location = useLocation()
-  console.log(programmeData)
+
+
+
 
   const [addProgramme, setAddProgramme] = useState(false);
   const [addAmount, setAddAmount] = useState(false);
 
   useEffect(() => {
-    GetProgramme()
-  }, [])
+    if (token) {
+      GetProgramme(page);
+    }
+  }, [token, page])
 
   const eventUserData = async (id, data) => {
-    navigate(`/programme-booking/${id}`, {state: {data}})
+    navigate(`/programme-booking/${id}`, { state: { data } })
   }
 
-  const formatDate = (dateString ) => {
+  const formatDate = (dateString) => {
     const date = new Date(dateString);
     const options = { day: '2-digit', month: 'short', year: 'numeric' };
     return new Intl.DateTimeFormat('en-US', options).format(date);
@@ -44,7 +50,7 @@ const Packages = () => {
                 <h3 className="text-gray-600 font-semibold text-3xl"> Add Packages Amount</h3>
               </div>
               <div className="flex gap-2">
-                
+
                 <div onClick={() => {
                   setAddAmount(true)
                   setRegId({ regNew: "regNew" })
@@ -176,23 +182,39 @@ const Packages = () => {
                               className="relative  bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                               <LiaEdit />
                             </span>
-                            <span onClick={() => eventUserData(item?.id, item)}
+                            <span onClick={() => eventUserData(item?._id, item)}
                               className="relative  bg-green-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                               <FaEye />
                             </span>
-                          </td>                         
+                          </td>
                         </tr>
                       )}
                     </tbody>
                   </table>
                 </div>
               </div>}
+
+              <div className="pagination py-4 flex justify-center items-center gap-3">
+                <button
+                  className="prev bg-RedTheme text-white px-4 py-1 rounded"
+                  disabled={disable || page === 1}
+                  onClick={() => setPage((prev) => Math.max(prev - 1, 1))} > Prev </button>
+                <span className='list-none text-blue-600 text-md font-bold'>{page}</span>
+                <button
+                  className="next bg-RedTheme text-white px-4 py-1 rounded"
+                  disabled={disable || programmeData?.length < 5}
+                  onClick={() => setPage((prev) => prev + 1)}>Next </button>
+              </div>
+
             </div>
           </div>
         </div>
         {addProgramme ? <ProgrammeForm Event={eventId} onClose={() => setAddProgramme(false)} /> : ""}
         {addAmount ? <RegistrationAmtForm RegEvent={regId} onClose={() => setAddAmount(false)} /> : ""}
       </div>
+
+
+
     </div >
   )
 }
