@@ -5,7 +5,7 @@ import { GoPlus } from 'react-icons/go';
 import { useProgrammeContext } from '@/AdminContext';
 import { LiaEdit } from 'react-icons/lia';
 import { FaEye } from 'react-icons/fa';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Loader from '@/constant/loader';
 
 const Packages = () => {
@@ -13,6 +13,7 @@ const Packages = () => {
   const { programmeData, packageData, GetProgramme, loader } = useProgrammeContext();
   const [eventId, setEventId] = useState(null);
   const [regId, setRegId] = useState(null);
+  const { id } = useParams()
   const navigate = useNavigate();
   const location = useLocation()
   console.log(programmeData)
@@ -176,7 +177,7 @@ const Packages = () => {
                               className="relative  bg-blue-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                               <LiaEdit />
                             </span>
-                            <span onClick={() => eventUserData(item?.id, item)}
+                            <span onClick={() => eventUserData(item?._id, item)}
                               className="relative  bg-green-400 rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                               <FaEye />
                             </span>
