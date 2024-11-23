@@ -10,7 +10,6 @@ const ProgrammeContextProvider = ({ children }) => {
     const [packageData, setPackageData] = useState([]);
     const [loader, setLoader] = useState(false);
 
-
     const GetProgramme = async () => {
         setLoader(true)
         try {
@@ -77,7 +76,6 @@ const ProgrammeContextProvider = ({ children }) => {
         }
     }
 
-
     const updateProgramme = async (id, data) => {
         try {
             const res = await AxiosHandler.put(`events/update/${id}`, data);
@@ -89,7 +87,6 @@ const ProgrammeContextProvider = ({ children }) => {
         }
     }
 
-
     const DeleteProgramme = async (id) => {
         try {
             const res = await AxiosHandler.delete(`events/delete/${id}`);
@@ -100,10 +97,6 @@ const ProgrammeContextProvider = ({ children }) => {
             toast.error("Event not deleted");
         }
     }
-
-    // useEffect(() => {
-    //     GetProgramme()
-    // }, [])
 
     useEffect(() => {
         GetPackage()

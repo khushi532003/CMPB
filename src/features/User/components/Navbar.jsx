@@ -45,7 +45,7 @@ function Navbar() {
             <div className={`responsive-bar md:hidden left-0 w-full ${scrolling ? 'bg-gray-800 h-16 p-2 top-0 fixed' : 'bg-white h-20 p-4 relative'} flex justify-between items-center p-5 z-50`}>
                 <Link to="/">
                     <div className="logo">
-                        <img src="../images/logo.png" alt="logo" className="h-12" />
+                        <img src={scrolling ? "./images/CMPB-White.png" : "./images/logo.png"} alt="logo" className="h-12" />
                     </div>
                 </Link>
                 <div className="sideMenu flex gap-2">
@@ -76,7 +76,7 @@ function Navbar() {
                 <div className="flex items-center justify-between h-full">
                     <Link to="/">
                         <div className="logo">
-                            <img src="../images/logo.png" alt="logo" className={`transition-all duration-500 ${scrolling ? 'h-14' : 'h-20'}`} />
+                            <img src={scrolling ? "./images/CMPB-White.png" : "./images/logo.png"} alt="logo" className={`transition-all duration-500 ${scrolling ? 'h-14' : 'h-20'}`} />
                         </div>
                     </Link>
                     <ul className={`hidden md:flex items-center space-x-4 ${scrolling ? 'text-white' : 'text-gray-800'}`}>
