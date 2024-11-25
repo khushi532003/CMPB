@@ -1,7 +1,5 @@
 import * as yup from "yup";
 
-
-
 export const ResidancyInfoSchema = yup.object({
     ImmigrationStatus: yup.string().trim().required("ImmigrationStatus is required"),
     birthCounty: yup.string().trim().required("birthCounty is required"),
@@ -38,12 +36,10 @@ export const EducationSchema = yup.object({
     start: yup.string().trim().required("start is required")
 })
 
-
 export const LanguageInfoSchema = yup.object({
     motherTounge: yup.string().trim().required("motherTounge is required"),
     knownLanguage: yup.string().trim().required("knownLanguage is required")
 })
-
 
 export const HobbiesAndInterestSchema = yup.object({
     Hobbies: yup.string().trim().required("Hobbies is required"),
@@ -56,15 +52,12 @@ export const HobbiesAndInterestSchema = yup.object({
     fitnessActivities: yup.string().trim().required("fitnessActivities is required"),
     cuisines: yup.string().trim().required("cuisines is required"),
     dressStyle: yup.string().trim().required("dressStyle is required"),
-
 })
-
 
 export const PersonalAttitudeSchema = yup.object({
     Affection: yup.string().trim().required("Affection is required"),
     religionService: yup.string().trim().required("religionService is required")
 })
-
 
 export const BackgroundInfoSchema = yup.object({
     Religion: yup.string().trim().required("Religion is required"),
@@ -74,14 +67,12 @@ export const BackgroundInfoSchema = yup.object({
     FamilyWorth: yup.number().required("FamilyWorth is required")
 })
 
-
 export const AstronomicInfoSchema = yup.object({
     SunSign: yup.string().trim().required("SunSign is required"),
     MoonSign: yup.string().trim().required("MoonSign is required"),
     TimeOfBirth: yup.string().trim().required("Time Of Birth is required "),
     CityOfBirth: yup.string().trim().required("City Of Birth required")
 })
-
 
 export const PresentAddressSchema = yup.object({
     Country: yup.string().trim().required("Country is required"),
@@ -90,14 +81,12 @@ export const PresentAddressSchema = yup.object({
     Pincode: yup.string().trim().required("Pin code is required")
 })
 
-
 export const PermanentAddressSchema = yup.object({
     Country: yup.string().trim().required("Country is required"),
     State: yup.string().trim().required("State is required"),
     City: yup.string().trim().required("City is required"),
     Pincode: yup.string().trim().required("Pin code is required")
 })
-
 
 export const PartnerExpectionSchema = yup.object({
     GernalRequirement: yup.string().trim().required(" field is required"),
@@ -122,4 +111,3 @@ export const PartnerExpectionSchema = yup.object({
     PreferredState: yup.string().trim().required(" field is required"),
     Complexion: yup.string().trim().required(" field is required"),
 })
-

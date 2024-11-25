@@ -119,14 +119,14 @@ function Home() {
 
       {/* Banner section start  */}
       <section className="mainBanner">
-        <img src="../images/banner3.jpg" alt="Chat Mangni Pat Byah" className='w-full object-cover' />
+        <img src="../images/banner3.webp" alt="Chat Mangni Pat Byah" className='w-full object-cover' />
       </section>
       {/* Banner section end  */}
 
       {/* Testimonial section start  */}
       <section className="testimonial py-5 w-[80%] mx-auto">
         <div className="heading flex justify-center flex-col items-center text-center">
-          <h2 className="text-6xl sm:text-7xl">Churaye hue pal</h2>
+          <h2 className="text-5xl sm:text-7xl">Churaye hue pal</h2>
           <img src="../images/headingImg.png" alt="" className="w-64" />
         </div>
         <Swiper
@@ -195,26 +195,26 @@ function Home() {
           <div className="themes w-full ">
             <div className=" grid-cols-1 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
               <div className="flex items-center">
-                <div className="heading"><h2 className="text-6xl sm:text-7xl text-[#BB1A04]">Choose <br /> Wedding <br /> Themes</h2></div>
+                <div className="heading"><h2 className="text-5xl sm:text-7xl text-[#BB1A04]">Choose <br /> Wedding <br /> Theme</h2></div>
               </div>
               <div className="theme ">
                 <div className="flex flex-col items-center">
                   <div className="w-full">
-                    <img className="rounded-t-full h-96 object-cover w-full" src="https://luxaus.au/wp-content/uploads/2023/03/kerala-1024x683.jpeg" alt="" /></div>
+                    <img className="rounded-t-full h-96 object-cover w-full" src="./images/themes/destination.webp" alt="" /></div>
                   <div className="themeName pt-4 text-center"><h3 className=" text-5xl">Destination</h3> </div>
                 </div>
               </div>
               <div className="theme ">
                 <div className="flex flex-col items-center">
                   <div className="w-full">
-                    <img className="rounded-t-full h-96 object-cover w-full" src="https://images.shaadisaga.com/shaadisaga_production/photos/pictures/005/385/981/new_medium/307137831_1218744365589893_7565817865238985355_n.jpg?1669191321" alt="" /></div>
+                    <img className="rounded-t-full h-96 object-cover w-full" src="./images/themes/cultural.webp" alt="" /></div>
                   <div className="themeName pt-4 text-center"><h3 className=" text-5xl">Cultural</h3> </div>
                 </div>
               </div>
               <div className="theme ">
                 <div className="flex flex-col items-center">
                   <div className="w-full">
-                    <img className="rounded-t-full h-96 object-cover w-full" src="https://themaharanidiaries.com/wp-content/uploads/2018/03/5-Steps-to-Planning-a-Modern-Wedding-Lin-Jirsa-Photography-The-Maharani-Diaries.jpg" alt="" /></div>
+                    <img className="rounded-t-full h-96 object-cover w-full" src="./images/themes/modern.webp" alt="" /></div>
                   <div className="themeName pt-4 text-center"><h3 className=" text-5xl">Modern</h3> </div>
                 </div>
               </div>
@@ -228,7 +228,7 @@ function Home() {
       {/* Process section start  */}
       <section className="process py-10">
         <div className="heading flex justify-center flex-col items-center text-center">
-          <h2 className="text-6xl sm:text-7xl">Wedding Process</h2>
+          <h2 className="text-5xl sm:text-7xl">Wedding Process</h2>
           <img src="../images/headingImg.png" alt="" className="w-64 object-cover" />
         </div>
         <div className="process py-4">
@@ -413,7 +413,7 @@ function Home() {
             </div>
           </div>
           <div className="w-full md:w-[40%] flex justify-center items-center bg-cover bg-center h-[65vh] sm:h-[100vh] " style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
-            <div className="heading text-center"><h2 className="text-6xl sm:text-7xl text-[#BB1A04]">Pricing <br />Plans</h2>
+            <div className="heading text-center"><h2 className="text-5xl sm:text-7xl text-[#BB1A04]">Pricing <br />Plans</h2>
               <img src="../images/headingImg.png" alt="" className="w-64" />
             </div>
           </div>
@@ -424,28 +424,28 @@ function Home() {
       {/* Gallery section start  */}
       <section className="gallery py-5">
         <div className="heading flex justify-center flex-col items-center text-center">
-          <h2 className="text-6xl sm:text-7xl">Gallery</h2>
+          <h2 className="text-5xl sm:text-7xl">Gallery</h2>
           <img src="../images/headingImg.png" alt="" className="w-64" />
         </div>
         <div className="weddingImages py-4 px-5">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="sec">
-              <img src="https://images.pexels.com/photos/18253230/pexels-photo-18253230/free-photo-of-traditional-indian-wedding-couple.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
-              <img src="https://images.pexels.com/photos/7153798/pexels-photo-7153798.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" className="mt-3" />
+              <img src="./images/gallery/1.webp" alt="" />
+              <img src="./images/gallery/2.webp" alt="" className="mt-3" />
             </div>
             <div className="sec">
-              <img src="https://images.pexels.com/photos/9392445/pexels-photo-9392445.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
-              <img className="mt-3" src="https://images.pexels.com/photos/15698720/pexels-photo-15698720/free-photo-of-newlywed-indian-couple.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
-              <img src="https://images.pexels.com/photos/3871582/pexels-photo-3871582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className="mt-3" />
+              <img src="./images/gallery/3.webp" alt="" />
+              <img className="mt-3" src="./images/gallery/4.webp" alt="" />
+              <img src="./images/gallery/5.webp" alt="" className="mt-3" />
             </div>
 
             <div className="sec">
-              <img src="https://images.pexels.com/photos/20254417/pexels-photo-20254417/free-photo-of-indian-wedding.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
-              <img className="mt-3" src="https://images.pexels.com/photos/19439647/pexels-photo-19439647/free-photo-of-traditional-wedding-couple-walking-on-pavement.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
+              <img src="./images/gallery/6.webp" alt="" />
+              <img className="mt-3" src="./images/gallery/7.webp" alt="" />
             </div>
             <div className="sec">
-              <img src="https://images.pexels.com/photos/28210866/pexels-photo-28210866/free-photo-of-a-couple-in-traditional-indian-attire-posing-for-a-photo.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
-              <img className="mt-3" src="https://images.pexels.com/photos/28200149/pexels-photo-28200149/free-photo-of-dancing-with-joy-at-a-wedding-celebration.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
+              <img src="./images/gallery/8.webp" alt="" />
+              <img className="mt-3" src="./images/gallery/9.webp" alt="" />
             </div>
           </div>
         </div>
