@@ -238,7 +238,7 @@ function ActiveMembers() {
                                                     (item?.gender === "male"
                                                         ? "https://media.istockphoto.com/id/517998264/vector/male-user-icon.jpg?s=170667a&w=0&k=20&c=ZUf0DE14mBsbtgTvNdhDB1uzey9CK2BJlhhMhfFftB8="
                                                         : item?.gender === "female"
-                                                            ? "https://png.pngitem.com/pimgs/s/618-6183618_transparent-unknown-person-png-transparent-background-female-user.png"
+? "https://png.pngitem.com/pimgs/s/618-6183618_transparent-unknown-person-png-transparent-background-female-user.png"
                                                             : "https://example.com/default-image.png")
                                                 }
                                                 alt="Profile"

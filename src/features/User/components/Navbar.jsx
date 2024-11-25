@@ -29,12 +29,12 @@ function Navbar() {
 
     const handleLinkClick = (path) => {
         setMenuOpen(false);
-        navigate(path);
+       navigate(path);
     };
 
     return (
         <div>
-            <div className="topbar flex justify-between text-sm z-50 items-center bg-RedTheme text-[#f9e4e9] py-2 px-2">
+            <div className="topbar flex justify-between text-xs sm:text-sm z-50 items-center bg-RedTheme text-[#f9e4e9] py-2 px-2">
                 <div className="flex gap-2">
                     <Link to="tel:9870101514"><p className='border-r-2 border-white pe-2'>+91 9870101514</p></Link>
                     <Link to="mailto:chatmangnipatbyahteam@gmail.com"><p>chatmangnipatbyahteam@gmail.com</p></Link>

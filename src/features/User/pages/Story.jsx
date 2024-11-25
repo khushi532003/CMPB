@@ -15,7 +15,6 @@ function Story() {
         return new Intl.DateTimeFormat('en-US', options).format(date);
     };
 
-
     useEffect(() => {
         const filterBlog = happyStory.find((item) => item._id === id);
         setStory(filterBlog);
@@ -29,7 +28,6 @@ function Story() {
                 </div>
                 <div className="couples flex items-center flex-col">
                     <div className="flex items-center justify-center gap-2 py-3">
-
                         <div className="name capitalize font-semibold text-gray-600 py-3">{story?.Bride}</div>
                         <img className='w-10' src="https://banner2.cleanpng.com/20240127/qgp/transparent-heart-emoji-cute-heart-icon-with-big-smiling-1710896636255.webp" alt="" />
                         <div className="name capitalize font-semibold text-gray-600 py-3">{story?.Groom}</div>
