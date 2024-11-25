@@ -18,7 +18,6 @@ const RootRouting = () => {
                 {AdminRoute.map((item, index) => (<Route key={index} path={item.path} element={item.element} />))}
             </Route>}
 
-            //Pure public
             {role !== "admin" && <Route element={<UserLayout />} >
                 {UserPublicRoutes.map((item, index) => <Route key={index} path={item.path} element={item.element} />)}
             </Route>}
