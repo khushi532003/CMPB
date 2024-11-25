@@ -1,6 +1,5 @@
 import * as yup from "yup";
 
-
 export const Registerschema = yup.object({
    firstName: yup.string().trim().required("First Name is required").min(2),
    lastName: yup.string().trim().required("Last Name is required").min(2),
@@ -23,7 +22,6 @@ export const Registerschema = yup.object({
          return age >= 18;
       }
    ),
-
 });
 
 export const LoginSchema = yup.object({
