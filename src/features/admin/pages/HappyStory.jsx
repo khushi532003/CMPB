@@ -5,17 +5,14 @@ import Table from '../components/Table';
 import { useHappyStroyContext } from '@/AdminContext';
 import Loader from '@/constant/loader';
 
-
 const HappyStory = () => {
   const { happyStoryData, GetHappyStory, loader } = useHappyStroyContext();
   const [addStory, setAddStory] = useState(false);
 
-
   useEffect(() => {
     GetHappyStory();
   }, [])
-
-
+ 
   return (
     <div>
       <div className="HappyStories py-4 relative">
