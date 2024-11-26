@@ -67,6 +67,7 @@ function Navbar() {
                     <li><Link to="/" onClick={() => handleLinkClick('/')} className="block text-white text-center p-4 rounded-sm hover:bg-RedTheme">Home</Link></li>
                     <li><Link to="/about" onClick={() => handleLinkClick('/about')} className="block text-white text-center p-4 rounded-sm hover:bg-RedTheme">About us</Link></li>
                     <li><Link to="/happyStories" onClick={() => handleLinkClick('/happyStories')} className="block text-white hover:bg-RedTheme text-center p-4 rounded-sm">Happy Stories</Link></li>
+                    <li><Link to="/blogs" onClick={() => handleLinkClick('/blogs')} className="block text-white hover:bg-RedTheme text-center p-4 rounded-sm">Blogs</Link></li>
                     <li><Link to="/contact" onClick={() => handleLinkClick('/contact')} className="block text-white hover:bg-RedTheme text-center p-4 rounded-sm">Contact Us</Link></li>
                 </ul>
             </div>
