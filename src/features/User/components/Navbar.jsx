@@ -83,6 +83,7 @@ function Navbar() {
                         <li><Link to="/" onClick={() => handleLinkClick('/')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Home</Link></li>
                         <li><Link to="/about" onClick={() => handleLinkClick('/about')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">About us</Link></li>
                         <li><Link to="/happyStories" onClick={() => handleLinkClick('/happyStories')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Happy Stories</Link></li>
+                        <li><Link to="/blogs" onClick={() => handleLinkClick('/blogs')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Blogs</Link></li>
                         <li><Link to="/contact" onClick={() => handleLinkClick('/contact')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Contact Us</Link></li>
                         {token ? (
                             <li onClick={() => setSidebarToggle(true)} className='text-center cursor-pointer'>
