@@ -7,7 +7,6 @@ import { HappyStoriesContext } from "./HappyStoriesContext/HappyStoriesContext";
 import { MemberContext } from "./MembersContext/MembersContext";
 import { ChurayePalContext } from "./ChurayePalContext/ChurayePalContext";
 
-
 export { default as AuthContextPRovider } from "@/context/authContext/AuthContext";
 export { default as ContactContextProvider } from "@/context/ContactContext/ContactContext";
 export { default as PackageContextProvider } from "@/context/packageContext/PackageContext";
@@ -15,9 +14,6 @@ export { default as ProfileContextProvider } from "@/context/ProfileContext/Prof
 export { default as HappyStoriesContextProvider } from "@/context/HappyStoriesContext/HappyStoriesContext";
 export { default as MemberContextProvider } from "@/context/MembersContext/MembersContext";
 export { default as ChurayePalContextProvider } from "@/context/ChurayePalContext/ChurayePalContext";
-
-
-
 
 export const useAuthContext = () => useContext(AuthContext);
 export const useContactContext = () => useContext(ContactContext);

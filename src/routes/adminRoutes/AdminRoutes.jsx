@@ -7,7 +7,7 @@ import ProgrameBooking from "@/features/admin/pages/ProgrameBooking";
 import ChurayeHuePal from "@/features/admin/pages/ChurayeHuePal";
 import Packages from "@/features/admin/pages/Packages";
 import ViewUserDetails from "@/features/admin/pages/ViewUserDetails";
-
+import Blogs from "@/features/admin/pages/Blogs";
 
 export const AdminRoute = [
     {
@@ -17,6 +17,10 @@ export const AdminRoute = [
     {
         path: "/happy_stories",
         element: <HappyStory />
+    },
+    {
+        path: "/blogs",
+        element: <Blogs />
     },
     {
         path: "/contact_queries",
@@ -45,6 +49,5 @@ export const AdminRoute = [
     {
         path: "/view-details/:id",
         element: <ViewUserDetails />
-    },
-
+    }
 ]

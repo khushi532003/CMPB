@@ -4,8 +4,8 @@ import { GoPeople, GoDotFill } from "react-icons/go";
 import { MdOutlinePhone } from "react-icons/md";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
-import { GiThirdEye } from "react-icons/gi";
-
+import { GiClover } from "react-icons/gi";
+import { GrBlog } from "react-icons/gr";
 
 export const AdminLnks = [
     {
@@ -13,7 +13,6 @@ export const AdminLnks = [
         path: "/",
         icons: RxDashboard
     },
-
     {
         title: "Members",
         icons: GoPeople,
@@ -30,16 +29,20 @@ export const AdminLnks = [
             },
         ]
     },
-
     {
         title: "Happy Stories",
         path: "/happy_stories",
         icons: IoHappyOutline
     },
     {
+        title: "Blogs",
+        path: "/blogs",
+        icons: GrBlog 
+    },
+    {
         title: "Churaye Hue Pal",
         path: "/churaye_hue_pal",
-        icons: GiThirdEye
+        icons: GiClover 
     },
     {
         title: "Contact Queries",
@@ -51,11 +54,9 @@ export const AdminLnks = [
         path: "/packages",
         icons: FaRegMoneyBillAlt
     },
-
     {
         title: "Logout",
         path: "/logout",
         icons: CiLogout
-    },
-
+    }
 ] 
