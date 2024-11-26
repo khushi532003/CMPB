@@ -9,7 +9,7 @@ function Blogs() {
                 <h2 className="text-5xl sm:text-7xl">Blogs</h2>
                 <img src="../images/headingImg.png" alt="" className="w-64" />
             </div>
-            <div className="blogs grid grid-cols-2 gap-3 py-4 ">
+            <div className="blogs grid sm:grid-cols-2 grid-cols-1 gap-3 py-4 ">
                 <Link to={`/bloginner/${id}`}> <div className="blog py-4">
                     <div className="blogImg flex justify-center">
                         <img src="https://image.wedmegood.com/resized-nw/450X650/wp-content/uploads/2024/11/Collage12.jpg" alt="" />

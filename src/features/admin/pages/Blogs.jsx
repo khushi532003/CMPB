@@ -56,7 +56,6 @@ function Blogs() {
                                               <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                   <p className="text-gray-900 whitespace-no-wrap">1</p>
                                               </td>
-
                                               <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                   <img className='w-14 h-14 rounded-full object-cover' src="https://media.istockphoto.com/id/517998264/vector/male-user-icon.jpg?s=170667a&w=0&k=20&c=ZUf0DE14mBsbtgTvNdhDB1uzey9CK2BJlhhMhfFftB8="
                                                        alt="" />
@@ -75,9 +74,7 @@ function Blogs() {
                                                       className="relative cursor-pointer bg-RedTheme rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">
                                                       <FaTrash />
                                                   </button>
-                                              </td>
-
-                                             
+                                              </td>   
                                           </tr>
                                       </tbody>
                                   </table>
@@ -92,4 +89,4 @@ function Blogs() {
   )
 }
 
-export default Blogs
+export default Blogs;
