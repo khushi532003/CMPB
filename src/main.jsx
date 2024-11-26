@@ -2,10 +2,10 @@ import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
-import { AuthContextPRovider, ChurayePalContextProvider, ContactContextProvider, HappyStoriesContextProvider, PackageContextProvider, ProfileContextProvider } from '@/context'
+import { AuthContextPRovider, BlogUserContextProvider, ChurayePalContextProvider, ContactContextProvider, HappyStoriesContextProvider, PackageContextProvider, ProfileContextProvider } from '@/context'
 import MemberContextProvider from './context/MembersContext/MembersContext.jsx'
 import AdminMembersContextProvider from './AdminContext/MembersContext/AdminMembersContext.jsx'
-import { AdminContactContextProvider, ChurayeHuePalContextProvider, HappyStoryContextProvider, ProgrammeContextProvider } from './AdminContext/index.jsx'
+import { AdminContactContextProvider, BlogContextProvider, ChurayeHuePalContextProvider, HappyStoryContextProvider, ProgrammeContextProvider } from './AdminContext/index.jsx'
 
 createRoot(document.getElementById('root')).render(
   <AuthContextPRovider>
@@ -19,11 +19,15 @@ createRoot(document.getElementById('root')).render(
                   <ChurayeHuePalContextProvider>
                     <ChurayePalContextProvider>
                       <HappyStoryContextProvider>
-                        <AdminContactContextProvider>
-                          <BrowserRouter>
-                            <App />
-                          </BrowserRouter>
-                        </AdminContactContextProvider>
+                        <BlogUserContextProvider>
+                          <BlogContextProvider>
+                            <AdminContactContextProvider>
+                              <BrowserRouter>
+                                <App />
+                              </BrowserRouter>
+                            </AdminContactContextProvider>
+                          </BlogContextProvider>
+                        </BlogUserContextProvider>
                       </HappyStoryContextProvider>
                     </ChurayePalContextProvider>
                   </ChurayeHuePalContextProvider>
