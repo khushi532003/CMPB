@@ -88,7 +88,7 @@ function AddBlog({ onClose }) {
     };
 
     const handleEditorChange = (newContent) => {
-        setContent(newContent.replace(`/<\/?[^>]+(>|$)/ g`, ""));
+        setContent(newContent.replace(/<\/?[^>]+(>|$)/g, ""));
     };
 
     const editorConfig = useMemo(() => ({
@@ -103,7 +103,7 @@ function AddBlog({ onClose }) {
         <div className="addBlog flex justify-center items-center h-screen w-full">
             <form
                 onSubmit={handleSubmit}
-                className="w-3/4 bg-white border border-red-300 shadow px-4 py-5 rounded-md"
+                className="w-3/4 bg-white border absolute top-20 border-red-300 shadow px-4 py-5 rounded-md"
             >
                 <div className="heading flex justify-between py-4 items-start">
                     <h4 className="text-4xl">Add Blog</h4>
