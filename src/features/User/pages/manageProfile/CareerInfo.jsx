@@ -41,7 +41,7 @@ function CareerInfo({ data }) {
                 <div className="border-b border-gray-900/10 pb-12">
                     <h4 className="text-base  font-semibold leading-7 text-gray-900">Career Information</h4>
 
-                    <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                    <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
                         <div className="sm:col-span-3">
                             <label htmlFor="designation" className="block text-sm font-medium leading-6 text-gray-900">
                                 Designation

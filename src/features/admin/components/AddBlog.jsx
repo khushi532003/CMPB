@@ -190,7 +190,6 @@ function AddBlog({ onClose }) {
                     />
                     {error.description && <p className="text-xs text-red-500">{error.description}</p>}
                 </div>
-
                 <button
                     type="submit"
                     className="w-full px-6 py-2 text-white bg-red-600 rounded-md hover:bg-red-700 disabled:bg-gray-400"

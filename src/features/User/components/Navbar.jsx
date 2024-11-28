@@ -51,9 +51,9 @@ function Navbar() {
                 <div className="sideMenu flex gap-2">
                     <h4 onClick={() => setMenuOpen(!menuOpen)} className={`${scrolling ? 'text-white' : 'text-gray-800'} cursor-pointer uppercase`}>Menu</h4>
                     {token ? (
-                        <li className='list-none' onClick={() => setSidebarToggle(true)}>
+                        <li className='list-none flex gap-2 items-center ' onClick={() => setSidebarToggle(true)}>
                             <img src={ProfileImage} alt="profile" className='w-7 h-7 rounded-full' />
-                            <span className='text-sm text-white'>{name}</span>
+                            <span className='text-sm '>{name}</span>
                         </li>
                     ) : (
                         <li className='list-none'>
@@ -87,7 +87,7 @@ function Navbar() {
                         <li><Link to="/blogs" onClick={() => handleLinkClick('/blogs')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Blogs</Link></li>
                         <li><Link to="/contact" onClick={() => handleLinkClick('/contact')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Contact Us</Link></li>
                         {token ? (
-                            <li onClick={() => setSidebarToggle(true)} className='text-center cursor-pointer'>
+                            <li onClick={() => setSidebarToggle(true)} className='text-center cursor-pointer flex gap-2 items-center'>
                                 <img src={ProfileImage} alt="profile" className='w-7 h-7 rounded-full' />
                                 <span className='text-sm font-medium text-center'>{name}</span>
                             </li>

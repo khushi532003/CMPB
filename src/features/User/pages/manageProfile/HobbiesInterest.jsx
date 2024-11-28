@@ -48,7 +48,7 @@ function HobbiesInterest({ data }) {
                 <div className="border-b border-gray-900/10 pb-12">
                     <h4 className="text-base  font-semibold leading-7 text-gray-900">Hobbies & Interest</h4>
 
-                    <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                    <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
                         <div className="sm:col-span-3">
                             <label htmlFor="hobbies" className="block text-sm font-medium leading-6 text-gray-900">
                                 Hobbies
@@ -90,7 +90,7 @@ function HobbiesInterest({ data }) {
                         </div>
                     </div>
 
-                    <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                    <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
                         <div className="sm:col-span-3">
                             <label htmlFor="music" className="block text-sm font-medium leading-6 text-gray-900">
                                 Music
@@ -131,7 +131,7 @@ function HobbiesInterest({ data }) {
                             </div>
                         </div>
                     </div>
-                    <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                    <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
                         <div className="sm:col-span-3">
                             <label htmlFor="movies" className="block text-sm font-medium leading-6 text-gray-900">
                                 Movies
@@ -172,7 +172,7 @@ function HobbiesInterest({ data }) {
                             </div>
                         </div>
                     </div>
-                    <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                    <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
                         <div className="sm:col-span-3">
                             <label htmlFor="fitnessActivities" className="block text-sm font-medium leading-6 text-gray-900">
                                 fitnessActivities
@@ -213,7 +213,7 @@ function HobbiesInterest({ data }) {
                             </div>
                         </div>
                     </div>
-                    <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                    <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
                         <div className="sm:col-span-3">
                             <label htmlFor="cuisines" className="block text-sm font-medium leading-6 text-gray-900">
                                 Cuisines

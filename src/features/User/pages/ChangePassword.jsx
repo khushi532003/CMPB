@@ -28,7 +28,7 @@ function ChangePassword() {
     });
 
     return (
-        <div style={{ backgroundImage: "url(https://www.shutterstock.com/shutterstock/photos/1881715708/display_1500/stock-vector-blush-pink-watercolor-fluid-painting-vector-design-card-dusty-rose-and-golden-marble-geode-frame-1881715708.jpg" }}>
+        <div style={{ backgroundImage: "url(./images/bg.jpg)" }}>
             <div className='py-10'>
                 <div className="py-5 w-[95%] sm:w-[50%]  bg-white mx-auto border border-yellow-600 px-10 pt-24 rounded-t-full">
                     <div className="heading flex justify-center flex-col items-center text-center">
