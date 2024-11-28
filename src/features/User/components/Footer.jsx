@@ -23,14 +23,14 @@ function Footer() {
                 <div
                     className="flex items-end w-full bg-cover bg-left bg-no-repeat"
                     style={{
-                        backgroundImage: "url(https://img.freepik.com/premium-vector/white-crumpled-paper-textured-background-vector_53876-171750.jpg)"
+                        backgroundImage: "url(./images/footerBg.jpg)"
                     }}
                 >
-                    <footer className="w-full text-gray-700 body-font">
+                    <footer className="w-full text-gray-700 body-font pt-4">
                         <div className="logo flex justify-center">
                             <img
                                 className='w-48'
-                                src="https://static1.squarespace.com/static/56538fa7e4b0eb26e633fae6/t/5e4b23d4b6e8306d010ab29f/1581982686307/PrimaryLogoTransparentBG.png?format=1500w"
+                                src="./images/logo.png"
                                 alt="logo"
                             />
                         </div>
@@ -62,7 +62,7 @@ function Footer() {
                                     </nav>
                                 </div>
                                 <div className="w-full px-4 lg:w-2/4 md:w-1/2">
-                                    <h4 className="mb-3 text-sm tracking-widest text-gray-900 uppercase font-semibold">contact us</h4>
+                                    <h4 className="mb-3 text-sm tracking-widest text-gray-900 uppercase font-semibold">Contact us</h4>
                                     <nav className="mb-10 list-none">
                                         <li className="mt-3">
                                             <Link to="tel:9870101514" className="text-gray-500 flex gap-2 items-center cursor-pointer hover:text-gray-900"><IoMdCall /> + 91 9870101514</Link>

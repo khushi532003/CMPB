@@ -1,8 +1,12 @@
 import { useBlogUserContext } from '@/context';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 
 function BlogInner() {
     const { userBlogData, GetUserBlog } = useBlogUserContext();
+    const [filterData, setFilterData] = useState(null);
+    const { id } = useParams();
+    console.log(filterData)
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -11,29 +15,36 @@ function BlogInner() {
     };
 
     useEffect(() => {
+        const filterBlog = userBlogData.filter((item) => (
+            item?._id === id
+        ))[0]
+        setFilterData(filterBlog)
+    }, [userBlogData])
+
+    useEffect(() => {
         GetUserBlog();
     }, []);
 
     return (
         <div className='w-[80%] mx-auto py-5'>
             <div className="blog py-4">
-                {userBlogData?.map((item, i) => (
-                    <React.Fragment key={i}>
+                {filterData &&
+                    <div>
                         <div className="blogImg flex justify-center">
-                            <img src={item?.image?.URL} alt="" />
+                            <img src={filterData?.image?.URL} alt={filterData?.alt} />
                         </div>
                         <div className="content p-4">
                             <div className="blogTitle text-center">
-                                <h3 className='text-3xl'>{item?.title}</h3>
+                                <h3 className='text-3xl'>{filterData?.title}</h3>
                             </div>
-                            <div className="date text-center py-2">{formatDate(item?.createdAt)}</div>
-                            <div className="desc">{item?.description}</div>
+                            <div className="date text-center py-2">| {formatDate(filterData?.createdAt)} |</div>
+                            <div className="desc">{filterData?.description}</div>
                         </div>
-                    </React.Fragment>
-                ))}
+                    </div>
+                }
             </div>
         </div>
     )
 }
 
-export default BlogInner
+export default BlogInner;

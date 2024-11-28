@@ -87,7 +87,7 @@ function Blogs() {
                                                         <p className="text-gray-900 whitespace-no-wrap">{formatDate(item?.createdAt)}</p>
                                                     </td>
                                                     <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
-                                                        <p className="text-gray-900 whitespace-no-wrap">{item?.description}</p>
+                                                        <p className="text-gray-900 whitespace-no-wrap">{item?.description.slice(0,80)}...</p>
                                                     </td>
                                                     <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                         <button onClick={() => DeleteBlog(item?._id)}
