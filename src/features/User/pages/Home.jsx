@@ -163,7 +163,7 @@ function Home() {
 
       {/* Why choose us section start  */}
       <section className="whyus py-5 flex justify-center items-center" style={{
-        backgroundImage: "url(https://img.freepik.com/free-vector/cute-watercolor-leaves-frame-with-watercolor-background_1361-3335.jpg?semt=ais_hybrid)",
+        backgroundImage: "url(./images/wcu.jpg)",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",

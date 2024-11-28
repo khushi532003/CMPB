@@ -7,7 +7,6 @@ function Blogs() {
 
     console.log(userBlogData);
 
-
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const options = { day: '2-digit', month: 'short', year: 'numeric' };
@@ -24,7 +23,7 @@ function Blogs() {
                 <h2 className="text-5xl sm:text-7xl">Blogs</h2>
                 <img src="../images/headingImg.png" alt="" className="w-64" />
             </div>
-            <div className="blogs grid grid-cols-2 gap-3 py-4 ">
+            <div className="blogs grid sm:grid-cols-2 grid-cols-1 gap-3 py-4 ">
                 {userBlogData?.map((item, i) => (
                     <React.Fragment key={i}>
                         <Link to={`/bloginner/${item?._id}`}>
@@ -43,11 +42,9 @@ function Blogs() {
                         </Link>
                     </React.Fragment>
                 ))}
-
-
             </div>
         </div>
     )
 }
 
-export default Blogs
+export default Blogs;

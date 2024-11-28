@@ -11,7 +11,6 @@ function Blogs() {
     const [addBlog, setAddBlog] = useState(false);
     const { token } = useAuthContext();
 
-    console.log(fetchBlogData);
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -87,7 +86,11 @@ function Blogs() {
                                                         <p className="text-gray-900 whitespace-no-wrap">{formatDate(item?.createdAt)}</p>
                                                     </td>
                                                     <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
-                                                        <p className="text-gray-900 whitespace-no-wrap">{item?.description}</p>
+                                                        <p className="text-gray-900 whitespace-no-wrap">
+                                                            {item?.description?.length > 10
+                                                                ? `${item.description.substring(0, 100)}...`
+                                                                : item?.description}
+                                                        </p>
                                                     </td>
                                                     <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                         <button onClick={() => DeleteBlog(item?._id)}
