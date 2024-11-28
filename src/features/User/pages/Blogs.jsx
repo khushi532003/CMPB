@@ -35,7 +35,7 @@ function Blogs() {
                                     <div className="blogTitle text-center">
                                         <h3 className='text-3xl'>{item?.title}</h3>
                                     </div>
-                                    <div className="date text-center py-2">{formatDate(item?.createdAt)}</div>
+                                    <div className="date text-center py-2"> | {formatDate(item?.createdAt)} | </div>
                                     <div className="desc">{item?.description.slice(0,240)}...</div>
                                 </div>
                             </div>

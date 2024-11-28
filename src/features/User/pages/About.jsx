@@ -13,7 +13,6 @@ function About() {
       <section className="about py-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pe-4">
           <div className="aboutImg bg-cover h-[350px] sm:h-[500px] bg-right rounded-r-3xl w-[80%]" style={{ backgroundImage: "url(./images/aboutImg.webp)" }}>
-
           </div>
           <div className="aboutContent flex flex-col justify-center ps-5 sm:ps-0">
             <h2 className='text-7xl ps-10'>About Us</h2>
@@ -31,7 +30,6 @@ function About() {
           <h2 className="text-5xl sm:text-7xl">Why Choose Us</h2>
           <img src="../images/headingImg.png" alt="" className="w-64" />
         </div>
-
         <div className="reasons py-5 w-[90%] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 ">
             <div className="reason mx-auto  rounded-full border-2 px-4 border-yellow-500 w-60 flex justify-center items-center h-60 text-center bg-[#bb1904ad] text-white">

@@ -77,7 +77,7 @@ function Navbar() {
                 <div className="flex items-center justify-between h-full">
                     <Link to="/">
                         <div className="logo">
-                            <img src={scrolling ? "./images/CMPB-White.png" : "./images/logo.png"} alt="logo" className={`transition-all duration-500 ${scrolling ? 'h-14' : 'h-20'}`} />
+                            <img src={scrolling ? "./images/logo.png" : "./images/logo.png"} alt="logo" className={`transition-all duration-500 ${scrolling ? 'h-16' : 'h-20'}`} />
                         </div>
                     </Link>
                     <ul className={`hidden md:flex items-center space-x-4 ${scrolling ? 'text-white' : 'text-gray-800'}`}>
