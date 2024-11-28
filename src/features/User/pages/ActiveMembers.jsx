@@ -6,10 +6,7 @@ import { Link } from 'react-router-dom';
 function ActiveMembers() {
     const { activeUser, GetActiveMembers, loader } = useMembersContext();
     const [filteredUsers, setFilteredUsers] = useState(activeUser);
-    const { member, token } = useAuthContext();
-
-
-
+    const { member, token } = useAuthContext();    
     const [ageFrom, setAgeFrom] = useState('');
     const [ageTo, setAgeTo] = useState('');
     const [memberId, setMemberId] = useState('');
@@ -22,8 +19,8 @@ function ActiveMembers() {
     const [country, setCountry] = useState('');
     const [state, setState] = useState('');
     const [city, setCity] = useState('');
-
-
+    console.log(activeUser);
+    
 
     const applyFilter = () => {
         let filtered = activeUser;
@@ -119,6 +116,8 @@ function ActiveMembers() {
                                         <option value="">Select</option>
                                         <option>Unmarried</option>
                                         <option>Married</option>
+                                        <option>Divorce</option>
+                                        <option>Widow</option>
                                     </select>
                                 </div>
                             </div>
@@ -130,29 +129,30 @@ function ActiveMembers() {
                                         <option value="">Select</option>
                                         <option>Hindu</option>
                                         <option>Sikh</option>
+                                        <option>Muslim</option>
                                     </select>
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 py-2">
                                 <div>
                                     <label className="" htmlFor="passwordConfirmation">Caste</label>
-                                    <select value={caste}
-                                        onChange={(e) => setCaste(e.target.value)} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]">
-                                        <option value="">Select</option>
-                                        <option>Sharma</option>
-                                        <option>Kumar</option>
-                                    </select>
+                                    <input
+                                        type="text"
+                                        value={caste}
+                                        onChange={(e) => setCaste(e.target.value)}
+                                        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300"
+                                    />
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 py-2">
                                 <div>
-                                    <label className="" htmlFor="passwordConfirmation">Sub Caste</label>
-                                    <select value={subCaste}
-                                        onChange={(e) => setSubCaste(e.target.value)} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]">
-                                        <option value="">Select</option>
-                                        <option>Sharma</option>
-                                        <option>Kumar</option>
-                                    </select>
+                                    <label className="" htmlFor="passwordConfirmation">Sub Caste</label>                                   
+                                    <input
+                                        type="text"
+                                        value={subCaste}
+                                        onChange={(e) => setSubCaste(e.target.value)}
+                                        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300"
+                                    />
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 py-2">
@@ -175,35 +175,37 @@ function ActiveMembers() {
                             </div>
                             <div className="grid grid-cols-1 py-2">
                                 <div>
-                                    <label className="" htmlFor="passwordConfirmation">Country</label>
-                                    <select value={country}
-                                        onChange={(e) => setCountry(e.target.value)} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]">
-                                        <option value="">Select</option>
-                                        <option>India</option>
-                                        <option>Europe</option>
-                                    </select>
+                                    <label className="" htmlFor="passwordConfirmation">Country</label>                                   
+                                    <input
+                                        type="text"
+                                        value={country}
+                                        onChange={(e) => setCountry(e.target.value)}
+                                        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300"
+                                    />
+                                    
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 py-2">
                                 <div>
-                                    <label className="" htmlFor="passwordConfirmation">State</label>
-                                    <select value={state}
-                                        onChange={(e) => setState(e.target.value)} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]">
-                                        <option value="">Select</option>
-                                        <option>Delhi</option>
-                                        <option>Mumbai</option>
-                                    </select>
+                                    <label className="" htmlFor="passwordConfirmation">State</label>                                   
+                                    <input
+                                        type="text"
+                                        value={state}
+                                        onChange={(e) => setState(e.target.value)}
+                                        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300"
+                                    />
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 py-2">
                                 <div>
                                     <label className="" htmlFor="passwordConfirmation">City</label>
-                                    <select value={city}
-                                        onChange={(e) => setCity(e.target.value)} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]">
-                                        <option value="">Select</option>
-                                        <option>Hindi</option>
-                                        <option>English</option>
-                                    </select>
+                                   
+                                    <input
+                                        type="text"
+                                        value={city}
+                                        onChange={(e) => setCity(e.target.value)}
+                                        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300"
+                                    />
                                 </div>
                             </div>
                             <div className="w-full mt-6">

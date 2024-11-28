@@ -8,8 +8,8 @@ function MemberProfile() {
     const [openIndex, setOpenIndex] = useState(null);
     const { GetActiveUserById, userDetails, GetActiveMembers } = useMembersContext()
     const { id } = useParams()
-
-
+    console.log(userDetails);
+    
     const toggleAccordion = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };
@@ -17,7 +17,6 @@ function MemberProfile() {
     useEffect(() => {
         GetActiveMembers()
     }, [])
-
 
     useEffect(() => {
         if (id) {
@@ -61,6 +60,10 @@ function MemberProfile() {
                                             <li><strong>Date of birth : </strong> {userDetails?.User?.DOB}</li>
                                             <li><strong>Gender : </strong> {userDetails?.User?.gender}</li>
                                         </div>
+                                        <div className="flex justify-between gap-10 py-3">
+                                            <li><strong>Email ID : </strong> {userDetails?.User?.email}</li>
+                                            <li><strong>Mobile No. : </strong> {userDetails?.User?.phone}</li>
+                                        </div>
                                     </ul>}
                                 </div>
                             </Accordian>
@@ -73,11 +76,9 @@ function MemberProfile() {
                                             <li><strong>City : </strong> {userDetails?.addressDetails.City}</li>
                                         </div>
                                         <div className="flex justify-between gap-10 py-3">
-
                                             <li><strong>State : </strong> {userDetails?.addressDetails.State}</li>
                                             <li><strong>Pin code : </strong>{userDetails?.addressDetails.Pincode}</li>
                                         </div>
-
                                     </ul>}
                                 </div>
                             </Accordian>
@@ -199,12 +200,10 @@ function MemberProfile() {
                                 <div className="text-sm">
                                     {userDetails?.backgroundDetails && <ul>
                                         <div className="flex justify-between gap-10 py-3">
-
                                             <li><strong>Caste : </strong> {userDetails?.backgroundDetails.Caste}</li>
                                             <li><strong>Sub Cast : </strong> {userDetails?.backgroundDetails.SubCast}</li>
                                         </div>
                                         <div className="flex justify-between gap-10 py-3">
-
                                             <li><strong>Self Worth : </strong> {userDetails?.backgroundDetails.SelfWorth}</li>
                                             <li><strong>Family Worth : </strong> {userDetails?.backgroundDetails.FamilyWorth}</li>
                                         </div>
@@ -264,7 +263,6 @@ function MemberProfile() {
                                     </ul>}
                                 </div>
                             </Accordian>
-
                         </div>
                     </div>
                 </div>
@@ -273,4 +271,4 @@ function MemberProfile() {
     )
 }
 
-export default MemberProfile
+export default MemberProfile;
