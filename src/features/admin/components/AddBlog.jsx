@@ -38,6 +38,12 @@ function AddBlog({ onClose }) {
             setErrors({ image: "Selected file is not an image." });
             return;
         }
+        if (imageFile.size > 500 * 1024) {
+            setErrors((prevErrors) => ({ ...prevErrors, image: "Image size should not exceed 500 KB" }));
+            return;
+        } else {
+            setErrors((prevErrors) => ({ ...prevErrors, image: "" }));
+        }
         const imageUrl = URL.createObjectURL(imageFile);
         setImage(imageUrl);
         setAddBlogData({ ...addBlogData, image: imageFile });
@@ -71,6 +77,7 @@ function AddBlog({ onClose }) {
             setAddBlogData(resetBlogData);
             setImage(null);
             if (fileInputRef.current) fileInputRef.current.value = "";
+            await onClose();
         } catch (error) {
             console.error("Failed to add blog:", error);
         }

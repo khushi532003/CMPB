@@ -7,6 +7,7 @@ export const HappyStoryContext = createContext();
 const HappyStoryContextProvider = ({ children }) => {
     const [happyStoryData, sethappyStoryData] = useState();
     const [loader, setLoader] = useState(false);
+    const [disable, setDisable] = useState(false);
 
     const GetHappyStory = async () => {
         setLoader(true)
@@ -22,18 +23,21 @@ const HappyStoryContextProvider = ({ children }) => {
 
 
     const CreateHappyStory = async (data) => {
+        setDisable(true);
         try {
             const res = await AxiosHandler.post("/happystories/create", data)
             GetHappyStory();
             toast.success("Happy Story Created Successfully");
-            window.location.href = "/happy_stories";
         } catch (error) {
             console.log(error)
             toast.error("Happy Story Created Failed ")
+        } finally {
+            setDisable(false);
         }
     }
 
     const DeleteHappyStory = async (id) => {
+        setDisable(true);
         try {
             const res = await AxiosHandler.delete(`/happystories/delete/${id}`)
             GetHappyStory();
@@ -41,6 +45,8 @@ const HappyStoryContextProvider = ({ children }) => {
         } catch (error) {
             console.log("Story delete failed");
             toast.error("Story Deleted");
+        } finally {
+            setDisable(false);
         }
     }
 
