@@ -32,7 +32,6 @@ const BlogContextProvider = ({ children }) => {
             const res = await AxiosHandler.post("/blog/create", data);
             GetBlog();
             toast.success("Blog Created Successfully");
-            window.location.href = "/blogs";
             console.log(res?.data);
         } catch (error) {
             console.log(error);
