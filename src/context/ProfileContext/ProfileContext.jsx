@@ -9,8 +9,6 @@ function ProfileContextProvider({ children }) {
     const [loader, setLoader] = useState(false);
     const [packagePurchaseData, setPackagePurchaseData] = useState(null);
 
-
-
     const GetProfile = async () => {
         setLoader(true);
         try {
@@ -26,7 +24,6 @@ function ProfileContextProvider({ children }) {
         }
     };
 
-
     const Create = async (api, data) => {
         try {
             const res = await AxiosHandler.post(api, data)
@@ -36,7 +33,6 @@ function ProfileContextProvider({ children }) {
             console.log(error)
             toast.error(error?.response?.data?.[0]?.message || "Created Data Error")
         }
-
     }
 
     const Update = async (api, data) => {
@@ -49,7 +45,6 @@ function ProfileContextProvider({ children }) {
             toast.error(error?.response?.data?.[0]?.message || "Update data error")
         }
     }
-
 
     return (
         <ProfileContext.Provider value={{ profile, packagePurchaseData, setProfile, Create, Update, GetProfile, loader }} >

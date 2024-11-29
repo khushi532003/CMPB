@@ -9,7 +9,6 @@ const MemberContextProvider = ({ children }) => {
     const [userDetails, setUserDetails] = useState({});
     const [loader, setLoader] = useState(false);
 
-
     const GetActiveMembers = async () => {
         setLoader(true)
         try {
@@ -33,7 +32,6 @@ const MemberContextProvider = ({ children }) => {
             setLoader(false);
         }
     }
-
 
     return (
         <MemberContext.Provider value={{ activeUser, loader, GetActiveMembers, GetActiveUserById, userDetails }}>

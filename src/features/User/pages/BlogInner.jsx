@@ -1,12 +1,13 @@
 import { useBlogUserContext } from '@/context';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import HTMLReactParser from 'html-react-parser';
+import DOMPurify from 'dompurify';
 
 function BlogInner() {
     const { userBlogData, GetUserBlog } = useBlogUserContext();
     const [filterData, setFilterData] = useState(null);
     const { id } = useParams();
-    console.log(filterData)
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -15,36 +16,47 @@ function BlogInner() {
     };
 
     useEffect(() => {
-        const filterBlog = userBlogData.filter((item) => (
+        const filterBlog = userBlogData?.filter((item) => (
             item?._id === id
-        ))[0]
-        setFilterData(filterBlog)
-    }, [userBlogData])
+        ))[0];
+        setFilterData(filterBlog);
+    }, [userBlogData, id]);
 
     useEffect(() => {
         GetUserBlog();
     }, []);
 
+    // Sanitize and parse the description if available
+    const sanitizedDescription = filterData?.description
+        ? DOMPurify.sanitize(filterData?.description, {
+            ALLOWED_TAGS: ["b", "i", "em", "strong", "a", "p", "ul", "ol", "li", "br"],
+            ALLOWED_ATTR: ["href", "target", "rel"],
+        })
+        : "No description available";
+
     return (
         <div className='w-[80%] mx-auto py-5'>
             <div className="blog py-4">
-                {filterData &&
+                {filterData && (
                     <div>
                         <div className="blogImg flex justify-center">
-                            <img src={filterData?.image?.URL} alt={filterData?.alt} />
+                            <img src={filterData?.image?.URL} alt={filterData?.alt || "Blog Image"} />
                         </div>
                         <div className="content p-4">
                             <div className="blogTitle text-center">
-                                <h3 className='text-3xl'>{filterData?.title}</h3>
+                                <h3 className='text-3xl'>{filterData?.title || "Untitled"}</h3>
                             </div>
-                            <div className="date text-center py-2">| {formatDate(filterData?.createdAt)} |</div>
-                            <div className="desc">{filterData?.description}</div>
+                            <div className="date text-center py-2"> | {formatDate(filterData?.createdAt)} | </div>
+                            <div className="desc">
+                                {/* Apply HTMLReactParser to render sanitized HTML */}
+                                {HTMLReactParser(sanitizedDescription) || "No description available"}
+                            </div>
                         </div>
                     </div>
-                }
+                )}
             </div>
         </div>
-    )
+    );
 }
 
 export default BlogInner;
