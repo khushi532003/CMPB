@@ -11,7 +11,7 @@ function Contact() {
     const { createContact } = useContactContext();
 
     const validation = yup.object({
-        name: yup.string().required("name is required"),
+        name: yup.string().required("Name is required"),
         phone: yup.string().min(10).max(12).required("Phone Number is required"),
         email: yup.string().email().required("Email is required"),
         message: yup.string().required("Message is required"),
