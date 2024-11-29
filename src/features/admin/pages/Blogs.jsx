@@ -5,6 +5,7 @@ import { GoPlus } from 'react-icons/go';
 import { FaTrash } from 'react-icons/fa';
 import { useBlogContext } from '@/AdminContext';
 import { useAuthContext } from '@/context';
+import HTMLReactParser from 'html-react-parser';
 
 function Blogs() {
     const { fetchBlogData, DeleteBlog, GetBlog, loader } = useBlogContext();
@@ -85,13 +86,13 @@ function Blogs() {
                                                     <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                         <p className="text-gray-900 whitespace-no-wrap">{formatDate(item?.createdAt)}</p>
                                                     </td>
-                                                    <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
-                                                        <p className="text-gray-900 whitespace-no-wrap">
-                                                            {item?.description?.length > 10
-                                                                ? `${item.description.substring(0, 100)}...`
-                                                                : item?.description}
-                                                        </p>
-                                                    </td>
+                                                    {item?.description ?
+                                                        (item.description.length > 100
+                                                            ? `${item.description.substring(0, 100)}...`
+                                                            : item.description)
+                                                        : "No description available"}
+
+
                                                     <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                         <button onClick={() => DeleteBlog(item?._id)}
                                                             className="cursor-pointer bg-RedTheme rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">

@@ -88,7 +88,7 @@ function AddBlog({ onClose }) {
     };
 
     const handleEditorChange = (newContent) => {
-        setContent(newContent.replace(/<\/?[^>]+(>|$)/g, ""));
+        setContent(newContent);
     };
 
     const editorConfig = useMemo(() => ({
