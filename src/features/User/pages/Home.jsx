@@ -7,12 +7,14 @@ import { useAuthContext, useChurayePalContext, usePackageContext } from '@/conte
 import { AxiosHandler } from '@/config/Axios.config';
 import { toast } from 'react-toastify';
 import Loader from '@/constant/loader';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
 
   const { programme, GetProgramme, GetPackage, packageData } = usePackageContext();
   const { videoURLData } = useChurayePalContext();
   const { token, member, loader } = useAuthContext();
+  const navigate = useNavigate();
 
   const MemberID = localStorage.getItem("MemberID");
 
@@ -96,7 +98,7 @@ function Home() {
       }
     } catch (error) {
       console.log(error);
-      toast.error(error?.response?.data?.message || "UserId Already  exist ")
+      toast.error(error?.response?.data?.message === "Invalid Token or Token exipre" ? navigate("/login") : error?.response?.data?.message);
     }
   }
 

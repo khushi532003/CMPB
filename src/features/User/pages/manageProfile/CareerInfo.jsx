@@ -108,7 +108,8 @@ function CareerInfo({ data }) {
                                 <input
                                     id="end-date"
                                     name="end"
-                                    type="date"
+                                    placeholder='end date'
+                                    type="text"
                                     value={values.end}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
