@@ -3,6 +3,7 @@ import Login from "@/authPages/Login";
 import Register from "@/authPages/Register";
 import VerifyOtp from "@/authPages/VerifyOtp";
 import NewPassword from "@/authPages/NewPassword";
+import VerifyAccount from "@/authPages/VerifyAccount";
 
 export const AuthRoutes = [
     {
@@ -20,6 +21,10 @@ export const AuthRoutes = [
     {
         path: "/verify_otp",
         element: <VerifyOtp />
+    },
+    {
+        path: "/verify_account",
+        element: <VerifyAccount />
     },
     {
         path: "/new_password",

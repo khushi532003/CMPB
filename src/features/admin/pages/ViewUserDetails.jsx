@@ -55,6 +55,10 @@ function ViewUserDetails() {
                                             <li><strong>Date of birth : </strong> {userDetails?.profileDetails?.User?.DOB}</li>
                                             <li><strong>Gender : </strong> {userDetails?.profileDetails?.User?.gender}</li>
                                         </div>
+                                        <div className="flex justify-between gap-10 py-3">
+                                            <li><strong>Email ID : </strong> {userDetails?.profileDetails?.User?.email}</li>
+                                            <li><strong>Mobile No. : </strong> {userDetails?.profileDetails?.User?.phone}</li>
+                                        </div>
                                     </ul>}
                                 </div>
                             </Accordian>
