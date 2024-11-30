@@ -65,7 +65,7 @@ function Footer() {
                                     <h4 className="mb-3 text-sm tracking-widest text-gray-900 uppercase font-semibold">Contact us</h4>
                                     <nav className="mb-10 list-none">
                                         <li className="mt-3">
-                                            <Link to="tel:9870101514" className="text-gray-500 flex gap-2 items-center cursor-pointer hover:text-gray-900"><IoMdCall /> + 91 9870101514</Link>
+                                            <Link to="tel:01169888888" className="text-gray-500 flex gap-2 items-center cursor-pointer hover:text-gray-900"><IoMdCall />+ 011 69888888</Link>
                                         </li>
                                         <li className="mt-3">
                                             <Link to="mailto:chatmangnipatbyahteam@gmail.com" className="text-gray-500 cursor-pointer flex gap-2 items-center hover:text-gray-900"><IoMdMail />chatmangnipatbyahteam@gmail.com</Link>

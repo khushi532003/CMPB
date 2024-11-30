@@ -7,6 +7,11 @@ import React, { useState } from "react";
 function PresentAddress({ data }) {
     const { Create, Update } = useProfileContext();
     const [loader, setLoader] = useState(false);
+    const [selectedState, setSelectedState] = useState("");
+
+    const states = [
+        "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal",
+    ]
 
     const { values, errors, touched, handleSubmit, handleBlur, handleChange } = useFormik({
         initialValues: {
@@ -43,30 +48,51 @@ function PresentAddress({ data }) {
                 <div className="border-b border-gray-900/10 pb-12">
                     <h4 className="text-base font-semibold leading-7 text-gray-900">Present Address</h4>
                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+
                         <div className="sm:col-span-3">
-                            <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="Country" className="block text-sm font-medium leading-6 text-gray-900">
                                 Country
                             </label>
                             <div className="mt-2">
-                                <select
-                                    id="country"
+                                <input
+                                    id="Country"
                                     name="Country"
                                     value={values.Country}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                    placeholder="Country"
+                                    type="text"
+                                    autoComplete="address-level1"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                />
+                                {errors.Country && touched.Country && <p className="text-red-500 text-sm">{errors.Country}</p>}
+                            </div>
+                        </div>
+
+                      
+                        <div className="sm:col-span-3">
+                            <label htmlFor="State" className="block text-sm font-medium leading-6 text-gray-900">
+                                State
+                            </label>
+                            <div className="mt-2">
+                                <select
+                                    id="State"
+                                    name="State"
+                                    value={values.State}
                                     onBlur={handleBlur}
                                     onChange={handleChange}
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
                                     <option value={""}>select</option>
-                                    <option>India</option>
-                                    <option>USA</option>
-                                    <option>UK</option>
+                                    {states.map((state, index) => (
+                                        <option key={index}>{state}</option>
+                                    ))}
                                 </select>
-                                {errors.Country && touched.Country && <p className="text-red-500 text-sm">{errors.Country}</p>}
+                                {errors.State && touched.State && <p className="text-red-500 text-sm">{errors.State}</p>}
                             </div>
                         </div>
 
-
-                        <div className="sm:col-span-2 sm:col-start-1">
+                        <div className="sm:col-span-3 sm:col-start-1">
                             <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
                                 City
                             </label>
@@ -86,29 +112,9 @@ function PresentAddress({ data }) {
                             </div>
                         </div>
 
-                        <div className="sm:col-span-2">
-                            <label htmlFor="state" className="block text-sm font-medium leading-6 text-gray-900">
-                                State
-                            </label>
-                            <div className="mt-2">
-                                <input
-                                    id="state"
-                                    name="State"
-                                    value={values.State}
-                                    onBlur={handleBlur}
-                                    onChange={handleChange}
-                                    placeholder="state"
-                                    type="text"
-                                    autoComplete="address-level1"
-                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                />
-                                {errors.State && touched.State && <p className="text-red-500 text-sm">{errors.State}</p>}
-                            </div>
-                        </div>
-
-                        <div className="sm:col-span-2">
+                        <div className="sm:col-span-3">
                             <label htmlFor="pin-code" className="block text-sm font-medium leading-6 text-gray-900">
-                                pin code
+                                Pin code
                             </label>
                             <div className="mt-2">
                                 <input

@@ -11,7 +11,9 @@ export const BasicDetailsSchema = yup.object({
     DOB: yup.string().trim().required("DOB is required"),
     firstName: yup.string().trim().required("firstName is required"),
     gender: yup.string().trim().required("gender is required"),
-    lastName: yup.string().trim().required("lastName is required")
+    lastName: yup.string().trim().required("lastName is required"),
+    email: yup.string().trim().required("Email is required"),
+    phone: yup.number().required("Phone is required")
 })
 
 export const CareerInfoSchema = yup.object({
