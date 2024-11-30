@@ -9,6 +9,7 @@ import React, { useState } from 'react';
 function PartnerExpection({ data }) {
     const { Create, Update } = useProfileContext();
     const [loader, setLoader] = useState(false);
+    const [FieldValue, setFieldValue] = useState();
 
     const { values, errors, touched, handleBlur, handleSubmit, handleChange } = useFormik({
         initialValues: {
@@ -40,7 +41,7 @@ function PartnerExpection({ data }) {
             setLoader(true);
             try {
                 if (!data) {
-                    
+
                     await Create("/profile/partnerexpectation/create", value)
                 } else {
                     await Update("/profile/partnerexpectation/update", value)
@@ -143,7 +144,8 @@ function PartnerExpection({ data }) {
                                 {errors.weight && touched.weight && <p className='text-red-500 text-sm'>{errors.weight}</p>}
                             </div>
                         </div>
-                        <div className="sm:col-span-3">
+
+                        {/* <div className="sm:col-span-3">
                             <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
                                 Marital Status
                             </label>
@@ -161,9 +163,63 @@ function PartnerExpection({ data }) {
                                 />
                                 {errors.MaritalStatus && touched.MaritalStatus && <p className='text-red-500 text-sm'>{errors.MaritalStatus}</p>}
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="sm:col-span-3">
+                            <label htmlFor="MaritalStatus" className="block text-sm font-medium leading-6 text-gray-900">
+                                Marital Status
+                            </label>
+                            <div className="mt-2">
+                                <select
+                                    id="MaritalStatus"
+                                    name="MaritalStatus"
+                                    value={values.MaritalStatus}
+                                    onChange={(e) => {
+                                        handleChange(e);
+                                        setFieldValue("MaritalStatus", e.target.value);
+                                    }}
+                                    onBlur={handleBlur}
+                                    autoComplete="country-name"
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                >
+                                    <option value="">Select</option>
+                                    <option value="Unmarried">Unmarried</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Married">divorced</option>
+                                    <option value="Married">widow</option>
+                                </select>
+                                {errors.MaritalStatus && touched.MaritalStatus && (
+                                    <span className="text-red-500">{errors.MaritalStatus}</span>
+                                )}
+                            </div>
+                        </div>
+
+                        {values.MaritalStatus === "Married" && (
+                            <div className="sm:col-span-3">
+                                <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
+                                    Children
+                                </label>
+                                <div className="mt-2">
+                                    <select
+                                        id="country"
+                                        name="Children"
+                                        value={values.Children}
+                                        onBlur={handleBlur}
+                                        onChange={handleChange}
+                                        autoComplete="country-name"
+                                        className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    >
+                                        <option value={""}>Select</option>
+                                        <option value={true}>Yes</option>
+                                        <option value={false}>No</option>
+                                    </select>
+                                    {errors.Children && touched.Children && <p className='text-red-500 text-sm'>{errors.Children}</p>}
+                                </div>
+                            </div>
+                        )}
+
+
+                        {/* <div className="sm:col-span-3">
                             <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
                                 Children
                             </label>
@@ -183,7 +239,8 @@ function PartnerExpection({ data }) {
                                 </select>
                                 {errors.Children && touched.Children && <p className='text-red-500 text-sm'>{errors.Children}</p>}
                             </div>
-                        </div>
+                        </div> */}
+
                         <div className="sm:col-span-3">
                             <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
                                 Religion
