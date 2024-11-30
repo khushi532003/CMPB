@@ -8,10 +8,13 @@ function Navbar() {
     const [scrolling, setScrolling] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [sideBarToggle, setSidebarToggle] = useState(false);
-    const { token, Logout, deactivateAccount, name } = useAuthContext();
+    const { token, Logout, deactivateAccount, name, userGender } = useAuthContext();
     const navigate = useNavigate();
     const [showConfirm, setShowConfirm] = useState(false);
     const [ProfileImage, setProfileImage] = useState(localStorage.getItem("ProfileImage"));
+    console.log(userGender);
+    
+  
 
     const handleCancel = () => {
         setShowConfirm(false);
@@ -36,7 +39,7 @@ function Navbar() {
         <div>
             <div className="topbar flex justify-between text-xs sm:text-sm z-50 items-center bg-RedTheme text-[#f9e4e9] py-2 px-2">
                 <div className="flex gap-2">
-                    <Link to="tel:9870101514"><p className='border-r-2 border-white pe-2'>+91 9870101514</p></Link>
+                    <Link to="tel:01169888888"><p className='border-r-2 border-white pe-2'>+ 011 69888888</p></Link>
                     <Link to="mailto:chatmangnipatbyahteam@gmail.com"><p>chatmangnipatbyahteam@gmail.com</p></Link>
                 </div>
             </div>
@@ -87,8 +90,11 @@ function Navbar() {
                         <li><Link to="/blogs" onClick={() => handleLinkClick('/blogs')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Blogs</Link></li>
                         <li><Link to="/contact" onClick={() => handleLinkClick('/contact')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Contact Us</Link></li>
                         {token ? (
-                            <li onClick={() => setSidebarToggle(true)} className='text-center cursor-pointer flex gap-2 items-center'>
-                                <img src={ProfileImage} alt="profile" className='w-7 h-7 rounded-full' />
+                            <li onClick={() => setSidebarToggle(true)} className='text-center cursor-pointer flex gap-2 items-center'>                                                            
+                                <img src={ProfileImage || (userGender === "male" ? "https://media.istockphoto.com/id/517998264/vector/male-user-icon.jpg?s=170667a&w=0&k=20&c=ZUf0DE14mBsbtgTvNdhDB1uzey9CK2BJlhhMhfFftB8="
+                                    : userGender === "female"
+                                        ? "https://png.pngitem.com/pimgs/s/618-6183618_transparent-unknown-person-png-transparent-background-female-user.png"
+                                        : "https://example.com/default-image.png" )} alt="profile" className='w-7 h-7 rounded-full' />
                                 <span className='text-sm font-medium text-center'>{name}</span>
                             </li>
                         ) : (

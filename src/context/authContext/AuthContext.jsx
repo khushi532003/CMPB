@@ -11,6 +11,7 @@ function AuthContextProvider({ children }) {
     const [role, setRole] = useState(Cookies.get("UserRole"));
     const [name, setName] = useState(Cookies.get("Username"));
     const [member, setMember] = useState(Cookies.get("Member"));
+    const [userGender, setUserGender] = useState(Cookies.get("Gender"));
     const [forgetEmail, setForgetEmail] = useState(null);
     const [OTPverify, setOTPVerify] = useState(null);
     const [packagePaymentData, setPackagePaymentData] = useState({})
@@ -42,10 +43,12 @@ function AuthContextProvider({ children }) {
             Cookies.set("CMPB_TOKEN", res.data.token);
             Cookies.set("UserRole", res.data.role);
             Cookies.set("Username", res.data.firstName);
+            Cookies.set("Gender", res.data.gender);
             Cookies.set("Member", res?.data?.RegisterPackage?.PremiumMember);
             setToken(res.data.token);
             setPackagePaymentData(res?.data);
             setRole(res.data.role);
+            setUserGender(res.data.gender);            
             setName(res.data.firstName);
             setMember(res?.data?.RegisterPackage?.PremiumMember);
             localStorage.setItem("MemberID", res?.data?.MemberID);
@@ -170,7 +173,8 @@ function AuthContextProvider({ children }) {
                 deactivateAccount,
                 changePassword,
                 name,
-                Registered
+                Registered,
+                userGender
             }}
         >
             {children}

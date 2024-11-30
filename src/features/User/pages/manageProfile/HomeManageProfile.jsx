@@ -75,9 +75,14 @@ function HomeManageProfile() {
 
                 <div className="filter sm:block w-full sm:w-[30%] border border-red-100 p-4">
                     <div className="relative flex items-center justify-center text-center">
+                        
                         <img
                             className="rounded-full object-cover w-52 h-52"
-                            src={profile?.user?.profileImage?.ImageURL || "https://thumbs.dreamstime.com/z/vinayagar-images-ai-hd-photo-2023-289916691.jpg"}
+                            src={profile?.user?.profileImage?.ImageURL || (profile?.user?.gender === "male"
+                                ? "https://media.istockphoto.com/id/517998264/vector/male-user-icon.jpg?s=170667a&w=0&k=20&c=ZUf0DE14mBsbtgTvNdhDB1uzey9CK2BJlhhMhfFftB8="
+                                : profile?.user?.gender === "female"
+                                    ? "https://png.pngitem.com/pimgs/s/618-6183618_transparent-unknown-person-png-transparent-background-female-user.png"
+                                    : "https://example.com/default-image.png")}
                             alt="profile"
                         />
                         <div className="absolute text-2xl bottom-5 right-20 cursor-pointer ">

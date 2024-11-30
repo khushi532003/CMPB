@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -8,15 +8,19 @@ import { AxiosHandler } from '@/config/Axios.config';
 import { toast } from 'react-toastify';
 import Loader from '@/constant/loader';
 import { useNavigate } from 'react-router-dom';
+import EventModal from '../components/EventModal';
 
 function Home() {
 
   const { programme, GetProgramme, GetPackage, packageData } = usePackageContext();
   const { videoURLData } = useChurayePalContext();
   const { token, member, loader } = useAuthContext();
-  const navigate = useNavigate();
+  const [modal, setModal] = useState(false);
+  const navigate = useNavigate()
 
   const MemberID = localStorage.getItem("MemberID");
+
+  
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
@@ -29,6 +33,7 @@ function Home() {
   }
 
   const handlePayment = async (e,) => {
+    navigate("/verify_account")
 
     try {
       let res
@@ -102,15 +107,16 @@ function Home() {
     }
   }
 
+  useEffect(() => {
+      const timer = setTimeout(() => {
+        setModal(true); 
+      }, 5000);
+      return () => clearTimeout(timer);
 
+  }, []); 
 
   useEffect(() => {
-    if (token) {
-      loadRazorpayScript();
-    }
-  }, [token])
-
-  useEffect(() => {
+    loadRazorpayScript();
     GetProgramme();
     GetPackage();
   }, [])
@@ -118,6 +124,8 @@ function Home() {
 
   return (
     <div>
+
+      {modal ? <EventModal onClose={() => setModal(false)} /> : ""}
 
       {/* Banner section start  */}
       <section className="mainBanner">
@@ -316,8 +324,9 @@ function Home() {
             <div className="px-2">
               <div className='flex flex-col justify-center h-full'>
                 <h3 className="text-2xl sm:text-3xl font-semibold py-3">Fix Meeting</h3>
-                <p className="text-sm">We will also arrange a personal meeting with Shri Paras Bhai Guruji, where you’ll have the opportunity to discuss your life goals and aspirations.</p>
+                <p className="text-sm"> Here we fixed a personal meeting with Shri Paras Bhai Guruji where he will verify your Kundali and discuss your life goals and aspirations.</p>
               </div>
+              
             </div>
           </div>
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
@@ -342,7 +351,7 @@ function Home() {
       {/* Process section end  */}
 
       {/* Packages section start  */}
-      <section className="packages py-5">
+      <section className="packages py-5" id='packages'>
         <div className="block md:flex  justify-between gap-3 px-3 items-center">
           <div className="themes w-full md:w-[60%]">
             <div className="grid grid-cols-1 sm:grid-cols-2  gap-14">

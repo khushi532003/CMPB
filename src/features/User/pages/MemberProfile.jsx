@@ -23,6 +23,7 @@ function MemberProfile() {
             GetActiveUserById(id)
         }
     }, [id])
+    
 
     return (
         <div>
