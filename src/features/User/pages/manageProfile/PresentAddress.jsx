@@ -18,7 +18,9 @@ function PresentAddress({ data }) {
             Country: data?.Country ? data?.Country : "",
             State: data?.State ? data?.State : "",
             City: data?.City ? data?.City : "",
-            Pincode: data?.Pincode ? data?.Pincode : ""
+            Pincode: data?.Pincode ? data?.Pincode : "",
+            ResidencyType: data?.ResidencyType ? data?.ResidencyType : "",
+            ResidencySince: data?.ResidencySince ? data?.ResidencySince : ""
         },
         enableReinitialize: true,
         validationSchema: PresentAddressSchema,
@@ -35,10 +37,8 @@ function PresentAddress({ data }) {
             } finally {
                 setLoader(false);
             }
-
         }
     })
-
 
 
     return (
@@ -48,6 +48,48 @@ function PresentAddress({ data }) {
                 <div className="border-b border-gray-900/10 pb-12">
                     <h4 className="text-base font-semibold leading-7 text-gray-900">Present Address</h4>
                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+
+                        <div className="sm:col-span-3">
+                            <label htmlFor="ResidencyType" className="block text-sm font-medium leading-6 text-gray-900">
+                                Residency Type
+                            </label>
+                            <div className="mt-2">
+                                <select
+                                    id="ResidencyType"
+                                    name="ResidencyType"
+                                    value={values.ResidencyType}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    autoComplete="country-name"
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                >
+                                    <option disabled>Select</option>
+                                    <option value="own">Own</option>
+                                    <option value="rented">Rented</option>
+                                </select>
+                                {errors.ResidencyType && touched.ResidencyType && <p className="text-red-500 text-xs">{errors.ResidencyType}</p>}
+                            </div>
+                        </div>
+
+                        <div className="sm:col-span-3">
+                            <label htmlFor="ResidencySince" className="block text-sm font-medium leading-6 text-gray-900">
+                                Residency Since in Years
+                            </label>
+                            <div className="mt-2">
+                                <input
+                                    id="ResidencySince"
+                                    name="ResidencySince"
+                                    value={values.ResidencySince}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                    placeholder="ResidencySince"
+                                    type="number"
+                                    // autoComplete="address-level1"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                />
+                                {errors.ResidencySince && touched.ResidencySince && <p className="text-red-500 text-xs">{errors.ResidencySince}</p>}
+                            </div>
+                        </div>
 
                         <div className="sm:col-span-3">
                             <label htmlFor="Country" className="block text-sm font-medium leading-6 text-gray-900">
@@ -65,11 +107,11 @@ function PresentAddress({ data }) {
                                     autoComplete="address-level1"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.Country && touched.Country && <p className="text-red-500 text-sm">{errors.Country}</p>}
+                                {errors.Country && touched.Country && <p className="text-red-500 text-xs">{errors.Country}</p>}
                             </div>
                         </div>
 
-                      
+
                         <div className="sm:col-span-3">
                             <label htmlFor="State" className="block text-sm font-medium leading-6 text-gray-900">
                                 State
@@ -88,7 +130,7 @@ function PresentAddress({ data }) {
                                         <option key={index}>{state}</option>
                                     ))}
                                 </select>
-                                {errors.State && touched.State && <p className="text-red-500 text-sm">{errors.State}</p>}
+                                {errors.State && touched.State && <p className="text-red-500 text-xs">{errors.State}</p>}
                             </div>
                         </div>
 
@@ -108,7 +150,7 @@ function PresentAddress({ data }) {
                                     autoComplete="address-level2"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.City && touched.City && <p className="text-red-500 text-sm">{errors.City}</p>}
+                                {errors.City && touched.City && <p className="text-red-500 text-xs">{errors.City}</p>}
                             </div>
                         </div>
 
@@ -128,7 +170,7 @@ function PresentAddress({ data }) {
                                     autoComplete="pin-code"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.Pincode && touched.Pincode && <p className="text-red-500 text-sm">{errors.Pincode}</p>}
+                                {errors.Pincode && touched.Pincode && <p className="text-red-500 text-xs">{errors.Pincode}</p>}
                             </div>
                         </div>
                     </div>

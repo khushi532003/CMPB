@@ -103,7 +103,7 @@ function AstronomicInfo({ data }) {
                         </div>
                         <div className="sm:col-span-3">
                             <label htmlFor="time-of-birth" className="block text-sm font-medium leading-6 text-gray-900">
-                                City of birth
+                                Place of birth
                             </label>
                             <div className="mt-2">
                                 <input
