@@ -4,10 +4,8 @@ export const RegisterValues = {
     firstName: "",
     lastName: "",
     phone: "",
-    gender: "",
     password: "",
     confirmPassword: "",
-    DOB: ""
 }
 
 

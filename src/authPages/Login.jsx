@@ -43,7 +43,7 @@ function Login() {
                             <h3 className='flex justify-center items-center mb-14 text-gray-500 font-bold text-5xl'>Login </h3>
 
                             <div className='mb-4'>
-                                <input className='w-full p-2  rounded-md outline-none border hover:border-red-400 focus:border-red-400' value={values.email} name='email' onChange={handleChange} onBlur={handleBlur} type="text" placeholder='email or phone' />
+                                <input className='w-full p-2  rounded-md outline-none border hover:border-red-400 focus:border-red-400' value={values.email} name='email' onChange={handleChange} onBlur={handleBlur} type="text" placeholder='Email or Phone' />
                                 {errors.email && touched.email && <p className='text-red-500 text-sm' >{errors.email}</p>}
                             </div>
 
@@ -68,7 +68,7 @@ function Login() {
                                 )}
                             </div>
 
-                            <p className='text-end font-semibold text-gray-500 mb-4'> <Link to="/forget_password" className="font-semibold text-blue-600 hover:underline ml-2 " > Forget password </Link></p>
+                            <p className='text-end font-semibold text-gray-500 mb-4'> <Link to="/forget_password" className="font-semibold text-blue-600 hover:underline ml-2 " > Forget password ? </Link></p>
 
                             <button type='submit' className='w-full p-2 bg-RedTheme hover:bg-red-800 duration-300 text-white rounded-md font-semibold items-center justify-center flex' disabled={loader} >{loader ? <Loader /> : "Login"}</button>
                         </form>
