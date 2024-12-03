@@ -66,12 +66,12 @@ function PartnerExpection({ data }) {
 
                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
                         <div className="sm:col-span-3">
-                            <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="GernalRequirement" className="block text-sm font-medium leading-6 text-gray-900">
                                 General Requirement
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="first-name"
+                                    id="GernalRequirement"
                                     name="GernalRequirement"
                                     value={values.GernalRequirement}
                                     onBlur={handleBlur}
@@ -81,17 +81,17 @@ function PartnerExpection({ data }) {
                                     placeholder='General Requirement'
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.GernalRequirement && touched.GernalRequirement && <p className='text-red-500 text-sm'>{errors.GernalRequirement}</p>}
+                                {errors.GernalRequirement && touched.GernalRequirement && <p className='text-red-500 text-xs'>{errors.GernalRequirement}</p>}
                             </div>
                         </div>
 
                         <div className="sm:col-span-3">
-                            <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="ResidenceCountry" className="block text-sm font-medium leading-6 text-gray-900">
                                 Residence Country
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="last-name"
+                                    id="ResidenceCountry"
                                     name="ResidenceCountry"
                                     value={values.ResidenceCountry}
                                     onBlur={handleBlur}
@@ -101,37 +101,37 @@ function PartnerExpection({ data }) {
                                     placeholder='Residence Country'
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.ResidenceCountry && touched.ResidenceCountry && <p className='text-red-500 text-sm'>{errors.ResidenceCountry}</p>}
+                                {errors.ResidenceCountry && touched.ResidenceCountry && <p className='text-red-500 text-xs'>{errors.ResidenceCountry}</p>}
                             </div>
                         </div>
 
                         <div className="sm:col-span-3">
-                            <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="Height" className="block text-sm font-medium leading-6 text-gray-900">
                                 Height
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="date"
+                                    id="Height"
                                     name="Height"
                                     value={values.Height}
                                     onBlur={handleBlur}
                                     onChange={handleChange}
                                     type="number"
-                                    autoComplete="email"
+                                    autoComplete="Height"
                                     placeholder='Height'
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.Height && touched.Height && <p className='text-red-500 text-sm'>{errors.Height}</p>}
+                                {errors.Height && touched.Height && <p className='text-red-500 text-xs'>{errors.Height}</p>}
                             </div>
                         </div>
 
                         <div className="sm:col-span-3">
-                            <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="weight" className="block text-sm font-medium leading-6 text-gray-900">
                                 Weight
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="date"
+                                    id="weight"
                                     name="weight"
                                     value={values.weight}
                                     onBlur={handleBlur}
@@ -141,29 +141,9 @@ function PartnerExpection({ data }) {
                                     placeholder='Weight'
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.weight && touched.weight && <p className='text-red-500 text-sm'>{errors.weight}</p>}
+                                {errors.weight && touched.weight && <p className='text-red-500 text-xs'>{errors.weight}</p>}
                             </div>
                         </div>
-
-                        {/* <div className="sm:col-span-3">
-                            <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
-                                Marital Status
-                            </label>
-                            <div className="mt-2">
-                                <input
-                                    id="date"
-                                    name="MaritalStatus"
-                                    value={values.MaritalStatus}
-                                    onBlur={handleBlur}
-                                    onChange={handleChange}
-                                    type="text"
-                                    autoComplete="email"
-                                    placeholder='Marital Status'
-                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                />
-                                {errors.MaritalStatus && touched.MaritalStatus && <p className='text-red-500 text-sm'>{errors.MaritalStatus}</p>}
-                            </div>
-                        </div> */}
 
                         <div className="sm:col-span-3">
                             <label htmlFor="MaritalStatus" className="block text-sm font-medium leading-6 text-gray-900">
@@ -174,10 +154,7 @@ function PartnerExpection({ data }) {
                                     id="MaritalStatus"
                                     name="MaritalStatus"
                                     value={values.MaritalStatus}
-                                    onChange={(e) => {
-                                        handleChange(e);
-                                        setFieldValue("MaritalStatus", e.target.value);
-                                    }}
+                                    onChange={handleChange}
                                     onBlur={handleBlur}
                                     autoComplete="country-name"
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
@@ -189,65 +166,40 @@ function PartnerExpection({ data }) {
                                     <option value="Married">widow</option>
                                 </select>
                                 {errors.MaritalStatus && touched.MaritalStatus && (
-                                    <span className="text-red-500">{errors.MaritalStatus}</span>
+                                    <span className="text-red-500 text-xs">{errors.MaritalStatus}</span>
                                 )}
                             </div>
                         </div>
 
                         {values.MaritalStatus === "Married" && (
                             <div className="sm:col-span-3">
-                                <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
+                                <label htmlFor="Children" className="block text-sm font-medium leading-6 text-gray-900">
                                     Children
                                 </label>
                                 <div className="mt-2">
-                                    <select
-                                        id="country"
+                                    <input
+                                        id="Children"
                                         name="Children"
                                         value={values.Children}
                                         onBlur={handleBlur}
                                         onChange={handleChange}
-                                        autoComplete="country-name"
-                                        className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                                    >
-                                        <option value={""}>Select</option>
-                                        <option value={true}>Yes</option>
-                                        <option value={false}>No</option>
-                                    </select>
-                                    {errors.Children && touched.Children && <p className='text-red-500 text-sm'>{errors.Children}</p>}
+                                        type="number"
+                                        autoComplete="Children"
+                                        placeholder='Children'
+                                        className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    />
+                                    {errors.Children && touched.Children && <p className='text-red-500 text-xs'>{errors.Children}</p>}
                                 </div>
                             </div>
                         )}
 
-
-                        {/* <div className="sm:col-span-3">
-                            <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
-                                Children
-                            </label>
-                            <div className="mt-2">
-                                <select
-                                    id="country"
-                                    name="Children"
-                                    value={values.Children}
-                                    onBlur={handleBlur}
-                                    onChange={handleChange}
-                                    autoComplete="country-name"
-                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                                >
-                                    <option value={""}>Select</option>
-                                    <option value={true}>Yes</option>
-                                    <option value={false}>No</option>
-                                </select>
-                                {errors.Children && touched.Children && <p className='text-red-500 text-sm'>{errors.Children}</p>}
-                            </div>
-                        </div> */}
-
                         <div className="sm:col-span-3">
-                            <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="Religion" className="block text-sm font-medium leading-6 text-gray-900">
                                 Religion
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="date"
+                                    id="Religion"
                                     name="Religion"
                                     value={values.Religion}
                                     onBlur={handleBlur}
@@ -257,16 +209,16 @@ function PartnerExpection({ data }) {
                                     placeholder='Religion'
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.Religion && touched.Religion && <p className='text-red-500 text-sm'>{errors.Religion}</p>}
+                                {errors.Religion && touched.Religion && <p className='text-red-500 text-xs'>{errors.Religion}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
-                            <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="Caste" className="block text-sm font-medium leading-6 text-gray-900">
                                 Caste
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="date"
+                                    id="Caste"
                                     name="Caste"
                                     value={values.Caste}
                                     onBlur={handleBlur}
@@ -276,16 +228,16 @@ function PartnerExpection({ data }) {
                                     placeholder='Caste'
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.Caste && touched.Caste && <p className='text-red-500 text-sm'>{errors.Caste}</p>}
+                                {errors.Caste && touched.Caste && <p className='text-red-500 text-xs'>{errors.Caste}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
-                            <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="SubCaste" className="block text-sm font-medium leading-6 text-gray-900">
                                 Sub Caste
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="date"
+                                    id="SubCaste"
                                     name="SubCaste"
                                     value={values.SubCaste}
                                     onBlur={handleBlur}
@@ -295,16 +247,16 @@ function PartnerExpection({ data }) {
                                     placeholder='Sub Caste'
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.SubCaste && touched.SubCaste && <p className='text-red-500 text-sm'>{errors.SubCaste}</p>}
+                                {errors.SubCaste && touched.SubCaste && <p className='text-red-500 text-xs'>{errors.SubCaste}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
-                            <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="Language" className="block text-sm font-medium leading-6 text-gray-900">
                                 Language
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="date"
+                                    id="Language"
                                     name="Language"
                                     value={values.Language}
                                     onBlur={handleBlur}
@@ -314,16 +266,16 @@ function PartnerExpection({ data }) {
                                     placeholder='Language'
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.Language && touched.Language && <p className='text-red-500 text-sm'>{errors.Language}</p>}
+                                {errors.Language && touched.Language && <p className='text-red-500 text-xs'>{errors.Language}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
-                            <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="Education" className="block text-sm font-medium leading-6 text-gray-900">
                                 Education
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="date"
+                                    id="Education"
                                     name="Education"
                                     value={values.Education}
                                     onBlur={handleBlur}
@@ -333,16 +285,16 @@ function PartnerExpection({ data }) {
                                     placeholder='Education'
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.Education && touched.Education && <p className='text-red-500 text-sm'>{errors.Education}</p>}
+                                {errors.Education && touched.Education && <p className='text-red-500 text-xs'>{errors.Education}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
-                            <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="Profession" className="block text-sm font-medium leading-6 text-gray-900">
                                 Profession
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="date"
+                                    id="Profession"
                                     name="Profession"
                                     value={values.Profession}
                                     onBlur={handleBlur}
@@ -352,17 +304,17 @@ function PartnerExpection({ data }) {
                                     placeholder='Profession'
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.Profession && touched.Profession && <p className='text-red-500 text-sm'>{errors.Profession}</p>}
+                                {errors.Profession && touched.Profession && <p className='text-red-500 text-xs'>{errors.Profession}</p>}
                             </div>
                         </div>
 
                         <div className="sm:col-span-3">
-                            <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="SmokingAcceptable" className="block text-sm font-medium leading-6 text-gray-900">
                                 Smoking Acceptable
                             </label>
                             <div className="mt-2">
                                 <select
-                                    id="country"
+                                    id="SmokingAcceptable"
                                     name="SmokingAcceptable"
                                     value={values.SmokingAcceptable}
                                     onBlur={handleBlur}
@@ -374,7 +326,7 @@ function PartnerExpection({ data }) {
                                     <option value={true}>Yes</option>
                                     <option value={false}>No</option>
                                 </select>
-                                {errors.SmokingAcceptable && touched.SmokingAcceptable && <p className='text-red-500 text-sm'>{errors.SmokingAcceptable}</p>}
+                                {errors.SmokingAcceptable && touched.SmokingAcceptable && <p className='text-red-500 text-xs'>{errors.SmokingAcceptable}</p>}
                             </div>
                         </div>
 
@@ -388,12 +340,7 @@ function PartnerExpection({ data }) {
                                     name="DrinkAcceptable"
                                     value={values.DrinkAcceptable}
                                     onBlur={handleBlur}
-                                    onChange={(e) => {
-                                        const value = e.target.value === 'true'; // "true" string gets converted to true boolean, "false" to false
-                                        handleChange({
-                                            target: { name: 'DrinkAcceptable', value },
-                                        });
-                                    }}
+                                    onChange={handleChange}
                                     autoComplete="country-name"
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
@@ -402,17 +349,17 @@ function PartnerExpection({ data }) {
                                     <option value={false}>No</option>
                                 </select>
 
-                                {errors.DrinkAcceptable && touched.DrinkAcceptable && <p className='text-red-500 text-sm'>{errors.DrinkAcceptable}</p>}
+                                {errors.DrinkAcceptable && touched.DrinkAcceptable && <p className='text-red-500 text-xs'>{errors.DrinkAcceptable}</p>}
                             </div>
                         </div>
 
                         <div className="sm:col-span-3">
-                            <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="DietAcceptable" className="block text-sm font-medium leading-6 text-gray-900">
                                 Diet Acceptable
                             </label>
                             <div className="mt-2">
                                 <select
-                                    id="country"
+                                    id="DietAcceptable"
                                     name="DietAcceptable"
                                     value={values.DietAcceptable}
                                     onBlur={handleBlur}
@@ -424,16 +371,16 @@ function PartnerExpection({ data }) {
                                     <option value={true}>Yes</option>
                                     <option value={false}>No</option>
                                 </select>
-                                {errors.DietAcceptable && touched.DietAcceptable && <p className='text-red-500 text-sm'>{errors.DietAcceptable}</p>}
+                                {errors.DietAcceptable && touched.DietAcceptable && <p className='text-red-500 text-xs'>{errors.DietAcceptable}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
-                            <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="Manglik" className="block text-sm font-medium leading-6 text-gray-900">
                                 Manglik
                             </label>
                             <div className="mt-2">
                                 <select
-                                    id="country"
+                                    id="Manglik"
                                     name="Manglik"
                                     value={values.Manglik}
                                     onBlur={handleBlur}
@@ -445,16 +392,16 @@ function PartnerExpection({ data }) {
                                     <option value={true}>Yes</option>
                                     <option value={false}>No</option>
                                 </select>
-                                {errors.Manglik && touched.Manglik && <p className='text-red-500 text-sm'>{errors.Manglik}</p>}
+                                {errors.Manglik && touched.Manglik && <p className='text-red-500 text-xs'>{errors.Manglik}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
-                            <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="personalValue" className="block text-sm font-medium leading-6 text-gray-900">
                                 Personal Value
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="date"
+                                    id="personalValue"
                                     name="personalValue"
                                     value={values.personalValue}
                                     onBlur={handleBlur}
@@ -464,16 +411,16 @@ function PartnerExpection({ data }) {
                                     placeholder='Personal Value'
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.personalValue && touched.personalValue && <p className='text-red-500 text-sm'>{errors.personalValue}</p>}
+                                {errors.personalValue && touched.personalValue && <p className='text-red-500 text-xs'>{errors.personalValue}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
-                            <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="FamilyValue" className="block text-sm font-medium leading-6 text-gray-900">
                                 Family Value
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="date"
+                                    id="FamilyValue"
                                     name="FamilyValue"
                                     value={values.FamilyValue}
                                     onBlur={handleBlur}
@@ -483,16 +430,16 @@ function PartnerExpection({ data }) {
                                     placeholder='Family Value'
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.FamilyValue && touched.FamilyValue && <p className='text-red-500 text-sm'>{errors.FamilyValue}</p>}
+                                {errors.FamilyValue && touched.FamilyValue && <p className='text-red-500 text-xs'>{errors.FamilyValue}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
-                            <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="daPreferredCountryte" className="block text-sm font-medium leading-6 text-gray-900">
                                 Preferred Country
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="date"
+                                    id="PreferredCountry"
                                     name="PreferredCountry"
                                     value={values.PreferredCountry}
                                     onBlur={handleBlur}
@@ -502,16 +449,16 @@ function PartnerExpection({ data }) {
                                     placeholder='Preferred Country'
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.PreferredCountry && touched.PreferredCountry && <p className='text-red-500 text-sm'>{errors.PreferredCountry}</p>}
+                                {errors.PreferredCountry && touched.PreferredCountry && <p className='text-red-500 text-xs'>{errors.PreferredCountry}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
-                            <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="PreferredState" className="block text-sm font-medium leading-6 text-gray-900">
                                 Preferred State
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="date"
+                                    id="PreferredState"
                                     name="PreferredState"
                                     value={values.PreferredState}
                                     onBlur={handleBlur}
@@ -521,16 +468,16 @@ function PartnerExpection({ data }) {
                                     placeholder='Preferred State'
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.PreferredState && touched.PreferredState && <p className='text-red-500 text-sm'>{errors.PreferredState}</p>}
+                                {errors.PreferredState && touched.PreferredState && <p className='text-red-500 text-xs'>{errors.PreferredState}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
-                            <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="Complexion" className="block text-sm font-medium leading-6 text-gray-900">
                                 Complexion
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="date"
+                                    id="Complexion"
                                     name="Complexion"
                                     value={values.Complexion}
                                     onBlur={handleBlur}
@@ -540,7 +487,7 @@ function PartnerExpection({ data }) {
                                     placeholder='Complexion'
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.Complexion && touched.Complexion && <p className='text-red-500 text-sm'>{errors.Complexion}</p>}
+                                {errors.Complexion && touched.Complexion && <p className='text-red-500 text-xs'>{errors.Complexion}</p>}
                             </div>
                         </div>
                     </div>

@@ -8,7 +8,6 @@ import React, { useState } from 'react';
 function PhysicalAttribute({ data }) {
     const { Create, Update } = useProfileContext();
     const [loader, setLoader] = useState(false);
-    const [fieldValue, setFieldValue] = useState("jlsnlsnfownfjsd");
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: {
@@ -17,6 +16,7 @@ function PhysicalAttribute({ data }) {
             Height: data?.Height ? data?.Height : "",
             skinComplexion: data?.skinComplexion ? data?.skinComplexion : "",
             weight: data?.weight ? data?.weight : "",
+            DisablityType: data?.DisablityType ? data?.DisablityType : ""
         },
         enableReinitialize: true,
         validationSchema: PhysicalattributeDetailsSchema,
@@ -46,9 +46,7 @@ function PhysicalAttribute({ data }) {
 
                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
                         <div className="sm:col-span-3">
-                            <label htmlFor="height" className="block text-sm font-medium leading-6 text-gray-900">
-                                Height
-                            </label>
+                            <label htmlFor="height" className="block text-sm font-medium leading-6 text-gray-900">  Height</label>
                             <div className="mt-2">
                                 <input
                                     id="height"
@@ -59,9 +57,8 @@ function PhysicalAttribute({ data }) {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     autoComplete="given-name"
-                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                />
-                                {errors.Height && touched.Height && <span className='text-red-500' >{errors.Height}</span>}
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                                {errors.Height && touched.Height && <span className='text-red-500 text-xs' >{errors.Height}</span>}
                             </div>
                         </div>
 
@@ -81,7 +78,7 @@ function PhysicalAttribute({ data }) {
                                     autoComplete="family-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.weight && touched.weight && <span className='text-red-500' >{errors.weight}</span>}
+                                {errors.weight && touched.weight && <span className='text-red-500 text-xs' >{errors.weight}</span>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -104,7 +101,7 @@ function PhysicalAttribute({ data }) {
                                     <option>Olive skin</option>
                                     <option>Brown skin</option>
                                 </select>
-                                {errors.skinComplexion && touched.skinComplexion && <p className="text-red-500 text-sm">{errors.skinComplexion}</p>}
+                                {errors.skinComplexion && touched.skinComplexion && <p className="text-red-500 text-xs">{errors.skinComplexion}</p>}
                             </div>
                         </div>
 
@@ -131,11 +128,9 @@ function PhysicalAttribute({ data }) {
                                     <option>AB+</option>
                                     <option>AB-</option>
                                 </select>
-                                {errors.BloodGroup && touched.BloodGroup && <p className="text-red-500 text-sm">{errors?.BloodGroup}</p>}
+                                {errors.BloodGroup && touched.BloodGroup && <p className="text-red-500 text-xs">{errors?.BloodGroup}</p>}
                             </div>
                         </div>
-
-
 
                         <div className="sm:col-span-3">
                             <label htmlFor="disability" className="block text-sm font-medium leading-6 text-gray-900">
@@ -146,10 +141,7 @@ function PhysicalAttribute({ data }) {
                                     id="disability"
                                     name="Disablity"
                                     value={values.Disablity}
-                                    onChange={(e) => {
-                                        handleChange(e);
-                                        setFieldValue("Disablity", e.target.value);
-                                    }}
+                                    onChange={handleChange}
                                     onBlur={handleBlur}
                                     autoComplete="country-name"
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
@@ -159,7 +151,7 @@ function PhysicalAttribute({ data }) {
                                     <option value="No">No</option>
                                 </select>
                                 {errors.Disablity && touched.Disablity && (
-                                    <span className="text-red-500">{errors.Disablity}</span>
+                                    <span className="text-red-500 text-xs">{errors.Disablity}</span>
                                 )}
                             </div>
                         </div>
@@ -167,26 +159,25 @@ function PhysicalAttribute({ data }) {
                         {values.Disablity === "Yes" && (
                             <div className="sm:col-span-3">
                                 <label
-                                    htmlFor="disabilityDetails"
+                                    htmlFor="DisablityType"
                                     className="block text-sm font-medium leading-6 text-gray-900"
                                 >
                                     Describe your disability
                                 </label>
                                 <textarea
-                                    id="disabilityDetails"
-                                    name="disabilityDetails"
+                                    id="DisablityType"
+                                    name="DisablityType"
                                     placeholder='Describe about your Disability...'
-                                    value={values.disabilityDetails}
+                                    value={values.DisablityType}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     className="mt-2 px-2 py-1 block w-full h-24 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-600 focus:border-indigo-600 sm:text-sm"
                                 />
-                                {errors.disabilityDetails && touched.disabilityDetails && (
-                                    <span className="text-red-500">{errors.disabilityDetails}</span>
+                                {errors.DisablityType && touched.DisablityType && (
+                                    <span className="text-red-500 text-xs">{errors.DisablityType}</span>
                                 )}
                             </div>
                         )}
-
                     </div>
                     <div className='flex justify-end py-4'>
                         <div>

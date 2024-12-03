@@ -28,6 +28,7 @@ export const PhysicalattributeDetailsSchema = yup.object({
     skinComplexion: yup.string().trim().required("skinComplexion is required"),
     Height: yup.string().trim().required("Height is required"),
     Disablity: yup.string().trim().required("Disablity is required"),
+    DisablityType: yup.string().trim(),
     BloodGroup: yup.string().trim().required("BloodGroup is required"),
 })
 
@@ -66,7 +67,12 @@ export const BackgroundInfoSchema = yup.object({
     Caste: yup.string().trim().required("caste is required"),
     SubCast: yup.string().trim().required("SubCaste is required"),
     SelfWorth: yup.number().required("SelfWorth is required"),
-    FamilyWorth: yup.number().required("FamilyWorth is required")
+    FamilyWorth: yup.number().required("FamilyWorth is required"),
+    DependentMember: yup.number().required("DependentMember is required"),
+    MotherName: yup.string().trim().required("MotherName is required"),
+    FatherName: yup.string().trim().required("FatherName is required"),
+    isMotherAlive: yup.string().trim().required("Field is required"),
+    isFatherAlive: yup.string().trim().required("Field is required")
 })
 
 export const AstronomicInfoSchema = yup.object({
@@ -80,7 +86,9 @@ export const PresentAddressSchema = yup.object({
     Country: yup.string().trim().required("Country is required"),
     State: yup.string().trim().required("State is required"),
     City: yup.string().trim().required("City is required"),
-    Pincode: yup.string().trim().required("Pin code is required")
+    Pincode: yup.string().trim().required("Pin code is required"),
+    ResidencyType: yup.string().trim().required("ResidencyType is required"),
+    ResidencySince: yup.number().required("ResidencySince is required")
 })
 
 export const PermanentAddressSchema = yup.object({
@@ -96,7 +104,7 @@ export const PartnerExpectionSchema = yup.object({
     Height: yup.number().required(" field is required"),
     weight: yup.number().required(" field is required"),
     MaritalStatus: yup.string().trim().required(" field is required"),
-    Children: yup.string().trim().required(" field is required"),
+    Children: yup.number().required(" field is required"),
     Religion: yup.string().trim().required(" field is required"),
     Caste: yup.string().trim().required(" field is required"),
     SubCaste: yup.string().trim().required(" field is required"),
