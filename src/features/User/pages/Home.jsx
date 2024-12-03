@@ -33,13 +33,15 @@ function Home() {
   }
 
   const handlePayment = async (e,) => {
-    navigate("/verify_account")
-
+    navigate("/register")
+    
     try {
       let res
       if (e.target.id === programme?._id) {
         const amount = programme?.amount
-        res = await AxiosHandler.post(`/payment/events?eventid=${programme?._id}&memberid=${MemberID}`, { amount: `${amount}` });
+        const seats = document.getElementById('seat').value * programme?.amount;
+        console.log("Number of Seats:", seats);
+         res = await AxiosHandler.post(`/payment/events?eventid=${programme?._id}&memberid=${MemberID}`, { amount: `${amount}` });
       } else if (e.target.id === packageData?._id) {
         res = await AxiosHandler.post(`/payment/package?memberid=${MemberID}`, {
           amount: `${packageData?.amount}`
@@ -103,7 +105,7 @@ function Home() {
       }
     } catch (error) {
       console.log(error);
-      toast.error(error?.response?.data?.message === "Invalid Token or Token exipre" ? navigate("/login") : error?.response?.data?.message);
+      // toast.error(error?.response?.data?.message);
     }
   }
 
@@ -359,7 +361,11 @@ function Home() {
                 <div className="flex flex-col items-center w-full">
                   <div className="package  lg:h-[600px] border-2 w-full flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
                     <h2 className="text-4xl">Programme Package</h2>
-                    <h2 className="text-5xl py-3 font-semibold text-yellow-500">₹{programme?.amount}  /-</h2>
+                    <h2 className="text-5xl py-2 font-semibold text-yellow-500">₹{programme?.amount}  /-</h2>
+                    <div className="seats">
+                      <input id="seat" type="number" min={1} max={20}
+                       className="block w-28 text-xs px-2 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='No. of Seats' />
+                    </div>
                     <div className="programme py-2 text-2xl font-semibold">{programme?.eventName}</div>
                     <p className="py-2">{programme?.description}</p>
                     <div className="programmeDetails mb-4">
