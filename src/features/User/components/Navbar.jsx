@@ -12,7 +12,6 @@ function Navbar() {
     const navigate = useNavigate();
     const [showConfirm, setShowConfirm] = useState(false);
     const [ProfileImage, setProfileImage] = useState(localStorage.getItem("ProfileImage"));
-    console.log(userGender);
     
   
 

@@ -20,7 +20,7 @@ function Home() {
 
   const MemberID = localStorage.getItem("MemberID");
 
-  
+
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
@@ -107,13 +107,13 @@ function Home() {
     }
   }
 
-  useEffect(() => {
-      const timer = setTimeout(() => {
-        setModal(true); 
-      }, 5000);
-      return () => clearTimeout(timer);
+  // useEffect(() => {
+  //     const timer = setTimeout(() => {
+  //       setModal(true); 
+  //     }, 5000);
+  //     return () => clearTimeout(timer);
 
-  }, []); 
+  // }, []); 
 
   useEffect(() => {
     loadRazorpayScript();
@@ -326,7 +326,7 @@ function Home() {
                 <h3 className="text-2xl sm:text-3xl font-semibold py-3">Fix Meeting</h3>
                 <p className="text-sm"> Here we fixed a personal meeting with Shri Paras Bhai Guruji where he will verify your Kundali and discuss your life goals and aspirations.</p>
               </div>
-              
+
             </div>
           </div>
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
