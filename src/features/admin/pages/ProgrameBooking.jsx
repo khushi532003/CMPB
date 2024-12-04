@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 function ProgrameBooking() {
   const { state } = useLocation();
   const { GetProgramme, page, setPage, disable, eventClints } = useProgrammeContext();
-  const { token } = useAuthContext();
+  const { userData } = useAuthContext();
 
 
   const formatDate = (dateString) => {
@@ -17,10 +17,10 @@ function ProgrameBooking() {
   };
 
   useEffect(() => {
-    if (token) {
+    if (userData?.token) {
       GetProgramme(page);
     }
-  }, [token, page])
+  }, [userData?.token, page])
 
 
   if (disable) return <Loader />;

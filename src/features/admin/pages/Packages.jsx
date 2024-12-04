@@ -14,7 +14,7 @@ const Packages = () => {
   const { programmeData, packageData, GetProgramme, loader, page, setPage, disable } = useProgrammeContext();
   const [eventId, setEventId] = useState(null);
   const [regId, setRegId] = useState(null);
-  const { token } = useAuthContext();
+  const { userData } = useAuthContext();
   const { id } = useParams()
   const navigate = useNavigate();
   const location = useLocation()
@@ -25,10 +25,10 @@ const Packages = () => {
   const [addAmount, setAddAmount] = useState(false);
 
   useEffect(() => {
-    if (token) {
+    if (userData?.token) {
       GetProgramme(page);
     }
-  }, [token, page])
+  }, [userData?.token, page])
 
   const eventUserData = async (id, data) => {
     navigate(`/programme-booking/${id}`, { state: { data } })

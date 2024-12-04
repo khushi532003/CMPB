@@ -1,15 +1,14 @@
 
 export const RegisterValues = {
-    email: "",
+    identifier: "",
     firstName: "",
     lastName: "",
-    phone: "",
     password: "",
     confirmPassword: "",
 }
 
 
 export const LoginValues = {
-    email: "",
+    identifier: "",
     password: ""
 }

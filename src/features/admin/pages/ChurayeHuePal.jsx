@@ -9,13 +9,13 @@ import Loader from '@/constant/loader'
 function ChurayeHuePal() {
   const [addLink, setAddLink] = useState(false);
   const { GetVideo, video, loader } = useChurayeHuePalContext();
-  const { token } = useAuthContext();
+  const { userData } = useAuthContext();
 
 
   useEffect(() => {
-    if (token)
+    if (userData?.token)
       GetVideo()
-  }, [token])
+  }, [userData?.token])
 
 
   return (
