@@ -11,8 +11,8 @@ function ForgetPassword() {
     const navigate = useNavigate()
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
-        initialValues: { email: "" },
-        validationSchema: yup.object({ email: yup.string().required("email is required") }),
+        initialValues: { identifier: "" },
+        validationSchema: yup.object({ identifier: yup.string().required("Email/Phone is required") }),
         onSubmit: async (value) => {
             await ForgetPassword(value)
         }
@@ -21,7 +21,7 @@ function ForgetPassword() {
 
     useEffect(() => {
         if (forgetEmail) {
-            navigate('/verify_otp', { state: { email: forgetEmail.email } })
+            navigate('/verify_otp', { state: { identifier: forgetEmail.identifier } })
         }
     }, [forgetEmail])
 
@@ -34,8 +34,8 @@ function ForgetPassword() {
                         <h3 className='flex justify-center items-center mb-14 text-gray-500 font-bold text-5xl'>Forget Password</h3>
 
                         <div className='mb-4'>
-                            <input className='w-full p-2  rounded-md outline-none border hover:border-red-400 focus:border-red-400' name='email' value={values.email} onChange={handleChange} onBlur={handleBlur} type="text" placeholder='email or phone' />
-                            {errors.email && touched.email && <span className='text-red-500' >{errors.email}</span>}
+                            <input className='w-full p-2  rounded-md outline-none border hover:border-red-400 focus:border-red-400' name='identifier' value={values.identifier} onChange={handleChange} onBlur={handleBlur} type="text" placeholder='Email/Phone' />
+                            {errors.identifier && touched.identifier && <span className='text-red-500' >{errors.identifier}</span>}
                         </div>
 
                         <button type='submit' className='w-full p-2 bg-red-600 hover:bg-red-800 duration-300 text-white rounded-md font-semibold items-center justify-center flex' disabled={loader} >{loader ? <Loader /> : "Send otp"}</button>

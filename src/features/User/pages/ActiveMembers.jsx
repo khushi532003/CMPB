@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function ActiveMembers() {
     const { activeUser, GetActiveMembers, loader } = useMembersContext();
     const [filteredUsers, setFilteredUsers] = useState(activeUser);
-    const { member, token } = useAuthContext();    
+    const { userData } = useAuthContext();    
     const [ageFrom, setAgeFrom] = useState('');
     const [ageTo, setAgeTo] = useState('');
     const [memberId, setMemberId] = useState('');
@@ -66,9 +66,9 @@ function ActiveMembers() {
     };
 
     useEffect(() => {
-        if (token)
+        if (userData?.token)
             GetActiveMembers();
-    }, [token]);
+    }, [userData?.token]);
 
     return (
         <div>
@@ -257,7 +257,7 @@ function ActiveMembers() {
                                                 <strong>MEMBER ID : </strong> {item?.MemberID}
                                             </div>
                                             <div className="w-full mt-6">
-                                                {member === "true" ? (
+                                                {userData?.member === "true" ? (
                                                     <Link to={`/member_profile/${item?._id}`}>
                                                         <button className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-RedTheme rounded-md hover:bg-[#bb0404]">
                                                             View Details

@@ -3,8 +3,8 @@ import * as yup from "yup";
 export const Registerschema = yup.object({
    firstName: yup.string().trim().required("First Name is required").min(2),
    lastName: yup.string().trim().required("Last Name is required").min(2),
-   email: yup.string().trim().required("Email is required").email("Invalid email address"),
-   phone: yup.number().required("Phone is required").min(10),
+   // email: yup.string().trim().required("Email is required").email("Invalid email address"),
+   identifier: yup.string().required("Email/Phone is required"),
    // gender: yup.string().trim().required("Gender  is required"),
    password: yup.string().trim().required("Password is required").min(6).max(16),
    confirmPassword: yup.string().trim().oneOf([yup.ref('password'), null], "Passwords must match").required("Password is required"),
@@ -25,6 +25,6 @@ export const Registerschema = yup.object({
 });
 
 export const LoginSchema = yup.object({
-   email: yup.string().trim().required("Email is required"),
+   identifier: yup.string().trim().required("Email/Phone is required"),
    password: yup.string().trim().required("Password is Required")
 })

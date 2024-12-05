@@ -8,9 +8,7 @@ export const BlogContext = createContext();
 
 const BlogContextProvider = ({ children }) => {
     const [loader, setLoader] = useState(false);
-    const { token } = useAuthContext();
     const [fetchBlogData, setFetchBlogData] = useState([]);
-
 
     const GetBlog = async () => {
         setLoader(true);
@@ -23,8 +21,6 @@ const BlogContextProvider = ({ children }) => {
             setLoader(false);
         }
     }
-
-
 
     const CreateBlog = async (data) => {
         setLoader(true);
@@ -54,7 +50,6 @@ const BlogContextProvider = ({ children }) => {
             setLoader(false);
         }
     }
-
 
     return (
         <BlogContext.Provider value={{ CreateBlog, loader, fetchBlogData, GetBlog, DeleteBlog }}>

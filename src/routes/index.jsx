@@ -10,24 +10,24 @@ import Notfound from '@/features/user/pages/Notfound'
 import { useAuthContext } from '@/context'
 
 const RootRouting = () => {
-    const { role, token } = useAuthContext();
+    const { userData } = useAuthContext();
 
     return (
         <Routes>
-            {role === "admin" && token && <Route element={<Dashboard />} >
+            {userData?.role === "admin" && userData?.token && <Route element={<Dashboard />} >
                 {AdminRoute.map((item, index) => (<Route key={index} path={item.path} element={item.element} />))}
             </Route>}
 
-            {role !== "admin" && <Route element={<UserLayout />} >
+            {userData?.role !== "admin" && <Route element={<UserLayout />} >
                 {UserPublicRoutes.map((item, index) => <Route key={index} path={item.path} element={item.element} />)}
             </Route>}
 
-            {role !== "admin" && token ? <Route element={<UserLayout />} >
+            {userData?.role !== "admin" && userData?.token ? <Route element={<UserLayout />} >
                 {UserPrivateRoutes.map((item, index) =>
                     <Route key={index} path={item.path} element={item.element} />)}
             </Route> : (UserPrivateRoutes.map((item, index) => <Route key={index} path={item.path} element={<Navigate to="/login" />} />))}
 
-            {!token ? AuthRoutes.map((item, index) => <Route key={index} path={item.path} element={item.element} />) : AuthRoutes.map((item, index) => <Route key={index} path={item.path} element={<Navigate to="/" />} />)}
+            {!userData?.token ? AuthRoutes.map((item, index) => <Route key={index} path={item.path} element={item.element} />) : AuthRoutes.map((item, index) => <Route key={index} path={item.path} element={<Navigate to="/" />} />)}
 
             <Route path='*' element={<Notfound />} />
 

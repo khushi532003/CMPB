@@ -10,7 +10,7 @@ import HTMLReactParser from 'html-react-parser';
 function Blogs() {
     const { fetchBlogData, DeleteBlog, GetBlog, loader } = useBlogContext();
     const [addBlog, setAddBlog] = useState(false);
-    const { token } = useAuthContext();
+    const { userData } = useAuthContext();
 
 
     const formatDate = (dateString) => {
@@ -20,10 +20,10 @@ function Blogs() {
     };
 
     useEffect(() => {
-        if (token) {
+        if (userData?.token) {
             GetBlog()
         }
-    }, [token])
+    }, [userData?.token])
 
     return (
         <div>

@@ -6,11 +6,11 @@ import Loader from '@/constant/loader';
 
 function PremiumMembers() {
     const { premiumMembers, premiumMembersData, loader, page, setPage, disable } = useAdminMemberContext();
-    const { token } = useAuthContext();
+    const { userData } = useAuthContext();
 
     useEffect(() => {
-        if (token) premiumMembers(page);
-    }, [token, page]);
+        if (userData?.token) premiumMembers(page);
+    }, [userData?.token, page]);
 
     if (disable) return <Loader />;
 

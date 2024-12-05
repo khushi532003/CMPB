@@ -10,16 +10,13 @@ import Loader from '@/constant/loader';
 import { useNavigate } from 'react-router-dom';
 import EventModal from '../components/EventModal';
 
+
 function Home() {
 
   const { programme, GetProgramme, GetPackage, packageData } = usePackageContext();
   const { videoURLData } = useChurayePalContext();
-  const { token, member, loader } = useAuthContext();
+  const {  userData, loader } = useAuthContext();
   const [modal, setModal] = useState(false);
-  const navigate = useNavigate()
-
-  const MemberID = localStorage.getItem("MemberID");
-
 
 
   const loadRazorpayScript = () => {
@@ -33,15 +30,15 @@ function Home() {
   }
 
   const handlePayment = async (e,) => {
-    navigate("/register")
-    
+
+
     try {
       let res
       if (e.target.id === programme?._id) {
         const amount = programme?.amount
         const seats = document.getElementById('seat').value * programme?.amount;
         console.log("Number of Seats:", seats);
-         res = await AxiosHandler.post(`/payment/events?eventid=${programme?._id}&memberid=${MemberID}`, { amount: `${amount}` });
+        res = await AxiosHandler.post(`/payment/events?eventid=${programme?._id}&memberid=${MemberID}`, { amount: `${amount}` });
       } else if (e.target.id === packageData?._id) {
         res = await AxiosHandler.post(`/payment/package?memberid=${MemberID}`, {
           amount: `${packageData?.amount}`
@@ -131,7 +128,7 @@ function Home() {
 
       {/* Banner section start  */}
       <section className="mainBanner">
-        <img src="../images/banner3.webp" alt="Chat Mangni Pat Byah" className='w-full object-cover' />
+        <img src="../images/MainBanner.jpg" alt="Chat Mangni Pat Byah" className='w-full object-cover' />
       </section>
       {/* Banner section end  */}
 
@@ -364,7 +361,7 @@ function Home() {
                     <h2 className="text-5xl py-2 font-semibold text-yellow-500">₹{programme?.amount}  /-</h2>
                     <div className="seats">
                       <input id="seat" type="number" min={1} max={20}
-                       className="block w-28 text-xs px-2 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='No. of Seats' />
+                        className="block w-28 text-xs px-2 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='No. of Seats' />
                     </div>
                     <div className="programme py-2 text-2xl font-semibold">{programme?.eventName}</div>
                     <p className="py-2">{programme?.description}</p>
@@ -372,7 +369,7 @@ function Home() {
                       <div className="state py-2 text-lg">
                         <strong>Location :</strong>{programme?.state}
                       </div>
-                      {member === "true" ? <div className="state py-2 text-lg">
+                      {userData?.member === "true" ? <div className="state py-2 text-lg">
                         <strong>Venue :</strong> {programme?.venues}
                       </div> : ""}
                       <div className="state py-2 text-lg">
@@ -447,21 +444,21 @@ function Home() {
         <div className="weddingImages py-4 px-5">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="sec">
-              <img src="./images/gallery/1.webp" alt="" />
+              <img src="./images/gallery/1.jpg" alt="" />
               <img src="./images/gallery/2.webp" alt="" className="mt-3" />
             </div>
             <div className="sec">
-              <img src="./images/gallery/3.webp" alt="" />
-              <img className="mt-3" src="./images/gallery/4.webp" alt="" />
+              <img src="./images/gallery/3.jpg" alt="" />
+              <img className="mt-3" src="./images/gallery/4.jpg" alt="" />
               <img src="./images/gallery/5.webp" alt="" className="mt-3" />
             </div>
 
             <div className="sec">
-              <img src="./images/gallery/6.webp" alt="" />
-              <img className="mt-3" src="./images/gallery/7.webp" alt="" />
+              <img src="./images/gallery/6.jpg" alt="" />
+              <img className="mt-3" src="./images/gallery/7.jpg" alt="" />
             </div>
             <div className="sec">
-              <img src="./images/gallery/8.webp" alt="" />
+              <img src="./images/gallery/8.png" alt="" />
               <img className="mt-3" src="./images/gallery/9.webp" alt="" />
             </div>
           </div>
