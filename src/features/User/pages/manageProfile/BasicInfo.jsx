@@ -57,7 +57,7 @@ function BasicInfo({ data }) {
                                     autoComplete="given-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.firstName && touched.firstName && <span className='text-red-500' >{errors.firstName}</span>}
+                                {errors.firstName && touched.firstName && <span className='text-red-500 text-xs' >{errors.firstName}</span>}
                             </div>
                         </div>
 
@@ -77,7 +77,7 @@ function BasicInfo({ data }) {
                                     autoComplete="family-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.lastName && touched.lastName && <span className='text-red-500' >{errors.lastName}</span>}
+                                {errors.lastName && touched.lastName && <span className='text-red-500 text-xs' >{errors.lastName}</span>}
                             </div>
                         </div>
 
@@ -98,7 +98,7 @@ function BasicInfo({ data }) {
                                     autoComplete="family-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.email && touched.email && <span className='text-red-500' >{errors.email}</span>}
+                                {errors.email && touched.email && <span className='text-red-500 text-xs' >{errors.email}</span>}
                             </div>
                         </div>
 
@@ -119,7 +119,7 @@ function BasicInfo({ data }) {
                                     autoComplete="family-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.phone && touched.phone && <span className='text-red-500' >{errors.phone}</span>}
+                                {errors.phone && touched.phone && <span className='text-red-500 text-xs' >{errors.phone}</span>}
                             </div>
                         </div>
 
@@ -138,7 +138,7 @@ function BasicInfo({ data }) {
                                     autoComplete="DOB"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.DOB && touched.DOB && <span className='text-red-500' >{errors.DOB}</span>}
+                                {errors.DOB && touched.DOB && <span className='text-red-500 text-xs' >{errors.DOB}</span>}
                             </div>
                         </div>
 
@@ -161,7 +161,7 @@ function BasicInfo({ data }) {
                                     <option value="male">Male</option>
                                     <option value="female" >Female</option>
                                 </select>
-                                {errors.gender && touched.gender && <span className='text-red-500' >{errors.gender}</span>}
+                                {errors.gender && touched.gender && <span className='text-red-500 text-xs' >{errors.gender}</span>}
                             </div>
                         </div>
                     </div>

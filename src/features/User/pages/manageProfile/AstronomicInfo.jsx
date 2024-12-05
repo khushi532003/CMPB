@@ -59,7 +59,7 @@ function AstronomicInfo({ data }) {
                                     autoComplete="given-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.SunSign && touched.SunSign && <p className='text-red-500 text-sm'>{errors.SunSign}</p>}
+                                {errors.SunSign && touched.SunSign && <p className='text-red-500 text-xs'>{errors.SunSign}</p>}
                             </div>
                         </div>
 
@@ -79,7 +79,7 @@ function AstronomicInfo({ data }) {
                                     autoComplete="family-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.MoonSign && touched.MoonSign && <p className='text-red-500 text-sm'>{errors.MoonSign}</p>}
+                                {errors.MoonSign && touched.MoonSign && <p className='text-red-500 text-xs'>{errors.MoonSign}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -98,7 +98,7 @@ function AstronomicInfo({ data }) {
                                     autoComplete="family-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.TimeOfBirth && touched.TimeOfBirth && <p className='text-red-500 text-sm'>{errors.TimeOfBirth}</p>}
+                                {errors.TimeOfBirth && touched.TimeOfBirth && <p className='text-red-500 text-xs'>{errors.TimeOfBirth}</p>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -117,7 +117,7 @@ function AstronomicInfo({ data }) {
                                     autoComplete="family-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.CityOfBirth && touched.CityOfBirth && <p className='text-red-500 text-sm'>{errors.CityOfBirth}</p>}
+                                {errors.CityOfBirth && touched.CityOfBirth && <p className='text-red-500 text-xs'>{errors.CityOfBirth}</p>}
                             </div>
                         </div>
                     </div>

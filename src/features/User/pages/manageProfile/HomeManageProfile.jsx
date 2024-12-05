@@ -23,7 +23,7 @@ function HomeManageProfile() {
     const [imageFile, setImageFile] = useState(null);
     const [isUploading, setIsUploading] = useState(false);
     const { userData } = useAuthContext();
-
+    console.log(profile)
 
 
     const handleImageChange = (event) => {
@@ -75,7 +75,6 @@ function HomeManageProfile() {
 
                 <div className="filter sm:block w-full sm:w-[30%] border border-red-100 p-4">
                     <div className="relative flex items-center justify-center text-center">
-
                         <img
                             className="rounded-full object-cover w-52 h-52"
                             src={profile?.user?.profileImage?.ImageURL || (profile?.user?.gender === "male"
