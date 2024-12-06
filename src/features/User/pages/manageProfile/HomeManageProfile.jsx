@@ -25,7 +25,6 @@ function HomeManageProfile() {
     const { userData } = useAuthContext();
 
 
-
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         if (file) {

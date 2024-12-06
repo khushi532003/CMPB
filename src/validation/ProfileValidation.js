@@ -17,16 +17,20 @@ export const BasicDetailsSchema = yup.object({
 })
 
 export const CareerInfoSchema = yup.object({
-    designation: yup.string().trim().required("designationis required"),
-    company: yup.string().trim().required("company is required"),
-    start: yup.string().trim().required("company is required"),
-    end: yup.string().trim().required("end is required"),
-    designation: yup.string().trim().required("designationis required"),
-    company: yup.string().trim().required("company is required"),
-    start: yup.string().trim().required("company is required"),
-    end: yup.string().trim().required("end is required")
+    currentJob : yup.object({
+        designation: yup.string().trim().required("designationis required"),
+        company: yup.string().trim().required("company is required"),
+        start: yup.string().trim().required("company is required"),
+        end: yup.string().trim().required("end is required"),
+    }),
+    previousJobs : yup.object({
+        designation: yup.string().trim(),
+        company: yup.string().trim(),
+        start: yup.string().trim(),
+        end: yup.string().trim(),
+    })
 })
-
+ 
 export const PhysicalattributeDetailsSchema = yup.object({
     weight: yup.string().trim().required("weight required"),
     skinComplexion: yup.string().trim().required("skinComplexion is required"),
