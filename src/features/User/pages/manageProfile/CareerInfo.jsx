@@ -6,12 +6,8 @@ import React, { useState } from 'react';
 
 
 function CareerInfo({ data }) {
-
     const { Create, Update } = useProfileContext();
     const [loader, setLoader] = useState(false);
-
-    const [previousJobs, setPreviousJobs] = useState({ designation: "", company: "", start: "", end: "" })
-    const [currentJob, setCurrentJob] = useState({ designation: "", company: "", start: "", end: "" })
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: {
@@ -27,7 +23,6 @@ function CareerInfo({ data }) {
                 start: data?.currentJob?.start ?? "",
                 end: data?.currentJob?.end ?? "",
             },
-
         },
         enableReinitialize: true,
         validationSchema: CareerInfoSchema,
@@ -45,7 +40,6 @@ function CareerInfo({ data }) {
             setLoader(false);
         }
     })
-
 
     return (
         <form onSubmit={handleSubmit} >
@@ -71,7 +65,7 @@ function CareerInfo({ data }) {
                                     autoComplete="given-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.previousJobs?.designation && touched.previousJobs?.designation && <span className='text-red-500' >{errors.previousJobs?.designation}</span>}
+                                {errors.previousJobs?.designation && touched.previousJobs?.designation && <span className='text-red-500 text-xs' >{errors.previousJobs?.designation}</span>}
                             </div>
                         </div>
 
@@ -91,7 +85,7 @@ function CareerInfo({ data }) {
                                     autoComplete="family-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.prevcompany && touched.prevcompany && <span className='text-red-500' >{errors.prevcompany}</span>}
+                                {errors.previousJobs?.company && touched.previousJobs?.company && <span className='text-red-500 text-xs'>{errors.previousJobs?.company}</span>}
                             </div>
                         </div>
 
@@ -110,7 +104,7 @@ function CareerInfo({ data }) {
                                     autoComplete="email"
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.prevstart && touched.prevstart && <span className='text-red-500' >{errors.prevstart}</span>}
+                                {errors.previousJobs?.start && touched.previousJobs?.start && <span className='text-red-500 text-xs' >{errors.previousJobs?.start}</span>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -122,14 +116,14 @@ function CareerInfo({ data }) {
                                     id="previousJobs.end"
                                     name="previousJobs.end"
                                     placeholder='end date'
-                                    type="text"
+                                    type="date"
                                     value={values?.previousJobs?.end}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
-                                    autoComplete="email"
+                                    autoComplete="end date"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.prevend && touched.prevend && <span className='text-red-500' >{errors.prevend}</span>}
+                                {errors.previousJobs?.end && touched.previousJobs?.end && <span className='text-red-500 text-xs' >{errors.previousJobs?.end}</span>}
                             </div>
                         </div>
                     </div>
@@ -152,7 +146,7 @@ function CareerInfo({ data }) {
                                     autoComplete="given-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.designation && touched.designation && <span className='text-red-500' >{errors.designation}</span>}
+                                {errors.currentJob?.designation && touched.currentJob?.designation && <span className='text-red-500 text-xs'>{errors.currentJob?.designation}</span>}
                             </div>
                         </div>
 
@@ -172,7 +166,7 @@ function CareerInfo({ data }) {
                                     autoComplete="family-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.company && touched.company && <span className='text-red-500' >{errors.company}</span>}
+                                {errors.currentJob?.company && touched.currentJob?.company && <span className='text-red-500 text-xs' >{errors.currentJob?.company}</span>}
                             </div>
                         </div>
 
@@ -191,7 +185,7 @@ function CareerInfo({ data }) {
                                     autoComplete="email"
                                     className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.start && touched.start && <span className='text-red-500' >{errors.start}</span>}
+                                {errors.currentJob?.start && touched.currentJob?.start && <span className='text-red-500 text-xs' >{errors.currentJob?.start}</span>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -210,7 +204,7 @@ function CareerInfo({ data }) {
                                     autoComplete="email"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.end && touched.end && <span className='text-red-500' >{errors.end}</span>}
+                                {errors.currentJob?.end && touched.currentJob?.end && <span className='text-red-500 text-xs' >{errors.currentJob?.end}</span>}
                             </div>
                         </div>
                     </div>

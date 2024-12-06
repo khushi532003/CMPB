@@ -11,9 +11,6 @@ function Navbar() {
     const { Logout, deactivateAccount, userData } = useAuthContext();
     const navigate = useNavigate();
     const [showConfirm, setShowConfirm] = useState(false);
-    const [ProfileImage, setProfileImage] = useState(localStorage.getItem("ProfileImage"));
-
-
 
 
     const handleCancel = () => {
@@ -58,7 +55,6 @@ function Navbar() {
                             <div className='w-7 h-7 bg-RedTheme flex justify-center items-center font-semibold text-white rounded-full text-center'>
                                 {userData?.name?.charAt(0).toUpperCase()}
                             </div>
-                            {/* <span className='text-sm '>{userData?.name}</span> */}
                         </li>
                     ) : (
                         <li className='list-none'>
