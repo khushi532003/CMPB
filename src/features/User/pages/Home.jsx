@@ -9,15 +9,17 @@ import { toast } from 'react-toastify';
 import Loader from '@/constant/loader';
 import { useNavigate } from 'react-router-dom';
 import EventModal from '../components/EventModal';
+import BookingRegistration from '../components/BookingRegistration';
 
 
 function Home() {
 
   const { programme, GetProgramme, GetPackage, packageData } = usePackageContext();
   const { videoURLData } = useChurayePalContext();
-  const {  userData, loader } = useAuthContext();
+  const { userData, loader } = useAuthContext();
+  const [toggleModal, setToggleModal] = useState(false);
   const [modal, setModal] = useState(false);
-
+  const MemberID = localStorage.getItem("MemberID");
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
@@ -29,8 +31,12 @@ function Home() {
     })
   }
 
-  const handlePayment = async (e,) => {
-
+  const handlePayment = async (e) => {
+    console.log(userData);
+    console.log(toggleModal);
+    if (userData?.token === null) {
+      setToggleModal(true)
+    }
 
     try {
       let res
@@ -102,28 +108,23 @@ function Home() {
       }
     } catch (error) {
       console.log(error);
-      // toast.error(error?.response?.data?.message);
     }
   }
 
-  // useEffect(() => {
-  //     const timer = setTimeout(() => {
-  //       setModal(true); 
-  //     }, 5000);
-  //     return () => clearTimeout(timer);
-
-  // }, []); 
 
   useEffect(() => {
-    loadRazorpayScript();
+    if (userData?.token) {
+      loadRazorpayScript();
+    }
     GetProgramme();
     GetPackage();
-  }, [])
+  }, [userData?.token])
 
 
   return (
     <div>
 
+      {toggleModal ? <BookingRegistration toggleModal={toggleModal} setToggleModal={setToggleModal} /> : ""}
       {modal ? <EventModal onClose={() => setModal(false)} /> : ""}
 
       {/* Banner section start  */}
@@ -360,8 +361,8 @@ function Home() {
                     <h2 className="text-4xl">Programme Package</h2>
                     <h2 className="text-5xl py-2 font-semibold text-yellow-500">₹{programme?.amount}  /-</h2>
                     <div className="seats">
-                      <input id="seat" type="number" min={1} max={20}
-                        className="block w-28 text-xs px-2 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='No. of Seats' />
+                      <input id="seat" type="number" defaultValue={1} min={1} max={20}
+                        className="block w-16 text-xs px-2 py-2 mt-2 text-gray-700 bg-white border border-[#BB1A04] focus:outline-[#BB1A04]" placeholder='No. of Seats' />
                     </div>
                     <div className="programme py-2 text-2xl font-semibold">{programme?.eventName}</div>
                     <p className="py-2">{programme?.description}</p>
@@ -445,12 +446,12 @@ function Home() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="sec">
               <img src="./images/gallery/1.jpg" alt="" />
-              <img src="./images/gallery/2.webp" alt="" className="mt-3" />
+              <img src="./images/gallery/2.jpg" alt="" className="mt-3" />
             </div>
             <div className="sec">
               <img src="./images/gallery/3.jpg" alt="" />
               <img className="mt-3" src="./images/gallery/4.jpg" alt="" />
-              <img src="./images/gallery/5.webp" alt="" className="mt-3" />
+              <img src="./images/gallery/5.jpg" alt="" className="mt-3" />
             </div>
 
             <div className="sec">
@@ -459,7 +460,7 @@ function Home() {
             </div>
             <div className="sec">
               <img src="./images/gallery/8.png" alt="" />
-              <img className="mt-3" src="./images/gallery/9.webp" alt="" />
+              <img className="mt-3" src="./images/gallery/9.jpg" alt="" />
             </div>
           </div>
         </div>

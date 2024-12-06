@@ -13,9 +13,13 @@ function VerifyOtp() {
     const { state } = useLocation();
 
     const verifyOTP = async () => {
-        if (paths?.current[0] === "/login" || paths?.current[1] === "/login") {
+        if (Registered || paths?.current[0] === "/login" || paths?.current[1] === "/login") {
+            console.log('1');
+            
             await verifyAndLogin(OTP, state.identifier)
         } else {
+            console.log('2');
+
 
             await VerifyOtp(OTP, state.identifier)
         }
@@ -49,7 +53,7 @@ function VerifyOtp() {
 
                         <p className='bg-white py-2 my-3 w-full font-medium text-lg rounded-lg px-3'>{state?.identifier}</p>
                         <div className='mb-4'>
-                            <input className='w-full p-2  rounded-md outline-none border font-bold hover:border-red-400 focus:border-red-400' name='identifier' type="text" placeholder='Enter otp' onChange={(e) => setOTP(e.target.value)} />
+                            <input className='w-full p-2  rounded-md outline-none border  hover:border-red-400 focus:border-red-400' name='identifier' type="text" placeholder='Enter otp' onChange={(e) => setOTP(e.target.value)} />
                         </div>
 
                         <button type='button' onClick={verifyOTP} className='w-full p-2 bg-red-600 hover:bg-red-800 duration-300 text-white rounded-md font-semibold items-center justify-center flex' disabled={loader} >{loader ? <Loader /> : "Verify otp"}</button>

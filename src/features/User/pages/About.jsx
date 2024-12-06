@@ -32,16 +32,29 @@ function About() {
         </div>
         <div className="reasons py-5 w-[90%] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 ">
-            <div className="reason mx-auto  rounded-full border-2 px-4 border-yellow-500 w-60 flex justify-center items-center h-60 text-center bg-[#bb1904ad] text-white">
+            <div className="reason mx-auto  rounded-full border-2 px-4 border-yellow-500 w-60 flex flex-col justify-center items-center h-60 text-center bg-[#bb1904ad] text-white">
+
+              <div className="icon">
+                <img className='w-20' src="./images/about_wcu/1.png" alt="" />
+              </div>
               <p className="">We are a symbol of <strong>Vedic & Modern</strong> Culture</p>
             </div>
-            <div className="reason mx-auto rounded-full border-2 px-4 border-yellow-500 w-60 flex justify-center items-center h-60  text-center bg-[#bb1904ad] text-white">
+            <div className="reason mx-auto rounded-full border-2 px-4 border-yellow-500 w-60 flex flex-col justify-center items-center h-60  text-center bg-[#bb1904ad] text-white">
+              <div className="icon">
+                <img className='w-20' src="./images/about_wcu/2.png" alt="" />
+              </div>
               <p className="">We Know you, <strong>better than you</strong> </p>
             </div>
-            <div className="reason mx-auto rounded-full border-2 px-4  border-yellow-500 w-60 flex justify-center items-center h-60  text-center bg-[#bb1904ad] text-white">
+            <div className="reason mx-auto rounded-full border-2 px-4  border-yellow-500 w-60 flex flex-col justify-center items-center h-60  text-center bg-[#bb1904ad] text-white">
+              <div className="icon">
+                <img className='w-20' src="./images/about_wcu/3.png" alt="" />
+              </div>
               <p className="">Having valid experience of <strong>16-17</strong>  years</p>
             </div>
-            <div className="reason mx-auto rounded-full border-2 px-4 border-yellow-500 w-60 flex justify-center items-center h-60 text-center bg-[#bb1904ad] text-white">
+            <div className="reason mx-auto rounded-full border-2 px-4 border-yellow-500 w-60 flex flex-col justify-center items-center h-60 text-center bg-[#bb1904ad] text-white">
+              <div className="icon">
+                <img className='w-20' src="./images/about_wcu/4.png" alt="" />
+              </div>
               <p className="">Because there is one and only <strong>Paras Bhai</strong> </p>
             </div>
           </div>

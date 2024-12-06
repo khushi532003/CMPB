@@ -51,8 +51,12 @@ const ProgrammeContextProvider = ({ children }) => {
     }
 
     const createProgramme = async (data) => {
+        console.log(data);
+        
         try {
             const res = await AxiosHandler.post("/events/create", data)
+            console.log(res);
+            
             toast.success("Programme created successfully");
             GetProgramme();
         } catch (error) {
@@ -62,8 +66,12 @@ const ProgrammeContextProvider = ({ children }) => {
     }
 
     const createPackage = async (data) => {
+        console.log(data);
+        
         try {
             const res = await AxiosHandler.post("RegisterPackage/create", data)
+            console.log(res);
+            
             toast.success("Package created successfully")
             GetPackage();
         } catch (error) {

@@ -6,6 +6,9 @@ export const RegisterValues = {
     password: "",
     confirmPassword: "",
 }
+export const CheckUser = {
+    identifier: "",
+}
 
 
 export const LoginValues = {

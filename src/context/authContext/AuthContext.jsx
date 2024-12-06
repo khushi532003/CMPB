@@ -24,24 +24,32 @@ function AuthContextProvider({ children }) {
 
 
     // Register new user
-    const RegisterUser = async (data) => {
+    const RegisterUser = async (credentials) => {
         setLoader(true);
         try {
-            const { data } = await AxiosHandler.post("/auth/signup", data);
-
-
+            const res = await AxiosHandler.post("/auth/signup", credentials);
+            const data = res?.data
             const userDetails = {
                 UserRole: data?.role,
                 token: data?.token ? data?.token : null,
                 Username: data?.firstName,
                 Member: data?.RegisterPackage?.PremiumMember,
             };
-
-
-
-
-            setRegistered({ identifier: res?.data.email ?? res?.data.phone })
-            toast.success(res.data.message);
+            setRegistered({ identifier: data.email ?? data.phone })
+            toast.success(data.message);
+            return res.status
+        } catch (error) {
+            console.log(error);
+            toast.error(error.response?.data?.message || "User Registration Failed");
+        } finally {
+            setLoader(false);
+        }
+    };
+    const CheckUser = async (credentials) => {
+        setLoader(true);
+        try {
+            const res = await AxiosHandler.post("/auth/check-user", credentials);
+            return res
         } catch (error) {
             console.log(error);
             toast.error(error.response?.data?.message || "User Registration Failed");
@@ -114,17 +122,31 @@ function AuthContextProvider({ children }) {
             setLoader(false);
         }
     };
-    const verifyAndLogin = async (data, identifier) => {
+    const verifyAndLogin = async (code, identifier) => {
         setLoader(true);
         try {
-            const response = await AxiosHandler.post(`/auth/verify/${data}`, { identifier });
-            toast.success(response.data.message);
+            const response = await AxiosHandler.post(`/auth/verifyAndLogin/${code}`, { identifier });
+            const data = response?.data
             console.log(response);
+
+            const userDetails = {
+                UserRole: data?.role,
+                token: data?.token,
+                Username: data?.firstName,
+                Member: data?.RegisterPackage?.PremiumMember,
+            };
+
+            Cookies.set("USER_DETAILS", JSON.stringify(userDetails));
+            setUserData({ token: data?.token, role: data?.role, name: data?.firstName, member: data?.RegisterPackage?.PremiumMember });
+            localStorage.setItem("MemberID", data?.MemberID);
+            localStorage.setItem("ProfileImage", data?.profileImage?.ImageURL);
 
             if (response.status === 200) {
                 setOTPVerify(true);
             }
-            // window.location.href = "/"
+            toast.success(data.message);
+
+            window.location.href = "/"
         } catch (error) {
             toast.error(error.response?.data?.message || "Forgot password failed");
             console.log(error);
@@ -208,7 +230,7 @@ function AuthContextProvider({ children }) {
                 changePassword,
                 Registered,
                 userData,
-                verifyAndLogin
+                verifyAndLogin, CheckUser
             }}
         >
             {children}
