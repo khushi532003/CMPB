@@ -12,7 +12,7 @@ function About() {
       {/* About section start  */}
       <section className="about py-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pe-4">
-          <div className="aboutImg bg-cover h-[350px] sm:h-[500px] bg-right rounded-r-3xl w-[80%]" style={{ backgroundImage: "url(./images/aboutImg.webp)" }}>
+          <div className="aboutImg bg-cover h-[250px] sm:h-[500px] bg-right rounded-r-3xl w-[80%]" style={{ backgroundImage: "url(./images/aboutImg.webp)" }}>
           </div>
           <div className="aboutContent flex flex-col justify-center ps-5 sm:ps-0">
             <h2 className='text-7xl ps-10'>About Us</h2>

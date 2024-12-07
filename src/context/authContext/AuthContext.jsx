@@ -215,6 +215,8 @@ function AuthContextProvider({ children }) {
     // Logout user
     const Logout = () => {
         Cookies.remove("USER_DETAILS");
+        localStorage.removeItem("token")
+        localStorage.removeItem("MemberID")
         setUserData({})
         toast.success("Logged out successfully!");
         setTimeout(() => {

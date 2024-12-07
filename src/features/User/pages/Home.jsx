@@ -4,24 +4,34 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { useAuthContext, useChurayePalContext, usePackageContext } from '@/context';
-import { AxiosHandler } from '@/config/Axios.config';
 import { toast } from 'react-toastify';
 import Loader from '@/constant/loader';
 import EventModal from '../components/EventModal';
 import BookingRegistration from '../components/BookingRegistration';
+import axios from 'axios';
 
 
 function Home() {
-
   const { programme, GetProgramme, GetPackage, packageData } = usePackageContext();
   const { videoURLData } = useChurayePalContext();
   const { userData, loader } = useAuthContext();
   const [toggleModal, setToggleModal] = useState(false);
   const [modal, setModal] = useState(false);
+  const [totalSeat, setTotalSeat] = useState(1)
+  const [buyNow, setbuyNow] = useState({
+    event: {
+      isBuyingEvent: false,
+      buyEvent: false
 
+    },
+    package: {
+      isBuyingPackage: false,
+      buyPackage: false
+    }
+  });
 
-
-  const buttonRef = useRef();
+  const EventButtonRef = useRef();
+  const PackageButtonRef = useRef();
 
   const MemberID = localStorage.getItem("MemberID");
 
@@ -35,32 +45,34 @@ function Home() {
     })
   }
 
-
   const handlePayment = async (e) => {
-    console.log(userData);
-
     if (userData?.token === null) {
-      setToggleModal(true)
 
-    }
+      if (e.target.id === programme?._id) {
+        setbuyNow(prevState => ({
+          ...prevState,
+          event: {
+            ...prevState.event,
+            isBuyingEvent: true
+          }
+        }));
 
-    console.log("userData?.token", userData?.token);
-    console.log(`localStorage.getItem("token")`, localStorage.getItem("token"));
 
+      } else if (e.target.id === packageData?._id) {
+        setbuyNow(prevState => ({
+          ...prevState,
+          package: {
+            ...prevState.package,
+            isBuyingPackage: true
+          }
+        }));
 
-    console.log('T/F', userData?.token !== null || localStorage.getItem("token"));
-    if (userData?.token !== null || localStorage.getItem("token")) {
-      console.log("check pass");
+      }
+      setToggleModal(true);
 
-    }
-
-    if (toggleModal === false && (userData?.token !== null || localStorage.getItem("token"))) {
-      buttonRef.current.click();
+    } else {
       await BookNow(e)
     }
-
-
-
   }
 
   const BookNow = async (e) => {
@@ -68,13 +80,31 @@ function Home() {
       let res
       if (e.target.id === programme?._id) {
         const amount = programme?.amount
-        // const seats = document.getElementById('seat').value * programme?.amount;
-        // console.log("Number of Seats:", seats);
-        res = await AxiosHandler.post(`/payment/events?eventid=${programme?._id}&memberid=${MemberID}`, { amount: `${amount}` });
+        res = await axios.post(
+          `${import.meta.env.VITE_APP_API_URL}/payment/events?eventid=${programme?._id}&memberid=${MemberID}`,
+          { amount: `${amount * totalSeat}` },
+          {
+            headers: {
+              "Authorization": `Bearer ${userData?.token}`,
+              "Content-Type": "application/json"
+            },
+            withCredentials: true
+          }
+        );
+
       } else if (e.target.id === packageData?._id) {
-        res = await AxiosHandler.post(`/payment/package?memberid=${MemberID}`, {
-          amount: `${packageData?.amount}`
-        })
+        res = await axios.post(
+          `${import.meta.env.VITE_APP_API_URL}/payment/package?memberid=${MemberID}`,
+          { amount: `${packageData?.amount}` },
+          {
+            headers: {
+              "Authorization": `Bearer ${userData?.token}`,
+              "Content-Type": "application/json"
+            },
+            withCredentials: true
+          }
+        );
+
       }
 
       const options = {
@@ -100,11 +130,31 @@ function Home() {
           }
 
           if (response && programme?._id === e.target.id) {
-            const eventRes = await AxiosHandler.post(`/events/bookuser/${programme?._id}`, paymentDetails);
+            const eventRes = await axios.post(
+              `${import.meta.env.VITE_APP_API_URL}/events/bookuser/${programme?._id}`,
+              paymentDetails,
+              {
+                headers: {
+                  "Authorization": `Bearer ${userData?.token}`,
+                  "Content-Type": "application/json"
+                },
+                withCredentials: true
+              }
+            );
+
             toast.success(eventRes?.data?.message || "Event Booked Successfull")
           }
           else if (response && packageData?._id === e.target.id) {
-            const registerRes = await AxiosHandler.put("/user/paymentUpdate", registrationPayment
+            const registerRes = await axios.put(
+              `${import.meta.env.VITE_APP_API_URL}/user/paymentUpdate`,
+              registrationPayment,
+              {
+                headers: {
+                  "Authorization": `Bearer ${userData?.token}`,
+                  "Content-Type": "application/json"
+                },
+                withCredentials: true
+              }
             );
             console.log(registerRes)
             toast.success(registerRes?.data?.message || "Regiteration Successfull")
@@ -134,10 +184,10 @@ function Home() {
       }
     } catch (error) {
       console.log(error);
+      toast.error(error.response.data.message)
     }
 
   }
-
 
   useEffect(() => {
     if (userData?.token) {
@@ -147,11 +197,26 @@ function Home() {
     GetPackage();
   }, [userData?.token, localStorage.getItem("token")])
 
+  useEffect(() => {
+    if (!toggleModal && (userData?.token !== null || localStorage.getItem("token"))) {
+      if (buyNow?.event.isBuyingEvent, buyNow?.event.buyEvent) {
+        console.log(userData?.token);
+
+        EventButtonRef.current.click();
+
+      }
+      else if (buyNow?.package.isBuyingPackage, buyNow?.package.buyPackage) {
+        PackageButtonRef.current.click()
+      }
+    }
+
+
+  }, [toggleModal, userData?.token, localStorage.getItem("token")])
 
   return (
     <div>
 
-      {toggleModal ? <BookingRegistration toggleModal={toggleModal} setToggleModal={setToggleModal} /> : ""}
+      {toggleModal ? <BookingRegistration buyNow={buyNow} setbuyNow={setbuyNow} toggleModal={toggleModal} setToggleModal={setToggleModal} /> : ""}
       {modal ? <EventModal onClose={() => setModal(false)} /> : ""}
 
       {/* Banner section start  */}
@@ -388,7 +453,7 @@ function Home() {
                     <h2 className="text-4xl">Programme Package</h2>
                     <h2 className="text-5xl py-2 font-semibold text-yellow-500">₹{programme?.amount}  /-</h2>
                     <div className="seats">
-                      <input id="seat" type="number" defaultValue={1} min={1} max={20}
+                      <input id="seat" type="number" defaultValue={totalSeat} min={1} onChange={(e) => setTotalSeat(e.target.value)} max={20}
                         className="block w-16 text-xs px-2 py-2 mt-2 text-gray-700 bg-white border border-[#BB1A04] focus:outline-[#BB1A04]" placeholder='No. of Seats' />
                     </div>
                     <div className="programme py-2 text-2xl font-semibold">{programme?.eventName}</div>
@@ -404,7 +469,7 @@ function Home() {
                         <strong>Date  :</strong> {programme?.availableDates}
                       </div>
                     </div>
-                    <button ref={buttonRef} id={programme?._id} type='button' onClick={(e) => handlePayment(e)}
+                    <button ref={EventButtonRef} id={programme?._id} type='button' onClick={(e) => handlePayment(e)}
                       className="bg-RedTheme text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500"
                     >
                       Book Now
@@ -444,7 +509,7 @@ function Home() {
                         </li>
                       </ul>
                     </div>
-                    <button type='button' id={packageData?._id} onClick={(e) => handlePayment(e)} className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500 ">
+                    <button ref={PackageButtonRef} type='button' id={packageData?._id} onClick={(e) => handlePayment(e)} className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500 ">
                       Register Now
                     </button>
 
