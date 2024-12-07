@@ -2,21 +2,42 @@ import { useAuthContext } from '@/context';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Loader from '@/constant/loader';
+import Cookies from 'js-cookie';
 
 function VerifyOtp() {
-    const { loader, VerifyOtp, verifyAndLogin, OTPverify, Registered, setOTPVerify, paths } = useAuthContext();
+    const { loader, VerifyOtp, setUserData, verifyAndLogin, OTPverify, Registered, setOTPVerify, paths } = useAuthContext();
     const navigate = useNavigate();
 
     console.log(paths);
 
     const [OTP, setOTP] = useState(null);
     const { state } = useLocation();
+    console.log(state);
+
 
     const verifyOTP = async () => {
         if (Registered || paths?.current[0] === "/login" || paths?.current[1] === "/login") {
             console.log('1');
-            
-            await verifyAndLogin(OTP, state.identifier)
+
+            const response = await verifyAndLogin(OTP, state.identifier)
+            const data = response?.data
+            console.log(response);
+
+            const userDetails = {
+                UserRole: data?.role,
+                token: data?.token,
+                Username: data?.firstName,
+                Member: data?.RegisterPackage?.PremiumMember,
+            };
+
+            Cookies.set("USER_DETAILS", JSON.stringify(userDetails));
+            setUserData({ token: data?.token, role: data?.role, name: data?.firstName, member: data?.RegisterPackage?.PremiumMember });
+            localStorage.setItem("MemberID", data?.MemberID);
+            localStorage.setItem("ProfileImage", data?.profileImage?.ImageURL);
+
+            if (response.status === 200) {
+                setOTPVerify(true);
+            }
         } else {
             console.log('2');
 

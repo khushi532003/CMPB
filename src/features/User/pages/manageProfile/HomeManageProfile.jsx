@@ -109,13 +109,13 @@ function HomeManageProfile() {
                 </div>
 
                 <div className="members w-full sm:w-[70%] border border-red-100 p-4">
-                    <BasicInfo data={profile?.user} />
-                    <PresentAddress data={profile?.addressDetails} />
-                    <CareerInfo data={profile?.careerDetails} />
-                    <EducationInfo data={profile?.educationDetails} />
+                    {/* <BasicInfo data={profile?.user} /> */}
+                    {/* <PresentAddress data={profile?.addressDetails} /> */}
+                    {/* <CareerInfo data={profile?.careerDetails} /> */}
+                    {/* <EducationInfo data={profile?.educationDetails} />
                     <PhysicalAttribute data={profile?.physicalattributeDetails} />
                     <Languages data={profile?.languageDetails} />
-                    <HobbiesInterest data={profile?.hoobiesandintrestDetails} />
+                    <HobbiesInterest data={profile?.hoobiesandintrestDetails} /> */}
                     <PermanentAddress data={profile?.permanentaddressDetails} />
                     <PersonalAttitude data={profile?.personalattitudeDetails} />
                     <ResidancyInfo data={profile?.residencyinfoDetails} />
