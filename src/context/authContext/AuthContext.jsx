@@ -11,7 +11,7 @@ function AuthContextProvider({ children }) {
     const userDetails = Cookies.get("USER_DETAILS") ? JSON.parse(Cookies.get("USER_DETAILS")) : {};
 
     const [userData, setUserData] = useState({
-        token: userDetails?.token || null,
+        token: userDetails?.token ?? (localStorage.getItem("token") ?? null),
         role: userDetails?.UserRole || null,
         name: userDetails?.Username || null,
         member: userDetails?.Member || null,
@@ -25,7 +25,11 @@ function AuthContextProvider({ children }) {
 
     // Register new user
     const RegisterUser = async (credentials) => {
+        console.log("RegisterUser");
+
         setLoader(true);
+        console.log("credentials", credentials);
+
         try {
             const res = await AxiosHandler.post("/auth/signup", credentials);
             const data = res?.data
@@ -35,7 +39,7 @@ function AuthContextProvider({ children }) {
                 Username: data?.firstName,
                 Member: data?.RegisterPackage?.PremiumMember,
             };
-            setRegistered({ identifier: data.email ?? data.phone })
+            setRegistered({ identifier: credentials?.identifier })
             toast.success(data.message);
             return res.status
         } catch (error) {
@@ -49,6 +53,8 @@ function AuthContextProvider({ children }) {
         setLoader(true);
         try {
             const res = await AxiosHandler.post("/auth/check-user", credentials);
+
+
             return res
         } catch (error) {
             console.log(error);
@@ -108,6 +114,8 @@ function AuthContextProvider({ children }) {
 
     // Verify OTP for password reset
     const VerifyOtp = async (data, identifier) => {
+        console.log("Auth context ", data, identifier);
+
         setLoader(true);
         try {
             const response = await AxiosHandler.post(`/auth/verify/${data}`, { identifier });
@@ -123,9 +131,12 @@ function AuthContextProvider({ children }) {
         }
     };
     const verifyAndLogin = async (code, identifier) => {
+        console.log("code", code, "identifier", identifier);
+
         setLoader(true);
         try {
             const response = await AxiosHandler.post(`/auth/verifyAndLogin/${code}`, { identifier });
+            return response;
             const data = response?.data
             console.log(response);
 
@@ -146,7 +157,7 @@ function AuthContextProvider({ children }) {
             }
             toast.success(data.message);
 
-            window.location.href = "/"
+            // window.location.href = "/"
         } catch (error) {
             toast.error(error.response?.data?.message || "Forgot password failed");
             console.log(error);
@@ -230,7 +241,8 @@ function AuthContextProvider({ children }) {
                 changePassword,
                 Registered,
                 userData,
-                verifyAndLogin, CheckUser
+                verifyAndLogin, CheckUser,
+                setUserData
             }}
         >
             {children}

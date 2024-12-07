@@ -8,7 +8,7 @@ export const AxiosHandler = axios.create({
     headers: {
         "Authorization": `Bearer ${Cookies.get("USER_DETAILS")
             ? JSON.parse(Cookies.get("USER_DETAILS"))?.token
-            : null}`
+            : localStorage.getItem("token")}`
     }
 })
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -7,7 +7,6 @@ import { useAuthContext, useChurayePalContext, usePackageContext } from '@/conte
 import { AxiosHandler } from '@/config/Axios.config';
 import { toast } from 'react-toastify';
 import Loader from '@/constant/loader';
-import { useNavigate } from 'react-router-dom';
 import EventModal from '../components/EventModal';
 import BookingRegistration from '../components/BookingRegistration';
 
@@ -19,6 +18,11 @@ function Home() {
   const { userData, loader } = useAuthContext();
   const [toggleModal, setToggleModal] = useState(false);
   const [modal, setModal] = useState(false);
+
+
+
+  const buttonRef = useRef();
+
   const MemberID = localStorage.getItem("MemberID");
 
   const loadRazorpayScript = () => {
@@ -31,19 +35,41 @@ function Home() {
     })
   }
 
+
   const handlePayment = async (e) => {
     console.log(userData);
-    console.log(toggleModal);
+
     if (userData?.token === null) {
       setToggleModal(true)
+
     }
 
+    console.log("userData?.token", userData?.token);
+    console.log(`localStorage.getItem("token")`, localStorage.getItem("token"));
+
+
+    console.log('T/F', userData?.token !== null || localStorage.getItem("token"));
+    if (userData?.token !== null || localStorage.getItem("token")) {
+      console.log("check pass");
+
+    }
+
+    if (toggleModal === false && (userData?.token !== null || localStorage.getItem("token"))) {
+      buttonRef.current.click();
+      await BookNow(e)
+    }
+
+
+
+  }
+
+  const BookNow = async (e) => {
     try {
       let res
       if (e.target.id === programme?._id) {
         const amount = programme?.amount
-        const seats = document.getElementById('seat').value * programme?.amount;
-        console.log("Number of Seats:", seats);
+        // const seats = document.getElementById('seat').value * programme?.amount;
+        // console.log("Number of Seats:", seats);
         res = await AxiosHandler.post(`/payment/events?eventid=${programme?._id}&memberid=${MemberID}`, { amount: `${amount}` });
       } else if (e.target.id === packageData?._id) {
         res = await AxiosHandler.post(`/payment/package?memberid=${MemberID}`, {
@@ -109,6 +135,7 @@ function Home() {
     } catch (error) {
       console.log(error);
     }
+
   }
 
 
@@ -118,7 +145,7 @@ function Home() {
     }
     GetProgramme();
     GetPackage();
-  }, [userData?.token])
+  }, [userData?.token, localStorage.getItem("token")])
 
 
   return (
@@ -377,7 +404,7 @@ function Home() {
                         <strong>Date  :</strong> {programme?.availableDates}
                       </div>
                     </div>
-                    <button id={programme?._id} type='button' onClick={(e) => handlePayment(e)}
+                    <button ref={buttonRef} id={programme?._id} type='button' onClick={(e) => handlePayment(e)}
                       className="bg-RedTheme text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500"
                     >
                       Book Now

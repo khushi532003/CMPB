@@ -4,12 +4,17 @@ export const RegisterValues = {
     firstName: "",
     lastName: "",
     password: "",
+    otp:"",
     confirmPassword: "",
 }
-export const CheckUser = {
+export const UserIdentifier = {
     identifier: "",
 }
 
+export const VerifyCode = {
+    identifier: "",
+    otp: "",
+}
 
 export const LoginValues = {
     identifier: "",

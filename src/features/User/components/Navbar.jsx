@@ -89,10 +89,11 @@ function Navbar() {
                         <li><Link to="/contact" onClick={() => handleLinkClick('/contact')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Contact Us</Link></li>
                         {userData?.token ? (
                             <li onClick={() => setSidebarToggle(true)} className='text-center cursor-pointer flex gap-2 items-center'>
-                                <div className='w-7 h-7 bg-RedTheme flex justify-center items-center font-bold text-white rounded-full text-center'>
-                                    {userData?.name?.charAt(0).toUpperCase()}
-                                </div>
-                                <span className='text-sm font-medium text-center capitalize'>{userData?.name}</span>
+                                {/* <img src={ProfileImage || (userGender === "male" ? "https://media.istockphoto.com/id/517998264/vector/male-user-icon.jpg?s=170667a&w=0&k=20&c=ZUf0DE14mBsbtgTvNdhDB1uzey9CK2BJlhhMhfFftB8="
+                                    : userGender === "female"
+                                        ? "https://png.pngitem.com/pimgs/s/618-6183618_transparent-unknown-person-png-transparent-background-female-user.png"
+                                        : "https://example.com/default-image.png")} alt="profile" className='w-7 h-7 rounded-full' /> */}
+                                <span className='text-sm font-medium text-center'>{userData?.name}</span>
                             </li>
                         ) : (
                             <li>
