@@ -7,7 +7,7 @@ import Cookies from 'js-cookie';
 import { useState } from 'react'
 
 
-function BookingRegistration({ setToggleModal }) {
+function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
 
     const { loader, setUserData, RegisterUser, verifyAndLogin, CheckUser } = useAuthContext();
     const [BookingRegisterAuth, setBookingRegisterAuth] = useState(false)
@@ -17,16 +17,13 @@ function BookingRegistration({ setToggleModal }) {
 
 
     const { values, errors, touched, handleChange, handleBlur, handleSubmit } = useFormik({
-        initialValues: !BookingRegisterAuth ? UserIdentifier : !UserAlreadyExist && !codeVerification ? RegisterValues : VerifyCode,
-        validationSchema: !BookingRegisterAuth ? CheckUserSchema : !UserAlreadyExist && !codeVerification ? Registerschema : VerifyCodeSchema,
+        initialValues: !BookingRegisterAuth ? UserIdentifier : !UserAlreadyExist ? RegisterValues : VerifyCode,
+        validationSchema: !BookingRegisterAuth ? CheckUserSchema : !UserAlreadyExist ? Registerschema : VerifyCodeSchema,
         onSubmit: async (value) => {
             let res
-            console.log("value", value);
             if (!UserAlreadyExist && !BookingRegisterAuth) {
-                console.log("1");
 
                 res = await CheckUser(value)
-                console.log("res", res);
                 if (res?.status === 200 && res?.data?.success === true) {
                     setUserAlreadyExist(true)
                 }
@@ -34,12 +31,9 @@ function BookingRegistration({ setToggleModal }) {
             }
             try {
                 if (UserAlreadyExist) {
-                    console.log("2");
-                    console.log("check here", value);
 
                     const res = await verifyAndLogin(value.otp, value.identifier)
                     const data = res?.data
-                    console.log("UserAlreadyExist", res);
 
                     const userDetails = {
                         UserRole: data?.role,
@@ -50,15 +44,32 @@ function BookingRegistration({ setToggleModal }) {
 
                     Cookies.set("USER_DETAILS", JSON.stringify(userDetails));
                     setUserData({ token: data?.token, role: data?.role, name: data?.firstName, member: data?.RegisterPackage?.PremiumMember });
+                    localStorage.setItem("token", data?.token);
                     localStorage.setItem("MemberID", data?.MemberID);
                     localStorage.setItem("ProfileImage", data?.profileImage?.ImageURL);
-                    localStorage.setItem("token", data?.token);
+                    if (buyNow?.event?.isBuyingEvent) {
+                        setbuyNow(prevState => ({
+                            ...prevState,
+                            event: {
+                                ...prevState.event,
+                                buyEvent: true
+                            }
+                        }));
+                    }
+                    if (buyNow?.package?.isBuyingPackage) {
+                        setbuyNow(prevState => ({
+                            ...prevState,
+                            package: {
+                                ...prevState.package,
+                                buyPackage: true
+                            }
+                        }));
+                    }
 
                     setToggleModal(false)
                     // window.location.href = "/"
 
                 } if (!UserAlreadyExist && BookingRegisterAuth) {
-                    console.log("3");
                     const res = await RegisterUser(value)
                     if (res === 200) {
                         setBookingRegisterAuth(false)
