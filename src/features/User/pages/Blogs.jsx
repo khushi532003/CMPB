@@ -25,16 +25,11 @@ function Blogs() {
                 {userBlogData?.map((item, i) => {
                     const rawDescription = item?.description || "No description available";
 
-                    // Log the raw description
-                    console.log("Raw Description:", rawDescription);
-
-                    // Sanitize HTML
                     const sanitizedHTML = DOMPurify.sanitize(rawDescription, {
                         ALLOWED_TAGS: ["b", "i", "em", "strong", "a", "p", "ul", "ol", "li", "br"],
                         ALLOWED_ATTR: ["href", "target", "rel"],
                     });
 
-                    console.log("Sanitized HTML:", sanitizedHTML);
 
                     return (
                         <React.Fragment key={i}>

@@ -8,7 +8,6 @@ function MemberProfile() {
     const [openIndex, setOpenIndex] = useState(null);
     const { GetActiveUserById, userDetails, GetActiveMembers } = useMembersContext()
     const { id } = useParams()
-    console.log(userDetails);
     
     const toggleAccordion = (index) => {
         setOpenIndex(openIndex === index ? null : index);

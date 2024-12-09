@@ -64,7 +64,6 @@ function AddBlog({ onClose }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validate()) return;
-        console.log(addBlogData);
         const formData = new FormData();
         formData.append("title", addBlogData?.title);
         formData.append("alt", addBlogData?.alt);
