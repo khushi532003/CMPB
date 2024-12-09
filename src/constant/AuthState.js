@@ -1,15 +1,22 @@
 
 export const RegisterValues = {
-    email: "",
+    identifier: "",
     firstName: "",
     lastName: "",
-    phone: "",
     password: "",
+    otp:"",
     confirmPassword: "",
 }
+export const UserIdentifier = {
+    identifier: "",
+}
 
+export const VerifyCode = {
+    identifier: "",
+    otp: "",
+}
 
 export const LoginValues = {
-    email: "",
+    identifier: "",
     password: ""
 }

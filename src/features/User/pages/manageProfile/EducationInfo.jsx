@@ -5,9 +5,9 @@ import { useFormik } from 'formik';
 import React, { useState } from 'react';
 
 
-function EducationInfo({data}) {
+function EducationInfo({ data }) {
     const { Create, Update } = useProfileContext();
-    const [loader,setLoader] = useState(false);
+    const [loader, setLoader] = useState(false);
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: {
@@ -15,7 +15,7 @@ function EducationInfo({data}) {
             insitution: data?.insitution ? data.insitution : "",
             end: data?.end ? data.end : "",
             Degree: data?.Degree ? data.Degree : "",
-        }, 
+        },
         enableReinitialize: true,
         validationSchema: EducationSchema,
         onSubmit: async (value) => {
@@ -25,13 +25,13 @@ function EducationInfo({data}) {
                     await Create("/profile/education/create", value);
                 } else {
                     await Update("/profile/education/update", value)
-                }  
+                }
             } catch (error) {
-             console.log(error);   
+                console.log(error);
             }
-           finally{
-            setLoader(false);
-           }
+            finally {
+                setLoader(false);
+            }
         }
     })
 
@@ -59,7 +59,7 @@ function EducationInfo({data}) {
                                     autoComplete="given-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.Degree && touched.Degree && <span className='text-red-500' >{errors.Degree}</span>}
+                                {errors.Degree && touched.Degree && <span className='text-red-500 text-xs' >{errors.Degree}</span>}
                             </div>
                         </div>
 
@@ -79,7 +79,7 @@ function EducationInfo({data}) {
                                     autoComplete="family-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.insitution && touched.insitution && <span className='text-red-500' >{errors.insitution}</span>}
+                                {errors.insitution && touched.insitution && <span className='text-red-500 text-xs' >{errors.insitution}</span>}
 
                             </div>
                         </div>
@@ -100,7 +100,7 @@ function EducationInfo({data}) {
                                     autoComplete="date"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.start && touched.start && <span className='text-red-500' >{errors.start}</span>}
+                                {errors.start && touched.start && <span className='text-red-500 text-xs' >{errors.start}</span>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -111,7 +111,7 @@ function EducationInfo({data}) {
                                 <input
                                     id="end-date"
                                     name="end"
-                                    type="date" 
+                                    type="date"
                                     value={values.end}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
@@ -119,13 +119,13 @@ function EducationInfo({data}) {
                                     autoComplete="date"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.end && touched.end && <span className='text-red-500' >{errors.end}</span>}
+                                {errors.end && touched.end && <span className='text-red-500 text-xs' >{errors.end}</span>}
                             </div>
                         </div>
                     </div>
                     <div className='flex justify-end py-4'>
                         <div>
-                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>{loader?<Loader/>:"Update"}</button>
+                            <button type='submit' className='px-4 py-2 bg-RedTheme text-white mx-2'>{loader ? <Loader /> : "Update"}</button>
                         </div>
                     </div>
                 </div>

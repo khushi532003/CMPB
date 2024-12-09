@@ -17,10 +17,29 @@ export const BasicDetailsSchema = yup.object({
 })
 
 export const CareerInfoSchema = yup.object({
-    designation: yup.string().trim().required("designationis required"),
-    company: yup.string().trim().required("company is required"),
-    start: yup.string().trim().required("company is required"),
-    end: yup.string().trim().required("end is required")
+    previousJobs: yup.object({
+        designation: yup.string().trim(),
+        company: yup.string().trim(),
+        start: yup
+            .string()
+            .trim()
+            .test(
+                "start-before-end",
+                "Start date must be before the end date",
+                function (value) {
+                    const { end } = this.parent;
+                    if (!value || !end) return true;
+                    return new Date(value) <= new Date(end);
+                }
+            ),
+        end: yup.string().trim(),
+    }),
+    currentJob: yup.object({
+        designation: yup.string().trim().required("designationis required"),
+        company: yup.string().trim().required("company is required"),
+        start: yup.string().trim().required("company is required"),
+        end: yup.string().trim().required("end is required"),
+    }),
 })
 
 export const PhysicalattributeDetailsSchema = yup.object({
@@ -104,7 +123,7 @@ export const PartnerExpectionSchema = yup.object({
     Height: yup.number().required(" field is required"),
     weight: yup.number().required(" field is required"),
     MaritalStatus: yup.string().trim().required(" field is required"),
-    Children: yup.number().required(" field is required"),
+    Children: yup.number().min(0).required("field is required"),
     Religion: yup.string().trim().required(" field is required"),
     Caste: yup.string().trim().required(" field is required"),
     SubCaste: yup.string().trim().required(" field is required"),

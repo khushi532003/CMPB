@@ -8,12 +8,10 @@ function Navbar() {
     const [scrolling, setScrolling] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [sideBarToggle, setSidebarToggle] = useState(false);
-    const { token, Logout, deactivateAccount, name, userGender } = useAuthContext();
+    const { Logout, deactivateAccount, userData } = useAuthContext();
     const navigate = useNavigate();
     const [showConfirm, setShowConfirm] = useState(false);
-    const [ProfileImage, setProfileImage] = useState(localStorage.getItem("ProfileImage"));
-    
-  
+
 
     const handleCancel = () => {
         setShowConfirm(false);
@@ -31,7 +29,7 @@ function Navbar() {
 
     const handleLinkClick = (path) => {
         setMenuOpen(false);
-       navigate(path);
+        navigate(path);
     };
 
     return (
@@ -52,10 +50,11 @@ function Navbar() {
                 </Link>
                 <div className="sideMenu flex gap-2">
                     <h4 onClick={() => setMenuOpen(!menuOpen)} className={`${scrolling ? 'text-white' : 'text-gray-800'} cursor-pointer uppercase`}>Menu</h4>
-                    {token ? (
+                    {userData?.token ? (
                         <li className='list-none flex gap-2 items-center ' onClick={() => setSidebarToggle(true)}>
-                            <img src={ProfileImage} alt="profile" className='w-7 h-7 rounded-full' />
-                            <span className='text-sm '>{name}</span>
+                            <div className='w-7 h-7 bg-RedTheme flex justify-center items-center font-semibold text-white rounded-full text-center'>
+                                {userData?.name?.charAt(0).toUpperCase()}
+                            </div>
                         </li>
                     ) : (
                         <li className='list-none'>
@@ -88,13 +87,12 @@ function Navbar() {
                         <li><Link to="/happyStories" onClick={() => handleLinkClick('/happyStories')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Happy Stories</Link></li>
                         <li><Link to="/blogs" onClick={() => handleLinkClick('/blogs')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Blogs</Link></li>
                         <li><Link to="/contact" onClick={() => handleLinkClick('/contact')} className="hover:bg-RedTheme rounded-sm hover:text-white transition duration-500 px-4 py-2">Contact Us</Link></li>
-                        {token ? (
-                            <li onClick={() => setSidebarToggle(true)} className='text-center cursor-pointer flex gap-2 items-center'>                                                            
-                                <img src={ProfileImage || (userGender === "male" ? "https://media.istockphoto.com/id/517998264/vector/male-user-icon.jpg?s=170667a&w=0&k=20&c=ZUf0DE14mBsbtgTvNdhDB1uzey9CK2BJlhhMhfFftB8="
-                                    : userGender === "female"
-                                        ? "https://png.pngitem.com/pimgs/s/618-6183618_transparent-unknown-person-png-transparent-background-female-user.png"
-                                        : "https://example.com/default-image.png" )} alt="profile" className='w-7 h-7 rounded-full' />
-                                <span className='text-sm font-medium text-center'>{name}</span>
+                        {userData?.token ? (
+                            <li onClick={() => setSidebarToggle(true)} className='text-center cursor-pointer flex gap-2 items-center'>
+                                <div className='w-8 h-8 bg-RedTheme flex justify-center items-center font-bold text-white rounded-full text-center'>
+                                    {userData?.name?.charAt(0).toUpperCase()}
+                                </div>
+                                <span className='text-sm font-medium capitalize text-center'>{userData?.name}</span>
                             </li>
                         ) : (
                             <li>
@@ -109,8 +107,10 @@ function Navbar() {
                 <div className="sidebar bg-white w-64 sm:w-80 p-5 z-50 fixed right-0 top-0 h-[100vh]">
                     <div className="flex justify-between items-center">
                         <div className="username flex items-center gap-3">
-                            <img src={ProfileImage} alt="profile" className='w-10 h-10 rounded-full' />
-                            <span className='text-2xl font-medium text-RedTheme'>{name}</span>
+                            <div className='w-8 h-8 bg-RedTheme flex justify-center items-center font-bold text-white rounded-full text-center'>
+                                {userData?.name?.charAt(0).toUpperCase()}
+                            </div>
+                            <span className='text-2xl font-medium text-RedTheme uppercase'>{userData?.name}</span>
                         </div>
                         <div className="close text-2xl cursor-pointer" onClick={() => setSidebarToggle(false)}>
                             <TfiClose />

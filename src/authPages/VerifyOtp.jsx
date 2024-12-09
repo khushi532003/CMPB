@@ -2,26 +2,66 @@ import { useAuthContext } from '@/context';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Loader from '@/constant/loader';
+import Cookies from 'js-cookie';
 
 function VerifyOtp() {
-    const { loader, VerifyOtp, OTPverify, Registered } = useAuthContext();
+    const { loader, VerifyOtp, setUserData, verifyAndLogin, OTPverify, Registered, setOTPVerify, paths } = useAuthContext();
     const navigate = useNavigate();
+
+    console.log(paths);
+
     const [OTP, setOTP] = useState(null);
     const { state } = useLocation();
+    console.log(state);
+
 
     const verifyOTP = async () => {
-        await VerifyOtp(OTP, state.email)
+        if (Registered || paths?.current[0] === "/login" || paths?.current[1] === "/login") {
+            console.log('1');
+
+            const response = await verifyAndLogin(OTP, state.identifier)
+            const data = response?.data
+            console.log(response);
+
+            const userDetails = {
+                UserRole: data?.role,
+                token: data?.token,
+                Username: data?.firstName,
+                Member: data?.RegisterPackage?.PremiumMember,
+            };
+
+            Cookies.set("USER_DETAILS", JSON.stringify(userDetails));
+            setUserData({ token: data?.token, role: data?.role, name: data?.firstName, member: data?.RegisterPackage?.PremiumMember });
+            localStorage.setItem("MemberID", data?.MemberID);
+            localStorage.setItem("ProfileImage", data?.profileImage?.ImageURL);
+
+            if (response.status === 200) {
+                setOTPVerify(true);
+            }
+        } else {
+            console.log('2');
+
+
+            await VerifyOtp(OTP, state.identifier)
+        }
     }
 
     useEffect(() => {
-        if (OTPverify && !Registered) {
-            navigate('/new_password', { state: { email: state.email } })
+
+        if (OTPverify && (paths?.current[1] === "/forget_password" || paths?.current[2] === "/forget_password")) {
+            setOTPVerify(false)
+            navigate('/new_password', { state: { identifier: state.identifier } })
         }
-    }, [OTPverify, Registered])
+        if (OTPverify && (paths?.current[0] === "/login" || paths?.current[1] === "/login")) {
+            setOTPVerify(false)
+            navigate('/')
+        }
+    }, [OTPverify, paths])
+
 
     useEffect(() => {
         if (Registered && OTPverify) {
-            navigate('/login')
+            navigate('/')
         }
     }, [Registered, OTPverify])
 
@@ -32,9 +72,9 @@ function VerifyOtp() {
                     <form>
                         <h3 className='flex justify-center items-center mb-14 text-gray-500 font-bold text-5xl'>OTP Verification</h3>
 
-                        <p className='bg-white py-2 my-3 w-full font-medium text-lg rounded-lg px-3'>{state?.email}</p>
+                        <p className='bg-white py-2 my-3 w-full font-medium text-lg rounded-lg px-3'>{state?.identifier}</p>
                         <div className='mb-4'>
-                            <input className='w-full p-2  rounded-md outline-none border font-bold hover:border-red-400 focus:border-red-400' name='email' type="text" placeholder='Enter otp' onChange={(e) => setOTP(e.target.value)} />
+                            <input className='w-full p-2  rounded-md outline-none border  hover:border-red-400 focus:border-red-400' name='identifier' type="text" placeholder='Enter otp' onChange={(e) => setOTP(e.target.value)} />
                         </div>
 
                         <button type='button' onClick={verifyOTP} className='w-full p-2 bg-red-600 hover:bg-red-800 duration-300 text-white rounded-md font-semibold items-center justify-center flex' disabled={loader} >{loader ? <Loader /> : "Verify otp"}</button>

@@ -1,32 +1,61 @@
 import { AxiosHandler } from "@/config/Axios.config";
-import { createContext, useMemo, useState } from "react";
+import { createContext, useState } from "react";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
+
 
 export const AuthContext = createContext();
 
 function AuthContextProvider({ children }) {
     const [loader, setLoader] = useState(false);
-    const [token, setToken] = useState(Cookies.get("CMPB_TOKEN"));
-    const [role, setRole] = useState(Cookies.get("UserRole"));
-    const [name, setName] = useState(Cookies.get("Username"));
-    const [member, setMember] = useState(Cookies.get("Member"));
-    const [userGender, setUserGender] = useState(Cookies.get("Gender"));
+    const userDetails = Cookies.get("USER_DETAILS") ? JSON.parse(Cookies.get("USER_DETAILS")) : {};
+
+    const [userData, setUserData] = useState({
+        token: userDetails?.token ?? (localStorage.getItem("token") ?? null),
+        role: userDetails?.UserRole || null,
+        name: userDetails?.Username || null,
+        member: userDetails?.Member || null,
+    });
+
     const [forgetEmail, setForgetEmail] = useState(null);
-    const [OTPverify, setOTPVerify] = useState(null);
-    const [packagePaymentData, setPackagePaymentData] = useState({})
+    const [OTPverify, setOTPVerify] = useState(false);
     const [Registered, setRegistered] = useState(null);
-
-
+    const [paths, setPaths] = useState([])
 
 
     // Register new user
-    const RegisterUser = async (data) => {
+    const RegisterUser = async (credentials) => {
+        console.log("RegisterUser");
+
+        setLoader(true);
+        console.log("credentials", credentials);
+
+        try {
+            const res = await AxiosHandler.post("/auth/signup", credentials);
+            const data = res?.data
+            const userDetails = {
+                UserRole: data?.role,
+                token: data?.token ? data?.token : null,
+                Username: data?.firstName,
+                Member: data?.RegisterPackage?.PremiumMember,
+            };
+            setRegistered({ identifier: credentials?.identifier })
+            toast.success(data.message);
+            return res.status
+        } catch (error) {
+            console.log(error);
+            toast.error(error.response?.data?.message || "User Registration Failed");
+        } finally {
+            setLoader(false);
+        }
+    };
+    const CheckUser = async (credentials) => {
         setLoader(true);
         try {
-            const res = await AxiosHandler.post("/auth/signup", data);
-            setRegistered({ email: res?.data?.email })
-            toast.success(res.data.message);
+            const res = await AxiosHandler.post("/auth/check-user", credentials);
+
+
+            return res
         } catch (error) {
             console.log(error);
             toast.error(error.response?.data?.message || "User Registration Failed");
@@ -36,27 +65,32 @@ function AuthContextProvider({ children }) {
     };
 
     // User login
-    const LoginUser = async (data) => {
+    const LoginUser = async (credentials) => {
+        console.log(credentials);
+
         setLoader(true);
         try {
-            const res = await AxiosHandler.post("/auth/login", data);
-            Cookies.set("CMPB_TOKEN", res.data.token);
-            Cookies.set("UserRole", res.data.role);
-            Cookies.set("Username", res.data.firstName);
-            Cookies.set("Gender", res.data.gender);
-            Cookies.set("Member", res?.data?.RegisterPackage?.PremiumMember);
-            setToken(res.data.token);
-            setPackagePaymentData(res?.data);
-            setRole(res.data.role);
-            setUserGender(res.data.gender);            
-            setName(res.data.firstName);
-            setMember(res?.data?.RegisterPackage?.PremiumMember);
-            localStorage.setItem("MemberID", res?.data?.MemberID);
-            localStorage.setItem("ProfileImage", res?.data?.profileImage?.ImageURL);
-            toast.success(res.data.message);
-            window.location.href = "/"
+            const { data } = await AxiosHandler.post("/auth/login", credentials);
+
+            const userDetails = {
+                UserRole: data?.role,
+                token: data?.token,
+                Username: data?.firstName,
+                Member: data?.RegisterPackage?.PremiumMember,
+            };
+
+            Cookies.set("USER_DETAILS", JSON.stringify(userDetails));
+            setUserData({ token: data?.token, role: data?.role, name: data?.firstName, member: data?.RegisterPackage?.PremiumMember });
+            localStorage.setItem("MemberID", data?.MemberID);
+            localStorage.setItem("ProfileImage", data?.profileImage?.ImageURL);
+            toast.success(data?.message);
+            // window.location.href = "/"
         } catch (error) {
             console.log(error);
+
+            if (error.status === 302) {
+                return error.status
+            }
             toast.error(error.response?.data?.message || "User Login Failed");
         } finally {
             setLoader(false);
@@ -79,10 +113,12 @@ function AuthContextProvider({ children }) {
     };
 
     // Verify OTP for password reset
-    const VerifyOtp = async (data, email) => {
+    const VerifyOtp = async (data, identifier) => {
+        console.log("Auth context ", data, identifier);
+
         setLoader(true);
         try {
-            const response = await AxiosHandler.post(`/auth/verify/${data}`, { email });
+            const response = await AxiosHandler.post(`/auth/verify/${data}`, { identifier });
             toast.success(response.data.message);
             if (response.status === 200) {
                 setOTPVerify(true);
@@ -94,10 +130,47 @@ function AuthContextProvider({ children }) {
             setLoader(false);
         }
     };
+    const verifyAndLogin = async (code, identifier) => {
+        console.log("code", code, "identifier", identifier);
+
+        setLoader(true);
+        try {
+            const response = await AxiosHandler.post(`/auth/verifyAndLogin/${code}`, { identifier });
+            return response;
+            const data = response?.data
+            console.log(response);
+
+            const userDetails = {
+                UserRole: data?.role,
+                token: data?.token,
+                Username: data?.firstName,
+                Member: data?.RegisterPackage?.PremiumMember,
+            };
+
+            Cookies.set("USER_DETAILS", JSON.stringify(userDetails));
+            setUserData({ token: data?.token, role: data?.role, name: data?.firstName, member: data?.RegisterPackage?.PremiumMember });
+            localStorage.setItem("MemberID", data?.MemberID);
+            localStorage.setItem("ProfileImage", data?.profileImage?.ImageURL);
+
+            if (response.status === 200) {
+                setOTPVerify(true);
+            }
+            toast.success(data.message);
+
+            // window.location.href = "/"
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Forgot password failed");
+            console.log(error);
+        } finally {
+            setLoader(false);
+        }
+    };
 
     // Set new password
     const newPassword = async (data) => {
         setLoader(true);
+        console.log(data);
+
         try {
             const response = await AxiosHandler.post(`/auth/newpassword`, data);
             toast.success(response.data.message);
@@ -141,29 +214,25 @@ function AuthContextProvider({ children }) {
 
     // Logout user
     const Logout = () => {
-        Cookies.remove("CMPB_TOKEN");
-        Cookies.remove("UserRole");
-        Cookies.remove("Username");
-        setToken(null);
-        setRole(null);
-        setName(null);
-        setMember(null);
+        Cookies.remove("USER_DETAILS");
+        localStorage.removeItem("token")
+        localStorage.removeItem("MemberID")
+        setUserData({})
         toast.success("Logged out successfully!");
         setTimeout(() => {
             window.location.href = "/";
         }, 1000);
     };
 
+
+
     return (
         <AuthContext.Provider
             value={{
+                paths, setPaths, setOTPVerify,
                 RegisterUser,
-                member,
                 loader,
-                packagePaymentData,
                 LoginUser,
-                token,
-                role,
                 Logout,
                 ForgetPassword,
                 VerifyOtp,
@@ -172,9 +241,10 @@ function AuthContextProvider({ children }) {
                 newPassword,
                 deactivateAccount,
                 changePassword,
-                name,
                 Registered,
-                userGender
+                userData,
+                verifyAndLogin, CheckUser,
+                setUserData
             }}
         >
             {children}

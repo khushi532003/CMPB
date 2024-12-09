@@ -5,16 +5,16 @@ import { useAuthContext } from '@/context';
 
 const Home = () => {
     const { countFreeMember, countPremiumMember, freeMembers, premiumMembers, TotalMembers, totalEventUser, TotalEventBookedUser } = useAdminMemberContext()
-    const { token } = useAuthContext()
+    const { userData } = useAuthContext()
 
 
     useEffect(() => {
-        if (token) {
+        if (userData?.token) {
             freeMembers();
             premiumMembers();
             TotalEventBookedUser();
         }
-    }, [token])
+    }, [userData?.token])
 
     return (
         <div>

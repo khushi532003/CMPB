@@ -23,19 +23,16 @@ function Register() {
         validationSchema: Registerschema,
         onSubmit: async (value) => {
             await RegisterUser(value)
-
-            console.log("still here");
-
         }
     })
     useEffect(() => {
         if (forgetEmail) {
-            navigate('/verify_otp', { state: { email: forgetEmail.email } })
+            navigate('/verify_otp', { state: { identifier: forgetEmail.identifier } })
         }
     }, [forgetEmail])
     useEffect(() => {
         if (Registered) {
-            navigate('/verify_otp', { state: { email: Registered.email } })
+            navigate('/verify_otp', { state: { identifier: Registered.identifier } })
         }
     }, [Registered])
 
@@ -47,7 +44,7 @@ function Register() {
                 <div className='m-4 max-w-xl  py-5 w-[95%] sm:w-[50%]  bg-white mx-auto border border-yellow-600 px-3 pt-24 rounded-t-full shadow-lg rounded-md p-6 md:px-10'>
                     <form onSubmit={handleSubmit} >
                         <h3 className='flex justify-center text-center items-center mb-14 font-bold text-gray-500 text-5xl'>Create Your Account </h3>
-{/* 
+                        {/* 
                         <select className='w-full p-2  text-gray-600  rounded-md  outline-none border hover:border-red-400 focus:border-red-400' name='gender' value={values.gender} onChange={handleChange} onBlur={handleBlur}  >
                             <option disabled value="">Select gender</option>
                             <option value="male">Male</option>
@@ -71,16 +68,13 @@ function Register() {
                             </div>
                         </div>
 
-                        <div className='md:flex md:justify-between md:items-center md:gap-2'>
+                        <div className=''>
                             <div className='mb-4'>
                                 <input className='w-full p-2 
-                                 rounded-md  outline-none border hover:border-red-400 focus:border-red-400' value={values.email} name='email' onChange={handleChange} onBlur={handleBlur} type="email" placeholder='Email' autoComplete="username" />
-                                {errors.email && touched.email && <p className='text-red-500 text-xs' >{errors.email}</p>}
+                                 rounded-md  outline-none border hover:border-red-400 focus:border-red-400' value={values.identifier} name='identifier' onChange={handleChange} onBlur={handleBlur} type="text" placeholder='Email/Phone' autoComplete="identifier" />
+                                {errors.identifier && touched.identifier && <p className='text-red-500 text-xs' >{errors.identifier}</p>}
                             </div>
-                            <div className='mb-4'>
-                                <input className='w-full p-2 capitalize rounded-md  outline-none border hover:border-red-400 focus:border-red-400' value={values.phone} name='phone' onChange={handleChange} onBlur={handleBlur} type="text" maxLength="12" placeholder='Phone ' />
-                                {errors.phone && touched.phone && <p className='text-red-500 text-xs' >{errors.phone}</p>}
-                            </div>
+
                         </div>
 
                         <div className='flex justify-between items-center gap-2'>

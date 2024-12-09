@@ -17,10 +17,10 @@ function NewPassword() {
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: {
-            email: state.email, newPassword: "", confirmPassword:""
+            identifier: state.identifier, newPassword: "", confirmPassword:""
         },
         validationSchema: yup.object({
-            email: yup.string().required("email is required"),
+            identifier: yup.string().required("Email/Phone is required"),
             newPassword: yup.string().required("password is required"),
             confirmPassword: yup.string().oneOf([yup.ref('newPassword'), null], "Passwords must match").required("Confirm Password is required"),
         }),

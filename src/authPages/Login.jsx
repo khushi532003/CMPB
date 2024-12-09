@@ -3,16 +3,16 @@ import { useAuthContext } from '@/context';
 import { LoginSchema } from '@/validation/AuthValidation';
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Loader from '@/constant/loader';
-import { GoogleLogin } from '@react-oauth/google';
+// import { GoogleLogin } from '@react-oauth/google';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function Login() {
 
-    const { loader, LoginUser } = useAuthContext();
+    const { loader, LoginUser, ForgetPassword } = useAuthContext();
     const [showPassword, setShowPassword] = useState(false);
-
+    const navigate = useNavigate();
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
@@ -21,17 +21,22 @@ function Login() {
         initialValues: LoginValues,
         validationSchema: LoginSchema,
         onSubmit: async (value) => {
-            await LoginUser(value)
+            const res = await LoginUser(value)
+            if (res === 302) {
+                ForgetPassword({ identifier: value?.identifier })
+                navigate("/verify_otp", { state: { identifier: value?.identifier } })
+            }
+
         }
     })
 
-    const handleGoogle = async (auth) => {
-        try {
-            console.log(auth)
-        } catch (err) {
-            console.log(err)
-        }
-    }
+    // const handleGoogle = async (auth) => {
+    //     try {
+    //         console.log(auth)
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }
 
     return (
         <div>
@@ -43,8 +48,8 @@ function Login() {
                             <h3 className='flex justify-center items-center mb-14 text-gray-500 font-bold text-5xl'>Login </h3>
 
                             <div className='mb-4'>
-                                <input className='w-full p-2  rounded-md outline-none border hover:border-red-400 focus:border-red-400' value={values.email} name='email' onChange={handleChange} onBlur={handleBlur} type="text" placeholder='Email or Phone' />
-                                {errors.email && touched.email && <p className='text-red-500 text-sm' >{errors.email}</p>}
+                                <input className='w-full p-2  rounded-md outline-none border hover:border-red-400 focus:border-red-400' value={values.identifier} name='identifier' onChange={handleChange} onBlur={handleBlur} type="text" placeholder='Email or Phone' />
+                                {errors.identifier && touched.identifier && <p className='text-red-500 text-sm' >{errors.identifier}</p>}
                             </div>
 
                             <div className='mb-4 relative'>

@@ -40,10 +40,10 @@ function Footer() {
                                     <h4 className="mb-3 text-sm tracking-widest text-gray-900 uppercase font-semibold">Login/Register</h4>
                                     <nav className="mb-10 list-none">
                                         <li className="mt-3">
-                                            <Link to="/login" className="text-gray-500 cursor-pointer hover:text-gray-900">Login</Link>
+                                            <Link to="/login" className="text-gray-500 cursor-pointer hover:text-gray-900 text-sm">Login</Link>
                                         </li>
                                         <li className="mt-3">
-                                            <Link to="/register" className="text-gray-500 cursor-pointer hover:text-gray-900">Register</Link>
+                                            <Link to="/register" className="text-gray-500 cursor-pointer hover:text-gray-900 text-sm">Register</Link>
                                         </li>
                                     </nav>
                                 </div>
@@ -51,13 +51,13 @@ function Footer() {
                                     <h4 className="mb-3 text-sm tracking-widest text-gray-900 uppercase font-semibold">Quick Links</h4>
                                     <nav className="mb-10 list-none">
                                         <li className="mt-3">
-                                            <Link to="/about" className="text-gray-500 cursor-pointer hover:text-gray-900">About</Link>
+                                            <Link to="/about" className="text-gray-500 cursor-pointer hover:text-gray-900 text-sm">About</Link>
                                         </li>
                                         <li className="mt-3">
-                                            <Link to="/happyStories" className="text-gray-500 cursor-pointer hover:text-gray-900">Happy Stories</Link>
+                                            <Link to="/happyStories" className="text-gray-500 cursor-pointer hover:text-gray-900 text-sm">Happy Stories</Link>
                                         </li>
                                         <li className="mt-3">
-                                            <Link to="/contact" className="text-gray-500 cursor-pointer hover:text-gray-900">Contact us</Link>
+                                            <Link to="/contact" className="text-gray-500 cursor-pointer hover:text-gray-900 text-sm">Contact us</Link>
                                         </li>
                                     </nav>
                                 </div>
@@ -65,10 +65,10 @@ function Footer() {
                                     <h4 className="mb-3 text-sm tracking-widest text-gray-900 uppercase font-semibold">Contact us</h4>
                                     <nav className="mb-10 list-none">
                                         <li className="mt-3">
-                                            <Link to="tel:01169888888" className="text-gray-500 flex gap-2 items-center cursor-pointer hover:text-gray-900"><IoMdCall />+ 011 69888888</Link>
+                                            <Link to="tel:01169888888" className="text-gray-500 text-sm flex gap-2 items-center cursor-pointer hover:text-gray-900"><IoMdCall />+ 011 69888888</Link>
                                         </li>
                                         <li className="mt-3">
-                                            <Link to="mailto:chatmangnipatbyahteam@gmail.com" className="text-gray-500 cursor-pointer flex gap-2 items-center hover:text-gray-900"><IoMdMail />chatmangnipatbyahteam@gmail.com</Link>
+                                            <Link to="mailto:chatmangnipatbyahteam@gmail.com" className="text-gray-500 text-sm cursor-pointer flex gap-2 items-center hover:text-gray-900"><IoMdMail />chatmangnipatbyahteam@gmail.com</Link>
                                         </li>
 
                                     </nav>

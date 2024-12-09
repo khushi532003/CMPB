@@ -58,7 +58,7 @@ function ResidancyInfo({ data }) {
                                     autoComplete="given-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.birthCounty && touched.birthCounty && <span className='text-red-500' >{errors.birthCounty}</span>}
+                                {errors.birthCounty && touched.birthCounty && <span className='text-red-500 text-xs' >{errors.birthCounty}</span>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -77,7 +77,7 @@ function ResidancyInfo({ data }) {
                                     autoComplete="family-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.residencyCounty && touched.residencyCounty && <span className='text-red-500' >{errors.residencyCounty}</span>}
+                                {errors.residencyCounty && touched.residencyCounty && <span className='text-red-500 text-xs' >{errors.residencyCounty}</span>}
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@ function ResidancyInfo({ data }) {
                                     autoComplete="given-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.grownUpCountry && touched.grownUpCountry && <span className='text-red-500' >{errors.grownUpCountry}</span>}
+                                {errors.grownUpCountry && touched.grownUpCountry && <span className='text-red-500 text-xs' >{errors.grownUpCountry}</span>}
                             </div>
                         </div>
                         <div className="sm:col-span-3">
@@ -118,7 +118,7 @@ function ResidancyInfo({ data }) {
                                     autoComplete="family-name"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-                                {errors.ImmigrationStatus && touched.ImmigrationStatus && <span className='text-red-500' >{errors.ImmigrationStatus}</span>}
+                                {errors.ImmigrationStatus && touched.ImmigrationStatus && <span className='text-red-500 text-xs' >{errors.ImmigrationStatus}</span>}
                             </div>
                         </div>
                     </div>

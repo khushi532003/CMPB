@@ -7,13 +7,13 @@ import Loader from '@/constant/loader';
 function FreeMembers() {
 
     const { freeMembers, freeMembersData, loader, setPage, page, disable } = useAdminMemberContext();
-    const { token } = useAuthContext()
+    const { userData } = useAuthContext()
 
 
     useEffect(() => {
-        if (token)
+        if (userData?.token)
             freeMembers(page);
-    }, [token, page])
+    }, [userData?.token, page])
 
     if (disable) return <Loader />;
 
