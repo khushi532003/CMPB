@@ -33,40 +33,43 @@ function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
                 if (UserAlreadyExist) {
 
                     const res = await verifyAndLogin(value.otp, value.identifier)
-                    const data = res?.data
+                    if (res.status === 200) {
 
-                    const userDetails = {
-                        UserRole: data?.role,
-                        token: data?.token,
-                        Username: data?.firstName,
-                        Member: data?.RegisterPackage?.PremiumMember,
-                    };
+                        const data = res?.data
 
-                    Cookies.set("USER_DETAILS", JSON.stringify(userDetails));
-                    setUserData({ token: data?.token, role: data?.role, name: data?.firstName, member: data?.RegisterPackage?.PremiumMember });
-                    localStorage.setItem("token", data?.token);
-                    localStorage.setItem("MemberID", data?.MemberID);
-                    localStorage.setItem("ProfileImage", data?.profileImage?.ImageURL);
-                    if (buyNow?.event?.isBuyingEvent) {
-                        setbuyNow(prevState => ({
-                            ...prevState,
-                            event: {
-                                ...prevState.event,
-                                buyEvent: true
-                            }
-                        }));
+                        const userDetails = {
+                            UserRole: data?.role,
+                            token: data?.token,
+                            Username: data?.firstName,
+                            Member: data?.RegisterPackage?.PremiumMember,
+                        };
+
+                        Cookies.set("USER_DETAILS", JSON.stringify(userDetails));
+                        setUserData({ token: data?.token, role: data?.role, name: data?.firstName, member: data?.RegisterPackage?.PremiumMember });
+                        localStorage.setItem("token", data?.token);
+                        localStorage.setItem("MemberID", data?.MemberID);
+                        localStorage.setItem("ProfileImage", data?.profileImage?.ImageURL);
+                        if (buyNow?.event?.isBuyingEvent) {
+                            setbuyNow(prevState => ({
+                                ...prevState,
+                                event: {
+                                    ...prevState.event,
+                                    buyEvent: true
+                                }
+                            }));
+                        }
+                        if (buyNow?.package?.isBuyingPackage) {
+                            setbuyNow(prevState => ({
+                                ...prevState,
+                                package: {
+                                    ...prevState.package,
+                                    buyPackage: true
+                                }
+                            }));
+                        }
+
+                        setToggleModal(false)
                     }
-                    if (buyNow?.package?.isBuyingPackage) {
-                        setbuyNow(prevState => ({
-                            ...prevState,
-                            package: {
-                                ...prevState.package,
-                                buyPackage: true
-                            }
-                        }));
-                    }
-
-                    setToggleModal(false)
                     // window.location.href = "/"
 
                 } if (!UserAlreadyExist && BookingRegisterAuth) {

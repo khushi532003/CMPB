@@ -16,7 +16,6 @@ function ProfileContextProvider({ children }) {
             setProfile(res?.data?.profileDetails);
             setPackagePurchaseData(res?.data?.profileDetails?.user?.RegisterPackage);
         } catch (error) {
-            console.log(error)
             toast.error(error?.response?.data?.message || "Fetched Data Error");
         }
         finally {
@@ -30,7 +29,6 @@ function ProfileContextProvider({ children }) {
             GetProfile();
             toast.success(res?.data?.message || "Data Created successfully")
         } catch (error) {
-            console.log(error)
             toast.error(error?.response?.data?.[0]?.message || "Created Data Error")
         }
     }
@@ -41,7 +39,6 @@ function ProfileContextProvider({ children }) {
             GetProfile();
             toast.success(res?.data?.message || "Data Updated Successfully")
         } catch (error) {
-            console.log(error)
             toast.error(error?.response?.data?.[0]?.message || "Update data error")
         }
     }

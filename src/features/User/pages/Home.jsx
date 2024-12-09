@@ -156,7 +156,6 @@ function Home() {
                 withCredentials: true
               }
             );
-            console.log(registerRes)
             toast.success(registerRes?.data?.message || "Regiteration Successfull")
           }
         },
@@ -180,10 +179,8 @@ function Home() {
         )
         razpopup.open()
       } else {
-        console.log("Razorpay error");
       }
     } catch (error) {
-      console.log(error);
       toast.error(error.response.data.message)
     }
 
@@ -200,7 +197,6 @@ function Home() {
   useEffect(() => {
     if (!toggleModal && (userData?.token !== null || localStorage.getItem("token"))) {
       if (buyNow?.event.isBuyingEvent, buyNow?.event.buyEvent) {
-        console.log(userData?.token);
 
         EventButtonRef.current.click();
 

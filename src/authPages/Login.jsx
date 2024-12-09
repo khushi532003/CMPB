@@ -30,14 +30,6 @@ function Login() {
         }
     })
 
-    // const handleGoogle = async (auth) => {
-    //     try {
-    //         console.log(auth)
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
-
     return (
         <div>
             <div>

@@ -25,10 +25,8 @@ function AuthContextProvider({ children }) {
 
     // Register new user
     const RegisterUser = async (credentials) => {
-        console.log("RegisterUser");
 
         setLoader(true);
-        console.log("credentials", credentials);
 
         try {
             const res = await AxiosHandler.post("/auth/signup", credentials);
@@ -43,7 +41,6 @@ function AuthContextProvider({ children }) {
             toast.success(data.message);
             return res.status
         } catch (error) {
-            console.log(error);
             toast.error(error.response?.data?.message || "User Registration Failed");
         } finally {
             setLoader(false);
@@ -57,7 +54,6 @@ function AuthContextProvider({ children }) {
 
             return res
         } catch (error) {
-            console.log(error);
             toast.error(error.response?.data?.message || "User Registration Failed");
         } finally {
             setLoader(false);
@@ -66,7 +62,6 @@ function AuthContextProvider({ children }) {
 
     // User login
     const LoginUser = async (credentials) => {
-        console.log(credentials);
 
         setLoader(true);
         try {
@@ -86,7 +81,6 @@ function AuthContextProvider({ children }) {
             toast.success(data?.message);
             // window.location.href = "/"
         } catch (error) {
-            console.log(error);
 
             if (error.status === 302) {
                 return error.status
@@ -114,7 +108,6 @@ function AuthContextProvider({ children }) {
 
     // Verify OTP for password reset
     const VerifyOtp = async (data, identifier) => {
-        console.log("Auth context ", data, identifier);
 
         setLoader(true);
         try {
@@ -125,42 +118,38 @@ function AuthContextProvider({ children }) {
             }
         } catch (error) {
             toast.error(error.response?.data?.message || "Forgot password failed");
-            console.log(error);
         } finally {
             setLoader(false);
         }
     };
     const verifyAndLogin = async (code, identifier) => {
-        console.log("code", code, "identifier", identifier);
 
         setLoader(true);
         try {
             const response = await AxiosHandler.post(`/auth/verifyAndLogin/${code}`, { identifier });
             return response;
-            const data = response?.data
-            console.log(response);
+            // const data = response?.data
 
-            const userDetails = {
-                UserRole: data?.role,
-                token: data?.token,
-                Username: data?.firstName,
-                Member: data?.RegisterPackage?.PremiumMember,
-            };
+            // const userDetails = {
+            //     UserRole: data?.role,
+            //     token: data?.token,
+            //     Username: data?.firstName,
+            //     Member: data?.RegisterPackage?.PremiumMember,
+            // };
 
-            Cookies.set("USER_DETAILS", JSON.stringify(userDetails));
-            setUserData({ token: data?.token, role: data?.role, name: data?.firstName, member: data?.RegisterPackage?.PremiumMember });
-            localStorage.setItem("MemberID", data?.MemberID);
-            localStorage.setItem("ProfileImage", data?.profileImage?.ImageURL);
+            // Cookies.set("USER_DETAILS", JSON.stringify(userDetails));
+            // setUserData({ token: data?.token, role: data?.role, name: data?.firstName, member: data?.RegisterPackage?.PremiumMember });
+            // localStorage.setItem("MemberID", data?.MemberID);
+            // localStorage.setItem("ProfileImage", data?.profileImage?.ImageURL);
 
-            if (response.status === 200) {
-                setOTPVerify(true);
-            }
-            toast.success(data.message);
+            // if (response.status === 200) {
+            //     setOTPVerify(true);
+            // }
+            // toast.success(data.message);
 
             // window.location.href = "/"
         } catch (error) {
             toast.error(error.response?.data?.message || "Forgot password failed");
-            console.log(error);
         } finally {
             setLoader(false);
         }
@@ -169,16 +158,13 @@ function AuthContextProvider({ children }) {
     // Set new password
     const newPassword = async (data) => {
         setLoader(true);
-        console.log(data);
 
         try {
             const response = await AxiosHandler.post(`/auth/newpassword`, data);
             toast.success(response.data.message);
-            console.log(response);
             window.location.href = "/";
         } catch (error) {
             toast.error(error.response?.data?.message || "Forget password failed");
-            console.log(error);
         } finally {
             setLoader(false);
         }
@@ -189,11 +175,9 @@ function AuthContextProvider({ children }) {
         try {
             const res = await AxiosHandler.post("/deactivate-account/delete");
             toast.success("Account Deactivated");
-            console.log(res);
             Logout();
         } catch (error) {
             toast.error("Failed to deactivate account");
-            console.log(error);
         }
     };
 
@@ -204,7 +188,6 @@ function AuthContextProvider({ children }) {
                 oldPassword: data?.oldpassword,
                 password: data?.confirmPassword,
             });
-            console.log(res);
             toast.success(res?.data?.data?.message || "Password changed successfully");
             window.location.href = "/";
         } catch (error) {
