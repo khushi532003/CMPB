@@ -19,7 +19,6 @@ function ActiveMembers() {
     const [country, setCountry] = useState('');
     const [state, setState] = useState('');
     const [city, setCity] = useState('');
-    console.log(activeUser);
     
 
     const applyFilter = () => {

@@ -45,37 +45,30 @@ const ProgrammeContextProvider = ({ children }) => {
             const res = await AxiosHandler.get(`events/UserWhoBookedEvent/${id}`);
             return res?.data?.data?.[0];
         } catch (error) {
-            console.log(error);
             toast.error("ERROR ", error)
         }
     }
 
     const createProgramme = async (data) => {
-        console.log(data);
         
         try {
             const res = await AxiosHandler.post("/events/create", data)
-            console.log(res);
             
             toast.success("Programme created successfully");
             GetProgramme();
         } catch (error) {
-            console.log(error);
             toast.error("Programme not created")
         }
     }
 
     const createPackage = async (data) => {
-        console.log(data);
         
         try {
             const res = await AxiosHandler.post("RegisterPackage/create", data)
-            console.log(res);
             
             toast.success("Package created successfully")
             GetPackage();
         } catch (error) {
-            console.log(error);
             toast.error("Package not created")
         }
     }
@@ -107,7 +100,6 @@ const ProgrammeContextProvider = ({ children }) => {
             toast.success("Event deleted successfully");
             GetProgramme();
         } catch (error) {
-            console.log(error);
             toast.error("Event not deleted");
         }
     }

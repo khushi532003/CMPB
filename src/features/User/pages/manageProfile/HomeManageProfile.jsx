@@ -23,7 +23,6 @@ function HomeManageProfile() {
     const [imageFile, setImageFile] = useState(null);
     const [isUploading, setIsUploading] = useState(false);
     const { userData } = useAuthContext();
-    console.log(profile)
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];

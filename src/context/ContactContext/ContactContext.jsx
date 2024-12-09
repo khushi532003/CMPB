@@ -8,7 +8,6 @@ const ContactContextProvider = ({ children }) => {
 
     const createContact = async (data) => {
         try {
-            console.log(data);
             const res = await AxiosHandler.post("/contact/create", data)
             toast.success("Message sent successfully !")
         } catch (error) {

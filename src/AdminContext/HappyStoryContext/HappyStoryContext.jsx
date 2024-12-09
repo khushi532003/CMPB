@@ -43,8 +43,7 @@ const HappyStoryContextProvider = ({ children }) => {
             GetHappyStory();
             toast.success("Happy Story deleted successfully")
         } catch (error) {
-            console.log("Story delete failed");
-            toast.error("Story Deleted");
+            toast.error("Failed to delete story");
         } finally {
             setDisable(false);
         }
