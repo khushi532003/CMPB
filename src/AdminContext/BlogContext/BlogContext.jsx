@@ -1,19 +1,20 @@
-import { AxiosHandler } from "@/config/Axios.config";
 import { useAuthContext } from "@/context";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { toast } from "react-toastify";
 
 
 export const BlogContext = createContext();
 
 const BlogContextProvider = ({ children }) => {
+    const { AxiosHandler } = useAuthContext();
     const [loader, setLoader] = useState(false);
     const [fetchBlogData, setFetchBlogData] = useState([]);
 
     const GetBlog = async () => {
+        const axiosInstance = AxiosHandler();
         setLoader(true);
         try {
-            const res = await AxiosHandler.get("/blog/get-admin");
+            const res = await axiosInstance.get("/blog/get-admin");
             setFetchBlogData(res?.data?.data);
         } catch (error) {
             console.log(error);
@@ -23,9 +24,10 @@ const BlogContextProvider = ({ children }) => {
     }
 
     const CreateBlog = async (data) => {
+        const axiosInstance = AxiosHandler();
         setLoader(true);
         try {
-            const res = await AxiosHandler.post("/blog/create", data);
+            const res = await axiosInstance.post("/blog/create", data);
             GetBlog();
             toast.success("Blog Created Successfully");
         } catch (error) {
@@ -37,9 +39,10 @@ const BlogContextProvider = ({ children }) => {
     }
 
     const DeleteBlog = async (id) => {
+        const axiosInstance = AxiosHandler();
         setLoader(true);
         try {
-            await AxiosHandler.delete(`/blog/delete/${id}`);
+            await axiosInstance.delete(`/blog/delete/${id}`);
             GetBlog();
             toast.success("Blog Deleted Successfully")
         } catch (error) {

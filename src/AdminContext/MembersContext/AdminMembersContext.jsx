@@ -1,10 +1,11 @@
-import { AxiosHandler } from "@/config/Axios.config";
+
+import { useAuthContext } from "@/context";
 import { createContext, useState } from "react";
 
 export const AdminMembersContext = createContext();
 
 const AdminMembersContextProvider = ({ children }) => {
-
+    const { AxiosHandler } = useAuthContext();
     const [freeMembersData, setFreeMembersData] = useState([]);
     const [premiumMembersData, setPremiumMembersData] = useState([]);
     const [countFreeMember, setCountFreeMember] = useState(null);
@@ -19,10 +20,11 @@ const AdminMembersContextProvider = ({ children }) => {
     const TotalMembers = countFreeMember + countPremiumMember;
 
     const freeMembers = async () => {
+        const axiosInstance = AxiosHandler();
         setLoader(true);
         setDisable(true);
         try {
-            const res = await AxiosHandler.get(`/user/getAllUserAdmin?page=${page}&limit=5&registered=${false}`)
+            const res = await axiosInstance.get(`/user/getAllUserAdmin?page=${page}&limit=5&registered=${false}`)
             setFreeMembersData(res?.data?.data);
             setCountFreeMember(res?.data?.data?.length);
         } catch (error) {
@@ -34,10 +36,11 @@ const AdminMembersContextProvider = ({ children }) => {
     }
 
     const premiumMembers = async () => {
+        const axiosInstance = AxiosHandler();
         setLoader(true);
         setDisable(true);
         try {
-            const res = await AxiosHandler.get(`/user/getAllUserAdmin?page=${page}&limit=5&registered=${true}`)
+            const res = await axiosInstance.get(`/user/getAllUserAdmin?page=${page}&limit=5&registered=${true}`)
             setPremiumMembersData(res?.data?.data);
             setCountPremiumMember(res?.data?.data?.length);
         } catch (error) {
@@ -49,9 +52,10 @@ const AdminMembersContextProvider = ({ children }) => {
     }
 
     const GetActiveUserById = async (id) => {
+        const axiosInstance = AxiosHandler();
         setLoader(true);
         try {
-            const res = await AxiosHandler.get(`profile/admin-get/${id}`)
+            const res = await axiosInstance.get(`profile/admin-get/${id}`)
             setUserDetails(res?.data);
         } catch (error) {
             console.log(error);
@@ -61,9 +65,10 @@ const AdminMembersContextProvider = ({ children }) => {
     }
 
     const TotalEventBookedUser = async () => {
+        const axiosInstance = AxiosHandler();
         setLoader(true);
         try {
-            const res = await AxiosHandler.get("dashboard/totalEventUser")
+            const res = await axiosInstance.get("dashboard/totalEventUser")
             setTotalEventuser(res?.data?.Users);
         } catch (error) {
             console.log(error);
