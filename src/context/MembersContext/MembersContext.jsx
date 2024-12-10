@@ -1,18 +1,20 @@
-import { AxiosHandler } from "@/config/Axios.config";
+
 import { createContext, useState } from "react";
+import { useAuthContext } from "..";
 
 export const MemberContext = createContext();
 
 const MemberContextProvider = ({ children }) => {
-
+    const { AxiosHandler } = useAuthContext();
     const [activeUser, setActiveUser] = useState([]);
     const [userDetails, setUserDetails] = useState({});
     const [loader, setLoader] = useState(false);
 
     const GetActiveMembers = async () => {
+        const axiosInstance = AxiosHandler();
         setLoader(true)
         try {
-            const res = await AxiosHandler.get("/user/getActiveUser")
+            const res = await axiosInstance.get("/user/getActiveUser")
             setActiveUser(res?.data?.data);
         } catch (error) {
             console.log(error);
@@ -22,9 +24,10 @@ const MemberContextProvider = ({ children }) => {
     }
 
     const GetActiveUserById = async (id) => {
+        const axiosInstance = AxiosHandler();
         setLoader(true)
         try {
-            const res = await AxiosHandler.get(`/user/getUser/${id}`)
+            const res = await axiosInstance.get(`/user/getUser/${id}`)
             setUserDetails(res?.data?.profileDetails);
         } catch (error) {
             console.log(error);

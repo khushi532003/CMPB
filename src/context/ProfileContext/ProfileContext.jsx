@@ -1,18 +1,20 @@
-import { AxiosHandler } from "@/config/Axios.config";
 import { createContext, useState } from "react";
 import { toast } from "react-toastify";
+import { useAuthContext } from "..";
 
 export const ProfileContext = createContext();
 
 function ProfileContextProvider({ children }) {
+    const { AxiosHandler } = useAuthContext();
     const [profile, setProfile] = useState([]);
     const [loader, setLoader] = useState(false);
     const [packagePurchaseData, setPackagePurchaseData] = useState(null);
 
     const GetProfile = async () => {
+        const axiosInstance = AxiosHandler();
         setLoader(true);
         try {
-            const res = await AxiosHandler.get("/profile/get")
+            const res = await axiosInstance.get("/profile/get")
             setProfile(res?.data?.profileDetails);
             setPackagePurchaseData(res?.data?.profileDetails?.user?.RegisterPackage);
         } catch (error) {
@@ -24,8 +26,9 @@ function ProfileContextProvider({ children }) {
     };
 
     const Create = async (api, data) => {
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.post(api, data)
+            const res = await axiosInstance.post(api, data)
             GetProfile();
             toast.success(res?.data?.message || "Data Created successfully")
         } catch (error) {
@@ -34,8 +37,9 @@ function ProfileContextProvider({ children }) {
     }
 
     const Update = async (api, data) => {
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.put(api, data)
+            const res = await axiosInstance.put(api, data)
             GetProfile();
             toast.success(res?.data?.message || "Data Updated Successfully")
         } catch (error) {

@@ -9,7 +9,7 @@ import { useState } from 'react'
 
 function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
 
-    const { loader, setUserData, RegisterUser, verifyAndLogin, CheckUser } = useAuthContext();
+        const { loader, setUserData, RegisterUser, verifyAndLogin, CheckUser } = useAuthContext();
     const [BookingRegisterAuth, setBookingRegisterAuth] = useState(false)
     const [UserAlreadyExist, setUserAlreadyExist] = useState(false)
 

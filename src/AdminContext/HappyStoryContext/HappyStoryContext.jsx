@@ -1,18 +1,20 @@
-import { AxiosHandler } from "@/config/Axios.config";
+import { useAuthContext } from "@/context";
 import { createContext, useState } from "react";
 import { toast } from "react-toastify";
 
 export const HappyStoryContext = createContext();
 
 const HappyStoryContextProvider = ({ children }) => {
+    const { AxiosHandler } = useAuthContext();
     const [happyStoryData, sethappyStoryData] = useState();
     const [loader, setLoader] = useState(false);
     const [disable, setDisable] = useState(false);
 
     const GetHappyStory = async () => {
+        const axiosInstance = AxiosHandler();
         setLoader(true)
         try {
-            const res = await AxiosHandler.get("/happystories/admin-get")
+            const res = await axiosInstance.get("/happystories/admin-get")
             sethappyStoryData(res?.data?.data);
         } catch (error) {
             console.log(error);
@@ -23,9 +25,10 @@ const HappyStoryContextProvider = ({ children }) => {
 
 
     const CreateHappyStory = async (data) => {
+        const axiosInstance = AxiosHandler();
         setDisable(true);
         try {
-            const res = await AxiosHandler.post("/happystories/create", data)
+            const res = await axiosInstance.post("/happystories/create", data)
             GetHappyStory();
             toast.success("Happy Story Created Successfully");
         } catch (error) {
@@ -37,9 +40,10 @@ const HappyStoryContextProvider = ({ children }) => {
     }
 
     const DeleteHappyStory = async (id) => {
+        const axiosInstance = AxiosHandler();
         setDisable(true);
         try {
-            const res = await AxiosHandler.delete(`/happystories/delete/${id}`)
+            const res = await axiosInstance.delete(`/happystories/delete/${id}`)
             GetHappyStory();
             toast.success("Happy Story deleted successfully")
         } catch (error) {
@@ -50,8 +54,9 @@ const HappyStoryContextProvider = ({ children }) => {
     }
 
     const UpdateHappyStory = async (id, data) => {
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.put(`/happystories/update/${id}`, data)
+            const res = await axiosInstance.put(`/happystories/update/${id}`, data)
             GetHappyStory();
             toast.success("Story update successfully");
         } catch (error) {

@@ -1,7 +1,7 @@
-import { AxiosHandler } from "@/config/Axios.config";
 import { createContext, useState } from "react";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
+import axios from "axios";
 
 
 export const AuthContext = createContext();
@@ -23,13 +23,28 @@ function AuthContextProvider({ children }) {
     const [paths, setPaths] = useState([])
 
 
+
+    const AxiosHandler = () => {
+        function ApiCall() {
+            return axios.create({
+                baseURL: import.meta.env.VITE_APP_API_URL,
+                withCredentials: true,
+                headers: {
+                    "Authorization": `Bearer ${userData?.token}`
+                }
+            });
+        }
+
+        return ApiCall();
+    }
+
     // Register new user
     const RegisterUser = async (credentials) => {
-
+        const axiosInstance = AxiosHandler();
         setLoader(true);
 
         try {
-            const res = await AxiosHandler.post("/auth/signup", credentials);
+            const res = await axiosInstance.post("/auth/signup", credentials);
             const data = res?.data
             const userDetails = {
                 UserRole: data?.role,
@@ -62,10 +77,11 @@ function AuthContextProvider({ children }) {
 
     // User login
     const LoginUser = async (credentials) => {
+        const axiosInstance = AxiosHandler();
 
         setLoader(true);
         try {
-            const { data } = await AxiosHandler.post("/auth/login", credentials);
+            const { data } = await axiosInstance.post("/auth/login", credentials);
 
             const userDetails = {
                 UserRole: data?.role,
@@ -212,6 +228,7 @@ function AuthContextProvider({ children }) {
     return (
         <AuthContext.Provider
             value={{
+                AxiosHandler,
                 paths, setPaths, setOTPVerify,
                 RegisterUser,
                 loader,
