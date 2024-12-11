@@ -21,26 +21,26 @@ function HappyStories() {
         <div>
             <div className="py-5 bg-cover bg-no-repeat" style={{ backgroundImage: "url(https://images.pexels.com/photos/414660/pexels-photo-414660.jpeg?cs=srgb&dl=pexels-pixabay-414660.jpg&fm=jpg)" }}>
                 <div className="heading flex justify-center flex-col items-center text-center">
-                    <h2 className="text-5xl sm:text-7xl ">Happy Stories</h2>
-                    <img src="../images/headingImg.png" alt="" className="w-64" />
+                    <h1 className="text-5xl sm:text-7xl ">Happy Stories</h1>
+                    <img src="../images/headingImg.png" alt="happy-story-icon" className="w-64" />
                 </div>
 
                 {loader ? <Loader /> : <div className="stories py-5 px-5 ">
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        {happyStory.map((item) => <div key={item?._id} className="relative story w-80 mx-auto py-5 ">                                                    
+                        {happyStory.map((item) => <div key={item?._id} className="relative story w-80 mx-auto py-5 ">
                             <div className="storyImg" >
-                                <img className='rounded-t-full object-cover w-[400px] h-[300px]' src={item?.story.ImageURL} alt="" />
+                                <img className='rounded-t-full object-cover w-[400px] h-[300px]' src={item?.story.ImageURL} alt="story-iocn" />
                             </div>
                             <div className="bg-white p-2">
                                 <div className="storyDetails  py-2 flex flex-col items-center">
                                     <div className="flex items-center gap-2">
                                         <div className="name capitalize font-semibold text-gray-600 py-3">{item?.Bride}</div>
-                                        <img className='w-10' src="https://banner2.cleanpng.com/20240127/qgp/transparent-heart-emoji-cute-heart-icon-with-big-smiling-1710896636255.webp" alt="" />
+                                        <img className='w-10' src="https://banner2.cleanpng.com/20240127/qgp/transparent-heart-emoji-cute-heart-icon-with-big-smiling-1710896636255.webp" alt="banner-icon" />
                                         <div className="name capitalize font-semibold text-gray-600 py-3">{item?.Groom}</div>
                                     </div>
-                                 
+
                                     <p className="text-sm"> <strong className='text-[#BB1A04]'>{formatDate(item?.createdAt)}</strong></p>
-                                    <img src="../images/headingImg.png" alt="" className="w-28" />
+                                    <img src="../images/headingImg.png" alt="heading-icon" className="w-28" />
                                 </div>
                                 <div className="storyDesc text-center">
                                     <p>{item?.Content.slice(0, 60)}... </p>

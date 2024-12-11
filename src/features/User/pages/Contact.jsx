@@ -42,8 +42,8 @@ function Contact() {
                 <div
                     className="grid md:grid-cols-2 gap-16 items-center relative overflow-hidden p-8 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)]  max-w-6xl mx-auto bg-white mt-4 before:absolute before:right-0 before:w-[300px] ">
                     <div>
-                        <h2 className="text-gray-800 text-5xl sm:text-7xl font-extrabold">Get In Touch </h2>
-                        <img src="../images/headingImg.png" alt="" className="w-64" />
+                        <h1 className="text-gray-800 text-5xl sm:text-7xl font-extrabold">Get In Touch </h1>
+                        <img src="../images/headingImg.png" alt="contact-heading-icon" className="w-64" />
                         <p className="text-sm text-gray-500 mt-4 leading-relaxed">We aim to minimize the cases of divorce in India. Your elder Brother Paras Bhai ji is here, to find a compatible partner for you. A strong future starts from here, take a step and connect today. </p>
 
                         <form onSubmit={handleSubmit}>
@@ -68,7 +68,7 @@ function Contact() {
 
                             <button type="submit"
                                 className="mt-8 flex gap-2 items-center justify-center text-sm w-full rounded-md px-6 py-3 bg-RedTheme hover:bg-RedTheme text-white">
-                                <BsFillSendFill /> 
+                                <BsFillSendFill />
                                 Send Message
                             </button>
                         </form>
@@ -81,7 +81,7 @@ function Contact() {
                                 </Link>
                             </li>
                             <li className="flex items-center text-[#BB1A04]">
-                                <IoMdCall/>
+                                <IoMdCall />
                                 <Link to="" className="text-sm ml-4">
                                     <strong>+91 9870101514</strong>
                                 </Link>
