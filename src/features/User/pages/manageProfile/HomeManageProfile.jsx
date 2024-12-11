@@ -30,8 +30,7 @@ function HomeManageProfile() {
             setImageFile(file);
         }
     };
-    console.log("profile data",profile);
-    
+
     const handleUpload = async () => {
 
         if (!imageFile) return;
@@ -59,14 +58,11 @@ function HomeManageProfile() {
         }
     };
 
-
     useEffect(() => {
         if (userData?.token) {
             GetProfile();
         }
     }, [userData?.token]);
-
-
     if (profile?.length < 1) return <Loader />;
 
 
@@ -111,19 +107,19 @@ function HomeManageProfile() {
                 </div>
 
                 <div className="members w-full sm:w-[70%] border border-red-100 p-4">
-                    {/* <BasicInfo data={profile?.user} />
+                    <BasicInfo data={profile?.user} />
                     <PresentAddress data={profile?.addressDetails} />
                     <CareerInfo data={profile?.careerDetails} />
                     <EducationInfo data={profile?.educationDetails} />
                     <PhysicalAttribute data={profile?.physicalattributeDetails} />
                     <Languages data={profile?.languageDetails} />
-                    <HobbiesInterest data={profile?.hoobiesandintrestDetails} /> */}
+                    <HobbiesInterest data={profile?.hoobiesandintrestDetails} />
                     <PermanentAddress data={profile?.permanentaddressDetails} />
-                    {/* <PersonalAttitude data={profile?.personalattitudeDetails} />
+                    <PersonalAttitude data={profile?.personalattitudeDetails} />
                     <ResidancyInfo data={profile?.residencyinfoDetails} />
                     <BackgroundInfo data={profile?.backgroundDetails} />
                     <AstronomicInfo data={profile?.astronomicDetails} />
-                    <PartnerExpection data={profile?.partnerexpectationDetails} /> */}
+                    <PartnerExpection data={profile?.partnerexpectationDetails} />
                 </div>
             </div>
         </div>

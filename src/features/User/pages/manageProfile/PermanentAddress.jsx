@@ -1,120 +1,140 @@
-import React, { useState, useEffect } from "react";
-import { useFormik } from "formik";
 import Loader from "@/constant/loader";
 import { useProfileContext } from "@/context";
 import { PermanentAddressSchema } from "@/validation/ProfileValidation";
-import {
-    CitySelect,
-    CountrySelect,
-    StateSelect,
-} from "react-country-state-city";
-import "react-country-state-city/dist/react-country-state-city.css";
+import { useFormik } from "formik";
+import React, { useState } from "react";
 
-function PermanentAddress({ data2 }) {
+function PermanentAddress({ data }) {
     const { Create, Update } = useProfileContext();
     const [loader, setLoader] = useState(false);
-    const [countryid, setCountryid] = useState(0);
-    const [stateid, setstateid] = useState(0);
-    const [data, setData] = useState({
-        country: "",
-        state: "",
-        city: "",
-        pincode: ""
-    })
 
 
-    const { values, errors, touched, handleChange, handleBlur, setFieldValue, handleSubmit } = useFormik({
+    const { values, errors, touched, handleSubmit, handleBlur, handleChange } = useFormik({
         initialValues: {
-            country: "india" ?? "",
-            state: "delji" ?? "",
-            city: "abc" ?? "",
-            pincode: "110033" ?? ""
+            Country: data?.Country ? data?.Country : "",
+            State: data?.State ? data?.State : "",
+            City: data?.City ? data?.City : "",
+            Pincode: data?.Pincode ? data?.Pincode : ""
         },
+        enableReinitialize: true,
         validationSchema: PermanentAddressSchema,
         onSubmit: async (value) => {
-            console.log(value);
-
+            setLoader(true);
+            try {
+                if (!data) {
+                    await Create("/profile/permanentaddress/create", value)
+                } else {
+                    await Update("/profile/permanentaddress/update", value)
+                }
+            } catch (error) {
+                console.log(error);
+            }
+            finally {
+                setLoader(false);
+            }
         }
-
-
     })
 
-
-
-    // const handleSubmitData = (event) => {
-    //     setFlag(false)
-    //     event.preventDefault();
-    // };
 
     return (
         <form onSubmit={handleSubmit}>
+            <div className="space-y-12">
 
-            <label htmlFor='country'>Country *</label>
-            <CountrySelect
-
-                // onChange={(e) => {
-                //     setData({ ...data, country: e.name });
-                //     setCountryid(e.id);
-                // }
-                // }
-                onChange={(e) => {
-                    setCountryid(e.id);
-                    setFieldValue("country", e.name);
-                }}
-                onBlur={handleBlur}
-                placeHolder="Select Country"
-            />
-            {errors.country && touched.country && (
-                <p className='text-red-500 text-sm'>{errors.country}</p>
-            )}
-
-            <label htmlFor='state'>State *</label>
-            <StateSelect
-                countryid={countryid}
-                // onChange={(e) => {
-                //     setData({ ...data, state: e.name });
-                //     setstateid(e.id)
-                // }}
-                onChange={(e) => {
-                    setstateid(e.id);
-                    setFieldValue("state", e.name);  // Manually set Formik's value for state
-                }}
-                // onBlur={handleBlur}
-                placeHolder="Select State"
-            />
-            {errors.state && touched.state && (
-                <p className='text-red-500 text-sm'>{errors.state}</p>
-            )}
-
-            <label htmlFor='city'>City *</label>
-            <CitySelect
-                countryid={countryid}
-                stateid={stateid}
-                onChange={(e) => setFieldValue("city", e.name)}
-                onBlur={handleBlur}
-                id="city"
-                placeHolder="Select City"
-            />
-            {errors.city && touched.city && (
-                <p className='text-red-500 text-sm'>{errors.city}</p>
-            )}
-
-            <label htmlFor='pincode'>Pincode *</label>
-            <input
-                // onChange={(e) => setData({ ...data, pincode: e.target.value })} 
-                onChange={handleChange}
-                onBlur={handleBlur}
-                type='text' id='pincode' defaultValue={data2 ? data2?.pincode : ""} name='pincode' placeholder='Enter pincode Code' maxLength={6} required />
-            {errors.pincode && touched.pincode && (
-                <p className='text-red-500 text-sm'>{errors.pincode}</p>
-            )}
-            <button type='submit' className='w-full p-2 bg-RedTheme hover:bg-red-800 duration-300 text-white rounded-md font-semibold items-center justify-center flex'  >{loader ? <Loader /> : "Login"}</button>
+                <div className="border-b border-gray-900/10 pb-12">
+                    <h4 className="text-base font-semibold leading-7 text-gray-900">Permanent Address</h4>
+                    <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+                        <div className="sm:col-span-3">
+                            <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
+                                Country
+                            </label>
+                            <div className="mt-2">
+                                <select
+                                    id="country"
+                                    name="Country"
+                                    value={values.Country}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                    autoComplete="country-name"
+                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                >
+                                    <option disabled>select</option>
+                                    <option>India</option>
+                                    <option>USA</option>
+                                    <option>UK</option>
+                                </select>
+                                {errors.Country && touched.Country && <p className="text-red-500 text-xs">{errors.Country}</p>}
+                            </div>
+                        </div>
 
 
+                        <div className="sm:col-span-3">
+                            <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
+                                City
+                            </label>
+                            <div className="mt-2">
+                                <input
+                                    id="city"
+                                    name="City"
+                                    value={values.City}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                    type="text"
+                                    placeholder="city"
+                                    autoComplete="address-level2"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                />
+                                {errors.City && touched.City && <p className="text-red-500 text-xs">{errors.City}</p>}
+                            </div>
+                        </div>
 
+                        <div className="sm:col-span-3">
+                            <label htmlFor="state" className="block text-sm font-medium leading-6 text-gray-900">
+                                State
+                            </label>
+                            <div className="mt-2">
+                                <input
+                                    id="state"
+                                    name="State"
+                                    value={values.State}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                    placeholder="state"
+                                    type="text"
+                                    autoComplete="address-level1"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                />
+                                {errors.State && touched.State && <p className="text-red-500 text-xs">{errors.State}</p>}
+                            </div>
+                        </div>
 
+                        <div className="sm:col-span-3">
+                            <label htmlFor="pin-code" className="block text-sm font-medium leading-6 text-gray-900">
+                                pin code
+                            </label>
+                            <div className="mt-2">
+                                <input
+                                    id="pin-code"
+                                    name="Pincode"
+                                    value={values.Pincode}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                    placeholder="pin code"
+                                    type="text"
+                                    autoComplete="pin-code"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                />
+                                {errors.Pincode && touched.Pincode && <p className="text-red-500 text-xs">{errors.Pincode}</p>}
+                            </div>
+                        </div>
+                    </div>
+                    <div className='flex justify-end py-4'>
+                        <div>
+                            <button type="submit" className='px-4 py-2 bg-RedTheme text-white mx-2'>{loader ? <Loader /> : "Update"}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
-    );
+    )
 }
-
 export default PermanentAddress;
