@@ -9,7 +9,11 @@ import Loader from '@/constant/loader';
 import EventModal from '../components/EventModal';
 import BookingRegistration from '../components/BookingRegistration';
 import axios from 'axios';
-
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger)
+  
 
 function Home() {
   const { programme, GetProgramme, GetPackage, packageData } = usePackageContext();
@@ -34,6 +38,39 @@ function Home() {
   const PackageButtonRef = useRef();
 
   const MemberID = localStorage.getItem("MemberID");
+
+  useGSAP(()=>{
+    gsap.from(".whyus img",{
+      y : 30,
+      opacity : 0,
+      duration : 3, 
+      stagger: 0.3,
+      scrollTrigger : {
+        trigger : ".whyus",
+        scroller : "body"       
+      }
+    })
+    gsap.from(".process img.left",{
+      x : -100,
+      opacity : 0,
+      duration : 1, 
+      stagger: 0.7,
+      scrollTrigger : {
+        trigger: ".process img",
+        scroller : "body",
+       }
+    })
+    gsap.from(".process img.right",{
+      x : 100,
+      opacity : 0,
+      duration : 1, 
+      stagger: 0.7,
+      scrollTrigger : {
+        trigger: ".process img",
+        scroller : "body",
+       }
+    })
+  })
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
@@ -324,7 +361,7 @@ function Home() {
       {/* Wedding Theme section end  */}
 
       {/* Process section start  */}
-      <section className="process py-10">
+      <section className="processsec py-10">
         <div className="heading flex justify-center flex-col items-center text-center">
           <h2 className="text-5xl sm:text-7xl">Wedding Process</h2>
           <img src="../images/headingImg.png" alt="" className="w-64 object-cover" />
@@ -333,7 +370,7 @@ function Home() {
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2 flex items-center">
               <div className="icon">
-                <img src="../images/processIcons/register.png" alt="" />
+                <img className='left' src="../images/processIcons/register.png" alt="" />
               </div>
             </div>
             <div className="relative px-2 flex  justify-center mx-auto">
@@ -361,14 +398,14 @@ function Home() {
             </div>
             <div className="px-2 flex items-center">
               <div className="icon ">
-                <img src="../images/processIcons/manageProfile.png" alt="" />
+                <img className='right' src="../images/processIcons/manageProfile.png" alt="" />
               </div>
             </div>
           </div>
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2 flex items-center">
               <div className="icon">
-                <img src="../images/processIcons/attendCall.png" alt="" />
+                <img className='left' src="../images/processIcons/attendCall.png" alt="" />
               </div>
             </div>
             <div className="relative px-2 flex  justify-center mx-auto">
@@ -395,14 +432,14 @@ function Home() {
             </div>
             <div className="px-2 flex items-center">
               <div className="icon ">
-                <img src="../images/processIcons/package.png" alt="" />
+                <img className='right' src="../images/processIcons/package.png" alt="" />
               </div>
             </div>
           </div>
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2 flex items-center">
               <div className="icon">
-                <img src="../images/processIcons/meeting.png" alt="" />
+                <img className='left' src="../images/processIcons/meeting.png" alt="" />
               </div>
             </div>
             <div className="relative px-2 flex  justify-center mx-auto">
@@ -430,7 +467,7 @@ function Home() {
             </div>
             <div className="px-2 flex items-center">
               <div className="icon ">
-                <img src="../images/processIcons/marry.png" alt="" />
+                <img className='right' src="../images/processIcons/marry.png" alt="" />
               </div>
             </div>
           </div>
