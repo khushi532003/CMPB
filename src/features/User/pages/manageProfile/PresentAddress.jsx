@@ -61,7 +61,7 @@ function PresentAddress({ data }) {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     autoComplete="country-name"
-                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    className="px-2 block w-full  border-0 py-2.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600  sm:text-sm sm:leading-6"
                                 >
                                     <option disabled>Select</option>
                                     <option value="own">Own</option>
@@ -84,7 +84,7 @@ function PresentAddress({ data }) {
                                     onChange={handleChange}
                                     placeholder="ResidencySince"
                                     type="number"
-                                    // autoComplete="address-level1"
+                                    autoComplete="ResidencySince"
                                     className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 {errors.ResidencySince && touched.ResidencySince && <p className="text-red-500 text-xs">{errors.ResidencySince}</p>}
@@ -123,7 +123,7 @@ function PresentAddress({ data }) {
                                     value={values.State}
                                     onBlur={handleBlur}
                                     onChange={handleChange}
-                                    className="px-2 block w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    className="px-2 block w-full  border-0 py-2.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 >
                                     <option value={""}>select</option>
                                     {states.map((state, index) => (
@@ -165,6 +165,7 @@ function PresentAddress({ data }) {
                                     value={values.Pincode}
                                     onBlur={handleBlur}
                                     onChange={handleChange}
+                                    minLength={6}
                                     placeholder="pin code"
                                     type="text"
                                     autoComplete="pin-code"

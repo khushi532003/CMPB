@@ -63,8 +63,8 @@ function HomeManageProfile() {
             GetProfile();
         }
     }, [userData?.token]);
-    if (profile?.length < 1) return <Loader />;
 
+    if (profile?.length < 1) return <Loader />;
 
     return (
         <div>

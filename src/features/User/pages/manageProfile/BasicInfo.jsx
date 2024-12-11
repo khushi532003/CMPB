@@ -111,15 +111,16 @@ function BasicInfo({ data }) {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     autoComplete="gender"
-                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-2.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 >
-                                    <option disabled >select</option>
+                                    <option disabled value="" >select</option>
                                     <option value="male">Male</option>
                                     <option value="female" >Female</option>
                                 </select>
                                 {errors.gender && touched.gender && <span className='text-red-500 text-xs' >{errors.gender}</span>}
                             </div>
                         </div>
+
                     </div>
                     <div className='flex justify-end py-4'>
                         <div>

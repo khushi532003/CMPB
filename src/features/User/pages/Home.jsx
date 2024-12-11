@@ -187,6 +187,14 @@ function Home() {
   }
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setModal(true);
+    }, 5000);
+    return () => clearTimeout(timer);
+
+  }, []);
+
+  useEffect(() => {
     if (userData?.token) {
       loadRazorpayScript();
     }
@@ -449,7 +457,7 @@ function Home() {
                     <h2 className="text-4xl">Programme Package</h2>
                     <h2 className="text-5xl py-2 font-semibold text-yellow-500">₹{programme?.amount}  /-</h2>
                     <div className="seats">
-                      <input id="seat" type="number" defaultValue={totalSeat} min={1} onChange={(e) => setTotalSeat(e.target.value)} max={20}
+                      <input id="seat" type="number" defaultValue={totalSeat} min={1} onChange={(e) => setTotalSeat(e.target.value)} maxLength={20}
                         className="block w-16 text-xs px-2 py-2 mt-2 text-gray-700 bg-white border border-[#BB1A04] focus:outline-[#BB1A04]" placeholder='No. of Seats' />
                     </div>
                     <div className="programme py-2 text-2xl font-semibold">{programme?.eventName}</div>
