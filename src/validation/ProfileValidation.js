@@ -8,12 +8,23 @@ export const ResidancyInfoSchema = yup.object({
 })
 
 export const BasicDetailsSchema = yup.object({
-    DOB: yup.string().trim().required("DOB is required"),
     firstName: yup.string().trim().required("firstName is required"),
     gender: yup.string().trim().required("gender is required"),
     lastName: yup.string().trim().required("lastName is required"),
-    email: yup.string().trim().required("Email is required"),
-    phone: yup.number().required("Phone is required")
+    DOB: yup.string().trim().required("DOB is required").test("is-above-18", "Your age must be at least 18 old",
+        (value) => {
+            if (!value) return false;
+            const today = new Date();
+            const birthDate = new Date(value);
+            const age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            const dayDiff = today.getDate() - birthDate.getDate();
+            if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                return age - 1 >= 18;
+            }
+            return age >= 18;
+        }
+    ),
 })
 
 export const CareerInfoSchema = yup.object({
@@ -37,7 +48,17 @@ export const CareerInfoSchema = yup.object({
     currentJob: yup.object({
         designation: yup.string().trim().required("designationis required"),
         company: yup.string().trim().required("company is required"),
-        start: yup.string().trim().required("company is required"),
+        start: yup
+            .string()
+            .trim()
+            .required("Start date is required")
+            .test(
+                "is-before-today",
+                "Date must be before today",
+                (value) => {
+                    return new Date(value) < new Date();
+                }
+            ),
         end: yup.string().trim().required("end is required"),
     }),
 })
@@ -53,9 +74,33 @@ export const PhysicalattributeDetailsSchema = yup.object({
 
 export const EducationSchema = yup.object({
     Degree: yup.string().trim().required("Degree required"),
-    end: yup.string().trim().required("end is required"),
     insitution: yup.string().trim().required("insitution is required"),
-    start: yup.string().trim().required("start is required")
+    start: yup
+        .string()
+        .trim()
+        .test(
+            "start-before-end",
+            "Start date must be before the end date",
+            function (value) {
+                const { end } = this.parent;
+                if (!value || !end) return true;
+                return new Date(value) <= new Date(end);
+            }
+        ),
+    end: yup
+        .string()
+        .trim()
+        .required("End date is required")
+        .test(
+            "end-after-start",
+            "End date must be after the start date",
+            function (value) {
+                const { start } = this.parent;
+                if (!value || !start) return true;
+                return new Date(value) >= new Date(start);
+            }
+        ),
+
 })
 
 export const LanguageInfoSchema = yup.object({
