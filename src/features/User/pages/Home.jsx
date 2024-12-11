@@ -232,8 +232,8 @@ function Home() {
       {/* Testimonial section start  */}
       <section className="testimonial py-5 w-[80%] mx-auto">
         <div className="heading flex justify-center flex-col items-center text-center">
-          <h2 className="text-5xl sm:text-7xl">Churaye hue pal</h2>
-          <img src="../images/headingImg.png" alt="" className="w-64" />
+          <h1 className="text-5xl sm:text-7xl">Churaye hue pal</h1>
+          <img src="../images/headingImg.png" alt="Heading-icon" className="w-64" />
         </div>
         <Swiper
           pagination={{
@@ -253,10 +253,10 @@ function Home() {
             <div className="pal py-10 relative">
               <iframe width="100%" className='sm:rounded-full' height="350" src={loader ? <Loader /> : item?.VideoURL} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
               <div className="petal hidden sm:block absolute top-4 left-0">
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/036/296/405/small_2x/ai-generated-green-floral-watercolor-illustration-for-wedding-invitation-botanical-frame-png.png" alt="" />
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/036/296/405/small_2x/ai-generated-green-floral-watercolor-illustration-for-wedding-invitation-botanical-frame-png.png" alt="background-icon" />
               </div>
               <div className="petal hidden sm:block absolute top-4 right-0 rotate-180">
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/036/296/405/small_2x/ai-generated-green-floral-watercolor-illustration-for-wedding-invitation-botanical-frame-png.png" alt="" />
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/036/296/405/small_2x/ai-generated-green-floral-watercolor-illustration-for-wedding-invitation-botanical-frame-png.png" alt="background-icon" />
               </div>
             </div>
 
@@ -276,17 +276,17 @@ function Home() {
       }}>
         <div className="grid grid-cols-1 py-4  sm:grid-cols-3 gap-2 w-full sm:w-[80%] mx-auto">
           <div className="bg-white relative mx-3 rounded-md shadow p-4  text-center flex justify-center items-center flex-col">
-            <img className="w-20 mb-4 absolute top-[-50px]" src="../images/wcu/Lifetime.png" alt="" />
+            <img className="w-20 mb-4 absolute top-[-50px]" src="../images/wcu/Lifetime.png" alt="Life-time-icon" />
             <h3 className="text-2xl font-semibold mt-5">Lifetime Experience</h3>
             <p className="text-sm py-2">Our team is dedicated to providing you with a truly unforgettable experience. Feel the joy of a lasting, meaningful connection with your partner every day.</p>
           </div>
           <div className=" bg-white relative rounded-md mx-3 shadow p-4 text-center flex justify-center items-center flex-col">
-            <img className="w-24 mb-4 absolute top-[-50px]" src="../images/wcu/2.png" alt="" />
+            <img className="w-24 mb-4 absolute top-[-50px]" src="../images/wcu/2.png" alt="relationShip-icon" />
             <h3 className="text-2xl font-semibold mt-5">Relationships Test</h3>
             <p className="text-sm py-2">Under the careful guidance of Paras Bhai Guruji, each relationship is thoughtfully assessed, fostering a strong foundation of trust between you and your partner.</p>
           </div>
           <div className=" bg-white relative rounded-md mx-3 shadow p-4 text-center flex justify-center items-center flex-col">
-            <img className="w-20 mb-4 absolute top-[-50px]" src="../images/wcu/CompabilityIcon.png" alt="" />
+            <img className="w-20 mb-4 absolute top-[-50px]" src="../images/wcu/CompabilityIcon.png" alt="Compatibility-check-icon" />
             <h3 className="text-2xl font-semibold mt-5">Compatibility Check</h3>
             <p className="text-sm py-2">To ensure a perfect match, we conduct thorough horoscope compatibility checks before pairing. All traditional customs are carefully observed for instant engagement and marriage.</p>
           </div>
@@ -306,21 +306,21 @@ function Home() {
               <div className="theme ">
                 <div className="flex flex-col items-center">
                   <div className="w-full">
-                    <img className="rounded-t-full h-96 object-cover w-full" src="./images/themes/destination.webp" alt="" /></div>
+                    <img className="rounded-t-full h-96 object-cover w-full" src="./images/themes/destination.webp" alt="destination-icon" /></div>
                   <div className="themeName pt-4 text-center"><h3 className=" text-5xl">Destination</h3> </div>
                 </div>
               </div>
               <div className="theme ">
                 <div className="flex flex-col items-center">
                   <div className="w-full">
-                    <img className="rounded-t-full h-96 object-cover w-full" src="./images/themes/cultural.webp" alt="" /></div>
+                    <img className="rounded-t-full h-96 object-cover w-full" src="./images/themes/cultural.webp" alt="Cultural-icon" /></div>
                   <div className="themeName pt-4 text-center"><h3 className=" text-5xl">Cultural</h3> </div>
                 </div>
               </div>
               <div className="theme ">
                 <div className="flex flex-col items-center">
                   <div className="w-full">
-                    <img className="rounded-t-full h-96 object-cover w-full" src="./images/themes/modern.webp" alt="" /></div>
+                    <img className="rounded-t-full h-96 object-cover w-full" src="./images/themes/modern.webp" alt="modern-icon" /></div>
                   <div className="themeName pt-4 text-center"><h3 className=" text-5xl">Modern</h3> </div>
                 </div>
               </div>
@@ -334,14 +334,14 @@ function Home() {
       {/* Process section start  */}
       <section className="process py-10">
         <div className="heading flex justify-center flex-col items-center text-center">
-          <h2 className="text-5xl sm:text-7xl">Wedding Process</h2>
-          <img src="../images/headingImg.png" alt="" className="w-64 object-cover" />
+          <h3 className="text-5xl sm:text-7xl">Wedding Process</h3>
+          <img src="../images/headingImg.png" alt="heading-icon" className="w-64 object-cover" />
         </div>
         <div className="process py-4">
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2 flex items-center">
               <div className="icon">
-                <img src="../images/processIcons/register.png" alt="" />
+                <img src="../images/processIcons/register.png" alt="register-icon" />
               </div>
             </div>
             <div className="relative px-2 flex  justify-center mx-auto">
@@ -369,14 +369,14 @@ function Home() {
             </div>
             <div className="px-2 flex items-center">
               <div className="icon ">
-                <img src="../images/processIcons/manageProfile.png" alt="" />
+                <img src="../images/processIcons/manageProfile.png" alt="manage-profile-icon" />
               </div>
             </div>
           </div>
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2 flex items-center">
               <div className="icon">
-                <img src="../images/processIcons/attendCall.png" alt="" />
+                <img src="../images/processIcons/attendCall.png" alt="attend-call-icon" />
               </div>
             </div>
             <div className="relative px-2 flex  justify-center mx-auto">
@@ -403,14 +403,14 @@ function Home() {
             </div>
             <div className="px-2 flex items-center">
               <div className="icon ">
-                <img src="../images/processIcons/package.png" alt="" />
+                <img src="../images/processIcons/package.png" alt="package-icon" />
               </div>
             </div>
           </div>
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2 flex items-center">
               <div className="icon">
-                <img src="../images/processIcons/meeting.png" alt="" />
+                <img src="../images/processIcons/meeting.png" alt="meeting-icon" />
               </div>
             </div>
             <div className="relative px-2 flex  justify-center mx-auto">
@@ -438,7 +438,7 @@ function Home() {
             </div>
             <div className="px-2 flex items-center">
               <div className="icon ">
-                <img src="../images/processIcons/marry.png" alt="" />
+                <img src="../images/processIcons/marry.png" alt="marry-icon" />
               </div>
             </div>
           </div>
@@ -494,20 +494,20 @@ function Home() {
                     <div className="pointss mb-4">
                       <ul>
                         <li className="flex gap-2 items-center py-1 text-sm">
-                          <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
+                          <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="package-icon" />
                           Assistance in finding quick and right marriage combinations.
                         </li>
                         <li className="flex gap-2 items-center py-1 text-sm">
-                          <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
+                          <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="package-icon" />
                           Special Kundli matching service by Shri Paras Bhai Guruji
                         </li>
 
                         <li className="flex gap-2 items-center py-1 text-sm">
-                          <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
+                          <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="package-icon" />
                           Guidance and consultation in every decision related to marriage
                         </li>
                         <li className="flex gap-2 items-center py-1 text-sm">
-                          <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="" />
+                          <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="package-icon" />
                           The harmony of both the families will be taken care of in the marriage.
 
                         </li>
@@ -525,7 +525,7 @@ function Home() {
           </div>
           <div className="w-full md:w-[40%] flex justify-center items-center bg-cover bg-center h-[65vh] sm:h-[100vh] " style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
             <div className="heading text-center"><h2 className="text-5xl sm:text-7xl text-[#BB1A04]">Pricing <br />Plans</h2>
-              <img src="../images/headingImg.png" alt="" className="w-64" />
+              <img src="../images/headingImg.png" alt="heading-icon" className="w-64" />
             </div>
           </div>
         </div>
@@ -535,28 +535,28 @@ function Home() {
       {/* Gallery section start  */}
       <section className="gallery py-5">
         <div className="heading flex justify-center flex-col items-center text-center">
-          <h2 className="text-5xl sm:text-7xl">Gallery</h2>
-          <img src="../images/headingImg.png" alt="" className="w-64" />
+          <h3 className="text-6xl sm:text-7xl">Gallery</h3>
+          <img src="../images/headingImg.png" alt="heading-icon" className="w-64" />
         </div>
         <div className="weddingImages py-4 px-5">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="sec">
-              <img src="./images/gallery/1.jpg" alt="" />
-              <img src="./images/gallery/2.jpg" alt="" className="mt-3" />
+              <img src="./images/gallery/1.jpg" alt="gallery-icon-01" />
+              <img src="./images/gallery/2.jpg" alt="gallery-icon-02" className="mt-3" />
             </div>
             <div className="sec">
-              <img src="./images/gallery/3.jpg" alt="" />
-              <img className="mt-3" src="./images/gallery/4.jpg" alt="" />
-              <img src="./images/gallery/5.jpg" alt="" className="mt-3" />
+              <img src="./images/gallery/3.jpg" alt="gallery-icon-03" />
+              <img className="mt-3" src="./images/gallery/4.jpg" alt="gallery-icon-04" />
+              <img src="./images/gallery/5.jpg" alt="gallery-icon-05" className="mt-3" />
             </div>
 
             <div className="sec">
-              <img src="./images/gallery/6.jpg" alt="" />
-              <img className="mt-3" src="./images/gallery/7.jpg" alt="" />
+              <img src="./images/gallery/6.jpg" alt="gallery-icon-06" />
+              <img className="mt-3" src="./images/gallery/7.jpg" alt="gallery-icon-07" />
             </div>
             <div className="sec">
-              <img src="./images/gallery/8.png" alt="" />
-              <img className="mt-3" src="./images/gallery/9.jpg" alt="" />
+              <img src="./images/gallery/8.png" alt="gallery-icon-08" />
+              <img className="mt-3" src="./images/gallery/9.jpg" alt="gallery-icon-09" />
             </div>
           </div>
         </div>
