@@ -3,6 +3,7 @@ import Loader from '@/constant/loader';
 import React, { useRef, useState } from 'react'
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import { TfiClose } from 'react-icons/tfi';
+import { toast } from 'react-toastify';
 
 const AddStory = ({ onClose }) => {
     const { CreateHappyStory, loader } = useHappyStroyContext();
@@ -69,7 +70,7 @@ const AddStory = ({ onClose }) => {
             if (fileInputRef.current) fileInputRef.current.value = "";
             await onClose();
         } catch (error) {
-            console.log("Add story update failed");
+            toast.error("Add story update failed");
         }
     }
 

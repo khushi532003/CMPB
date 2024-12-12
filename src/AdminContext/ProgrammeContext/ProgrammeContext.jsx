@@ -1,11 +1,11 @@
-import { AxiosHandler } from "@/config/Axios.config";
+import { useAuthContext } from "@/context";
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 export const ProgrammeContext = createContext();
 
 const ProgrammeContextProvider = ({ children }) => {
-
+    const { AxiosHandler } = useAuthContext();
     const [programmeData, setProgrammeData] = useState([]);
     const [packageData, setPackageData] = useState([]);
     const [loader, setLoader] = useState(false);
@@ -16,8 +16,9 @@ const ProgrammeContextProvider = ({ children }) => {
     const GetProgramme = async () => {
         setLoader(true);
         setDisable(true);
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.get(`events/get-admin?page=${page}&limit=${5}`);
+            const res = await axiosInstance.get(`events/get-admin?page=${page}&limit=${5}`);
             setProgrammeData(res?.data?.data);
             setEventClints(res?.data?.data?.[0]?.ClientDetails)
         } catch (error) {
@@ -30,8 +31,9 @@ const ProgrammeContextProvider = ({ children }) => {
 
     const GetPackage = async () => {
         setLoader(true)
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.get("RegisterPackage/get");
+            const res = await axiosInstance.get("RegisterPackage/get");
             setPackageData(res?.data?.data);
         } catch (error) {
             console.log(error);
@@ -41,48 +43,43 @@ const ProgrammeContextProvider = ({ children }) => {
     }
 
     const GetBookedEvent = async (id) => {
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.get(`events/UserWhoBookedEvent/${id}`);
+            const res = await axiosInstance.get(`events/UserWhoBookedEvent/${id}`);
             return res?.data?.data?.[0];
         } catch (error) {
-            console.log(error);
             toast.error("ERROR ", error)
         }
     }
 
     const createProgramme = async (data) => {
-        console.log(data);
-        
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.post("/events/create", data)
-            console.log(res);
-            
+            const res = await axiosInstance.post("/events/create", data)
+
             toast.success("Programme created successfully");
             GetProgramme();
         } catch (error) {
-            console.log(error);
             toast.error("Programme not created")
         }
     }
 
     const createPackage = async (data) => {
-        console.log(data);
-        
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.post("RegisterPackage/create", data)
-            console.log(res);
-            
+            const res = await axiosInstance.post("RegisterPackage/create", data)
+
             toast.success("Package created successfully")
             GetPackage();
         } catch (error) {
-            console.log(error);
             toast.error("Package not created")
         }
     }
 
     const UpdatePackage = async (id, data) => {
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.put(`/RegisterPackage/update/${id}`, data);
+            const res = await axiosInstance.put(`/RegisterPackage/update/${id}`, data);
             GetPackage();
             toast.success(res?.data?.message || "Register Package Updated Successfully");
         } catch (error) {
@@ -91,8 +88,9 @@ const ProgrammeContextProvider = ({ children }) => {
     }
 
     const updateProgramme = async (id, data) => {
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.put(`events/update/${id}`, data);
+            const res = await axiosInstance.put(`events/update/${id}`, data);
             GetProgramme();
             toast.success("Events updated successfully")
         } catch (error) {
@@ -102,12 +100,12 @@ const ProgrammeContextProvider = ({ children }) => {
     }
 
     const DeleteProgramme = async (id) => {
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.delete(`events/delete/${id}`);
+            const res = await axiosInstance.delete(`events/delete/${id}`);
             toast.success("Event deleted successfully");
             GetProgramme();
         } catch (error) {
-            console.log(error);
             toast.error("Event not deleted");
         }
     }

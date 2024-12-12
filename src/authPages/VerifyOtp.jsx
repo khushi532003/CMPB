@@ -8,20 +8,15 @@ function VerifyOtp() {
     const { loader, VerifyOtp, setUserData, verifyAndLogin, OTPverify, Registered, setOTPVerify, paths } = useAuthContext();
     const navigate = useNavigate();
 
-    console.log(paths);
-
     const [OTP, setOTP] = useState(null);
     const { state } = useLocation();
-    console.log(state);
 
 
     const verifyOTP = async () => {
         if (Registered || paths?.current[0] === "/login" || paths?.current[1] === "/login") {
-            console.log('1');
 
             const response = await verifyAndLogin(OTP, state.identifier)
             const data = response?.data
-            console.log(response);
 
             const userDetails = {
                 UserRole: data?.role,
@@ -39,9 +34,6 @@ function VerifyOtp() {
                 setOTPVerify(true);
             }
         } else {
-            console.log('2');
-
-
             await VerifyOtp(OTP, state.identifier)
         }
     }

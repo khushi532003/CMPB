@@ -1,18 +1,20 @@
-import { AxiosHandler } from "@/config/Axios.config";
+
+import { useAuthContext } from "@/context";
 import { createContext, useState } from "react";
 import { toast } from "react-toastify";
 
 export const ChurayeHuePalContext = createContext();
 
 const ChurayeHuePalContextProvider = ({ children }) => {
-
+    const { AxiosHandler } = useAuthContext();
     const [video, setVideo] = useState([])
     const [loader, setLoader] = useState(false)
 
     const GetVideo = async () => {
         setLoader(true);
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.get("churaye-hua-pal/get");
+            const res = await axiosInstance.get("churaye-hua-pal/get");
             setVideo(res?.data?.data);
         } catch (error) {
             console.log(error);
@@ -22,8 +24,9 @@ const ChurayeHuePalContextProvider = ({ children }) => {
     }
 
     const CreateVideo = async (data) => {
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.post("churaye-hua-pal/create", data);
+            const res = await axiosInstance.post("churaye-hua-pal/create", data);
             toast.success("Video Link created successfully")
             GetVideo();
         } catch (error) {
@@ -33,9 +36,9 @@ const ChurayeHuePalContextProvider = ({ children }) => {
     }
 
     const DeleteVideo = async (id) => {
-
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.delete(`churaye-hua-pal/delete/${id}`);
+            const res = await axiosInstance.delete(`churaye-hua-pal/delete/${id}`);
             toast.success("Video deleted successfully");
             GetVideo();
         } catch (error) {

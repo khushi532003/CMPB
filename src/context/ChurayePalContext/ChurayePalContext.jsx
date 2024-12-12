@@ -1,14 +1,17 @@
-import { AxiosHandler } from "@/config/Axios.config";
+
 import { createContext, useEffect, useState } from "react";
+import { useAuthContext } from "..";
 
 export const ChurayePalContext = createContext();
 
 const ChurayePalContextProvider = ({ children }) => {
+    const { AxiosHandler } = useAuthContext();
     const [videoURLData, setVideoURLData] = useState([])
 
     const GetVideo = async () => {
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.get("/churaye-hua-pal/get");
+            const res = await axiosInstance.get("/churaye-hua-pal/get");
             setVideoURLData(res?.data?.data);
         } catch (error) {
             console.log(error);

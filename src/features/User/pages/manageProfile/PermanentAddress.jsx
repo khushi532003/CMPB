@@ -1,217 +1,168 @@
-import React, { useState, useEffect } from "react";
-import { useFormik } from "formik";
-import { Country, State, City } from "country-state-city";
 import Loader from "@/constant/loader";
 import { useProfileContext } from "@/context";
-import { PermanentAddressSchema } from "@/validation/ProfileValidation";
+import React, { useState, useEffect } from "react";
+import { GetCountries, GetState, GetCity } from "react-country-state-city";
 
 function PermanentAddress({ data }) {
     const { Create, Update } = useProfileContext();
     const [loader, setLoader] = useState(false);
-    const [countries, setCountries] = useState([data?.Country]);
-    const [states, setStates] = useState([data?.State]);
-    const [cities, setCities] = useState([data?.City]);
+    const [countryid, setCountryid] = useState(0);
+    const [countryName, setCountryName] = useState(data?.Country, null);
+    const [stateName, setStateName] = useState(data?.State, null);
+    const [cityName, setCityName] = useState(data?.City, null);
+    const [Pincode, setPincode] = useState(data?.Pincode, null)
 
-    const { values, errors, touched, handleSubmit, handleBlur, handleChange, setFieldValue } = useFormik({
-        initialValues: {
-            Country: data?.Country ? data?.Country : "",
-            State: data?.State ? data?.State : "",
-            City: data?.City ? data?.City : "",
-            Pincode: data?.Pincode ? data?.Pincode : ""
-        },
-        enableReinitialize: true,
-        validationSchema: PermanentAddressSchema,
-        onSubmit: async (value) => {
-            setLoader(true);
-            try {
-                if (!data) {
-                    await Create("/profile/permanentaddress/create", value);
-                } else {
-                    await Update("/profile/permanentaddress/update", value);
-                }
-            } catch (error) {
-                console.error(error);
-            } finally {
-                setLoader(false);
-            }
-        },
-    });
+    const [countriesList, setCountriesList] = useState([]);
+    const [stateList, setStateList] = useState([]);
+    const [cityList, setCityList] = useState([]);
+
 
     useEffect(() => {
-        setCountries(Country.getAllCountries());
+        GetCountries().then((result) => setCountriesList(result));
     }, []);
 
-    // Load states when country changes
-    useEffect(() => {
-        if (values.Country) {
-            const selectedCountry = countries.find((country) => country.isoCode === values.Country);
-            if (selectedCountry) {
-                setStates(State.getStatesOfCountry(selectedCountry.isoCode));
-                // Reset City when country changes
-                setCities([]);
-                setFieldValue("State", ""); // Reset state
-                setFieldValue("City", ""); // Reset city
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const newData = {
+            Country: countryName,
+            State: stateName,
+            City: cityName,
+            Pincode: Pincode
+        };
+        setLoader(true);
+        try {
+            if (!data) {
+                await Create("/profile/permanentaddress/create", newData);
+            } else {
+                await Update("/profile/permanentaddress/update", newData)
             }
+        } catch (error) {
+            console.log(error);
         }
-    }, [values.Country, countries]);
-
-    // Load cities when state changes
-    useEffect(() => {
-        if (values.State) {
-            const selectedState = states.find((state) => state.isoCode === values.State);
-            if (selectedState) {
-                setCities(City.getCitiesOfState(selectedState.countryCode, selectedState.isoCode));
-                setFieldValue("City", ""); // Reset city
-            }
+        finally {
+            setLoader(false);
         }
-    }, [values.State, states]);
+    };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <div>
             <div className="space-y-12">
                 <div className="border-b border-gray-900/10 pb-12">
-                    <h4 className="text-base font-semibold leading-7 text-gray-900">
-                        Permanent Address
-                    </h4>
+                    <h4 className="text-base  font-semibold leading-7 text-gray-900">Present Address</h4>
                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
-                        {/* Country Dropdown */}
+
+
                         <div className="sm:col-span-3">
-                            <label
-                                htmlFor="country"
-                                className="block text-sm font-medium leading-6 text-gray-900"
-                            >
+                            <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
                                 Country
                             </label>
                             <div className="mt-2">
                                 <select
                                     id="country"
-                                    name="Country"
-                                    value={values.Country}
-                                    onBlur={handleBlur}
-                                    onChange={handleChange}
-                                    className="px-2 block w-full border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    name="country"
+                                    className="px-2 block w-full  border-0 py-2.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    onChange={async (e) => {
+                                        const country = countriesList[e.target.value];
+                                        setCountryid(country?.id)
+                                        setCountryName(country?.name || "");
+                                        if (country) {
+                                            const state = await GetState(country.id);
+                                            setStateList(state);
+                                        }
+                                    }}
+                                    value={countryName}
                                 >
-                                    <option value="" disabled>
-                                        Select
-                                    </option>
-                                    {countries.map((country) => (
-                                        <option key={country.isoCode} value={country.isoCode}>
-                                            {country.name}
+                                    <option value="">{countryName ?? data?.Country ?? "Select a country"}</option>
+                                    {countriesList.map((item, index) => (
+                                        <option key={index} value={index}>
+                                            {item.name}
                                         </option>
                                     ))}
                                 </select>
-                                {errors.Country && touched.Country && (
-                                    <p className="text-red-500 text-xs">{errors.Country}</p>
-                                )}
                             </div>
                         </div>
-
-                        {/* State Dropdown */}
                         <div className="sm:col-span-3">
-                            <label
-                                htmlFor="state"
-                                className="block text-sm font-medium leading-6 text-gray-900"
-                            >
+                            <label htmlFor="state" className="block text-sm font-medium leading-6 text-gray-900">
                                 State
                             </label>
                             <div className="mt-2">
                                 <select
                                     id="state"
-                                    name="State"
-                                    value={values.State}
-                                    onBlur={handleBlur}
-                                    onChange={handleChange}
-                                    className="px-2 block w-full border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                                    disabled={!values.Country}
+                                    name="state"
+                                    className="px-2 block w-full  border-0 py-2.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    onChange={async (e) => {
+                                        const state = stateList[e.target.value];
+                                        setStateName(state?.name || "");
+                                        if (state) {
+                                            const city = await GetCity(countryid, state.id)
+                                            setCityList(city)
+                                        }
+                                    }}
+                                    value={stateName}
                                 >
-                                    <option value="" disabled>
-                                        Select
-                                    </option>
-                                    {states.map((state) => (
-                                        <option key={state.isoCode} value={state.isoCode}>
-                                            {state.name}
+                                    <option value="">{stateName ?? data?.State ?? "Select a state"}</option>
+                                    {stateList.map((item, index) => (
+                                        <option key={index} value={index}>
+                                            {item.name}
                                         </option>
                                     ))}
                                 </select>
-                                {errors.State && touched.State && (
-                                    <p className="text-red-500 text-xs">{errors.State}</p>
-                                )}
                             </div>
                         </div>
 
-                        {/* City Dropdown */}
                         <div className="sm:col-span-3">
-                            <label
-                                htmlFor="city"
-                                className="block text-sm font-medium leading-6 text-gray-900"
-                            >
+                            <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
                                 City
                             </label>
                             <div className="mt-2">
                                 <select
                                     id="city"
-                                    name="City"
-                                    value={values.City}
-                                    onBlur={handleBlur}
-                                    onChange={handleChange}
-                                    className="px-2 block w-full border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                                    disabled={!values.State}
+                                    name="city"
+                                    className="px-2 block w-full  border-0 py-2.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    onChange={(e) => {
+                                        const city = cityList[e.target.value];
+                                        setCityName(city?.name || "");
+                                    }}
+                                    value={cityName}
                                 >
-                                    <option value="" disabled>
-                                        Select
-                                    </option>
-                                    {cities.map((city) => (
-                                        <option key={city.name} value={city.name}>
-                                            {city.name}
+                                    <option value="">{cityName ?? data?.City ?? "Select a city"}</option>
+                                    {cityList?.map((item, index) => (
+                                        <option key={index} value={index}>
+                                            {item.name}
                                         </option>
                                     ))}
                                 </select>
-                                {errors.City && touched.City && (
-                                    <p className="text-red-500 text-xs">{errors.City}</p>
-                                )}
                             </div>
                         </div>
 
-                        {/* Pin Code */}
                         <div className="sm:col-span-3">
-                            <label
-                                htmlFor="pin-code"
-                                className="block text-sm font-medium leading-6 text-gray-900"
-                            >
-                                Pin Code
+                            <label htmlFor="Pincode" className="block text-sm font-medium leading-6 text-gray-900">
+                                Pincode
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="pin-code"
+                                    id="Pincode"
                                     name="Pincode"
-                                    value={values.Pincode}
-                                    onBlur={handleBlur}
-                                    onChange={handleChange}
-                                    placeholder="Pin Code"
                                     type="text"
-                                    className="block px-2 w-full border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                />
-                                {errors.Pincode && touched.Pincode && (
-                                    <p className="text-red-500 text-xs">{errors.Pincode}</p>
-                                )}
+                                    placeholder="enter pincode"
+                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    value={Pincode ?? data?.Pincode ?? ""}
+                                    onChange={(e) =>
+                                        setPincode(e.target.value)}
+                                    maxLength={6} required />
                             </div>
                         </div>
                     </div>
 
-                    {/* Submit Button */}
-                    <div className="flex justify-end py-4">
-                        <button
-                            type="submit"
-                            className="px-4 py-2 bg-RedTheme text-white mx-2"
-                            disabled={loader}
-                        >
-                            {loader ? <Loader /> : "Update"}
-                        </button>
+                    <div className='flex justify-end py-4'>
+                        <div>
+                            <button type='submit' onClick={handleSubmit} className='px-4 py-2 bg-RedTheme text-white mx-2'>{loader ? <Loader /> : "Update"}</button>
+                        </div>
                     </div>
+
                 </div>
             </div>
-        </form>
+        </div>
     );
 }
-
 export default PermanentAddress;

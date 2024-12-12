@@ -20,7 +20,6 @@ function VerifyAccount() {
         },
         validationSchema: validation,
         onSubmit:  (value) => {
-          console.log(value)
         }
     })
   return (

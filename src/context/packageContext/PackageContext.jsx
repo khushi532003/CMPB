@@ -1,17 +1,18 @@
-import { AxiosHandler } from "@/config/Axios.config";
 import { createContext, useState } from "react";
+import { useAuthContext } from "..";
 
 export const PackageContext = createContext();
 
 const PackageContextProvider = ({ children }) => {
-
+    const { AxiosHandler } = useAuthContext();
     const [programme, setProgramme] = useState({});
     const [packageData, setPackageData] = useState({});
     const [eventPurchaseData, setEventPurchaseData] = useState(null);
 
     const GetProgramme = async () => {
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.get("/events/get");
+            const res = await axiosInstance.get("/events/get");
             setProgramme(res?.data?.data);
         } catch (error) {
             console.log(error);
@@ -19,8 +20,9 @@ const PackageContextProvider = ({ children }) => {
     };
 
     const GetEventPurchaseData = async () => {
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.get("events/getBookedEvent");
+            const res = await axiosInstance.get("events/getBookedEvent");
             setEventPurchaseData(res?.data);
         } catch (error) {
             console.log(error);
@@ -28,8 +30,9 @@ const PackageContextProvider = ({ children }) => {
     };
 
     const GetPackage = async () => {
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.get("/RegisterPackage/get");
+            const res = await axiosInstance.get("/RegisterPackage/get");
             setPackageData(res?.data?.data);
         } catch (error) {
             console.log(error);

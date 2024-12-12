@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthContext, useProfileContext } from '@/context';
 import Loader from '@/constant/loader';
-import { AxiosHandler } from '@/config/Axios.config';
 import BasicInfo from './BasicInfo';
 import PresentAddress from './presentAddress';
 import CareerInfo from './CareerInfo';
@@ -19,11 +18,11 @@ import { FaCamera } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
 function HomeManageProfile() {
+    const { AxiosHandler } = useAuthContext();
     const { profile, GetProfile, setProfile } = useProfileContext();
     const [imageFile, setImageFile] = useState(null);
     const [isUploading, setIsUploading] = useState(false);
     const { userData } = useAuthContext();
-    console.log(profile)
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
@@ -33,13 +32,15 @@ function HomeManageProfile() {
     };
 
     const handleUpload = async () => {
+
         if (!imageFile) return;
         const formData = new FormData();
         formData.append('image', imageFile);
 
         try {
             setIsUploading(true);
-            const response = await AxiosHandler.put('/user/profile_image/update', formData, {
+            const axiosInstance = AxiosHandler();
+            const response = await axiosInstance.put('/user/profile_image/update', formData, {
                 headers: { 'Content-Type': 'multipart/form-data', },
             });
             if (response?.data?.success) {
@@ -57,16 +58,13 @@ function HomeManageProfile() {
         }
     };
 
-
     useEffect(() => {
         if (userData?.token) {
             GetProfile();
         }
     }, [userData?.token]);
 
-
     if (profile?.length < 1) return <Loader />;
-
 
     return (
         <div>

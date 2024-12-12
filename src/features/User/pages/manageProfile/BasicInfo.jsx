@@ -14,9 +14,7 @@ function BasicInfo({ data }) {
             firstName: data?.firstName ? data?.firstName : "",
             lastName: data?.lastName ? data?.lastName : "",
             gender: data?.gender ? data?.gender : "",
-            DOB: data?.DOB ? data?.DOB : "",
-            email: data?.email ? data?.email : "",
-            phone: data?.phone ? data?.phone : ""
+            DOB: data?.DOB ? data?.DOB : ""
         },
         enableReinitialize: true,
         validationSchema: BasicDetailsSchema,
@@ -81,48 +79,6 @@ function BasicInfo({ data }) {
                             </div>
                         </div>
 
-
-                        <div className="sm:col-span-3">
-                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                                Your Email
-                            </label>
-                            <div className="mt-2">
-                                <input
-                                    id="email"
-                                    name="email"
-                                    placeholder='email'
-                                    type="email"
-                                    value={values.email}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    autoComplete="family-name"
-                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                />
-                                {errors.email && touched.email && <span className='text-red-500 text-xs' >{errors.email}</span>}
-                            </div>
-                        </div>
-
-
-                        <div className="sm:col-span-3">
-                            <label htmlFor="phone" className="block text-sm font-medium leading-6 text-gray-900">
-                                Your Phone
-                            </label>
-                            <div className="mt-2">
-                                <input
-                                    id="phone"
-                                    name="phone"
-                                    placeholder='phone'
-                                    type="text"
-                                    value={values.phone}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    autoComplete="family-name"
-                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                />
-                                {errors.phone && touched.phone && <span className='text-red-500 text-xs' >{errors.phone}</span>}
-                            </div>
-                        </div>
-
                         <div className="sm:col-span-3">
                             <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
                                 Date of birth
@@ -155,15 +111,16 @@ function BasicInfo({ data }) {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     autoComplete="gender"
-                                    className="block px-2 w-full  border-0 py-1.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    className="block px-2 w-full  border-0 py-2.5 text-gray-900 shadow-sm capitalize ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 >
-                                    <option disabled >select</option>
+                                    <option disabled value="" >select</option>
                                     <option value="male">Male</option>
                                     <option value="female" >Female</option>
                                 </select>
                                 {errors.gender && touched.gender && <span className='text-red-500 text-xs' >{errors.gender}</span>}
                             </div>
                         </div>
+
                     </div>
                     <div className='flex justify-end py-4'>
                         <div>
