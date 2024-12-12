@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function ActiveMembers() {
     const { activeUser, GetActiveMembers, loader } = useMembersContext();
     const [filteredUsers, setFilteredUsers] = useState(activeUser);
-    const { userData } = useAuthContext();    
+    const { userData } = useAuthContext();
     const [ageFrom, setAgeFrom] = useState('');
     const [ageTo, setAgeTo] = useState('');
     const [memberId, setMemberId] = useState('');
@@ -19,7 +19,6 @@ function ActiveMembers() {
     const [country, setCountry] = useState('');
     const [state, setState] = useState('');
     const [city, setCity] = useState('');
-    
 
     const applyFilter = () => {
         let filtered = activeUser;
@@ -145,7 +144,7 @@ function ActiveMembers() {
                             </div>
                             <div className="grid grid-cols-1 py-2">
                                 <div>
-                                    <label className="" htmlFor="passwordConfirmation">Sub Caste</label>                                   
+                                    <label className="" htmlFor="passwordConfirmation">Sub Caste</label>
                                     <input
                                         type="text"
                                         value={subCaste}
@@ -174,19 +173,19 @@ function ActiveMembers() {
                             </div>
                             <div className="grid grid-cols-1 py-2">
                                 <div>
-                                    <label className="" htmlFor="passwordConfirmation">Country</label>                                   
+                                    <label className="" htmlFor="passwordConfirmation">Country</label>
                                     <input
                                         type="text"
                                         value={country}
                                         onChange={(e) => setCountry(e.target.value)}
                                         className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300"
                                     />
-                                    
+
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 py-2">
                                 <div>
-                                    <label className="" htmlFor="passwordConfirmation">State</label>                                   
+                                    <label className="" htmlFor="passwordConfirmation">State</label>
                                     <input
                                         type="text"
                                         value={state}
@@ -198,7 +197,7 @@ function ActiveMembers() {
                             <div className="grid grid-cols-1 py-2">
                                 <div>
                                     <label className="" htmlFor="passwordConfirmation">City</label>
-                                   
+
                                     <input
                                         type="text"
                                         value={city}
@@ -239,7 +238,7 @@ function ActiveMembers() {
                                                     (item?.gender === "male"
                                                         ? "https://media.istockphoto.com/id/517998264/vector/male-user-icon.jpg?s=170667a&w=0&k=20&c=ZUf0DE14mBsbtgTvNdhDB1uzey9CK2BJlhhMhfFftB8="
                                                         : item?.gender === "female"
-? "https://png.pngitem.com/pimgs/s/618-6183618_transparent-unknown-person-png-transparent-background-female-user.png"
+                                                            ? "https://png.pngitem.com/pimgs/s/618-6183618_transparent-unknown-person-png-transparent-background-female-user.png"
                                                             : "https://example.com/default-image.png")
                                                 }
                                                 alt="Profile"

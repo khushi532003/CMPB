@@ -9,6 +9,10 @@ import Loader from '@/constant/loader';
 import EventModal from '../components/EventModal';
 import BookingRegistration from '../components/BookingRegistration';
 import axios from 'axios';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger)
 
 
 function Home() {
@@ -34,6 +38,39 @@ function Home() {
   const PackageButtonRef = useRef();
 
   const MemberID = localStorage.getItem("MemberID");
+
+  useGSAP(() => {
+    gsap.from(".whyus img", {
+      y: 30,
+      opacity: 0,
+      duration: 3,
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: ".whyus",
+        scroller: "body"
+      }
+    })
+    gsap.from(".process img.left", {
+      x: -100,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.7,
+      scrollTrigger: {
+        trigger: ".process img",
+        scroller: "body",
+      }
+    })
+    gsap.from(".process img.right", {
+      x: 100,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.7,
+      scrollTrigger: {
+        trigger: ".process img",
+        scroller: "body",
+      }
+    })
+  })
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
@@ -332,7 +369,7 @@ function Home() {
       {/* Wedding Theme section end  */}
 
       {/* Process section start  */}
-      <section className="process py-10">
+      <section className="processsec py-10">
         <div className="heading flex justify-center flex-col items-center text-center">
           <h3 className="text-5xl sm:text-7xl">Wedding Process</h3>
           <img src="../images/headingImg.png" alt="heading-icon" className="w-64 object-cover" />
@@ -341,7 +378,7 @@ function Home() {
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2 flex items-center">
               <div className="icon">
-                <img src="../images/processIcons/register.png" alt="register-icon" />
+                <img className='left' src="../images/processIcons/register.png" alt="register-icon" />
               </div>
             </div>
             <div className="relative px-2 flex  justify-center mx-auto">
@@ -369,16 +406,16 @@ function Home() {
             </div>
             <div className="px-2 flex items-center">
               <div className="icon ">
-                <img src="../images/processIcons/manageProfile.png" alt="manage-profile-icon" />
+                <img className='right' src="../images/processIcons/manageProfile.png" alt="mangae-profile-icon" />
               </div>
             </div>
           </div>
           <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
             <div className="px-2 flex items-center">
               <div className="icon">
-                <img src="../images/processIcons/attendCall.png" alt="attend-call-icon" />
-              </div>
-            </div>
+                <img className='left' src="../images/processIcons/attendCall.png" alt="attend-call-icon" />
+              </div >
+            </div >
             <div className="relative px-2 flex  justify-center mx-auto">
               <div className="before:content-[''] before:absolute before:w-px before:bg-[#493628] before:h-full before:left-1/2 before:top-0"></div>
               <div className="absolute w-10 h-10 bg-[#DEAC80] text-white text-center leading-10 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-2">3</div>
@@ -389,30 +426,30 @@ function Home() {
                 <p className="text-sm">Within 48 hours of registering, our Chat Mangni Pat Byaah team will reach out to you.</p>
               </div>
             </div>
-          </div>
-          <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
-            <div className="px-2">
-              <div className='flex flex-col justify-center h-full'>
-                <h3 className="text-2xl sm:text-3xl font-semibold py-3">Purchase Package</h3>
-                <p className="text-sm">Browse through our packages and select the one that suits you best, as you start this exciting new chapter.</p>
-              </div>
-            </div>
-            <div className="relative px-2 flex  justify-center mx-auto">
-              <div className="before:content-[''] before:absolute before:w-px before:bg-[#493628] before:h-full before:left-1/2 before:top-0"></div>
-              <div className="absolute w-10 h-10 bg-[#DEAC80] text-white text-center leading-10 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-2">4</div>
-            </div>
-            <div className="px-2 flex items-center">
-              <div className="icon ">
-                <img src="../images/processIcons/package.png" alt="package-icon" />
-              </div>
-            </div>
-          </div>
-          <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
-            <div className="px-2 flex items-center">
-              <div className="icon">
-                <img src="../images/processIcons/meeting.png" alt="meeting-icon" />
-              </div>
-            </div>
+          </div >
+    <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
+      <div className="px-2">
+        <div className='flex flex-col justify-center h-full'>
+          <h3 className="text-2xl sm:text-3xl font-semibold py-3">Purchase Package</h3>
+          <p className="text-sm">Browse through our packages and select the one that suits you best, as you start this exciting new chapter.</p>
+        </div>
+      </div>
+      <div className="relative px-2 flex  justify-center mx-auto">
+        <div className="before:content-[''] before:absolute before:w-px before:bg-[#493628] before:h-full before:left-1/2 before:top-0"></div>
+        <div className="absolute w-10 h-10 bg-[#DEAC80] text-white text-center leading-10 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-2">4</div>
+      </div>
+      <div className="px-2 flex items-center">
+        <div className="icon ">
+                <img className='right' src="../images/processIcons/package.png" alt="package-icon" />
+              </div >
+            </div >
+          </div >
+    <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
+      <div className="px-2 flex items-center">
+        <div className="icon">
+                <img className='left' src="../images/processIcons/meeting.png" alt="meeting-icon" />
+              </div >
+            </div >
             <div className="relative px-2 flex  justify-center mx-auto">
               <div className="before:content-[''] before:absolute before:w-px before:bg-[#493628] before:h-full before:left-1/2 before:top-0"></div>
               <div className="absolute w-10 h-10 bg-[#DEAC80] text-white text-center leading-10 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-2">5</div>
@@ -424,146 +461,146 @@ function Home() {
               </div>
 
             </div>
-          </div>
-          <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
-            <div className="px-2">
-              <div className='flex flex-col justify-center h-full'>
-                <h3 className="text-2xl sm:text-3xl font-semibold py-3">Get Marry</h3>
-                <p className="text-sm">Chat Mangni Pat Byaah is here to support you in this important journey. It’s our commitment to help you find the right life partner and ensure a joyful, harmonious married life ahead.</p>
-              </div>
-            </div>
-            <div className="relative px-2 flex  justify-center mx-auto">
-              <div className="before:content-[''] before:absolute before:w-px before:bg-[#493628] before:h-full before:left-1/2 before:top-0"></div>
-              <div className="absolute w-10 h-10 bg-[#DEAC80] text-white text-center leading-10 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-2">6</div>
-            </div>
-            <div className="px-2 flex items-center">
-              <div className="icon ">
-                <img src="../images/processIcons/marry.png" alt="marry-icon" />
-              </div>
-            </div>
-          </div>
+          </div >
+    <div className="grid grid-cols-3 gap-2 mx-auto w-full sm:w-[60%]">
+      <div className="px-2">
+        <div className='flex flex-col justify-center h-full'>
+          <h3 className="text-2xl sm:text-3xl font-semibold py-3">Get Marry</h3>
+          <p className="text-sm">Chat Mangni Pat Byaah is here to support you in this important journey. It’s our commitment to help you find the right life partner and ensure a joyful, harmonious married life ahead.</p>
         </div>
-      </section>
-      {/* Process section end  */}
+      </div>
+      <div className="relative px-2 flex  justify-center mx-auto">
+        <div className="before:content-[''] before:absolute before:w-px before:bg-[#493628] before:h-full before:left-1/2 before:top-0"></div>
+        <div className="absolute w-10 h-10 bg-[#DEAC80] text-white text-center leading-10 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-2">6</div>
+      </div>
+      <div className="px-2 flex items-center">
+        <div className="icon ">
+                <img className='right' src="../images/processIcons/marry.png" alt="marry-icon" />
+              </div >
+            </div >
+          </div >
+        </div >
+      </section >
+    {/* Process section end  */ }
 
-      {/* Packages section start  */}
-      <section className="packages py-5" id='packages'>
-        <div className="block md:flex  justify-between gap-3 px-3 items-center">
-          <div className="themes w-full md:w-[60%]">
-            <div className="grid grid-cols-1 sm:grid-cols-2  gap-14">
-              {programme && <div className="theme">
-                <div className="flex flex-col items-center w-full">
-                  <div className="package  lg:h-[600px] border-2 w-full flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
-                    <h2 className="text-4xl">Programme Package</h2>
-                    <h2 className="text-5xl py-2 font-semibold text-yellow-500">₹{programme?.amount}  /-</h2>
-                    <div className="seats">
-                      <input id="seat" type="number" defaultValue={totalSeat} min={1} onChange={(e) => setTotalSeat(e.target.value)} maxLength={20}
-                        className="block w-16 text-xs px-2 py-2 mt-2 text-gray-700 bg-white border border-[#BB1A04] focus:outline-[#BB1A04]" placeholder='No. of Seats' />
-                    </div>
-                    <div className="programme py-2 text-2xl font-semibold">{programme?.eventName}</div>
-                    <p className="py-2">{programme?.description}</p>
-                    <div className="programmeDetails mb-4">
-                      <div className="state py-2 text-lg">
-                        <strong>Location :</strong>{programme?.state}
-                      </div>
-                      {userData?.member === "true" ? <div className="state py-2 text-lg">
-                        <strong>Venue :</strong> {programme?.venues}
-                      </div> : ""}
-                      <div className="state py-2 text-lg">
-                        <strong>Date  :</strong> {programme?.availableDates}
-                      </div>
-                    </div>
-                    <button ref={EventButtonRef} id={programme?._id} type='button' onClick={(e) => handlePayment(e)}
-                      className="bg-RedTheme text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500"
-                    >
-                      Book Now
-                    </button>
+  {/* Packages section start  */ }
+  <section className="packages py-5" id='packages'>
+    <div className="block md:flex  justify-between gap-3 px-3 items-center">
+      <div className="themes w-full md:w-[60%]">
+        <div className="grid grid-cols-1 sm:grid-cols-2  gap-14">
+          {programme && <div className="theme">
+            <div className="flex flex-col items-center w-full">
+              <div className="package  lg:h-[600px] border-2 w-full flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
+                <h2 className="text-4xl">Programme Package</h2>
+                <h2 className="text-5xl py-2 font-semibold text-yellow-500">₹{programme?.amount}  /-</h2>
+                <div className="seats">
+                  <input id="seat" type="number" defaultValue={totalSeat} min={1} onChange={(e) => setTotalSeat(e.target.value)} maxLength={20}
+                    className="block w-16 text-xs px-2 py-2 mt-2 text-gray-700 bg-white border border-[#BB1A04] focus:outline-[#BB1A04]" placeholder='No. of Seats' />
+                </div>
+                <div className="programme py-2 text-2xl font-semibold">{programme?.eventName}</div>
+                <p className="py-2">{programme?.description}</p>
+                <div className="programmeDetails mb-4">
+                  <div className="state py-2 text-lg">
+                    <strong>Location :</strong>{programme?.state}
+                  </div>
+                  {userData?.member === "true" ? <div className="state py-2 text-lg">
+                    <strong>Venue :</strong> {programme?.venues}
+                  </div> : ""}
+                  <div className="state py-2 text-lg">
+                    <strong>Date  :</strong> {programme?.availableDates}
                   </div>
                 </div>
-              </div>}
+                <button ref={EventButtonRef} id={programme?._id} type='button' onClick={(e) => handlePayment(e)}
+                  className="bg-RedTheme text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>}
 
-              {packageData && <div className="theme ">
-                <div className="flex flex-col items-center w-full">
-                  <div className="package lg:h-[600px] border-2 w-full flex flex-col justify-center items-center  border-yellow-400 p-10 rounded-b-full rounded-t-full">
-                    <h2 className="text-4xl">Registration  Package </h2>
+          {packageData && <div className="theme ">
+            <div className="flex flex-col items-center w-full">
+              <div className="package lg:h-[600px] border-2 w-full flex flex-col justify-center items-center  border-yellow-400 p-10 rounded-b-full rounded-t-full">
+                <h2 className="text-4xl">Registration  Package </h2>
 
-                    <h2 className="text-5xl py-3 font-semibold text-yellow-500">₹ {packageData?.amount} /-</h2>
-                    <p className="py-2 text-center text-sm">Easy registration facility with complete information.Guidance through phone calls, WhatsApp, or personal meetings if required.
-                    </p>
+                <h2 className="text-5xl py-3 font-semibold text-yellow-500">₹ {packageData?.amount} /-</h2>
+                <p className="py-2 text-center text-sm">Easy registration facility with complete information.Guidance through phone calls, WhatsApp, or personal meetings if required.
+                </p>
 
-                    <div className="pointss mb-4">
-                      <ul>
-                        <li className="flex gap-2 items-center py-1 text-sm">
-                          <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="package-icon" />
-                          Assistance in finding quick and right marriage combinations.
-                        </li>
-                        <li className="flex gap-2 items-center py-1 text-sm">
-                          <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="package-icon" />
-                          Special Kundli matching service by Shri Paras Bhai Guruji
-                        </li>
+                <div className="pointss mb-4">
+                  <ul>
+                    <li className="flex gap-2 items-center py-1 text-sm">
+                      <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="package-icon" />
+                      Assistance in finding quick and right marriage combinations.
+                    </li>
+                    <li className="flex gap-2 items-center py-1 text-sm">
+                      <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="package-icon" />
+                      Special Kundli matching service by Shri Paras Bhai Guruji
+                    </li>
 
-                        <li className="flex gap-2 items-center py-1 text-sm">
-                          <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="package-icon" />
-                          Guidance and consultation in every decision related to marriage
-                        </li>
-                        <li className="flex gap-2 items-center py-1 text-sm">
-                          <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="package-icon" />
-                          The harmony of both the families will be taken care of in the marriage.
+                    <li className="flex gap-2 items-center py-1 text-sm">
+                      <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="package-icon" />
+                      Guidance and consultation in every decision related to marriage
+                    </li>
+                    <li className="flex gap-2 items-center py-1 text-sm">
+                      <img className="w-8 rotate-45 scale-x-[-1]" src="../images/leaf.png" alt="package-icon" />
+                      The harmony of both the families will be taken care of in the marriage.
 
-                        </li>
-                      </ul>
-                    </div>
-                    <button ref={PackageButtonRef} type='button' id={packageData?._id} onClick={(e) => handlePayment(e)} className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500 ">
-                      Register Now
-                    </button>
-
-                  </div>
+                    </li>
+                  </ul>
                 </div>
-              </div>}
+                <button ref={PackageButtonRef} type='button' id={packageData?._id} onClick={(e) => handlePayment(e)} className="bg-[#BB1A04] text-white py-2 px-5 border-none cursor-pointer outline-none text-lg rounded-full shadow-md transition-all duration-500 hover:shadow-gray-500 ">
+                  Register Now
+                </button>
 
+              </div>
             </div>
-          </div>
-          <div className="w-full md:w-[40%] flex justify-center items-center bg-cover bg-center h-[65vh] sm:h-[100vh] " style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
-            <div className="heading text-center"><h2 className="text-5xl sm:text-7xl text-[#BB1A04]">Pricing <br />Plans</h2>
-              <img src="../images/headingImg.png" alt="heading-icon" className="w-64" />
-            </div>
-          </div>
+          </div>}
+
         </div>
-      </section>
-      {/* Packages section end  */}
-
-      {/* Gallery section start  */}
-      <section className="gallery py-5">
-        <div className="heading flex justify-center flex-col items-center text-center">
-          <h3 className="text-6xl sm:text-7xl">Gallery</h3>
+      </div>
+      <div className="w-full md:w-[40%] flex justify-center items-center bg-cover bg-center h-[65vh] sm:h-[100vh] " style={{ backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/024/554/091/non_2x/gold-geometric-floral-greenery-leaves-frames-free-png.png)" }}>
+        <div className="heading text-center"><h2 className="text-5xl sm:text-7xl text-[#BB1A04]">Pricing <br />Plans</h2>
           <img src="../images/headingImg.png" alt="heading-icon" className="w-64" />
         </div>
-        <div className="weddingImages py-4 px-5">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div className="sec">
-              <img src="./images/gallery/1.jpg" alt="gallery-icon-01" />
-              <img src="./images/gallery/2.jpg" alt="gallery-icon-02" className="mt-3" />
-            </div>
-            <div className="sec">
-              <img src="./images/gallery/3.jpg" alt="gallery-icon-03" />
-              <img className="mt-3" src="./images/gallery/4.jpg" alt="gallery-icon-04" />
-              <img src="./images/gallery/5.jpg" alt="gallery-icon-05" className="mt-3" />
-            </div>
-
-            <div className="sec">
-              <img src="./images/gallery/6.jpg" alt="gallery-icon-06" />
-              <img className="mt-3" src="./images/gallery/7.jpg" alt="gallery-icon-07" />
-            </div>
-            <div className="sec">
-              <img src="./images/gallery/8.png" alt="gallery-icon-08" />
-              <img className="mt-3" src="./images/gallery/9.jpg" alt="gallery-icon-09" />
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Gallery section end  */}
-
+      </div>
     </div>
+  </section>
+  {/* Packages section end  */ }
+
+  {/* Gallery section start  */ }
+  <section className="gallery py-5">
+    <div className="heading flex justify-center flex-col items-center text-center">
+      <h3 className="text-6xl sm:text-7xl">Gallery</h3>
+      <img src="../images/headingImg.png" alt="heading-icon" className="w-64" />
+    </div>
+    <div className="weddingImages py-4 px-5">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="sec">
+          <img src="./images/gallery/1.jpg" alt="gallery-icon-01" />
+          <img src="./images/gallery/2.jpg" alt="gallery-icon-02" className="mt-3" />
+        </div>
+        <div className="sec">
+          <img src="./images/gallery/3.jpg" alt="gallery-icon-03" />
+          <img className="mt-3" src="./images/gallery/4.jpg" alt="gallery-icon-04" />
+          <img src="./images/gallery/5.jpg" alt="gallery-icon-05" className="mt-3" />
+        </div>
+
+        <div className="sec">
+          <img src="./images/gallery/6.jpg" alt="gallery-icon-06" />
+          <img className="mt-3" src="./images/gallery/7.jpg" alt="gallery-icon-07" />
+        </div>
+        <div className="sec">
+          <img src="./images/gallery/8.png" alt="gallery-icon-08" />
+          <img className="mt-3" src="./images/gallery/9.jpg" alt="gallery-icon-09" />
+        </div>
+      </div>
+    </div>
+  </section>
+  {/* Gallery section end  */ }
+
+    </div >
   )
 }
 
