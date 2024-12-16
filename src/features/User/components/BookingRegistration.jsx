@@ -5,11 +5,13 @@ import { CheckUserSchema, Registerschema, VerifyCodeSchema } from '@/validation/
 import { useFormik } from 'formik';
 import Cookies from 'js-cookie';
 import { useState } from 'react'
+import { TfiClose } from 'react-icons/tfi';
+import { toast } from 'react-toastify';
 
 
 function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
 
-        const { loader, setUserData, RegisterUser, verifyAndLogin, CheckUser } = useAuthContext();
+    const { loader, setUserData, RegisterUser, verifyAndLogin, CheckUser } = useAuthContext();
     const [BookingRegisterAuth, setBookingRegisterAuth] = useState(false)
     const [UserAlreadyExist, setUserAlreadyExist] = useState(false)
 
@@ -26,6 +28,7 @@ function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
                 res = await CheckUser(value)
                 if (res?.status === 200 && res?.data?.success === true) {
                     setUserAlreadyExist(true)
+                    toast.success("OTP sent successfully")
                 }
 
             }
@@ -46,7 +49,6 @@ function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
 
                         Cookies.set("USER_DETAILS", JSON.stringify(userDetails));
                         setUserData({ token: data?.token, role: data?.role, name: data?.firstName, member: data?.RegisterPackage?.PremiumMember });
-                        localStorage.setItem("token", data?.token);
                         localStorage.setItem("MemberID", data?.MemberID);
                         localStorage.setItem("ProfileImage", data?.profileImage?.ImageURL);
                         if (buyNow?.event?.isBuyingEvent) {
@@ -97,7 +99,13 @@ function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
 
     return (
         <div className="fixed h-[100vh]  top-0  flex justify-center text-center mx-auto w-full items-center z-50">
-            <div className="bg-white w-[80%] mx-auto border border-yellow-600  rounded-lg shadow-lg  text-center  bg-cover bg-no-repeat bg-center"  >
+            <div className="bg-white w-[80%] mx-auto bor
+            der border-yellow-600  rounded-lg shadow-lg  text-center  bg-cover bg-no-repeat bg-center"  >
+                <div onClick={() => setToggleModal(false)} className="close w-full top-14 right-5 rounded-full relative font-bold flex justify-end text-xl">
+                    <div className="bg-white p-3 rounded-full">
+                        <TfiClose />
+                    </div>
+                </div>
                 <div className="flex gap-2">
                     {!BookingRegisterAuth ? (
                         !UserAlreadyExist ? (

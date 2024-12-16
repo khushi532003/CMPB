@@ -218,18 +218,18 @@ function Home() {
       } else {
       }
     } catch (error) {
-      toast.error(error.response.data.message)
+      // toast.error("Failed to make payment")
     }
 
   }
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setModal(true);
-  //   }, 5000);
-  //   return () => clearTimeout(timer);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setModal(true);
+    }, 5000);
+    return () => clearTimeout(timer);
 
-  // }, []);
+  }, []);
 
   useEffect(() => {
     if (userData?.token) {
@@ -237,10 +237,10 @@ function Home() {
     }
     GetProgramme();
     GetPackage();
-  }, [userData?.token, localStorage.getItem("token")])
+  }, [userData?.token])
 
   useEffect(() => {
-    if (!toggleModal && (userData?.token !== null || localStorage.getItem("token"))) {
+    if (!toggleModal && (userData?.token !== null)) {
       if (buyNow?.event.isBuyingEvent, buyNow?.event.buyEvent) {
 
         EventButtonRef.current.click();
@@ -252,7 +252,7 @@ function Home() {
     }
 
 
-  }, [toggleModal, userData?.token, localStorage.getItem("token")])
+  }, [toggleModal, userData?.token])
 
   return (
     <div>
