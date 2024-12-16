@@ -111,9 +111,10 @@ function AuthContextProvider({ children }) {
 
     // Forget password
     const ForgetPassword = async (data) => {
+        const axiosInstance = AxiosHandler();
         setLoader(true);
         try {
-            const response = await AxiosHandler.post("/auth/sendotp", data);
+            const response = await axiosInstance.post("/auth/sendotp", data);
             toast.success(response?.data?.message);
             setForgetEmail(data);
         } catch (error) {
@@ -125,16 +126,16 @@ function AuthContextProvider({ children }) {
 
     // Verify OTP for password reset
     const VerifyOtp = async (data, identifier) => {
-
+        const axiosInstance = AxiosHandler();
         setLoader(true);
         try {
-            const response = await AxiosHandler.post(`/auth/verify/${data}`, { identifier });
+            const response = await axiosInstance.post(`/auth/verify/${data}`, { identifier });
             toast.success(response.data.message);
             if (response.status === 200) {
                 setOTPVerify(true);
             }
         } catch (error) {
-            toast.error(error.response?.data?.message || "Forgot password failed");
+            toast.error(error.response?.data?.message);
         } finally {
             setLoader(false);
         }
@@ -200,7 +201,7 @@ function AuthContextProvider({ children }) {
     // Logout user
     const Logout = () => {
         Cookies.remove("USER_DETAILS");
-        
+
         localStorage.removeItem("MemberID")
         setUserData({})
         toast.success("Logged out successfully!");
