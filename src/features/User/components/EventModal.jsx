@@ -9,7 +9,7 @@ function EventModal({ onClose }) {
         }
     };
     return (
-        <div className="fixed w-[50%] top-[30%] left-[25%] z-50">
+        <div className="fixed w-[90%] sm:w-[50%] top-[30%] left-[5%] sm:left-[25%] z-50">
             <div className="bg-white rounded-lg p-6 text-center bg-cover bg-no-repeat bg-center" style={{ backgroundImage: "url(./images/eventBg.jpg)" }} >
                 <div onClick={onClose} className="close w-full flex justify-end text-xl">
                     <TfiClose />

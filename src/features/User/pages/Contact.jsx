@@ -43,7 +43,7 @@ function Contact() {
                     className="grid md:grid-cols-2 gap-16 items-center relative overflow-hidden p-8 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)]  max-w-6xl mx-auto bg-white mt-4 before:absolute before:right-0 before:w-[300px] ">
                     <div>
                         <h1 className="text-gray-800 text-5xl sm:text-7xl font-extrabold">Get In Touch </h1>
-                        <img src="../images/headingImg.png" alt="contact-heading-icon" className="w-64" />
+                        <img src="../images/headingImg.webp" alt="contact-heading-icon" className="w-64" />
                         <p className="text-sm text-gray-500 mt-4 leading-relaxed">We aim to minimize the cases of divorce in India. Your elder Brother Paras Bhai ji is here, to find a compatible partner for you. A strong future starts from here, take a step and connect today. </p>
 
                         <form onSubmit={handleSubmit}>
