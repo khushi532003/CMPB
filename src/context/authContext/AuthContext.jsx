@@ -20,8 +20,7 @@ function AuthContextProvider({ children }) {
     const [forgetEmail, setForgetEmail] = useState(null);
     const [OTPverify, setOTPVerify] = useState(false);
     const [Registered, setRegistered] = useState(null);
-    const [paths, setPaths] = useState([])
-
+    const [paths, setPaths] = useState([]);
 
 
     const AxiosHandler = () => {
@@ -63,6 +62,7 @@ function AuthContextProvider({ children }) {
             setLoader(false);
         }
     };
+
     const CheckUser = async (credentials) => {
         setLoader(true);
         const axiosInstance = AxiosHandler();
@@ -124,6 +124,22 @@ function AuthContextProvider({ children }) {
         }
     };
 
+    // Resend otp 
+    const SendOtp = async (data) => {
+        const axiosInstance = AxiosHandler();
+        setLoader(true);
+        try {
+            const response = await axiosInstance.post(`/auth/sendotp`, data);
+            toast.success(response?.data?.message);
+        } catch (error) {
+            toast.error("Failed to send OTP");
+            console.error("SendOtp error:", error);
+        } finally {
+            setLoader(false);
+        }
+    };
+
+
     // Verify OTP for password reset
     const VerifyOtp = async (data, identifier) => {
         const axiosInstance = AxiosHandler();
@@ -140,8 +156,8 @@ function AuthContextProvider({ children }) {
             setLoader(false);
         }
     };
-    const verifyAndLogin = async (code, identifier) => {
 
+    const verifyAndLogin = async (code, identifier) => {
         setLoader(true);
         const axiosInstance = AxiosHandler();
         try {
@@ -231,7 +247,7 @@ function AuthContextProvider({ children }) {
                 Registered,
                 userData,
                 verifyAndLogin, CheckUser,
-                setUserData
+                setUserData, SendOtp
             }}
         >
             {children}

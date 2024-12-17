@@ -22,7 +22,7 @@ function HappyStories() {
             <div className="py-5 bg-cover bg-no-repeat" style={{ backgroundImage: "url(https://images.pexels.com/photos/414660/pexels-photo-414660.jpeg?cs=srgb&dl=pexels-pixabay-414660.jpg&fm=jpg)" }}>
                 <div className="heading flex justify-center flex-col items-center text-center">
                     <h1 className="text-5xl sm:text-7xl ">Happy Stories</h1>
-                    <img src="../images/headingImg.png" alt="happy-story-icon" className="w-64" />
+                    <img src="../images/headingImg.webp" alt="happy-story-icon" className="w-64" />
                 </div>
 
                 {loader ? <Loader /> : <div className="stories py-5 px-5 ">

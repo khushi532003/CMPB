@@ -16,7 +16,7 @@ function About() {
           </div>
           <div className="aboutContent flex flex-col justify-center ps-5 sm:ps-0">
             <h1 className='text-7xl ps-10'>About Us</h1>
-            <img src="../images/headingImg.png" alt="Chat-Mangni-Pat-Byah" className="w-64" />
+            <img src="../images/headingImg.webp" alt="Chat-Mangni-Pat-Byah" className="w-64" />
             <p className="py-4">Chat Mangani Pat Byah is a unique platform that fulfills the dream of a modern married life rooted in Vedic rituals. Initiated by Shri Paras Bhai Guruji, this platform is dedicated to helping today’s young men and women find their ideal life partners. Here, marriage is not merely about forming a bond but about connecting families after a careful understanding of both sides, aligning interests and values. In this country, we cherish traditions blended with a modern outlook, and Shri Paras Bhai Guruji is committed to advancing this approach. After all, <strong>“Shaadi hona jaruri nahi, shaadi hokar chalna jaruri hai.”</strong>
             </p>
           </div>
@@ -28,7 +28,7 @@ function About() {
       <section className="wcu py-5">
         <div className="heading flex justify-center flex-col items-center text-center">
           <h2 className="text-5xl sm:text-7xl">Why Choose Us</h2>
-          <img src="../images/headingImg.png" alt="all-page-icon" className="w-64" />
+          <img src="../images/headingImg.webp" alt="all-page-icon" className="w-64" />
         </div>
         <div className="reasons py-5 w-[90%] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 ">
@@ -66,7 +66,7 @@ function About() {
       <section className="services py-5">
         <div className="heading flex justify-center flex-col items-center text-center">
           <h2 className="text-5xl sm:text-7xl">Services Includes</h2>
-          <img src="../images/headingImg.png" alt="all-page-icon" className="w-64" />
+          <img src="../images/headingImg.webp" alt="all-page-icon" className="w-64" />
         </div>
         <div className="service py-5">
           <div className='block sm:flex gap-7 w-full px-4'>
