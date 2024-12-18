@@ -7,8 +7,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Loader from '@/constant/loader';
 import { useEffect } from 'react';
 
-
-
 function Register() {
     const { RegisterUser, loader, forgetEmail, Registered } = useAuthContext();
     const [showPassword, setShowPassword] = useState(false);
