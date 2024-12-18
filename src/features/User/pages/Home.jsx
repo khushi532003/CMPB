@@ -228,7 +228,6 @@ function Home() {
       setModal(true);
     }, 5000);
     return () => clearTimeout(timer);
-
   }, []);
 
   useEffect(() => {
@@ -493,10 +492,13 @@ function Home() {
                   <div className="package  lg:h-[600px] border-2 w-full flex flex-col justify-center items-center text-center border-yellow-400 p-10 rounded-b-full rounded-t-full">
                     <h2 className="text-4xl">Programme Package</h2>
                     <h2 className="text-5xl py-2 font-semibold text-yellow-500">₹{programme?.amount}  /-</h2>
-                    <div className="seats">
+
+                    <div className="seats flex">
+                      <strong className='pt-3 px-2'>No. of seats :</strong>
                       <input id="seat" type="number" defaultValue={totalSeat} min={1} onChange={(e) => setTotalSeat(e.target.value)} maxLength={20}
                         className="block w-16 text-xs px-2 py-2 mt-2 text-gray-700 bg-white border border-[#BB1A04] focus:outline-[#BB1A04]" placeholder='No. of Seats' />
                     </div>
+
                     <div className="programme py-2 text-2xl font-semibold">{programme?.eventName}</div>
                     <p className="py-2">{programme?.description}</p>
                     <div className="programmeDetails mb-4">
