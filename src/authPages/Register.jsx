@@ -117,7 +117,7 @@ function Register() {
                         <button type='submit' className='w-full  p-2 bg-RedTheme hover:bg-red-800 duration-300 text-white rounded-md font-bold flex items-center justify-center' disabled={loader} >{loader ? <Loader /> : "Register"}</button>
                     </form>
 
-                    <p className='text-center mt-4 mb-8 font-semibold text-gray-500 '>Alreday Registered ? <Link to="/login" className="font-semibold text-blue-600 hover:underline ml-2" > Login </Link></p>
+                    <p className='text-center mt-4 mb-8 font-semibold text-gray-500 '>Alreday Registered ? <Link to="/login" className="font-semibold text-RedTheme hover:underline ml-2" > Login </Link></p>
 
                     <div className='flex items-center justify-center'>
                         <button className='px-4 py-2 bg-RedTheme hover:bg-red-800 duration-300 rounded-md font-semibold  mb-4'><Link to="/" className="font-semibold text-white" > Back to home </Link></button>

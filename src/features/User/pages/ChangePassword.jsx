@@ -1,10 +1,12 @@
 import { useAuthContext } from '@/context';
-import React from 'react'
+import React, { useState } from 'react'
 import * as yup from 'yup';
 import { useFormik } from "formik";
 
 function ChangePassword() {
     const { changePassword } = useAuthContext();
+    const [showPassword, setShowPassword] = useState(false);
+
 
     const initialValues = {
         oldpassword: "",
@@ -17,6 +19,12 @@ function ChangePassword() {
         newPassword: yup.string().min(6,).max(16,).required("new Password is Required"),
         confirmPassword: yup.string().oneOf([yup.ref('newPassword'), null], "passwords must match").required("confirm Password is Required")
     });
+
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
 
     const { values, handleSubmit, handleChange, errors, touched, handleBlur, resetForm } = useFormik({
         initialValues: initialValues,
@@ -45,7 +53,7 @@ function ChangePassword() {
                                         value={values.oldpassword}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='Enter Old Password' />
+                                        type="password" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='Enter Old Password' />
                                 </div>
                                 {errors.oldpassword && touched.oldpassword ? (
                                     <div className="text-red-500 py-2">{errors.oldpassword}</div>
@@ -59,7 +67,8 @@ function ChangePassword() {
                                         value={values.newPassword}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='Enter New Password' />
+                                        type={showPassword ? 'text' : 'password'}
+                                        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='Enter New Password' />
                                 </div>
                                 {errors.newPassword && touched.newPassword ? (
                                     <div className="text-red-500 py-2">{errors.newPassword}</div>
@@ -73,11 +82,17 @@ function ChangePassword() {
                                         value={values.confirmPassword}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='Confirm Password' />
+                                        type={showPassword ? 'text' : 'password'}
+                                        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 focus:outline-[#BB1A04]" placeholder='Confirm Password' />
                                 </div>
                                 {errors.confirmPassword && touched.confirmPassword ? (
                                     <div className="text-red-500 py-2">{errors.confirmPassword}</div>
                                 ) : null}
+                            </div>
+                            <div className='pb-3 '>
+                                <label htmlFor="showPass" >
+                                    <input className='font-bold ' id='showPass' type='checkbox' onChange={togglePasswordVisibility} /><span className='cursor-pointer ml-1'>show password </span>
+                                </label>
                             </div>
                             <div className="w-full mt-6">
                                 <button type='submit' className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-RedTheme rounded-md hover:bg-[#bb0404] focus:outline-none focus:bg-gray-600">Change Password</button>
