@@ -53,8 +53,26 @@ const BlogContextProvider = ({ children }) => {
         }
     }
 
+    // Edit Blog 
+    const EditBlog = async (data, id) => {
+        const axiosInstance = AxiosHandler();
+        setLoader(true);
+        console.log(id)
+        try {
+            const res = await axiosInstance.put(`/blog/update/${id}`, data);
+            GetBlog();
+            toast.success(res?.data?.message || "Blog edit successfully")
+        } catch (error) {
+            console.log(error);
+            toast.error("Blog edit failed");
+        } finally {
+            setLoader(false);
+        }
+    }
+
+
     return (
-        <BlogContext.Provider value={{ CreateBlog, loader, fetchBlogData, GetBlog, DeleteBlog }}>
+        <BlogContext.Provider value={{ CreateBlog, loader, fetchBlogData, GetBlog, DeleteBlog, EditBlog }}>
             {children}
         </BlogContext.Provider>
     )
