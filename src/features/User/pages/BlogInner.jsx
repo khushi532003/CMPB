@@ -7,7 +7,7 @@ import DOMPurify from 'dompurify';
 function BlogInner() {
     const { userBlogData, GetUserBlog } = useBlogUserContext();
     const [filterData, setFilterData] = useState(null);
-    const { id } = useParams();
+    const { slug } = useParams();
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -17,10 +17,11 @@ function BlogInner() {
 
     useEffect(() => {
         const filterBlog = userBlogData?.filter((item) => (
-            item?._id === id
+            item?.slug === slug
         ))[0];
         setFilterData(filterBlog);
-    }, [userBlogData, id]);
+    }, [userBlogData, slug]);
+
 
     useEffect(() => {
         GetUserBlog();

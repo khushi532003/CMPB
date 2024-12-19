@@ -28,7 +28,7 @@ export const UserPublicRoutes = [
         element: <Blogs />
     },
     {
-        path: "/bloginner/:id",
+        path: "/bloginner/:slug",
         element: <BlogInner />
     },
     {

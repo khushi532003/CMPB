@@ -35,11 +35,11 @@ function Blogs() {
 
                     return (
                         <React.Fragment key={i}>
-                            <Link to={`/bloginner/${item?._id}`}>
+                            <Link to={`/bloginner/${item?.slug}`}>
                                 <div className="blog py-4">
                                     <div className="content p-4">
                                         <div className="blogImg flex justify-center">
-                                            <img src={item?.image?.URL || 'default-image.jpg'} alt="Blog" />
+                                            <img src={item?.image?.URL || 'default-image.jpg'} alt={item?.alt} />
                                         </div>
                                         <div className="content p-4">
                                             <div className="blogTitle text-center">
