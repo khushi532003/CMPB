@@ -47,9 +47,10 @@ function BlogInner() {
                                 <h3 className='text-3xl'>{filterData?.title || "Untitled"}</h3>
                             </div>
                             <div className="date text-center py-2"> | {formatDate(filterData?.createdAt)} | </div>
-                            <div className="desc">
+                            <div className="desc" dangerouslySetInnerHTML={{ __html: filterData?.description }}>
+                                
                                 {/* Apply HTMLReactParser to render sanitized HTML */}
-                                {HTMLReactParser(sanitizedDescription) || "No description available"}
+                                {/* {HTMLReactParser(sanitizedDescription) || "No description available"} */}
                             </div>
                         </div>
                     </div>

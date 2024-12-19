@@ -8,15 +8,12 @@ import { useState } from 'react'
 import { TfiClose } from 'react-icons/tfi';
 import { toast } from 'react-toastify';
 
-
 function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
 
     const { loader, setUserData, RegisterUser, verifyAndLogin, CheckUser } = useAuthContext();
     const [BookingRegisterAuth, setBookingRegisterAuth] = useState(false)
     const [UserAlreadyExist, setUserAlreadyExist] = useState(false)
-
     const [showPassword, setShowPassword] = useState(false);
-
 
     const { values, errors, touched, handleChange, handleBlur, handleSubmit } = useFormik({
         initialValues: !BookingRegisterAuth ? UserIdentifier : !UserAlreadyExist ? RegisterValues : VerifyCode,
@@ -30,16 +27,13 @@ function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
                     setUserAlreadyExist(true)
                     toast.success("OTP sent successfully")
                 }
-
             }
             try {
                 if (UserAlreadyExist) {
 
                     const res = await verifyAndLogin(value.otp, value.identifier)
                     if (res.status === 200) {
-
                         const data = res?.data
-
                         const userDetails = {
                             UserRole: data?.role,
                             token: data?.token,
@@ -88,12 +82,8 @@ function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
                     setBookingRegisterAuth(true)
                 } else {
                     setUserAlreadyExist(true)
-
-
                 }
-
             }
-
         }
     })
 
