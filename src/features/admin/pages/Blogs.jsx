@@ -86,12 +86,19 @@ function Blogs() {
                                                     <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                         <p className="text-gray-900 whitespace-no-wrap">{formatDate(item?.createdAt)}</p>
                                                     </td>
-                                                    {item?.description ?
-                                                        (item.description.length > 100
-                                                            ? `${item.description.substring(0, 100)}...`
-                                                            : item.description)
-                                                        : "No description available"}
-
+                                                    <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
+                                                        {item?.description ? (
+                                                            <span
+                                                                dangerouslySetInnerHTML={{
+                                                                    __html: item.description.length > 100
+                                                                        ? `${item.description.substring(0, 100)}...`
+                                                                        : item.description,
+                                                                }}
+                                                            />
+                                                        ) : (
+                                                            "No description available"
+                                                        )}
+                                                    </td>
 
                                                     <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                         <button onClick={() => DeleteBlog(item?._id)}

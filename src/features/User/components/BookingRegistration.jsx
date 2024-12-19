@@ -5,16 +5,15 @@ import { CheckUserSchema, Registerschema, VerifyCodeSchema } from '@/validation/
 import { useFormik } from 'formik';
 import Cookies from 'js-cookie';
 import { useState } from 'react'
-
+import { TfiClose } from 'react-icons/tfi';
+import { toast } from 'react-toastify';
 
 function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
 
-        const { loader, setUserData, RegisterUser, verifyAndLogin, CheckUser } = useAuthContext();
+    const { loader, setUserData, RegisterUser, verifyAndLogin, CheckUser } = useAuthContext();
     const [BookingRegisterAuth, setBookingRegisterAuth] = useState(false)
     const [UserAlreadyExist, setUserAlreadyExist] = useState(false)
-
     const [showPassword, setShowPassword] = useState(false);
-
 
     const { values, errors, touched, handleChange, handleBlur, handleSubmit } = useFormik({
         initialValues: !BookingRegisterAuth ? UserIdentifier : !UserAlreadyExist ? RegisterValues : VerifyCode,
@@ -26,17 +25,15 @@ function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
                 res = await CheckUser(value)
                 if (res?.status === 200 && res?.data?.success === true) {
                     setUserAlreadyExist(true)
+                    toast.success("OTP sent successfully")
                 }
-
             }
             try {
                 if (UserAlreadyExist) {
 
                     const res = await verifyAndLogin(value.otp, value.identifier)
                     if (res.status === 200) {
-
                         const data = res?.data
-
                         const userDetails = {
                             UserRole: data?.role,
                             token: data?.token,
@@ -46,7 +43,6 @@ function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
 
                         Cookies.set("USER_DETAILS", JSON.stringify(userDetails));
                         setUserData({ token: data?.token, role: data?.role, name: data?.firstName, member: data?.RegisterPackage?.PremiumMember });
-                        localStorage.setItem("token", data?.token);
                         localStorage.setItem("MemberID", data?.MemberID);
                         localStorage.setItem("ProfileImage", data?.profileImage?.ImageURL);
                         if (buyNow?.event?.isBuyingEvent) {
@@ -86,23 +82,24 @@ function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
                     setBookingRegisterAuth(true)
                 } else {
                     setUserAlreadyExist(true)
-
-
                 }
-
             }
-
         }
     })
 
     return (
-        <div className="fixed h-[100vh]  top-0  flex justify-center text-center mx-auto w-full items-center z-50">
-            <div className="bg-white w-[80%] mx-auto border border-yellow-600  rounded-lg shadow-lg  text-center  bg-cover bg-no-repeat bg-center"  >
+        <div className="fixed h-[100vh] top-0  flex justify-center text-center mx-auto w-full items-center z-50">
+            <div className="bg-white w-[80%] mx-auto relative border border-yellow-600 rounded-lg shadow-lg text-center  bg-cover bg-no-repeat bg-center"  >
+                <div onClick={() => setToggleModal(false)} className="close w-full top-6 right-5 rounded-full absolute font-bold flex justify-end text-xl">
+                    <div className="bg-white p-3 rounded-full">
+                        <TfiClose />
+                    </div>
+                </div>
                 <div className="flex gap-2">
                     {!BookingRegisterAuth ? (
                         !UserAlreadyExist ? (
                             // Verify Account Form
-                            <form onSubmit={handleSubmit} className="w-[50%] p-10 flex flex-col items-center justify-center">
+                            <form onSubmit={handleSubmit} className="w-full sm:w-[50%] p-10 flex flex-col items-center justify-center">
                                 <h3 className="flex justify-center items-center mb-14 text-gray-500 font-bold text-5xl">Verify Account</h3>
                                 <div className="mb-4 w-full">
                                     <input
@@ -124,7 +121,7 @@ function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
                             </form>
                         ) : (
                             // OTP Verification Form
-                            <form onSubmit={handleSubmit} className="w-[50%] p-10 flex flex-col  justify-center">
+                            <form onSubmit={handleSubmit} className="w-full sm:w-[50%] p-10 flex flex-col  justify-center">
                                 <h3 className="flex justify-center items-center mb-14 text-gray-500 font-bold text-5xl">OTP Verification</h3>
                                 <div className="mb-4 w-full">
                                     <label htmlFor="">{values.identifier}</label>
@@ -148,7 +145,7 @@ function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
                         )
                     ) : (
                         // Create Account Form
-                        <form onSubmit={handleSubmit} className="w-[50%] p-10 flex flex-col justify-center">
+                        <form onSubmit={handleSubmit} className="w-full sm:w-[50%] p-10 flex flex-col justify-center">
                             <h3 className="flex justify-center text-center items-center mb-14 font-bold text-gray-500 text-5xl">Create Your Account</h3>
                             <div className="flex justify-between items-center gap-2">
                                 <div className="mb-4">
@@ -228,7 +225,7 @@ function BookingRegistration({ setToggleModal, setbuyNow, buyNow }) {
                         </form>
                     )}
                     <div
-                        className="bgImg w-[50%] h-full min-h-[450px] bg-cover bg-center"
+                        className="bgImg sm:w-[50%] h-full min-h-[450px] bg-cover bg-center"
                         style={{ backgroundImage: "url(./images/contactImg.webp)" }}
                     ></div>
                 </div>

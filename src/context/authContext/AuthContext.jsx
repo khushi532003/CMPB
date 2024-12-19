@@ -20,8 +20,7 @@ function AuthContextProvider({ children }) {
     const [forgetEmail, setForgetEmail] = useState(null);
     const [OTPverify, setOTPVerify] = useState(false);
     const [Registered, setRegistered] = useState(null);
-    const [paths, setPaths] = useState([])
-
+    const [paths, setPaths] = useState([]);
 
 
     const AxiosHandler = () => {
@@ -56,17 +55,19 @@ function AuthContextProvider({ children }) {
             toast.success(data.message);
             return res.status
         } catch (error) {
+            console.log(error);
+
             toast.error(error.response?.data?.message || "User Registration Failed");
         } finally {
             setLoader(false);
         }
     };
+
     const CheckUser = async (credentials) => {
         setLoader(true);
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.post("/auth/check-user", credentials);
-
-
+            const res = await axiosInstance.post("/auth/check-user", credentials);
             return res
         } catch (error) {
             toast.error(error.response?.data?.message || "User Registration Failed");
@@ -110,9 +111,10 @@ function AuthContextProvider({ children }) {
 
     // Forget password
     const ForgetPassword = async (data) => {
+        const axiosInstance = AxiosHandler();
         setLoader(true);
         try {
-            const response = await AxiosHandler.post("/auth/sendotp", data);
+            const response = await axiosInstance.post("/auth/sendotp", data);
             toast.success(response?.data?.message);
             setForgetEmail(data);
         } catch (error) {
@@ -122,48 +124,46 @@ function AuthContextProvider({ children }) {
         }
     };
 
-    // Verify OTP for password reset
-    const VerifyOtp = async (data, identifier) => {
-
+    // Resend otp 
+    const SendOtp = async (data) => {
+        const axiosInstance = AxiosHandler();
         setLoader(true);
         try {
-            const response = await AxiosHandler.post(`/auth/verify/${data}`, { identifier });
+            const response = await axiosInstance.post(`/auth/sendotp`, data);
+            toast.success(response?.data?.message);
+        } catch (error) {
+            toast.error("Failed to send OTP");
+            console.error("SendOtp error:", error);
+        } finally {
+            setLoader(false);
+        }
+    };
+
+
+    // Verify OTP for password reset
+    const VerifyOtp = async (data, identifier) => {
+        const axiosInstance = AxiosHandler();
+        setLoader(true);
+        try {
+            const response = await axiosInstance.post(`/auth/verify/${data}`, { identifier });
             toast.success(response.data.message);
             if (response.status === 200) {
                 setOTPVerify(true);
             }
         } catch (error) {
-            toast.error(error.response?.data?.message || "Forgot password failed");
+            toast.error(error.response?.data?.message);
         } finally {
             setLoader(false);
         }
     };
+
     const verifyAndLogin = async (code, identifier) => {
-
         setLoader(true);
+        const axiosInstance = AxiosHandler();
         try {
-            const response = await AxiosHandler.post(`/auth/verifyAndLogin/${code}`, { identifier });
+            const response = await axiosInstance.post(`/auth/verifyAndLogin/${code}`, { identifier });
             return response;
-            // const data = response?.data
 
-            // const userDetails = {
-            //     UserRole: data?.role,
-            //     token: data?.token,
-            //     Username: data?.firstName,
-            //     Member: data?.RegisterPackage?.PremiumMember,
-            // };
-
-            // Cookies.set("USER_DETAILS", JSON.stringify(userDetails));
-            // setUserData({ token: data?.token, role: data?.role, name: data?.firstName, member: data?.RegisterPackage?.PremiumMember });
-            // localStorage.setItem("MemberID", data?.MemberID);
-            // localStorage.setItem("ProfileImage", data?.profileImage?.ImageURL);
-
-            // if (response.status === 200) {
-            //     setOTPVerify(true);
-            // }
-            // toast.success(data.message);
-
-            // window.location.href = "/"
         } catch (error) {
             toast.error(error.response?.data?.message || "Forgot password failed");
         } finally {
@@ -174,9 +174,10 @@ function AuthContextProvider({ children }) {
     // Set new password
     const newPassword = async (data) => {
         setLoader(true);
+        const axiosInstance = AxiosHandler();
 
         try {
-            const response = await AxiosHandler.post(`/auth/newpassword`, data);
+            const response = await axiosInstance.post(`/auth/newpassword`, data);
             toast.success(response.data.message);
             window.location.href = "/";
         } catch (error) {
@@ -188,8 +189,9 @@ function AuthContextProvider({ children }) {
 
     // Deactivate account
     const deactivateAccount = async () => {
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.post("/deactivate-account/delete");
+            const res = await axiosInstance.post("/deactivate-account/delete");
             toast.success("Account Deactivated");
             Logout();
         } catch (error) {
@@ -199,8 +201,9 @@ function AuthContextProvider({ children }) {
 
     // Change user password
     const changePassword = async (data) => {
+        const axiosInstance = AxiosHandler();
         try {
-            const res = await AxiosHandler.post("/auth/changepassword", {
+            const res = await axiosInstance.post("/auth/changepassword", {
                 oldPassword: data?.oldpassword,
                 password: data?.confirmPassword,
             });
@@ -214,7 +217,7 @@ function AuthContextProvider({ children }) {
     // Logout user
     const Logout = () => {
         Cookies.remove("USER_DETAILS");
-        localStorage.removeItem("token")
+
         localStorage.removeItem("MemberID")
         setUserData({})
         toast.success("Logged out successfully!");
@@ -244,7 +247,7 @@ function AuthContextProvider({ children }) {
                 Registered,
                 userData,
                 verifyAndLogin, CheckUser,
-                setUserData
+                setUserData, SendOtp
             }}
         >
             {children}
