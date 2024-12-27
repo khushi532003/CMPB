@@ -5,13 +5,11 @@ import { GoPlus } from 'react-icons/go';
 import { FaTrash } from 'react-icons/fa';
 import { useBlogContext } from '@/AdminContext';
 import { useAuthContext } from '@/context';
-import HTMLReactParser from 'html-react-parser';
 
 function Blogs() {
     const { fetchBlogData, DeleteBlog, GetBlog, loader } = useBlogContext();
     const [addBlog, setAddBlog] = useState(false);
     const { userData } = useAuthContext();
-
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -75,7 +73,6 @@ function Blogs() {
                                                     <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                         <p className="text-gray-900 whitespace-no-wrap">{i + 1}</p>
                                                     </td>
-
                                                     <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                         <img className='w-14 h-14 rounded-full object-cover' src={item?.image?.URL}
                                                             alt="" />
@@ -99,7 +96,6 @@ function Blogs() {
                                                             "No description available"
                                                         )}
                                                     </td>
-
                                                     <td className="px-5 py-2 border-b border-gray-200 bg-white text-sm">
                                                         <button onClick={() => DeleteBlog(item?._id)}
                                                             className="cursor-pointer bg-RedTheme rounded-full w-10 h-10 flex items-center px-3 py-1 font-semibold text-white">

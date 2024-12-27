@@ -1,7 +1,6 @@
 import { useBlogUserContext } from '@/context';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import HTMLReactParser from 'html-react-parser';
 import DOMPurify from 'dompurify';
 
 function BlogInner() {
@@ -22,15 +21,13 @@ function BlogInner() {
         setFilterData(filterBlog);
     }, [userBlogData, slug]);
 
-
     useEffect(() => {
         GetUserBlog();
     }, []);
 
-    // Sanitize and parse the description if available
     const sanitizedDescription = filterData?.description
         ? DOMPurify.sanitize(filterData?.description, {
-            ALLOWED_TAGS: ["b", "i", "em", "strong", "a", "p", "ul", "ol", "li", "br"],
+            ALLOWED_TAGS: ["b", "i", "em", "heading", "fontSize", "strong", "a", "p", "ul", "ol", "li", "br"],
             ALLOWED_ATTR: ["href", "target", "rel"],
         })
         : "No description available";
@@ -49,9 +46,6 @@ function BlogInner() {
                             </div>
                             <div className="date text-center py-2"> | {formatDate(filterData?.createdAt)} | </div>
                             <div className="desc" dangerouslySetInnerHTML={{ __html: filterData?.description }}>
-                                
-                                {/* Apply HTMLReactParser to render sanitized HTML */}
-                                {/* {HTMLReactParser(sanitizedDescription) || "No description available"} */}
                             </div>
                         </div>
                     </div>
